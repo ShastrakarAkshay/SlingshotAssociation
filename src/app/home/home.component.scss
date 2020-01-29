@@ -3,6 +3,12 @@
         width: 100%;
     }
     
+    .carousel-indicators {
+        .active {
+            background-color: #ff8b23;
+        }
+    }
+    
     .action-button {
         display: inline-block;
         padding: 13px 47px;
@@ -23,7 +29,7 @@
         padding-bottom: 60px;
     }
     
-    .banner-area {
+    #banner-area {
         .carousel-item {
             background: no-repeat center center scroll;
             background-size: cover;
@@ -42,14 +48,9 @@
                 letter-spacing: 2px;
             }
         }
-        .carousel-indicators {
-            .active {
-                background-color: #ff8b23;
-            }
-        }
     }
     
-    .register-area {
+    #register-area {
         padding-left: 85px;
         padding-right: 85px;
         .reg-panel {
@@ -80,7 +81,7 @@
         }
     }
     
-    .welcome-area {
+    #welcome-area {
         .ico-box {
             height: 100%;
             padding: 40px;
@@ -117,15 +118,48 @@
         }
     }
     
-    .game-area {
+    #game-area {
         .img {
             width: 100%;
         }
     }
     
+    #testimonial-area {
+        position: relative;
+        background: url("/assets/images/bg-contacts.jpg") no-repeat;
+        overflow: hidden;
+        width: 100%;
+        background-size: cover;
+        .img-overlay {
+            padding: 50px 0px;
+            background-color: #1c1a19bd;
+        }
+        .img-area {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+        .carousel-caption {
+            position: static;
+            padding-bottom: 15px;
+            padding-top: 0;
+        }
+        .carousel-indicators li {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+        }
+    }
+    
     @media only screen and (max-width: 992px) {
         // mobile devices
-        .banner-area {
+        #banner-area {
             .carousel-caption {
                 bottom: 50px;
             }
@@ -143,7 +177,7 @@
     }
     
     @media only screen and (min-width: 992px) {
-        .welcome-area {
+        #welcome-area {
             .member-box {
                 padding-right: 50px;
                 padding-left: 50px;
