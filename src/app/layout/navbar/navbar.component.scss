@@ -1,0 +1,64 @@
+.navbar-light .navbar-toggler {
+    border: none;
+}
+
+.navbar {
+    height: 80px;
+    min-width: 410px;
+}
+
+.navbar-collapse {
+    background: inherit;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid #ff8b23;
+}
+
+.outline {
+    position: relative;
+    z-index: 3;
+    background: transparent;
+    color: #ff8b23;
+    font-size: 14px;
+    border-color: #ff8b23;
+    border-style: solid;
+    border-width: 2px;
+    padding: 7px 20px;
+    text-transform: uppercase;
+    transition: all 0.2s linear;
+    margin-left: 30px;
+}
+
+.outline:hover {
+    color: white;
+    background: #ff8b23;
+    border-color: white;
+    transition: all 0.2s linear;
+}
+
+@media only screen and (max-width: 992px) {
+    .outline {
+        margin-left: 0px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .navbar-collapse {
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 70px;
+        margin-right: 20px;
+        padding-top: 20px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar li {
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+}

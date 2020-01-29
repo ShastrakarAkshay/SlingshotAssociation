@@ -1,4 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+/* Theme-Colors */
+
+.bg-offwhite {
+    background: #edf3f5;
+}
+
+
+/* Logo-Text */
+
+.main-title {
+    font-family: 'Righteous', cursive;
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: rgba(255, 54, 0, 1);
+}
+
+.sub-title {
+    font-family: 'Didact Gothic', sans-serif;
+    letter-spacing: 2px;
+    font-size: 11px;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 2px;
+}
