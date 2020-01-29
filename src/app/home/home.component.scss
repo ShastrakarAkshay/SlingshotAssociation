@@ -17,6 +17,12 @@
         text-decoration: none;
     }
     
+    .wrapper-box {
+        padding: 96px 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    
     .banner-area {
         .carousel-item {
             background: no-repeat center center scroll;
@@ -75,9 +81,6 @@
     }
     
     .welcome-area {
-        padding: 96px 0;
-        padding-top: 60px;
-        padding-bottom: 60px;
         .ico-box {
             height: 100%;
             padding: 40px;
@@ -114,6 +117,12 @@
         }
     }
     
+    .game-area {
+        .img {
+            width: 100%;
+        }
+    }
+    
     @media only screen and (max-width: 992px) {
         // mobile devices
         .banner-area {
@@ -124,10 +133,10 @@
     }
     
     @media only screen and (max-width: 768px) {
-        .welcome-area {
+        .wrapper-box {
             padding-left: 85px;
             padding-right: 85px;
-            .welcome-title {
+            .entry-title {
                 padding-top: 60px;
             }
         }
