@@ -41,3 +41,32 @@
         }
     }
 }
+
+.register-area {
+    .reg-panel {
+        border-top: solid 1px #FFFFFF;
+        border-bottom: solid 1px #FFFFFF;
+        padding-top: 64px;
+        padding-bottom: 56px;
+    }
+    .reg_text {
+        font-weight: 400;
+        line-height: 1.2;
+        font-size: 34px;
+        font-family: 'Righteous', cursive;
+    }
+    .action-button {
+        font-size: 18px;
+    }
+    .img-area {
+        width: 130px;
+        height: 130px;
+        margin: auto;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+}
