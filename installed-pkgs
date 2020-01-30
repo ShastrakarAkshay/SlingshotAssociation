@@ -6,7 +6,10 @@
 4. npm install font-awesome --save
 5. ng add @angular/material --save
 6. npm install firebase firebase-tools --save
+7. npm install @angular/fire --save
 
 
+#team
+https://demo.themeftc.com/ornaldo/home14/
 
 //Deploye Version 0.0.1
