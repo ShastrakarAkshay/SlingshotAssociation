@@ -172,15 +172,18 @@
     
     @media only screen and (max-width: 768px) {
         //mobile device
-        .wrapper-box,
-        #register-area {
+        .wrapper-box {
             padding-left: 20px;
             padding-right: 20px;
             .entry-title {
                 padding-top: 50px;
             }
+        }
+        #register-area {
+            padding-left: 0px;
+            padding-right: 0px;
             .reg_text {
-                font-size: 25px;
+                font-size: 20px;
             }
         }
         #banner-area {
