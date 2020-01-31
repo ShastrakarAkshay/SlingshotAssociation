@@ -5,7 +5,7 @@
 3. npm install popper.js --save
 4. npm install font-awesome --save
 5. ng add @angular/material --save
-6. npm install firebase firebase-tools --save
+6. npm install -g firebase firebase-tools --save
 7. npm install @angular/fire --save
 
 

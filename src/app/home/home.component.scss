@@ -185,11 +185,19 @@
             .reg_text {
                 font-size: 20px;
             }
+            .reg-btn {
+                font-size: 14px;
+                padding: 10px 40px;
+            }
         }
         #banner-area {
             .carousel-caption {
                 display: none;
             }
+        }
+        .shake-hand {
+            height: 25% !important;
+            width: 25% !important;
         }
     }
     
