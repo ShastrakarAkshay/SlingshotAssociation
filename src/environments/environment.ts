@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyAwZVLXEgIUKB3ENEZtKEDGv4hxDWW0nc0',
+    authDomain: 'slingshot-association.firebaseapp.com',
+    databaseURL: 'https://slingshot-association.firebaseio.com',
+    projectId: 'slingshot-association',
+    storageBucket: 'slingshot-association.appspot.com',
+    messagingSenderId: '529992012588',
+    appId: '1:529992012588:web:a84d4364498957bbd1d289',
+    measurementId: 'G-HCNPQGHM7Q'
+  }
 };
 
 /*

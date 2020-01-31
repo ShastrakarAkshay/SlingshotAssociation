@@ -6,6 +6,7 @@
     height: 80px;
     width: 100%;
     min-width: 768px;
+    background-color: #fff;
 }
 
 .navbar-collapse {
@@ -14,8 +15,9 @@
     padding-right: 40px;
 }
 
-.nav-link:hover {
-    border-bottom: 2px solid #ff8b23;
+.nav-item a:hover {
+    color: #ff8b23;
+    transition: all 350ms ease 0s;
 }
 
 .outline {
