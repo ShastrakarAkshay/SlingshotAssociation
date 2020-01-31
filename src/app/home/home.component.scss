@@ -71,9 +71,10 @@
             width: 130px;
             height: 130px;
             margin: auto;
-            border: 2px solid #fff;
+            border: 1px solid #fff;
             border-radius: 50%;
             overflow: hidden;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
             img {
                 width: 100%;
             }

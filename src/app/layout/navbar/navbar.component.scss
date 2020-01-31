@@ -2,10 +2,20 @@
     border: none;
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.79);
+    border: 1px solid #fff;
+    text-transform: uppercase;
+}
+
 .navbar {
     height: 80px;
     width: 100%;
     background-color: #fff;
+}
+
+.navbar-nav {
+    font-size: 13px !important;
 }
 
 .navbar-collapse {
@@ -14,9 +24,11 @@
     padding-right: 40px;
 }
 
-.nav-item a:hover {
+.navbar-light:hover .navbar-nav:hover .nav-link:hover {
     color: #ff8b23;
     transition: all 350ms ease 0s;
+    border: 1px solid #fcd4d4;
+    border-bottom: 2px solid #ff8b23;
 }
 
 .outline {
@@ -39,7 +51,7 @@
     color: white;
     background: #ff8b23;
     border-color: white;
-    transition: all 0.2s linear;
+    transition: all 350ms ease 0s;
 }
 
 @media only screen and (max-width: 992px) {
@@ -57,6 +69,9 @@
         margin-top: 70px;
         margin-right: 20px;
         padding-top: 20px;
+    }
+    .navbar-light:hover .navbar-nav:hover .nav-link:hover {
+        text-align: center;
     }
 }
 
