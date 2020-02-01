@@ -1,7 +1,7 @@
 #footer {
     padding: 70px;
     background: #000;
-    color: #b1b5b9;
+    color: #fff;
     .hr {
         background-color: #fff;
     }
@@ -63,6 +63,8 @@
 
 @media only screen and (max-width: 768px) {
     #footer {
+        padding-left: 40px;
+        padding-right: 40px;
         .contact,
         .subscribe {
             margin-top: 50px;
