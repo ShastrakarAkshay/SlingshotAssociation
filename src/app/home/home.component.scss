@@ -148,17 +148,32 @@
     #testimonial-area {
         font-family: 'Didact Gothic', sans-serif;
         position: relative;
-        background: url("/assets/images/bg-contacts.jpg") no-repeat;
+        // background: url("/assets/images/bg-contacts.jpg") no-repeat;
+        background: #fff;
+        color: #000;
         overflow: hidden;
         width: 100%;
         background-size: cover;
+        .carousel {
+            .fa {
+                font-size: 20px;
+                color: #0000007a;
+            }
+        }
+        .carousel-indicators {
+            li {
+                background-color: #0a01018c;
+            }
+            li.active {
+                background-color: #ff8b23;
+            }
+        }
         .img-overlay {
             padding: 50px 0px;
-            background-color: #1c1a19bd;
         }
         .img-area {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             margin: auto;
             border: 2px solid #fff;
             border-radius: 50%;
@@ -171,6 +186,7 @@
             position: static;
             padding-bottom: 15px;
             padding-top: 0;
+            color: #000;
         }
         .carousel-indicators li {
             width: 10px;
