@@ -1,246 +1,65 @@
-
-.footer-distributed {
-  background: black;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-  box-sizing: border-box;
-  text-align: left;
-  font: bold 16px;
-  padding: 55px 50px;
-  min-width: 768px;
-}
-
-.footer-distributed .footer-left,
-.footer-distributed .footer-center,
-.footer-distributed .footer-right,
-.footer-distributed .footer-bottom {
-  display: inline-block;
-  vertical-align: top;
-}
-
-/* Footer left */
-.footer-distributed .footer-left {
-  width: 40%;
-}
-
-/* The company logo */
-.footer-distributed h3 {
-  color: #FE1818;
-  font: normal 36px;
-  margin: 0;
-}
-
-.footer-distributed h3 span {
-  color: #ffffff;
-}
-
-/* Footer Center */
-.footer-distributed .footer-center {
-  width: 30%;
-}
-
-.footer-distributed .footer-center i {
-  color: #ffffff;
-  font-size: 25px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 42px;
-  margin: 10px 15px;
-  vertical-align: middle;
-}
-
-.footer-distributed .footer-center {
-  font-size: 17px;
-  line-height: 38px;
-}
-
-.footer-distributed .footer-center p {
-  display: inline-block;
-  color: #ffffff;
-  font-weight: 400;
-  vertical-align: middle;
-  margin: 0;
-}
-
-.footer-distributed .footer-center p span {
-  display: block;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 2;
-}
-
-.footer-distributed .footer-center p a {
-  color: lightseagreen;
-  text-decoration: none;
-}
-
-.action-button {
-  display: inline-block;
-  padding: 13px 45px;
-  background-color: #ff8b23;
-  font-size: 12px;
-  color: #fff;
-  text-transform: uppercase;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  margin-top: 10px;
-  text-decoration: none;
-}
-
-
-/* Footer Right */
-.footer-distributed .footer-right {
-  width: 20%;
-}
-
-.footer-distributed .footer-company-about {
-  line-height: 20px;
-  color: white;
-  font-size: 13px;
-  font-weight: normal;
-  margin: 0px;
-  line-height: 15px;
-}
-
-.footer-distributed .footer-company-about span {
-  display: block;
-  color: #ffffff;
-  font-size: 14px;
-  text-align: left;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.footer-distributed .footer-icons {
-  margin-top: 25px;
-}
-
-.footer-distributed .footer-icons i {
-  display: inline-block;
-  width: 2.9em;
-  height: 60px;
-  cursor: pointer;
-  border-radius: 50%;
-  font-size: 20px;
-  text-align: center;
-  line-height: 25px;
-  margin-right: 3px;
-  margin-bottom: 5px;
-  white-space: pre-line;
-}
-
-/* Social icons */
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 40px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
-}
-
-.fa:hover {
-    opacity: 0.7;
-}
-
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
-}
-
-.fa-linkedin {
-  background: #007bb5;
-  color: white;
-}
-
-.fa-youtube {
-  background: #bb0000;
-  color: white;
-}
-
-
-.fa-map-marker-alt{
-  background: black;
-  color: white;
-}
-
-.fa-phone-square{
-  background: #ff8b23;
-  color: white;
-}
-
-.fa-envelope{
-  background: #ff8b23;
-  color: white;
-}
-
-.fa-map-marker{
-  background: #ff8b23;
-}
-
-.fa-
-.sub-title {
-    font-family: 'Didact Gothic', sans-serif;
-    letter-spacing: 2px;
-    font-size: 11px;
-    text-transform: uppercase;
-    position: relative;
-    padding-left: 2px;
-    color: white;
-}
-
-/* If you don't want the footer to be responsive, remove these media queries */
-  @media only screen and  (max-width: 768px) {
-    
-    .footer-distributed {
-      min-width: 20px;
-      width: 100%;
-      
+#footer {
+    padding: 50px;
+    background: #000;
+    color: #fff;
+    .hr {
+        background-color: #fff;
     }
-
-    .footer-distributed .footer-left,
-    .footer-distributed .footer-center,
-    .footer-distributed .footer-right {
-      display: block;
-      width: 100%;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-  
-    .footer-distributed .footer-center i {
-      margin-left: 0;
-    }
-
-    .sub-title {
-        font-family: 'Didact Gothic', sans-serif;
-        letter-spacing: 2px;
-        font-size: 11px;
+    .action-button {
+        display: inline-block;
+        padding: 13px 45px;
+        background-color: #ff8b23;
+        font-size: 12px;
+        color: #fff;
         text-transform: uppercase;
-        position: relative;
-        padding-left: 2px;
-    } 
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        margin-top: 10px;
+        text-decoration: none;
+    }
+    .contact {
+        h3 {
+            color: rgba(255, 54, 0, 1);
+            span {
+                color: #fff;
+            }
+        }
+    }
+    .subscribe {
+        h3 {
+            color: rgba(255, 54, 0, 1);
+        }
+    }
+    .social-icons {
+        i {
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 20px;
+            text-align: center;
+            background: red;
+            margin-right: 15px;
+            width: 40px;
+        }
+        .fa-twitter {
+            background: #55ACEE;
+        }
+        .fa-linkedin {
+            background: #007bb5;
+        }
+        .fa-facebook {
+            background: #3B5998;
+        }
+        .fa-youtube {
+            background: #bb0000;
+        }
+    }
+}
 
-    .footer-distributed .footer-icons {
-      margin-top: 25px;
+@media only screen and (max-width: 768px) {
+    #footer {
+        .contact,
+        .subscribe {
+            margin-top: 50px;
+        }
     }
-    
-    .footer-distributed .footer-icons span {
-      display: inline-block;
-      width: 3.0em;
-      height: 45px;
-      cursor: pointer;
-      border-radius: 100%;
-      font-size: 20px;
-      text-align: center;
-      line-height: 15px;
-      margin-right: 3px;
-      margin-bottom: 5px;
-    }
-  }
+}
