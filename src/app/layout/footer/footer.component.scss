@@ -1,29 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
-
-* {
-  font-family: Open Sans;
-  
-}
-
-section {
-  width: 100%;
-  display: inline-block;
-  background: black;
-  height: 50vh;
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  text-decoration: underline;
-}
-
 .footer-distributed {
   background: black;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   text-align: left;
-  font: bold 16px sans-serif;
+  font: bold 16px;
   padding: 55px 50px;
-  min-width: 756px;
+  min-width: 768px;
 }
 
 .footer-distributed .footer-left,
@@ -35,16 +17,14 @@ section {
 }
 
 /* Footer left */
-
 .footer-distributed .footer-left {
   width: 40%;
 }
 
 /* The company logo */
-
 .footer-distributed h3 {
   color: #FE1818;
-  font: normal 36px "Open Sans", cursive;
+  font: normal 36px;
   margin: 0;
 }
 
@@ -53,13 +33,11 @@ section {
 }
 
 /* Footer Center */
-
 .footer-distributed .footer-center {
-  width: 35%;
+  width: 30%;
 }
 
 .footer-distributed .footer-center i {
-  background-color: #33383b;
   color: #ffffff;
   font-size: 25px;
   width: 38px;
@@ -96,16 +74,6 @@ section {
   text-decoration: none;
 }
 
-.footer-distributed .footer-links a:before {
-  content: "|";
-  font-weight: 300;
-  font-size: 20px;
-  left: 0;
-  color: #fff;
-  display: inline-block;
-  padding-right: 5px;
-}
-
 .action-button {
   display: inline-block;
   padding: 13px 45px;
@@ -115,27 +83,23 @@ section {
   text-transform: uppercase;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  
   margin-top: 10px;
   text-decoration: none;
 }
 
-.footer-distributed .footer-links .link-1:before {
-  content: none;
-}
 
 /* Footer Right */
-
 .footer-distributed .footer-right {
-  width: 15%;
+  width: 20%;
 }
 
 .footer-distributed .footer-company-about {
-  line-height: 30px;
+  line-height: 20px;
   color: white;
   font-size: 13px;
   font-weight: normal;
-  margin: 0;
+  margin: 0px;
+  line-height: 15px;
 }
 
 .footer-distributed .footer-company-about span {
@@ -151,25 +115,21 @@ section {
   margin-top: 25px;
 }
 
-.footer-distributed .footer-icons span {
+.footer-distributed .footer-icons i {
   display: inline-block;
-  width: 3.9em;
-  height: 75px;
+  width: 2.9em;
+  height: 60px;
   cursor: pointer;
-  border-radius: 100%;
+  border-radius: 50%;
   font-size: 20px;
   text-align: center;
   line-height: 25px;
   margin-right: 3px;
   margin-bottom: 5px;
+  white-space: pre-line;
 }
 
-.footer-bottom{
-  text-align: center;
-  color: white;
-  line-height: 15px;
-}
-
+/* Social icons */
 .fa {
   padding: 20px;
   font-size: 30px;
@@ -194,7 +154,6 @@ section {
   color: white;
 }
 
-
 .fa-linkedin {
   background: #007bb5;
   color: white;
@@ -205,26 +164,27 @@ section {
   color: white;
 }
 
-.fa-instagram {
-  background: #125688;
-  color: white;
-}
 
 .fa-map-marker-alt{
-  background: #FE1818;
+  background: black;
   color: white;
 }
 
 .fa-phone-square{
-  background: #FE1818;
+  background: #ff8b23;
   color: white;
 }
 
 .fa-envelope{
-  background: #FE1818;
+  background: #ff8b23;
   color: white;
 }
 
+.fa-map-marker{
+  background: #ff8b23;
+}
+
+.fa-
 .sub-title {
     font-family: 'Didact Gothic', sans-serif;
     letter-spacing: 2px;
@@ -236,16 +196,14 @@ section {
 }
 
 /* If you don't want the footer to be responsive, remove these media queries */
-
-@media only screen and  (max-width: 768px) {
+  @media only screen and  (max-width: 768px) {
     
     .footer-distributed {
-      font: bold 14px sans-serif;
       min-width: 20px;
       width: 100%;
       
     }
-  
+
     .footer-distributed .footer-left,
     .footer-distributed .footer-center,
     .footer-distributed .footer-right {
@@ -274,8 +232,8 @@ section {
     
     .footer-distributed .footer-icons span {
       display: inline-block;
-      width: 3.2em;
-      height: 55px;
+      width: 3.0em;
+      height: 45px;
       cursor: pointer;
       border-radius: 100%;
       font-size: 20px;
@@ -284,5 +242,4 @@ section {
       margin-right: 3px;
       margin-bottom: 5px;
     }
-    
   }
