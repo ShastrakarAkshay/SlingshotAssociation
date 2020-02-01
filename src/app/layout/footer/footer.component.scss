@@ -1,7 +1,7 @@
 #footer {
-    padding: 50px;
+    padding: 70px;
     background: #000;
-    color: #fff;
+    color: #b1b5b9;
     .hr {
         background-color: #fff;
     }
@@ -18,6 +18,7 @@
         text-decoration: none;
     }
     .contact {
+        font-family: Open Sans;
         h3 {
             color: rgba(255, 54, 0, 1);
             span {
@@ -26,6 +27,7 @@
         }
     }
     .subscribe {
+        font-family: Open Sans;
         h3 {
             color: rgba(255, 54, 0, 1);
         }
@@ -39,6 +41,7 @@
             background: red;
             margin-right: 15px;
             width: 40px;
+            color: #fff;
         }
         .fa-twitter {
             background: #55ACEE;
@@ -52,6 +55,9 @@
         .fa-youtube {
             background: #bb0000;
         }
+    }
+    .ft-credit {
+        font-family: Open Sans;
     }
 }
 
