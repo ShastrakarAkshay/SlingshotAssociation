@@ -22,10 +22,19 @@
         text-decoration: none;
     }
     
+    .entry-title {
+        font-weight: bold;
+    }
+    
+    .entry-content {
+        font-size: 18px;
+    }
+    
     .wrapper-box {
         padding: 96px 0;
         padding-top: 60px;
         padding-bottom: 60px;
+        font-family: 'Didact Gothic', sans-serif;
     }
     
     #banner-area {
@@ -137,6 +146,7 @@
     }
     
     #testimonial-area {
+        font-family: 'Didact Gothic', sans-serif;
         position: relative;
         background: url("/assets/images/bg-contacts.jpg") no-repeat;
         overflow: hidden;
@@ -168,8 +178,8 @@
             border-radius: 100%;
         }
     }
-
-    #events-area{
+    
+    #events-area {
         //css
         background: yellow;
     }

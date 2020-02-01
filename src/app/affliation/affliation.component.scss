@@ -29,10 +29,14 @@
 }
 
 #affiliation-sec {
+    font-family: 'Didact Gothic', sans-serif;
     margin-top: 50px;
     .head-sec h2,
     .dist-info h2 {
         font-family: "Righteous"
+    }
+    .head-sec .text-muted {
+        font-size: 20px;
     }
     .card .card-text {
         display: none;

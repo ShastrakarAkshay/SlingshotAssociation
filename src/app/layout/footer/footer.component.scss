@@ -2,14 +2,15 @@
     padding: 70px;
     background: #000;
     color: #fff;
+    font-family: 'Didact Gothic', sans-serif;
     .hr {
         background-color: #fff;
     }
     .action-button {
         display: inline-block;
-        padding: 13px 45px;
+        padding: 10px 45px;
         background-color: #ff8b23;
-        font-size: 12px;
+        font-size: 17px;
         color: #fff;
         text-transform: uppercase;
         -webkit-transition: 0.5s;
@@ -18,7 +19,6 @@
         text-decoration: none;
     }
     .contact {
-        font-family: Open Sans;
         h3 {
             color: rgba(255, 54, 0, 1);
             span {
@@ -27,7 +27,6 @@
         }
     }
     .subscribe {
-        font-family: Open Sans;
         h3 {
             color: rgba(255, 54, 0, 1);
         }
@@ -56,9 +55,6 @@
             background: #bb0000;
         }
     }
-    .ft-credit {
-        font-family: Open Sans;
-    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -68,6 +64,19 @@
         .contact,
         .subscribe {
             margin-top: 50px;
+        }
+        .info,
+        .sub {
+            margin-top: 1rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #footer {
+        .info,
+        .sub {
+            margin-top: 1.5rem;
         }
     }
 }
