@@ -22,19 +22,10 @@
         text-decoration: none;
     }
     
-    .entry-title {
-        font-weight: bold;
-    }
-    
-    .entry-content {
-        font-size: 18px;
-    }
-    
     .wrapper-box {
         padding: 96px 0;
         padding-top: 60px;
         padding-bottom: 60px;
-        font-family: 'Didact Gothic', sans-serif;
     }
     
     #banner-area {
@@ -146,34 +137,18 @@
     }
     
     #testimonial-area {
-        font-family: 'Didact Gothic', sans-serif;
         position: relative;
-        // background: url("/assets/images/bg-contacts.jpg") no-repeat;
-        background: #fff;
-        color: #000;
+        background: url("/assets/images/bg-contacts.jpg") no-repeat;
         overflow: hidden;
         width: 100%;
         background-size: cover;
-        .carousel {
-            .fa {
-                font-size: 20px;
-                color: #0000007a;
-            }
-        }
-        .carousel-indicators {
-            li {
-                background-color: #0a01018c;
-            }
-            li.active {
-                background-color: #ff8b23;
-            }
-        }
         .img-overlay {
             padding: 50px 0px;
+            background-color: #1c1a19bd;
         }
         .img-area {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             margin: auto;
             border: 2px solid #fff;
             border-radius: 50%;
@@ -186,7 +161,6 @@
             position: static;
             padding-bottom: 15px;
             padding-top: 0;
-            color: #000;
         }
         .carousel-indicators li {
             width: 10px;
@@ -194,11 +168,10 @@
             border-radius: 100%;
         }
     }
-    
-    #events-area {
-        //css
-        background: yellow;
-    }
+
+    #events-area{
+        background: rgba(255, 90, 0, 1);
+}
     
     @media only screen and (max-width: 992px) {
         // tablet devices

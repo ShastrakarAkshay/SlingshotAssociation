@@ -2,7 +2,6 @@
     padding: 70px;
     background: #000;
     color: #fff;
-    font-family: 'Didact Gothic', sans-serif;
     .hr {
         background-color: #fff;
     }
@@ -25,6 +24,15 @@
             span {
                 color: #fff;
             }
+        }
+    }
+    .subscribe {
+        font-family: Open Sans;
+        h3 {
+            color: rgba(255, 54, 0, 1);
+        }
+        span {
+            color: #fff;
         }
     }
     .social-icons {
