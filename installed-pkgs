@@ -7,9 +7,11 @@
 5. ng add @angular/material --save
 6. npm install -g firebase firebase-tools --save
 7. npm install @angular/fire --save
+8. npm i @fortawesome/angular-fontawesome --save
 
 
 #team
 https://demo.themeftc.com/ornaldo/home14/
+https://codepen.io/vulchivijay/pen/yyxyvB    - border effects
 
 //Deploye Version 0.0.2

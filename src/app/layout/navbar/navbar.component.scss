@@ -2,6 +2,10 @@
     border: none;
 }
 
+.navbar-title:hover {
+    cursor: pointer;
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: rgba(0, 0, 0, 0.79);
     border: 1px solid #fff;
