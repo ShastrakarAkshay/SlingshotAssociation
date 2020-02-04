@@ -11,7 +11,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { AffliationComponent } from './affliation/affliation.component';
-import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     FooterComponent,
     NavbarComponent,
     AffliationComponent,
-    AboutUsComponent
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
