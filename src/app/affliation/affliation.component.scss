@@ -16,6 +16,22 @@
     text-decoration: none;
 }
 
+.img-area {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+        width: 100%;
+    }
+}
+
+.fa-caret-down {
+    font-size: 20px;
+}
+
 #affiliation-sec {
     font-family: 'Didact Gothic', sans-serif;
     margin-top: 50px;
@@ -30,6 +46,7 @@
         display: none;
     }
     .card {
+        margin-top: 30px;
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
         -webkit-backface-visibility: hidden;
@@ -60,6 +77,7 @@
     }
     .card:hover {
         cursor: pointer;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
         .card-title {
             color: #ff8b23;
         }
@@ -110,9 +128,20 @@
         height: 300px;
         padding-left: 30px;
         overflow: hidden;
+        &:hover {
+            overflow-y: scroll;
+        }
     }
-    .dist-sec:hover {
-        overflow-y: scroll;
+    .dist-info {
+        .social-icons i {
+            padding: 10px;
+            &:hover {
+                color: #e74c3c;
+            }
+        }
+        &.jumbotron {
+            margin: 70px 30px 70px 30px;
+        }
     }
 }
 
@@ -122,6 +151,15 @@
         .search-sec {
             .searchbar:hover>.search_input {
                 width: 250px;
+            }
+        }
+        .dist-info {
+            .card {
+                margin-top: 30px
+            }
+            &.jumbotron {
+                margin: 30px 0px 70px 0px;
+                // background-color: #fff;
             }
         }
     }
