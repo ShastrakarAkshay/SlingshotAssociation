@@ -1,3 +1,5 @@
+@import "../../../styles.scss";
+
 .navbar-light .navbar-toggler {
   border: none;
 }
@@ -28,7 +30,7 @@
     left: 50%;
     right: 50%;
     bottom: 0;
-    background: #ff8b23;
+    background: $th-color;
     height: 2px;
     -webkit-transition-property: left right;
     transition-property: left right;
@@ -43,7 +45,7 @@
   }
 
   &:hover {
-    color: #ff8b23;
+    color: $th-color;
   }
 }
 
@@ -63,8 +65,8 @@
   position: relative;
   z-index: 3;
   background: transparent;
-  color: #ff8b23;
-  border-color: #ff8b23;
+  color: $th-color;
+  border-color: $th-color;
   border-style: solid;
   border-width: 2px;
   transition: all 0.2s linear;
@@ -72,7 +74,7 @@
 
 .outline {
   color: white;
-  background: #ff8b23;
+  background: $th-color;
   border-color: white;
   transition: all 350ms ease 0s;
   text-transform: uppercase;

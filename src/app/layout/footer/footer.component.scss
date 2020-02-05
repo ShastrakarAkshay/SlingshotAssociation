@@ -1,3 +1,5 @@
+@import "../../../styles.scss";
+
 #footer {
     padding: 70px;
     background: #000;
@@ -9,7 +11,7 @@
     .action-button {
         display: inline-block;
         padding: 10px 45px;
-        background-color: #ff8b23;
+        background-color: $th-color;
         font-size: 17px;
         color: #fff;
         text-transform: uppercase;

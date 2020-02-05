@@ -1,3 +1,5 @@
+@import "../../styles.scss";
+
 ::-webkit-scrollbar {
     width: 3px;
 }
@@ -5,7 +7,7 @@
 .action-button {
     display: inline-block;
     padding: 8px 30px;
-    background-color: #ff8b23;
+    background-color: $th-color;
     font-size: 12px;
     color: #fff;
     text-transform: uppercase;
@@ -61,7 +63,7 @@
             left: 50%;
             right: 50%;
             bottom: 0;
-            background: #ff8b23;
+            background: $th-color;
             height: 4px;
             -webkit-transition-property: left right;
             transition-property: left right;
@@ -79,7 +81,7 @@
         cursor: pointer;
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
         .card-title {
-            color: #ff8b23;
+            color: $th-color;
         }
     }
     .search-sec {
@@ -109,7 +111,7 @@
         }
         .searchbar:hover>.search_icon {
             background: white;
-            color: #e74c3c;
+            color: $th-color;
         }
         .search_icon {
             height: 40px;

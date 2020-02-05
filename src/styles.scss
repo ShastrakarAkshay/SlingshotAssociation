@@ -8,7 +8,11 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #f8f9fa;
 }
+
+/* -------------------------- global colors ----------------------------- */
+$th-color: #ff8b23;
 
 ::-webkit-scrollbar {
     width: 5px;

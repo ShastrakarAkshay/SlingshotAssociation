@@ -1,3 +1,5 @@
+@import "../../styles.scss";
+
 #contact-us {
     font-family: 'Didact Gothic', sans-serif;
     .jumbotron {
@@ -21,7 +23,7 @@
     }
     
     .social-icons i:hover {
-        color: #e74c3c;
+        color: $th-color;
     }
 
     .user-info {
@@ -41,7 +43,7 @@
                 left: 50%;
                 right: 50%;
                 bottom: 0;
-                background: #ff8b23;
+                background: $th-color;
                 height: 4px;
                 -webkit-transition-property: left right;
                 transition-property: left right;
