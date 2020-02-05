@@ -1,0 +1,78 @@
+#contact-us {
+    font-family: 'Didact Gothic', sans-serif;
+    .jumbotron {
+        background-color: #212325 !important;
+        color: #fff;
+    }
+    .img-area {
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+
+    .social-icons i {
+        padding: 10px
+    }
+    
+    .social-icons i:hover {
+        color: #e74c3c;
+    }
+
+    .user-info {
+        .card {
+            margin-top: 30px;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            overflow: hidden;
+            &:before {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                left: 50%;
+                right: 50%;
+                bottom: 0;
+                background: #ff8b23;
+                height: 4px;
+                -webkit-transition-property: left right;
+                transition-property: left right;
+                -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+                -webkit-transition-timing-function: ease-out;
+                transition-timing-function: ease-out;
+            }
+            &:hover:before {
+                left: 0;
+                right: 0;
+            }
+            &:hover {
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+            }
+        }
+    }
+
+    .contact-form h2 {
+        font-family: "Righteous"
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    //mobile device
+    #contact-us {
+        .user-info {
+            .card {
+                margin-top: 20px;
+            }
+        }
+    }
+}
