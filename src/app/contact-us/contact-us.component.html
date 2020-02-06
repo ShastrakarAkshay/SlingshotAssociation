@@ -1,34 +1,107 @@
 <section id="contact-us">
+    <div class="jumbotron text-center">
+        <h2>CONTACT US</h2>
+    </div>
     <div class="container mt-5">
-        <div class="jumbotron text-center">
-            <h2>CONTACT US</h2>
+        <div class="association-info text-center">
+            <h2>Contact Our Association</h2>
+            <div class="row mt-5">
+                <div class="col-sm-4 mt-3">
+                    <span><i class="fa fa-map-marker"></i></span>
+                    <br>
+                    <p>Adarsh Nagar, Yavatmal, Maharashtra, India. Pin - 445001.</p>
+                </div>
+                <div class="col-sm-4 mt-3">
+                    <span><i class="fa fa-phone"></i></span>
+                    <br>
+                    <p>9767986750, 9876567876</p>
+                </div>
+                <div class="col-sm-4 mt-3">
+                    <span><i class="fa fa-envelope"></i></span>
+                    <br>
+                    <p>support@slingshotassociation.com</p>
+                </div>
+            </div>
         </div>
-     
-        <div class="user-info row justify-content-center">
-            <div class="col-sm-6 col-md-3" *ngFor="let user of users">
-                <div class="card card-cascade">
-                    <div class="view view-cascade overlay">
-                        <div class="img-area mt-5">
-                            <img src="./assets/images/user-pic.jpg" alt="">
+        <div class="user-info text-center mt-5">
+            <h2>Our Members</h2>
+            <div class="row justify-content-center">
+                <div class="col-sm-6 col-md-3 card-col" *ngFor="let user of users">
+                    <div class="card card-cascade">
+                        <div class="view view-cascade overlay">
+                            <div class="img-area mt-5">
+                                <img src="./assets/images/user-pic.jpg" alt="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body card-body-cascade text-center">
-                        <h4 class="mt-3"><strong>Mr. Lalit Dhoke</strong></h4>
-                        <span>(General Secretory)</span>
-                        <br>
-                        <span>lalit.dhoke@gmail.com</span>
-                        <div class="social-icons mt-3">
-                            <i class="fa fa-phone" matTooltip="9767986750" matTooltipPosition="above"></i>
-                            <i class="fa fa-envelope" matTooltip="example@gmail.com" matTooltipPosition="above"></i>
-                            <i class="fa fa-facebook" matTooltip="facebook" matTooltipPosition="above"></i>
+                        <div class="card-body card-body-cascade text-center">
+                            <h4 class="mt-3"><strong>Mr. Lalit Dhoke</strong></h4>
+                            <span>(General Secretory)</span>
+                            <br>
+                            <span>lalit.dhoke@gmail.com</span>
+                            <div class="social-icons mt-3">
+                                <i class="fa fa-phone" matTooltip="9767986750" matTooltipPosition="above"></i>
+                                <i class="fa fa-envelope" matTooltip="example@gmail.com" matTooltipPosition="above"></i>
+                                <i class="fa fa-facebook" matTooltip="facebook" matTooltipPosition="above"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="contact-form mt-5 text-center">
-            <h2>Get in touch</h2>
+        <div class="contact-form mt-5">
+            <div class="text-center">
+                <h2>Get in touch</h2>
+            </div>
+            <div class="row mt-5 mb-5">
+                <div class="col-md-6">
+                    <iframe width="100%" class="shadow map" height="350" frameborder="0" scrolling="no" marginheight="0"
+                        marginwidth="0"
+                        src="https://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=15+Springfield+Way,+Hythe,+CT21+5SH&aq=t&sll=52.8382,-2.327815&sspn=8.047465,13.666992&ie=UTF8&hq=&hnear=15+Springfield+Way,+Hythe+CT21+5SH,+United+Kingdom&t=m&z=14&ll=51.077429,1.121722&output=embed"></iframe>
+                </div>
+                <div class="col-md-6">
+                    <form action="" class="contactForm">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control field" placeholder="First Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control field" placeholder="Last Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control field" placeholder="Email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control field" placeholder="Mobile">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <textarea rows="4" cols="50" class="form-control" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-sm-12">
+                                <input type="button" class="btn action-button" name="Send" value="Send">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </section>

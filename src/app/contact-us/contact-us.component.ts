@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactUsComponent implements OnInit {
 
-  users: any[] = [1,2,3,4];
+  users: any[] = [1,2,3];
   constructor() { }
 
   ngOnInit() {
