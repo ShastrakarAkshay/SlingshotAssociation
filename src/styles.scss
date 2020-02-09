@@ -11,9 +11,11 @@ body {
     background-color: #f8f9fa;
 }
 
-/* -------------------------- global colors ----------------------------- */
-$th-color: #ff8b23;
 
+/* -------------------------- global colors ----------------------------- */
+
+$th-color: #ff8b23;
+$th-color-dark: #ff3600;
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -56,5 +58,13 @@ $th-color: #ff8b23;
     padding-left: 2px;
     font-weight: bold;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
