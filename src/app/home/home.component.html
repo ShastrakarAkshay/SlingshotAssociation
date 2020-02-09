@@ -116,9 +116,42 @@
         </div>
     </section>
 
-    <section id="events-area" class="wrapper-box">
-
-
+    <section id="events-area" class="wrapper-box bg-offwhite">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="entry-title">Latest Match Results</h2>
+            </div>
+            <ul class="list-group mt-4">
+                <li class="list-group-item mt-1" *ngFor="let item of list">
+                    <div class="event-panel row pt-3">
+                        <div class="col-sm-4 align-items-center text-center justify-content-start">
+                            <div class="img-area">
+                                <img src="./assets/images/user-pic.jpg" alt="">
+                            </div>
+                            <span>Akshay Shastrakar</span>
+                            <br>
+                            <span>Yavatmal</span>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <div style="font-size: 35px;
+                            font-weight: bold;">8 : 3</div>
+                            <div>August 25, 2018</div>
+                            <div class="row text-center justify-content-center">
+                                <p><i class="fa fa-map-marker"></i> Nehru Stadium, Vitthal Nagar, Yavatmal. Maharashtra.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-center align-items-center justify-content-end">
+                            <div class="img-area">
+                                <img src="./assets/images/user-pic.jpg" alt="">
+                            </div>
+                            <span>Rameshwar Udgire</span>
+                            <br>
+                            <span>Nagpur</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <section id="testimonial-area">
@@ -176,10 +209,6 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <section class="event-area">
-
     </section>
 
 </section>
