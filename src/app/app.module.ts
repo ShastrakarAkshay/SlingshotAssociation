@@ -14,6 +14,10 @@ import { AffliationComponent } from './affliation/affliation.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { SlingshotComponent } from './slingshot/slingshot.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { AssociationComponent } from './association/association.component';
+import { MatchResultsComponent } from './match-results/match-results.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +25,11 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     FooterComponent,
     NavbarComponent,
     AffliationComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    SlingshotComponent,
+    GalleryComponent,
+    AssociationComponent,
+    MatchResultsComponent
   ],
   imports: [
     BrowserModule,
