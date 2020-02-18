@@ -195,7 +195,7 @@
         }
     }
     
-    #events-area {
+    #results-area {
         .img-area {
             width: 80px;
             margin: auto;
@@ -259,6 +259,27 @@
             &:hover {
                 box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
             }
+        }
+    }
+
+    #events-area {
+        .carousel {
+            .fa {
+                font-size: 20px;
+                color: #0000007a;
+            }
+        }
+
+        .carousel-caption {
+            position: static;
+            padding-bottom: 15px;
+            padding-top: 0;
+            color: #000;
+        }
+        .carousel-indicators li {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
         }
     }
     
