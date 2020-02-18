@@ -265,10 +265,11 @@
 #events-area {
   .action-icon {
     .fa {
-      font-size: 20px;
+      font-size: 25px;
       color: #0000007a;
     }
   }
+
   .carousel-caption {
     position: static;
     padding-bottom: 15px;
@@ -294,6 +295,11 @@
             background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
             color: #f1f1f1; /* Grey text */
         }
+  }
+  .info {
+    p {
+        max-width: 600px;
+    }
   }
 }
 
@@ -344,6 +350,13 @@
     background-color: #0000000a;
     margin-top: 10px;
     margin-bottom: 10px;
+  }
+
+  #events-area {
+      .info {
+          padding-left: 25px;
+          padding-right: 25px;
+      }
   }
 }
 
