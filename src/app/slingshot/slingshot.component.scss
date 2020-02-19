@@ -1,0 +1,36 @@
+#game {
+    font-family: "Didact Gothic", sans-serif;
+    overflow-x: hidden;
+    .jumbotron {
+        background-color: #212325 !important;
+        color: #fff;
+        border-radius: 0em;
+    }
+
+    .cat-cards {
+        .card:hover {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    .sling-img {
+        width: 80%;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    //mobile device
+    .wrapper {
+       padding-left: 30px;
+       padding-right: 30px;
+    }
+
+    .sling-img {
+        width: 100% !important;
+    }
+
+    .game-info {
+        margin-top: 20px;
+    }
+}
