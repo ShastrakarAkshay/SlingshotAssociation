@@ -6,46 +6,41 @@
         color: #fff;
         border-radius: 0em;
     }
-
     .cat-cards {
         .card:hover {
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
         }
     }
-
     .sling-img {
         width: 80%;
     }
-
     .img {
         width: 100%;
     }
-
     .category {
         padding-top: 50px;
         padding-bottom: 50px;
     }
 }
 
-
 @media only screen and (max-width: 768px) {
     //mobile device
     .wrapper {
-       padding-left: 30px;
-       padding-right: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
-
     .sling-img {
         width: 100% !important;
     }
-
     .game-info {
         margin-top: 20px;
         padding-top: 0px !important;
     }
-
     .cat-cards {
         padding-left: 40px;
         padding-right: 40px;
+    }
+    .page-title {
+        font-size: 1.2rem !important;
     }
 }
