@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AffilationService } from '../Services/affilation.service';
+import { AffiliatedMembers } from './affiliation.interface';
 
 @Component({
   selector: 'app-affliation',
@@ -7,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AffliationComponent implements OnInit {
 
-  list: any[]=[1,1,2,3,4,5,6,2,3,4,5,6];
-  constructor() { }
+  disticts: any;
+  distInfo: any;
+  members: AffiliatedMembers;
+
+  constructor(private affiliationService: AffilationService) { }
 
   ngOnInit() {
+    this.disticts = this.affiliationService.getRegisteredDistricts();
+    this.distInfo = this.affiliationService.getDistrictInfo();
+    this.members = this.distInfo.members;
+    console.log(this.members)
   }
 
 }

@@ -12,10 +12,10 @@
         </div>
 
         <div class="row dist-sec mt-3">
-            <div class="col-sm-4" *ngFor="let item of list">
+            <div class="col-sm-4" *ngFor="let dist of disticts">
                 <div class="card mt-3 text-white bg-dark">
                     <div class="card-body text-center">
-                        <h4 class="card-title">Yavatmal</h4>
+                        <h4 class="card-title">{{dist}}</h4>
                         <p class="card-text"> <a href="#" class="action-button">read more</a></p>
                     </div>
                 </div>
@@ -27,11 +27,11 @@
 
         <div class="dist-info jumbotron">
             <div>
-                <h2 class="text-center">Yavatmal</h2>
+                <h2 class="text-center">{{distInfo.distName}}</h2>
                 <div class="row raw-info justify-content-center mt-5">
                     <div class="col-sm-8">
                         <p class="text-justify">This district is registered under "Slingshot Sports Association of Maharashtra, India" affilated to - "Indian Slingshot Sport Federation", "Asian Slingshot Sport Federation", "World organizes Slingshot Sport Federation. Affiliated
-                            on Date - 18 Jan 2020."</p>
+                            on Date - {{distInfo.affiliatedOn}}."</p>
                     </div>
                 </div>
                 <!-- <div class="row justify-content-center">
@@ -43,7 +43,26 @@
                     <h4><strong> <i class="fa fa-user-circle"></i> Members</strong></h4>
                 </div>
                 <div class="row justify-content-center text-center">
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" *ngFor="let member of members">
+                        <div class="card card-cascade">
+                            <div class="view view-cascade overlay">
+                                <div class="img-area mt-5">
+                                    <img src="./assets/images/user-pic.jpg" alt="">
+                                </div>
+                            </div>
+
+                            <div class="card-body card-body-cascade text-center">
+                                <h4 class="card-title"><strong>{{member.name}}</strong></h4>
+                                <h6 class="font-weight-bold indigo-text py-2">{{member.role}}</h6>
+                                <div class="social-icons mt-3">
+                                    <i class="fa fa-phone" [matTooltip]="member.mobile" matTooltipPosition="above"></i>
+                                    <i class="fa fa-envelope" [matTooltip]="member.email" matTooltipPosition="above"></i>
+                                    <i class="fa fa-facebook" [matTooltip]="member.fb" matTooltipPosition="above"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-4">
                         <div class="card card-cascade">
                             <div class="view view-cascade overlay">
                                 <div class="img-area mt-5">
@@ -61,26 +80,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card card-cascade">
-                            <div class="view view-cascade overlay">
-                                <div class="img-area mt-5">
-                                    <img src="./assets/images/user-pic.jpg" alt="">
-                                </div>
-                            </div>
-
-                            <div class="card-body card-body-cascade text-center">
-                                <h4 class="card-title"><strong>Billy Coleman</strong></h4>
-                                <h6 class="font-weight-bold indigo-text py-2">Web developer</h6>
-                                <div class="social-icons mt-3">
-                                    <i class="fa fa-phone" matTooltip="9767986750" matTooltipPosition="above"></i>
-                                    <i class="fa fa-envelope" matTooltip="example@gmail.com" matTooltipPosition="above"></i>
-                                    <i class="fa fa-facebook" matTooltip="facebook" matTooltipPosition="above"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
