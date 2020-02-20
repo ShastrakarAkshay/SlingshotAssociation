@@ -303,6 +303,16 @@
   }
 }
 
+#gallery-area {
+  .img-right .row {
+    padding: 17px;
+
+    &:first-child {
+      padding-top: 0px !important;
+    }
+  }
+}
+
 @media only screen and (max-width: 992px) {
   // tablet devices
   #banner-area {
@@ -356,6 +366,14 @@
     .info {
       padding-left: 25px;
       padding-right: 25px;
+    }
+  }
+
+  #gallery-area {
+    .img-right .row {
+      &:first-child {
+        padding-top: 34px !important;
+      }
     }
   }
 }

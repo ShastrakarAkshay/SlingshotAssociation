@@ -5,7 +5,7 @@
             <p class="text-muted">Some districts are not affiliated yet, for affiliation please contact.</p>
             <div class="d-flex justify-content-center search-sec h-100">
                 <div class="searchbar">
-                    <input class="search_input" type="text" name="" placeholder="Search...">
+                    <input class="search_input" type="text" name="" placeholder="Search..." #search (keyup)="searchDistrict(search.value)">
                     <a class="search_icon"><i class="fa fa-search"></i></a>
                 </div>
             </div>
@@ -13,7 +13,7 @@
 
         <div class="row dist-sec mt-3">
             <div class="col-sm-4" *ngFor="let dist of disticts">
-                <div class="card mt-3 text-white bg-dark">
+                <div class="card mt-3 text-white bg-dark" (click)="getDistInfo(dist)">
                     <div class="card-body text-center">
                         <h4 class="card-title">{{dist}}</h4>
                         <p class="card-text"> <a href="#" class="action-button">read more</a></p>
@@ -27,7 +27,7 @@
 
         <div class="dist-info jumbotron">
             <div>
-                <h2 class="text-center">{{distInfo.distName}}</h2>
+                <h2 class="text-center">{{distName}}</h2>
                 <div class="row raw-info justify-content-center mt-5">
                     <div class="col-sm-8">
                         <p class="text-justify">This district is registered under "Slingshot Sports Association of Maharashtra, India" affilated to - "Indian Slingshot Sport Federation", "Asian Slingshot Sport Federation", "World organizes Slingshot Sport Federation. Affiliated
@@ -50,7 +50,6 @@
                                     <img src="./assets/images/user-pic.jpg" alt="">
                                 </div>
                             </div>
-
                             <div class="card-body card-body-cascade text-center">
                                 <h4 class="card-title"><strong>{{member.name}}</strong></h4>
                                 <h6 class="font-weight-bold indigo-text py-2">{{member.role}}</h6>
@@ -62,25 +61,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-sm-4">
-                        <div class="card card-cascade">
-                            <div class="view view-cascade overlay">
-                                <div class="img-area mt-5">
-                                    <img src="./assets/images/user-pic.jpg" alt="">
-                                </div>
-                            </div>
-
-                            <div class="card-body card-body-cascade text-center">
-                                <h4 class="card-title"><strong>Billy Coleman</strong></h4>
-                                <h6 class="font-weight-bold indigo-text py-2">Web developer</h6>
-                                <div class="social-icons mt-3">
-                                    <i class="fa fa-phone" matTooltip="9767986750" matTooltipPosition="above"></i>
-                                    <i class="fa fa-envelope" matTooltip="example@gmail.com" matTooltipPosition="above"></i>
-                                    <i class="fa fa-facebook" matTooltip="facebook" matTooltipPosition="above"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
