@@ -1,24 +1,23 @@
 #association {
-  font-family: "Didact Gothic", sans-serif;
-  .form-area {
-    padding: 100px;
-  }
-
-  #regForm {
-    border: 1px solid gray;
-    padding: 50px;
-  }
+    font-family: "Didact Gothic", sans-serif;
+    margin-top: 80px;
+    .form-area {
+        padding: 100px;
+    }
+    #regForm {
+        border: 1px solid gray;
+        padding: 50px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     //mobile devices
     #association {
         .form-area {
-          padding: 10px;
+            padding: 10px;
         }
-      
         #regForm {
-          padding: 20px;
+            padding: 20px;
         }
     }
 }
