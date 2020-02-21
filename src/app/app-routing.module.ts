@@ -7,6 +7,7 @@ import { SlingshotComponent } from './slingshot/slingshot.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AssociationComponent } from './association/association.component';
 import { MatchResultsComponent } from './match-results/match-results.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'results',
     component: MatchResultsComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '**',

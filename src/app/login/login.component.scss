@@ -1,0 +1,32 @@
+@import "../../styles.scss";
+#login-sec {
+    font-family: 'Didact Gothic', sans-serif;
+    margin-top: 80px;
+    .container {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+    input {
+        height: 50px;
+    }
+    .btn {
+        background-color: $th-color;
+        color: #fff;
+    }
+    .forgotPass {
+        &:hover {
+            color: #000 !important;
+            cursor: pointer;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    //mobile device
+    #login-sec {
+        .container {
+            padding-top: 15px;
+            padding-bottom: 20px;
+        }
+    }
+}

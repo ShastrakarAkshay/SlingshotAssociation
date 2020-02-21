@@ -19,6 +19,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { AssociationComponent } from './association/association.component';
 import { MatchResultsComponent } from './match-results/match-results.component';
 import {MatInputModule} from '@angular/material/input';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatInputModule} from '@angular/material/input';
     SlingshotComponent,
     GalleryComponent,
     AssociationComponent,
-    MatchResultsComponent
+    MatchResultsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
