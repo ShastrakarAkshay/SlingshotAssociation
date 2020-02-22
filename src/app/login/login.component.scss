@@ -2,7 +2,7 @@
 #login-sec {
     font-family: 'Didact Gothic', sans-serif;
     margin-top: 80px;
-    background-color: #e9ecef;
+    background-color: #fff;
     .container {
         padding-top: 40px;
         padding-bottom: 50px;
@@ -26,8 +26,10 @@
     //mobile device
     #login-sec {
         .container {
-            padding-top: 15px;
-            padding-bottom: 20px;
+            padding: 15px 30px 20px 30px !important;
+            .p-5 {
+                padding: 3rem 0.5rem 3rem 0.5rem !important;
+            }
         }
     }
 }
