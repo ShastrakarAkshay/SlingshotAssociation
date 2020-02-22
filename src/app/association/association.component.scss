@@ -1,12 +1,23 @@
+@import "../../styles.scss";
 #association {
     font-family: "Didact Gothic", sans-serif;
     margin-top: 80px;
+    .dist-area {
+        border-radius: 0rem;
+    }
+    .title {
+        font-family: "Righteous", cursive;
+    }
     .form-area {
         padding: 100px;
     }
     #regForm {
         border: 1px solid gray;
         padding: 50px;
+    }
+    .reg-button {
+        background-color: $th-color;
+        color: #fff;
     }
 }
 
@@ -18,6 +29,12 @@
         }
         #regForm {
             padding: 20px;
+        }
+        .reg-title {
+            font-size: 1.2rem !important;
+        }
+        .reg-button {
+            width: 50% !important;
         }
     }
 }
