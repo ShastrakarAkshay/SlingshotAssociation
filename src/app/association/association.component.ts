@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssociationComponent implements OnInit {
   districtName: string;
-  showTitle: boolean = false;
+  showForm: boolean = false;
+  disabledRegBtn: boolean = true;
 
   constructor() { }
 
@@ -16,7 +17,11 @@ export class AssociationComponent implements OnInit {
 
   onDistrictChange(distName){
     this.districtName = distName;
-    this.showTitle = true;
+    this.disabledRegBtn = false;
+  }
+  
+  registerDistrict(){
+    this.showForm = true;
   }
 
 }

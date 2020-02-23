@@ -3,7 +3,7 @@
         <h2 class="text-center title">Join Us</h2>
         <h3 class="text-center mt-3 reg-title"><strong>Select District To Register</strong></h3>
         <div class="row justify-content-center mt-4">
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <select name="" id="" class="form-control" height="50px" (change)="onDistrictChange($event.target.value)">
                         <option value="Yavatmal" selected disabled>Select District</option>
                         <option value="Pune">Pune</option>
@@ -14,14 +14,14 @@
             </div>
         </div>
         <div class="row text-center justify-content-center mt-2">
-            <div class="col-sm-3">
-                <input type="button" class="btn form-control reg-button" value="Register" height="50px">
+            <div class="col-sm-2">
+                <input type="button" class="btn form-control reg-button" value="Register" height="50px" (click)="registerDistrict()" [disabled]="disabledRegBtn">
             </div>
         </div>
     </div>
 
-    <div class="container form-area">
-        <h4 class="text-center title" *ngIf="showTitle">Affiliation For "{{districtName}}" District</h4>
+    <div class="container form-area mt-5" *ngIf="showForm">
+        <h4 class="text-center title">Affiliation For "{{districtName}}" District</h4>
         <form id="regForm" class="mt-4">
             <h2 class="text-center">Registration Form</h2>
             <div class="row mt-5">
