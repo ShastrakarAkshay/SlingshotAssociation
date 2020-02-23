@@ -10,12 +10,14 @@
     }
     .form-area {
         padding: 100px;
+        padding-top: 0px !important;
     }
     #regForm {
         border: 1px solid gray;
         padding: 50px;
     }
-    .reg-button {
+    .reg-button,
+    .act-btn {
         background-color: $th-color;
         color: #fff;
     }
