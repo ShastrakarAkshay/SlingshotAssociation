@@ -29,7 +29,7 @@ export class AffliationComponent implements OnInit {
 
   searchDistrict(distName) {
     this.disticts.map(name => {
-      if(distName.toLowerCase().includes(name.toLowerCase())) {
+      if (distName.toLowerCase().includes(name.toLowerCase())) {
       }
     });
   }
