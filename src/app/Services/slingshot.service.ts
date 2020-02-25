@@ -6,44 +6,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class SlingshotService {
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   districtList = [
     { name: 'Ahmednagar', isRegistered: false },
     { name: 'Akola', isRegistered: false },
@@ -91,11 +53,14 @@ export class SlingshotService {
     //     ref.set({ id: ref.id }, { merge: true });
     //   });
     // });
-    return this.firestore.collection("districtList", ref => ref.orderBy('name', 'asc')).snapshotChanges();
   }
   
-  getAlldDistricts() {
-    return this.firestore.collection("districtList", ref => ref.orderBy('name', 'asc')).snapshotChanges();
+  getAvailabelDistricts() {
+    return this.firestore.collection('districtList', ref => ref.where('isRegistered', '==', false).orderBy('name')).snapshotChanges();
+  }
+
+  getRegisteredDistricts() {
+    return this.firestore.collection('districtList', ref => ref.where('isRegistered', '==', true).orderBy('name')).snapshotChanges();
   }
 
   getDistrictInfoById(id: string) {

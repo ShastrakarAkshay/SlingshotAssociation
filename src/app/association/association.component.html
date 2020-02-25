@@ -4,12 +4,9 @@
         <h3 class="text-center mt-3 reg-title"><strong>Select District To Register</strong></h3>
         <div class="row justify-content-center mt-4">
             <div class="col-sm-5">
-                <select name="" id="" class="form-control" height="50px" (change)="onDistrictChange($event.target.value)">
-                        <option value="Yavatmal" selected disabled>Select District</option>
-                        <option value="Pune">Pune</option>
-                        <option value="Amravati">Amravati</option>
-                        <option value="Nagpur">Nagpur</option>
-                        <option value="Gondia">Gondia</option>
+                <select class="form-control" height="50px" (change)="onDistrictChange($event)">
+                        <option selected disabled >Select District</option>
+                        <option *ngFor="let dist of availableDistricts" value="{{dist.id}}">{{dist.name}}</option>
                 </select>
             </div>
         </div>
@@ -137,15 +134,15 @@
             <div class="row">
                 <div class="col-sm-4 mt-3">
                     <label for=""><strong>Aadhar Card</strong></label>
-                    <input type="file" id="files" name="files" />
+                    <input type="file" id="files1" name="files" />
                 </div>
                 <div class="col-sm-4 mt-3">
                     <label for=""><strong>PAN Card</strong></label>
-                    <input type="file" id="files" name="files" />
+                    <input type="file" id="files2" name="files" />
                 </div>
                 <div class="col-sm-4 mt-3">
                     <label for=""><strong>Passport Photo</strong></label>
-                    <input type="file" id="files" name="files" />
+                    <input type="file" id="files3" name="files" />
                 </div>
             </div>
             <div class="mt-5 text-center">
