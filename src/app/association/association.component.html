@@ -4,40 +4,54 @@
         <h3 class="text-center mt-3 reg-title"><strong>Select District To Register</strong></h3>
         <div class="row justify-content-center mt-4">
             <div class="col-sm-5">
-                <select class="form-control" height="50px" (change)="onDistrictChange($event)">
-                        <option selected disabled >Select District</option>
-                        <option *ngFor="let dist of availableDistricts" value="{{dist.id}}">{{dist.name}}</option>
+                <select class="form-control" height="50px" (change)="onDistrictChange($event.target.value)">
+                    <option selected disabled>Select District</option>
+                    <option *ngFor="let dist of availableDistricts" value="{{dist.id}}">{{dist.name}}</option>
                 </select>
             </div>
         </div>
         <div class="row text-center justify-content-center mt-2">
             <div class="col-sm-2">
-                <input type="button" class="btn form-control reg-button" value="Register" height="50px" (click)="registerDistrict()" [disabled]="disabledRegBtn">
+                <input type="button" class="btn form-control reg-button" value="Register" height="50px"
+                    (click)="registerDistrict()" [disabled]="disabledRegBtn">
             </div>
         </div>
     </div>
 
     <div class="container form-area mt-5" *ngIf="showForm">
         <h4 class="text-center title">Affiliation For "{{districtName}}" District</h4>
-        <form id="regForm" class="mt-4">
+        <form id="regForm" class="mt-4" [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
             <h2 class="text-center">Registration Form</h2>
             <div class="row mt-5">
                 <div class="col-sm-4">
                     <label>First Name</label>
                     <div class="form-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="firstName"
+                            [ngClass]="{'is-invalid':registerForm.get('firstName').touched && registerForm.get('firstName').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
+
                 </div>
                 <div class="col-sm-4">
                     <label>Middle Name</label>
                     <div class="form-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="middleName"
+                            [ngClass]="{'is-invalid':registerForm.get('middleName').touched && registerForm.get('middleName').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <label>Last Name</label>
                     <div class="form-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="lastName"
+                            [ngClass]="{'is-invalid':registerForm.get('lastName').touched && registerForm.get('lastName').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
             </div>
@@ -45,13 +59,21 @@
                 <div class="col-sm-6">
                     <label>Date of Birth</label>
                     <div class="form-group">
-                        <input type="date" class="form-control">
+                        <input type="date" class="form-control" formControlName="dateOfBirth"
+                            [ngClass]="{'is-invalid':registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <label>Mobile No.</label>
                     <div class="form-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="mobile"
+                            [ngClass]="{'is-invalid':registerForm.get('mobile').touched && registerForm.get('mobile').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
             </div>
@@ -59,7 +81,11 @@
                 <div class="col-sm-12">
                     <label>Address Line 1</label>
                     <div class="form-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="addressLine1"
+                            [ngClass]="{'is-invalid':registerForm.get('addressLine1').touched && registerForm.get('addressLine1').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
             </div>
@@ -67,7 +93,11 @@
                 <div class="col-sm-12">
                     <label>Address Line 2</label>
                     <div class="form-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="addressLine2"
+                            [ngClass]="{'is-invalid':registerForm.get('addressLine2').touched && registerForm.get('addressLine2').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
             </div>
@@ -75,24 +105,34 @@
                 <div class="col-sm-4">
                     <label>City</label>
                     <div class="form-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="city"
+                            [ngClass]="{'is-invalid':registerForm.get('city').touched && registerForm.get('city').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <label>District</label>
                     <div class="form-group">
-                        <select class="form-control">
-                            <option value="">Option 1</option>
-                            <option value="">Option 2</option>
-                            <option value="">Option 3</option>
-                            <option value="">Option 4</option>
+                        <select class="form-control" formControlName="district"
+                            [ngClass]="{'is-invalid':registerForm.get('district').touched && registerForm.get('district').invalid}">
+                            <option selected disabled>select district</option>
+                            <option *ngFor="let dist of allDistricts" value="{{dist.name}}">{{dist.name}}</option>
                         </select>
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <label>Pin Code</label>
                     <div class="form-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="pin"
+                            [ngClass]="{'is-invalid':registerForm.get('pin').touched && registerForm.get('pin').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
             </div>
@@ -100,13 +140,21 @@
                 <div class="col-sm-6">
                     <label>Aadhaar No.</label>
                     <div class="form-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="aadhaarNo"
+                            [ngClass]="{'is-invalid':registerForm.get('aadhaarNo').touched && registerForm.get('aadhaarNo').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <label>PAN No.</label>
                     <div class="form-group">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" formControlName="panNo"
+                            [ngClass]="{'is-invalid':registerForm.get('panNo').touched && registerForm.get('panNo').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
             </div>
@@ -115,19 +163,31 @@
                 <div class="col-sm-4">
                     <label>Email</label>
                     <div class="form-group">
-                        <input type="email" class="form-control">
+                        <input type="email" class="form-control" formControlName="email"
+                            [ngClass]="{'is-invalid':registerForm.get('email').touched && registerForm.get('email').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <label>Password</label>
                     <div class="form-group">
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" formControlName="password"
+                            [ngClass]="{'is-invalid':registerForm.get('password').touched && registerForm.get('password').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <label>Confirm Password</label>
                     <div class="form-group">
-                        <input type="password" class="form-control">
+                        <input type="password" class="form-control" formControlName="confirmPassword"
+                            [ngClass]="{'is-invalid':registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').invalid}">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
             </div>
@@ -146,8 +206,8 @@
                 </div>
             </div>
             <div class="mt-5 text-center">
-                <input type="button" class="btn act-btn" value="Register" height="50px">
-                <input type="button" class="btn act-btn ml-2" value="clear" height="50px">
+                <input type="button" class="btn act-btn" value="Register" height="50px" [disabled]="!registerForm.valid">
+                <input type="button" class="btn act-btn ml-2" value="clear" height="50px" (click)="onFormReset()">
             </div>
         </form>
     </div>

@@ -55,12 +55,27 @@ export class SlingshotService {
     // });
   }
   
+  getAllDistricts() {
+    return this.firestore.collection('districtList', ref => ref.orderBy('name')).snapshotChanges();
+
+  }
+
   getAvailabelDistricts() {
     return this.firestore.collection('districtList', ref => ref.where('isRegistered', '==', false).orderBy('name')).snapshotChanges();
   }
 
   getRegisteredDistricts() {
     return this.firestore.collection('districtList', ref => ref.where('isRegistered', '==', true).orderBy('name')).snapshotChanges();
+  }
+
+  getDistrictNameById(distArr, id): string {
+    let distName: string;
+    distArr.forEach(dist => {
+      if (dist.id === id) {
+        distName = dist.name;
+      }
+    });
+    return distName;
   }
 
   getDistrictInfoById(id: string) {

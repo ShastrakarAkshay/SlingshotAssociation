@@ -12,10 +12,10 @@
         </div>
 
         <div class="row dist-sec mt-3">
-            <div class="col-sm-4" *ngFor="let dist of disticts">
-                <div class="card mt-3 text-white bg-dark" (click)="getDistInfo(dist)">
+            <div class="col-sm-4" *ngFor="let dist of registeredDistricts">
+                <div class="card mt-3 text-white bg-dark" (click)="getDistrictInfo(dist.id)">
                     <div class="card-body text-center">
-                        <h4 class="card-title">{{dist}}</h4>
+                        <h4 class="card-title">{{dist.name}}</h4>
                         <p class="card-text"> <a href="#" class="action-button">read more</a></p>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
 
         <div class="dist-info jumbotron">
             <div>
-                <h2 class="text-center">{{distName}}</h2>
+                <h2 class="text-center">{{districtName}}</h2>
                 <div class="row raw-info justify-content-center mt-5">
                     <div class="col-sm-8">
                         <p class="text-justify">This district is registered under "Slingshot Sports Association of Maharashtra, India" affilated to - "Indian Slingshot Sport Federation", "Asian Slingshot Sport Federation", "World organizes Slingshot Sport Federation. Affiliated

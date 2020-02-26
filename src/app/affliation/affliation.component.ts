@@ -3,6 +3,7 @@ import { AffilationService } from '../Services/affilation.service';
 import { AffiliatedMembers } from './affiliation.interface';
 import { SlingshotService } from '../Services/slingshot.service';
 import { DistrictConfig } from '../Interfaces/slingshot.interface';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-affliation',
@@ -16,7 +17,8 @@ export class AffliationComponent implements OnInit {
   members: AffiliatedMembers;
   distName: string;
 
-
+  private districtName: string;
+  private districtInfo: any;
   private registeredDistricts: Array<any> = [];
 
   constructor(private affiliationService: AffilationService, private slingshotService: SlingshotService) { }
@@ -24,24 +26,24 @@ export class AffliationComponent implements OnInit {
   ngOnInit() {
     this.disticts = this.affiliationService.getRegisteredDistricts();
     this.distInfo = this.affiliationService.getDistrictInfo();
-    this.distName = this.distInfo.distName;
     this.members = this.distInfo.members;
-
     this.getRegisteredDistrictList();
+    // if (this.registeredDistricts.length > 0) {
+    //   this.getDistrictInfo(this.registeredDistricts[0].id);
+    // }
   }
 
+  // Fetch all registered districts list
   getRegisteredDistrictList() {
     this.slingshotService.getAvailabelDistricts().subscribe(data => {
       data.map(item => {
         this.registeredDistricts.push(item.payload.doc.data());
       });
     });
-
-    console.log(this.registeredDistricts)
   }
 
-  getDistInfo(dist) {
-    this.distName = dist;
+  getDistrictInfo(id) {
+    this.districtName =  this.slingshotService.getDistrictNameById(this.registeredDistricts, id);
   }
 
   searchDistrict(distName) {
