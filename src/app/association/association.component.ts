@@ -70,6 +70,8 @@ export class AssociationComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+
+    // form registration logic
   }
 
   onFormReset() {
