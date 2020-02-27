@@ -12,6 +12,9 @@ export class AssociationComponent implements OnInit {
   disabledRegBtn: boolean = true;
 
   private districtName: string;
+  private isFileValid1: boolean;
+  private isFileValid2: boolean;
+  private isFileValid3: boolean;
   private availableDistricts: Array<any> = [];
   private registerForm: FormGroup;
   private allDistricts: Array<any> = [];
@@ -26,17 +29,20 @@ export class AssociationComponent implements OnInit {
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
-      mobile: ['', Validators.required],
+      mobile: ['', [Validators.required, Validators.pattern(/\d{10}/)]],
       addressLine1: ['', Validators.required],
       addressLine2: ['', Validators.required],
       city: ['', Validators.required],
       district: ['', Validators.required],
-      pin: ['', Validators.required],
-      aadhaarNo: ['', Validators.required],
-      panNo: ['', Validators.required],
+      pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
+      aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
+      panNo: ['', [Validators.required, Validators.pattern(/[0-9 a-z A-Z]{10}/)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', Validators.required],
+      file1: ['', Validators.required],
+      file2: ['', Validators.required],
+      file3: ['', Validators.required]
     });
   }
 
@@ -67,7 +73,7 @@ export class AssociationComponent implements OnInit {
 
   onFormSubmit() {
     // stop here if form is invalid
-    if (this.registerForm.invalid) {
+    if (this.registerForm.invalid && !this.isFileValid1 && !this.isFileValid2 && !this.isFileValid3) {
       return;
     }
 
@@ -78,4 +84,24 @@ export class AssociationComponent implements OnInit {
     this.registerForm.reset();
   }
 
+  fileUpload(e, doc) {
+    const file = e.target.files[0];
+
+    if (doc == 'doc1')
+      this.isFileValid1 = false;
+    else if (doc == 'doc2')
+      this.isFileValid2 = false;
+    else if (doc == 'doc3')
+      this.isFileValid3 = false;
+
+    if (file.type == 'image/png' || file.type == 'image/jpg' || file.type == 'image/jpeg') {
+      if (file.size <= 1000000)
+        if (doc == 'doc1')
+          this.isFileValid1 = true;
+        else if (doc == 'doc2')
+          this.isFileValid2 = true;
+        else if (doc == 'doc3')
+          this.isFileValid3 = true;
+    }
+  }
 }

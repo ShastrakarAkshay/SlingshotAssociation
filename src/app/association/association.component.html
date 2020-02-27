@@ -20,7 +20,7 @@
 
     <div class="container form-area mt-5" *ngIf="showForm">
         <h4 class="text-center title">Affiliation For "{{districtName}}" District</h4>
-        <form id="regForm" class="mt-4" [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+        <form id="regForm" class="mt-4" [formGroup]="registerForm">
             <h2 class="text-center">Registration Form</h2>
             <div class="row mt-5">
                 <div class="col-sm-4">
@@ -67,19 +67,23 @@
                                     <i class="fa fa-calendar" aria-hidden="true"></i>
                                 </button>
                             </div>
+                            <span class="invalid-feedback alert alert-danger">
+                                Field is required
+                            </span>
                         </div>
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
+                       
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <label>Mobile No.</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="mobile"
+                        <input type="text" class="form-control" formControlName="mobile" maxlength="10"
                             [ngClass]="{'is-invalid':registerForm.get('mobile').touched && registerForm.get('mobile').invalid}">
                         <span class="invalid-feedback alert alert-danger">
-                            Field is required
+                            <span *ngIf="registerForm.get('mobile').errors?.required">Field is required</span>
+                            <span
+                                *ngIf="registerForm.get('mobile').invalid && !registerForm.get('mobile').errors?.required">
+                                Invalid Mobile Number</span>
                         </span>
                     </div>
                 </div>
@@ -135,11 +139,14 @@
                 <div class="col-sm-4">
                     <label>Pin Code</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="pin"
+                        <input type="text" class="form-control" formControlName="pin" maxlength="6"
                             [ngClass]="{'is-invalid':registerForm.get('pin').touched && registerForm.get('pin').invalid}">
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
+                            <span class="invalid-feedback alert alert-danger">
+                                <span *ngIf="registerForm.get('pin').errors?.required">Field is required</span>
+                                <span
+                                    *ngIf="registerForm.get('pin').invalid && !registerForm.get('pin').errors?.required">
+                                    Invalid Pin Code</span>
+                            </span>
                     </div>
                 </div>
             </div>
@@ -147,21 +154,27 @@
                 <div class="col-sm-6">
                     <label>Aadhaar No.</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="aadhaarNo"
+                        <input type="text" class="form-control" formControlName="aadhaarNo" maxlength="12"
                             [ngClass]="{'is-invalid':registerForm.get('aadhaarNo').touched && registerForm.get('aadhaarNo').invalid}">
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
+                            <span class="invalid-feedback alert alert-danger">
+                                <span *ngIf="registerForm.get('aadhaarNo').errors?.required">Field is required</span>
+                                <span
+                                    *ngIf="registerForm.get('aadhaarNo').invalid && !registerForm.get('aadhaarNo').errors?.required">
+                                    Invalid Aadhaar No.</span>
+                            </span>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <label>PAN No.</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="panNo"
+                        <input type="text" class="form-control" formControlName="panNo" maxlength="10"
                             [ngClass]="{'is-invalid':registerForm.get('panNo').touched && registerForm.get('panNo').invalid}">
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
+                            <span class="invalid-feedback alert alert-danger">
+                                <span *ngIf="registerForm.get('panNo').errors?.required">Field is required</span>
+                                <span
+                                    *ngIf="registerForm.get('panNo').invalid && !registerForm.get('panNo').errors?.required">
+                                    Invalid PAN No.</span>
+                            </span>
                     </div>
                 </div>
             </div>
@@ -172,9 +185,12 @@
                     <div class="form-group">
                         <input type="email" class="form-control" formControlName="email"
                             [ngClass]="{'is-invalid':registerForm.get('email').touched && registerForm.get('email').invalid}">
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
+                            <span class="invalid-feedback alert alert-danger">
+                                <span *ngIf="registerForm.get('email').errors?.required">Field is required</span>
+                                <span
+                                    *ngIf="registerForm.get('email').invalid && !registerForm.get('email').errors?.required">
+                                    Invalid email.</span>
+                            </span>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -201,20 +217,37 @@
             <div class="row">
                 <div class="col-sm-4 mt-3">
                     <label for=""><strong>Aadhar Card</strong></label>
-                    <input type="file" id="files1" name="files" />
+                    <input type="file" id="files1" name="files1" (change)="fileUpload($event, 'doc1')" formControlName="file1"
+                    [ngClass]="{'is-invalid':registerForm.get('file1').touched && registerForm.get('file1').invalid}">
+                    <span class="invalid-feedback alert alert-danger">
+                        <span *ngIf="registerForm.get('file1').errors?.required">Field is required</span>
+                    </span>
                 </div>
                 <div class="col-sm-4 mt-3">
                     <label for=""><strong>PAN Card</strong></label>
-                    <input type="file" id="files2" name="files" />
+                    <input type="file" id="files2" name="files2" formControlName="file2" (change)="fileUpload($event, 'doc2')"
+                    [ngClass]="{'is-invalid':registerForm.get('file2').touched && registerForm.get('file2').invalid}">
+                    <span class="invalid-feedback alert alert-danger">
+                        <span *ngIf="registerForm.get('file2').errors?.required">Field is required</span>
+                    </span>
                 </div>
                 <div class="col-sm-4 mt-3">
                     <label for=""><strong>Passport Photo</strong></label>
-                    <input type="file" id="files3" name="files" />
+                    <input type="file" id="files3" name="files3" formControlName="file3" (change)="fileUpload($event, 'doc3')"
+                    [ngClass]="{'is-invalid':registerForm.get('file3').touched && registerForm.get('file3').invalid}">
+                    <span class="invalid-feedback alert alert-danger">
+                        <span *ngIf="registerForm.get('file3').errors?.required">Field is required</span>
+                    </span>
                 </div>
             </div>
+            <div class="row" *ngIf="!isFileValid1 || !isFileValid2 || !isFileValid3">
+                <span class="col-sm-12 alert alert-danger m-3">
+                    File format should be .png .jpeg .jpg and less than 1MB.
+                </span>
+            </div>
             <div class="mt-5 text-center">
-                <input type="button" class="btn act-btn" value="Register" height="50px"
-                    [disabled]="!registerForm.valid">
+                <input type="button" class="btn act-btn" value="Register" height="50px" (click)="onFormSubmit()"
+                    [disabled]="!registerForm.valid || !isFileValid1 || !isFileValid2 || !isFileValid3">
                 <input type="button" class="btn act-btn ml-2" value="clear" height="50px" (click)="onFormReset()">
             </div>
         </form>
