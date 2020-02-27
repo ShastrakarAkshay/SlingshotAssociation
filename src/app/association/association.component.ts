@@ -84,16 +84,14 @@ export class AssociationComponent implements OnInit {
     this.registerForm.reset();
   }
 
-  fileUpload(e, doc) {
+  validateFileUpload(e, doc) {
     const file = e.target.files[0];
-
     if (doc == 'doc1')
       this.isFileValid1 = false;
     else if (doc == 'doc2')
       this.isFileValid2 = false;
     else if (doc == 'doc3')
       this.isFileValid3 = false;
-
     if (file.type == 'image/png' || file.type == 'image/jpg' || file.type == 'image/jpeg') {
       if (file.size <= 1000000)
         if (doc == 'doc1')
