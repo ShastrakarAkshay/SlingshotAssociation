@@ -16,12 +16,13 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { SlingshotComponent } from './slingshot/slingshot.component';
 import { GalleryComponent } from './gallery/gallery.component';
-import { AssociationComponent } from './association/association.component';
+import { AssociationComponent, PopupDialog } from './association/association.component';
 import { MatchResultsComponent } from './match-results/match-results.component';
 import {MatInputModule} from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     GalleryComponent,
     AssociationComponent,
     MatchResultsComponent,
-    LoginComponent
+    LoginComponent,
+    PopupDialog
   ],
   imports: [
     FormsModule,
@@ -47,8 +49,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AngularFirestoreModule,
     MatTooltipModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule
   ],
+  entryComponents: [PopupDialog],
   providers: [],
   bootstrap: [AppComponent]
 })

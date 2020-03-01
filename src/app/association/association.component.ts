@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { SlingshotService } from '../Services/slingshot.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmPasswordValidator } from './confirm-password.validator';
 import { DistrictConfig } from '../Interfaces/slingshot.interface';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-association',
@@ -22,7 +24,7 @@ export class AssociationComponent implements OnInit {
   private isChecked: boolean = false;
   private selectedDistrict: DistrictConfig;
 
-  constructor(private slingshotService: SlingshotService, private formBuilder: FormBuilder) {
+  constructor(private slingshotService: SlingshotService, private formBuilder: FormBuilder, private dialog: MatDialog) {
     this.getAvailableDistrictList();
   }
 
@@ -80,7 +82,10 @@ export class AssociationComponent implements OnInit {
     }
     // form registration logic
     this.slingshotService.districtRegistration({ RequestedDistrict: { id: this.selectedDistrict.id, name: this.selectedDistrict.name }, ...this.registerForm.value });
-    this.onFormReset();
+    this.dialog.open(PopupDialog, {
+      width: '80%'
+    });
+ 
   }
 
   onFormReset() {
@@ -104,5 +109,23 @@ export class AssociationComponent implements OnInit {
         else if (doc == 'doc3')
           this.isFileValid3 = true;
     }
+  }
+}
+
+@Component({
+  selector: 'popup-dialog',
+  templateUrl: 'registration-popup.html'
+})
+export class PopupDialog implements OnInit {
+
+  constructor(private router: Router, public dialogRef: MatDialogRef<PopupDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: {}) {
+  }
+
+  ngOnInit() { }
+
+  onNoClick() {
+    this.dialogRef.close();
+    this.router.navigateByUrl('/login');
   }
 }
