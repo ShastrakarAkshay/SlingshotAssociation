@@ -20,6 +20,7 @@ export class AssociationComponent implements OnInit {
   private registerForm: FormGroup;
   private allDistricts: Array<any> = [];
   public isChecked: boolean = false;
+  private selectedDistrict: any;
 
   constructor(private slingshotService: SlingshotService, private formBuilder: FormBuilder) {
     this.getAvailableDistrictList();
@@ -46,8 +47,8 @@ export class AssociationComponent implements OnInit {
       file2: ['', Validators.required],
       file3: ['', Validators.required],
       terms: ['', Validators.required]
-    },{ 
-      validator: ConfirmPasswordValidator.MatchPassword 
+    }, {
+      validator: ConfirmPasswordValidator.MatchPassword
     });
   }
 
@@ -70,6 +71,8 @@ export class AssociationComponent implements OnInit {
   onDistrictChange(id) {
     this.disabledRegBtn = false;
     this.districtName = this.slingshotService.getDistrictNameById(this.availableDistricts, id);
+    this.selectedDistrict = this.slingshotService.getDistrictById(this.availableDistricts, id);
+    
   }
 
   registerDistrict() {
@@ -78,11 +81,12 @@ export class AssociationComponent implements OnInit {
 
   onFormSubmit() {
     // stop here if form is invalid
-    if (this.registerForm.invalid && !this.isFileValid1 && !this.isFileValid2 && !this.isFileValid3 && !this.isChecked) {
+    if (this.registerForm.invalid || !this.isFileValid1 || !this.isFileValid2 || !this.isFileValid3 || !this.isChecked) {
       return;
     }
 
     // form registration logic
+    this.slingshotService.districtRegistration({ RequestedDistrict: this.selectedDistrict, ...this.registerForm.value });
   }
 
   onFormReset() {
@@ -97,7 +101,7 @@ export class AssociationComponent implements OnInit {
       this.isFileValid2 = false;
     else if (doc == 'doc3')
       this.isFileValid3 = false;
-    if (file.type == 'image/png' || file.type == 'image/jpg' || file.type == 'image/jpeg') {
+    if (file && file.type == 'image/png' || file.type == 'image/jpg' || file.type == 'image/jpeg') {
       if (file.size <= 1000000)
         if (doc == 'doc1')
           this.isFileValid1 = true;

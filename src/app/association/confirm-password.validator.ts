@@ -6,8 +6,5 @@ export class ConfirmPasswordValidator {
     if (password != confirmPassword) {
       control.get('confirmPassword').setErrors({ isConfirmPassword: true });
     }
-    else {
-      return null;
-    }
   }
 }

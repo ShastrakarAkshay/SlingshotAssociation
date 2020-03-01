@@ -78,6 +78,21 @@ export class SlingshotService {
     return distName;
   }
 
+  getDistrictById(distArr, id): any {
+    let district;
+    distArr.forEach(dist => {
+      if (dist.id === id) {
+        district = dist;
+      }
+    });
+    return district;
+    // return this.firestore.collection('districtList').doc(id).snapshotChanges();
+  }
+
+  districtRegistration(data: any){
+    this.firestore.collection("RegistrationRequests").add(data);
+  }
+
   getDistrictInfoById(id: string) {
     return null;
   }

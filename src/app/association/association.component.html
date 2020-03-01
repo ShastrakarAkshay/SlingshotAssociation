@@ -188,11 +188,9 @@
                 <div class="col-sm-4">
                     <label>Confirm Password</label>
                     <div class="form-group">
-                        <input type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{'is-invalid':registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').invalid}">
+                        <input type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{'is-invalid':registerForm.get('confirmPassword').touched && registerForm.get('confirmPassword').invalid && registerForm.get('confirmPassword').errors?.isConfirmPassword}">
                         <span class="invalid-feedback alert alert-danger">
-                                <span *ngIf="registerForm.get('confirmPassword').errors?.required">Field is required</span>
-                        <span *ngIf="registerForm.get('confirmPassword').errors.isConfirmPassword && !registerForm.get('confirmPassword').errors?.required">
-                            Password not matched</span>
+                            Password not matched
                         </span>
                     </div>
                 </div>
@@ -237,7 +235,7 @@
             </div>
             <div class="row  mt-5">
                 <div class="col-sm-12">
-                    <mat-checkbox [(ngModel)]="isChecked" formControlName="terms">Terms & Conditions</mat-checkbox>
+                    <mat-checkbox [(ngModel)]="isChecked" formControlName="terms">Accept Terms & Conditions</mat-checkbox>
                 </div>
             </div>
             <div class="mt-5 text-center">
