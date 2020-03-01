@@ -17,8 +17,7 @@ export class AffliationComponent implements OnInit {
   members: AffiliatedMembers;
   distName: string;
 
-  private districtName: string;
-  private districtInfo: any;
+  private selectedDistrict: DistrictConfig;
   private registeredDistricts: Array<any> = [];
 
   constructor(private affiliationService: AffilationService, private slingshotService: SlingshotService) { }
@@ -43,7 +42,7 @@ export class AffliationComponent implements OnInit {
   }
 
   getDistrictInfo(id) {
-    this.districtName =  this.slingshotService.getDistrictNameById(this.registeredDistricts, id);
+    this.selectedDistrict =  this.slingshotService.getDistrictById(this.registeredDistricts, id);
   }
 
   searchDistrict(distName) {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SlingshotService } from '../Services/slingshot.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmPasswordValidator } from './confirm-password.validator';
+import { DistrictConfig } from '../Interfaces/slingshot.interface';
 
 @Component({
   selector: 'app-association',
@@ -12,15 +13,14 @@ export class AssociationComponent implements OnInit {
   showForm: boolean = false;
   disabledRegBtn: boolean = true;
 
-  private districtName: string;
   private isFileValid1: boolean;
   private isFileValid2: boolean;
   private isFileValid3: boolean;
   private availableDistricts: Array<any> = [];
   private registerForm: FormGroup;
   private allDistricts: Array<any> = [];
-  public isChecked: boolean = false;
-  private selectedDistrict: any;
+  private isChecked: boolean = false;
+  private selectedDistrict: DistrictConfig;
 
   constructor(private slingshotService: SlingshotService, private formBuilder: FormBuilder) {
     this.getAvailableDistrictList();
@@ -55,24 +55,18 @@ export class AssociationComponent implements OnInit {
   // fetch all available district list
   getAvailableDistrictList() {
     this.slingshotService.getAvailabelDistricts().subscribe(data => {
-      data.map(item => {
-        this.availableDistricts.push(item.payload.doc.data());
-      });
+      data.map(item => { this.availableDistricts.push(item.payload.doc.data()) });
     });
 
     this.slingshotService.getAllDistricts().subscribe(data => {
-      data.map(item => {
-        this.allDistricts.push(item.payload.doc.data());
-      });
+      data.map(item => { this.allDistricts.push(item.payload.doc.data()) });
     });
 
   }
 
   onDistrictChange(id) {
     this.disabledRegBtn = false;
-    this.districtName = this.slingshotService.getDistrictNameById(this.availableDistricts, id);
     this.selectedDistrict = this.slingshotService.getDistrictById(this.availableDistricts, id);
-    
   }
 
   registerDistrict() {
@@ -84,9 +78,9 @@ export class AssociationComponent implements OnInit {
     if (this.registerForm.invalid || !this.isFileValid1 || !this.isFileValid2 || !this.isFileValid3 || !this.isChecked) {
       return;
     }
-
     // form registration logic
-    this.slingshotService.districtRegistration({ RequestedDistrict: this.selectedDistrict, ...this.registerForm.value });
+    this.slingshotService.districtRegistration({ RequestedDistrict: { id: this.selectedDistrict.id, name: this.selectedDistrict.name }, ...this.registerForm.value });
+    this.onFormReset();
   }
 
   onFormReset() {

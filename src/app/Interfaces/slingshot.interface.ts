@@ -25,23 +25,3 @@ export interface UpcommingEventsConfig {
     phone: string;
 }
 
-export interface RegistrationFormDataConfig {
-    districtId: string;
-    firstName: string;
-    middleName: string;
-    lastName: string;
-    dateOfBirth: string;
-    mobileNo: string;
-    addressLine1: string;
-    addresssLine2: string;
-    city: string;
-    district: string;
-    pin: string;
-    aadharNo: string;
-    panNo: string;
-    email: string;
-    password: string;
-    aadharAttachment: string;
-    panAttachment: string;
-    passportAttachment: string;
-}
