@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SlingshotService } from '../Services/slingshot.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ConfirmPasswordValidator } from './confirm-password.validator';
 
 @Component({
   selector: 'app-association',
@@ -18,6 +19,7 @@ export class AssociationComponent implements OnInit {
   private availableDistricts: Array<any> = [];
   private registerForm: FormGroup;
   private allDistricts: Array<any> = [];
+  public isChecked: boolean = false;
 
   constructor(private slingshotService: SlingshotService, private formBuilder: FormBuilder) {
     this.getAvailableDistrictList();
@@ -38,11 +40,14 @@ export class AssociationComponent implements OnInit {
       aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
       panNo: ['', [Validators.required, Validators.pattern(/[0-9 a-z A-Z]{10}/)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       confirmPassword: ['', Validators.required],
       file1: ['', Validators.required],
       file2: ['', Validators.required],
-      file3: ['', Validators.required]
+      file3: ['', Validators.required],
+      terms: ['', Validators.required]
+    },{ 
+      validator: ConfirmPasswordValidator.MatchPassword 
     });
   }
 
@@ -73,7 +78,7 @@ export class AssociationComponent implements OnInit {
 
   onFormSubmit() {
     // stop here if form is invalid
-    if (this.registerForm.invalid && !this.isFileValid1 && !this.isFileValid2 && !this.isFileValid3) {
+    if (this.registerForm.invalid && !this.isFileValid1 && !this.isFileValid2 && !this.isFileValid3 && !this.isChecked) {
       return;
     }
 
