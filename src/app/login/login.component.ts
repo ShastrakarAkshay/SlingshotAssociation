@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ export class LoginComponent implements OnInit {
   @ViewChild('loginPage',{static:false}) loginPage: ElementRef;
   @ViewChild('forgetPassPage',{static:false}) forgetPassPage: ElementRef;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -17,6 +18,10 @@ export class LoginComponent implements OnInit {
   forgotPassword() {
     this.loginPage.nativeElement.hidden =  !this.loginPage.nativeElement.hidden;
     this.forgetPassPage.nativeElement.hidden =  !this.forgetPassPage.nativeElement.hidden;
+  }
+
+  login(){
+    this.router.navigateByUrl('/admin');
   }
 
 }

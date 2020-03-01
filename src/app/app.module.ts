@@ -23,6 +23,8 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AdminComponent } from './admin/admin.component';
+import { AffiliationRequestsComponent } from './admin/affiliation-requests/affiliation-requests.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     AssociationComponent,
     MatchResultsComponent,
     LoginComponent,
-    PopupDialog
+    PopupDialog,
+    AdminComponent,
+    AffiliationRequestsComponent
   ],
   imports: [
     FormsModule,

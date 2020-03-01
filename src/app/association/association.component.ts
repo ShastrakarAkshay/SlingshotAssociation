@@ -120,6 +120,7 @@ export class PopupDialog implements OnInit {
 
   constructor(private router: Router, public dialogRef: MatDialogRef<PopupDialog>,
     @Inject(MAT_DIALOG_DATA) public data: {}) {
+      dialogRef.disableClose = true;
   }
 
   ngOnInit() { }

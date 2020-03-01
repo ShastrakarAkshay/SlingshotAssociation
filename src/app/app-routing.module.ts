@@ -8,6 +8,8 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { AssociationComponent } from './association/association.component';
 import { MatchResultsComponent } from './match-results/match-results.component';
 import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import { AffiliationRequestsComponent } from './admin/affiliation-requests/affiliation-requests.component';
 
 
 const routes: Routes = [
@@ -42,6 +44,14 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      { path: "", redirectTo: "requests", pathMatch: "full" },
+      { path: "requests", component: AffiliationRequestsComponent }
+    ]
   },
   {
     path: '**',
