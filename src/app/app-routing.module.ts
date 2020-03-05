@@ -10,6 +10,9 @@ import { MatchResultsComponent } from './match-results/match-results.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { AffiliationRequestsComponent } from './admin/affiliation-requests/affiliation-requests.component';
+import { EventsComponent } from './admin/events/events.component';
+import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
+import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
 
 
 const routes: Routes = [
@@ -49,12 +52,16 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     children: [
-      { path: "", redirectTo: "requests", pathMatch: "full" },
-      { path: "requests", component: AffiliationRequestsComponent }
+      { path: '', redirectTo: 'requests', pathMatch: 'full' },
+      { path: 'requests', component: AffiliationRequestsComponent },
+      { path: 'events', component: EventsComponent },
+      { path: 'match', component: MatchEventResultsComponent },
+      { path: 'enquiries', component: EnquiriesComponent }
     ]
   },
   {
     path: '**',
+    redirectTo: '',
     component: HomeComponent
   }
 ];

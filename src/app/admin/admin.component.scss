@@ -1,4 +1,45 @@
+@import "../../styles.scss";
 #admin {
     font-family: "Didact Gothic", sans-serif;
     margin-top: 100px;
+
+    .actions {
+        .card {
+            margin-top: 30px;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            overflow: hidden;
+            &:before {
+                content: "";
+                position: absolute;
+                z-index: -1;
+                left: 50%;
+                right: 50%;
+                bottom: 0;
+                background: $th-color;
+                height: 4px;
+                -webkit-transition-property: left right;
+                transition-property: left right;
+                -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+                -webkit-transition-timing-function: ease-out;
+                transition-timing-function: ease-out;
+            }
+            &:hover:before {
+                left: 0;
+                right: 0;
+            }
+        }
+        .card:hover {
+            cursor: pointer;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+            .card-title {
+                color: $th-color;
+            }
+        }
+    }
 }

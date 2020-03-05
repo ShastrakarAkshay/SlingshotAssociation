@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SlingshotService } from '../Services/slingshot.service';
+import { SlingshotService } from '../shared/services/slingshot.service';
 
 @Component({
   selector: 'app-home',

@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { SlingshotService } from '../Services/slingshot.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmPasswordValidator } from './confirm-password.validator';
-import { DistrictConfig } from '../Interfaces/slingshot.interface';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DistrictConfig } from '../shared/interfaces/slingshot.interface';
+import { SlingshotService } from '../shared/services/slingshot.service';
 
 @Component({
   selector: 'app-association',

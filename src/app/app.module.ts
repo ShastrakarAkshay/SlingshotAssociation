@@ -25,6 +25,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AdminComponent } from './admin/admin.component';
 import { AffiliationRequestsComponent } from './admin/affiliation-requests/affiliation-requests.component';
+import { EventsComponent } from './admin/events/events.component';
+import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
+import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { AffiliationRequestsComponent } from './admin/affiliation-requests/affil
     LoginComponent,
     PopupDialog,
     AdminComponent,
-    AffiliationRequestsComponent
+    AffiliationRequestsComponent,
+    EventsComponent,
+    EnquiriesComponent,
+    MatchEventResultsComponent
   ],
   imports: [
     FormsModule,

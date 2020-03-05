@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AffilationService } from '../Services/affilation.service';
 import { AffiliatedMembers } from './affiliation.interface';
-import { SlingshotService } from '../Services/slingshot.service';
-import { DistrictConfig } from '../Interfaces/slingshot.interface';
+import { SlingshotService } from '../shared/services/slingshot.service';
+import { DistrictConfig } from '../shared/interfaces/slingshot.interface';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({

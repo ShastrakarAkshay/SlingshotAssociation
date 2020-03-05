@@ -1,20 +1,43 @@
 <section id="admin">
-    <div class="container mt-5">
-        <div class="row actions">
-            <div class="col-lg-3 col-sm-6">
-                <a routerLink="./requests">approval Requests</a>
+    <div class="mt-5">
+        <div class="row actions justify-content-center">
+            <div class="col-sm-2">
+                <div class="card mt-3 text-white bg-dark" routerLink="./requests">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Requests</h4>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <a routerLink="./requests">LInk2</a>
+            <div class="col-sm-2">
+                <div class="card mt-3 text-white bg-dark" routerLink="./events">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Events</h4>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <a routerLink="./requests">link3</a>
+            <div class="col-sm-2">
+                <div class="card mt-3 text-white bg-dark" routerLink="./match">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Match Results</h4>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
-                <a routerLink="./requests">Link4</a>
+            <div class="col-sm-2">
+                <div class="card mt-3 text-white bg-dark" routerLink="./enquiries">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Enquiries</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="card mt-3 text-white bg-dark" routerLink="./profile">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Profile</h4>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row mt-5 bg-light">
+        <div class="container mt-5 bg-light">
             <router-outlet></router-outlet>
         </div>
     </div>

@@ -5,7 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class SlingshotService {
-  
+
   constructor(private firestore: AngularFirestore) { }
 
   addDist() {
@@ -16,8 +16,8 @@ export class SlingshotService {
     //   });
     // });
   }
-  
-  getAllDistricts() {
+
+  getAllDistricts(): any {
     return this.firestore.collection('districtList', ref => ref.orderBy('name')).snapshotChanges();
 
   }
@@ -30,18 +30,22 @@ export class SlingshotService {
     return this.firestore.collection('districtList', ref => ref.where('isRegistered', '==', true).orderBy('name')).snapshotChanges();
   }
 
-  getDistrictById(distArr, id): any {
+  getDistrictById(distArr: any, id: string): any {
     let district;
-    distArr.forEach(dist => {if (dist.id === id) {district = dist}});
+    distArr.forEach(dist => { if (dist.id === id) { district = dist } });
     return district;
   }
 
-  districtRegistration(data: any){
+  getDistrictInfoById(id: string): any {
+    return this.firestore.collection("districtList").doc(id);
+  }
+
+  districtRegistration(data: any) {
     this.firestore.collection("RegistrationRequests").add(data);
   }
 
-  getDistrictInfoById(id: string) {
-    return null;
+  getAffiliationRequests(): any {
+    this.firestore.collection("req").snapshotChanges();
   }
 
   getLatestMatchResults() {
