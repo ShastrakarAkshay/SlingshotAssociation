@@ -89,7 +89,7 @@ export class AssociationComponent implements OnInit {
     // create authentication user in firebase
     let formData = this.registerForm.value;
     formData['requestedDistrict'] = this.selectedDistrict;
-    const userID = this.auth.signUp(formData);
+    this.auth.signUp(formData);
     this.dialog.open(PopupDialog, {
       width: '80%'
     });
