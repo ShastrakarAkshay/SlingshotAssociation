@@ -13,6 +13,7 @@ import { AffiliationRequestsComponent } from './admin/affiliation-requests/affil
 import { EventsComponent } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
+import { ProfileComponent } from './admin/profile/profile.component';
 
 
 const routes: Routes = [
@@ -56,7 +57,8 @@ const routes: Routes = [
       { path: 'requests', component: AffiliationRequestsComponent },
       { path: 'events', component: EventsComponent },
       { path: 'match', component: MatchEventResultsComponent },
-      { path: 'enquiries', component: EnquiriesComponent }
+      { path: 'enquiries', component: EnquiriesComponent },
+      { path: 'profile', component: ProfileComponent }
     ]
   },
   {

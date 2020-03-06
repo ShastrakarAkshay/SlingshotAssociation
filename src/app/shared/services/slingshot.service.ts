@@ -40,8 +40,9 @@ export class SlingshotService {
     return this.firestore.collection("districtList").doc(id);
   }
 
-  districtRegistration(data: any) {
-    this.firestore.collection("RegistrationRequests").add(data);
+  districtRegistration(data: any, userID: any) {
+    // this.firestore.collection("RegistrationRequests").add(data);
+    this.firestore.collection("RegistrationRequests").doc(userID).set(data);
   }
 
   getAffiliationRequests(): any {

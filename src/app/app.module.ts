@@ -28,6 +28,8 @@ import { AffiliationRequestsComponent } from './admin/affiliation-requests/affil
 import { EventsComponent } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
+import { ProfileComponent } from './admin/profile/profile.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { MatchEventResultsComponent } from './admin/match-event-results/match-ev
     AffiliationRequestsComponent,
     EventsComponent,
     EnquiriesComponent,
-    MatchEventResultsComponent
+    MatchEventResultsComponent,
+    ProfileComponent
   ],
   imports: [
     FormsModule,
@@ -56,6 +59,7 @@ import { MatchEventResultsComponent } from './admin/match-event-results/match-ev
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     AngularFirestoreModule,
     MatTooltipModule,
     MatInputModule,

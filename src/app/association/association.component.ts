@@ -5,6 +5,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 import { Router } from '@angular/router';
 import { DistrictConfig } from '../shared/interfaces/slingshot.interface';
 import { SlingshotService } from '../shared/services/slingshot.service';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-association',
@@ -24,7 +25,11 @@ export class AssociationComponent implements OnInit {
   private isChecked: boolean = false;
   private selectedDistrict: DistrictConfig;
 
-  constructor(private slingshotService: SlingshotService, private formBuilder: FormBuilder, private dialog: MatDialog) {
+  constructor(
+    private slingshotService: SlingshotService,
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog,
+    private auth: AuthService) {
     this.getAvailableDistrictList();
   }
 
@@ -80,12 +85,14 @@ export class AssociationComponent implements OnInit {
     if (this.registerForm.invalid || !this.isFileValid1 || !this.isFileValid2 || !this.isFileValid3 || !this.isChecked) {
       return;
     }
-    // form registration logic
-    this.slingshotService.districtRegistration({ RequestedDistrict: { id: this.selectedDistrict.id, name: this.selectedDistrict.name }, ...this.registerForm.value });
+
+    // create authentication user in firebase
+    let formData = this.registerForm.value;
+    formData['requestedDistrict'] = this.selectedDistrict;
+    const userID = this.auth.signUp(formData);
     this.dialog.open(PopupDialog, {
       width: '80%'
     });
- 
   }
 
   onFormReset() {
@@ -120,7 +127,7 @@ export class PopupDialog implements OnInit {
 
   constructor(private router: Router, public dialogRef: MatDialogRef<PopupDialog>,
     @Inject(MAT_DIALOG_DATA) public data: {}) {
-      dialogRef.disableClose = true;
+    dialogRef.disableClose = true;
   }
 
   ngOnInit() { }
