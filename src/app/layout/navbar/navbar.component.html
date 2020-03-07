@@ -11,18 +11,22 @@
                 <a class="nav-link" routerLink="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="affiliation">Affiliation</a>
+                <a class="nav-link" routerLink="/affiliation">Affiliation</a>
+            </li>
+            <li class="nav-item" *ngIf="isLoggedIn">
+                <a class="nav-link" routerLink="/admin">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="sports">Sports</a>
+                <a class="nav-link" routerLink="/sports">Sports</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#gallery-area">Gallery</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="contact">Contact us</a>
+                <a class="nav-link" routerLink="/contact">Contact us</a>
             </li>
         </ul>
-        <button class="btn outline" routerLink="login">Login</button>
+        <button class="btn outline" *ngIf="isLoggedIn" (click)="signOut()">Logout</button>
+        <button class="btn outline" routerLink="/login" *ngIf="!isLoggedIn">Login</button>
     </div>
 </nav>

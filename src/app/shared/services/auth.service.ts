@@ -4,11 +4,16 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private loginResource = new BehaviorSubject<any>('');
+  public isUserLoggedIn = this.loginResource.asObservable();
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -17,7 +22,7 @@ export class AuthService {
     private firestore: AngularFirestore,
     private dialog: MatDialog,
     private toastr: ToastrService
-    ) { }
+  ) { }
 
   signUp(data): any {
     return this.afAuth.auth.createUserWithEmailAndPassword(data.email, data.password)
@@ -28,15 +33,20 @@ export class AuthService {
           width: '80%'
         });
       }).catch((error) => {
-        console.log(error)
-        this.toastr.error(error.message)
+        if (error.code === 'auth/email-already-in-use') {
+          this.toastr.error('Email address already in used.')
+        } else {
+          this.toastr.error(error.message);
+        }
       });
   }
 
-  signIn(email, password) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+  async signIn(email, password) {
+    return await this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.router.navigate(['/admin']);
+        localStorage.setItem('login-token', 'jjraobiskxzh32asdfkjhkzzxdf64sdf');
+        this.isLoggedIn();
       }).catch((error) => {
         window.alert(error.message);
       })
@@ -45,11 +55,18 @@ export class AuthService {
   async signOut() {
     await this.afAuth.auth.signOut();
     this.router.navigate(['/login']);
+    this.isLoggedIn();
   }
 
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return user !== null;
+  async isLoggedIn(): Promise<any> {
+    const user = await this.afAuth.authState.pipe(first()).toPromise();
+    if (user) {
+      this.loginResource.next(true);
+    } else {
+      this.loginResource.next(false);
+      localStorage.removeItem('login-token');
+    }
+    return user;
   }
 }
 

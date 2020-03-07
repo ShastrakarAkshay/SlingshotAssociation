@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
 declare var $: any;
 @Component({
   selector: 'app-navbar',
@@ -7,20 +8,33 @@ declare var $: any;
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  private isLoggedIn: boolean = false;
+
+  constructor(
+    private auth: AuthService
+  ) { }
 
   ngOnInit() {
-    $('.navbar-nav, .outline').on('click', function() {
+    this.auth.isLoggedIn();
+    this.auth.isUserLoggedIn.subscribe(data => this.isLoggedIn = data);
+    this.navbarCollapseHide();
+  }
+
+  signOut() {
+    this.auth.signOut();
+  }
+
+  navbarCollapseHide() {
+    $('.navbar-nav, .outline').on('click', function () {
       if (!$(this).hasClass('dropdown-toggle')) {
         $('.navbar-collapse').collapse('hide');
       }
     });
 
-    $(document).on('click', function() {
+    $(document).on('click', function () {
       if (!$(this).hasClass('dropdown-toggle')) {
         $('.navbar-collapse').collapse('hide');
       }
     });
   }
-
 }

@@ -14,6 +14,7 @@ import { EventsComponent } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
 import { ProfileComponent } from './admin/profile/profile.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 
 const routes: Routes = [
@@ -52,13 +53,14 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'requests', pathMatch: 'full' },
-      { path: 'requests', component: AffiliationRequestsComponent },
-      { path: 'events', component: EventsComponent },
-      { path: 'match', component: MatchEventResultsComponent },
-      { path: 'enquiries', component: EnquiriesComponent },
-      { path: 'profile', component: ProfileComponent }
+      { path: '', redirectTo: 'requests', pathMatch: 'full'},
+      { path: 'requests', component: AffiliationRequestsComponent},
+      { path: 'events', component: EventsComponent},
+      { path: 'match', component: MatchEventResultsComponent},
+      { path: 'enquiries', component: EnquiriesComponent},
+      { path: 'profile', component: ProfileComponent}
     ]
   },
   {
