@@ -9,24 +9,24 @@
                 <div class="col-sm-4 mt-3">
                     <span><i class="fa fa-map-marker"></i></span>
                     <br>
-                    <p>Adarsh Nagar, Yavatmal, Maharashtra, India. Pin - 445001.</p>
+                    <p>Matoshree Niwas, Dhamangaon By-Pass, Pimpalgaon, Yavatmal, Maharashtra, Pin - 445001.</p>
                 </div>
                 <div class="col-sm-4 mt-3">
                     <span><i class="fa fa-phone"></i></span>
                     <br>
-                    <p>9767986750, 9876567876</p>
+                    <p>8180008641, 9511663616</p>
                 </div>
                 <div class="col-sm-4 mt-3">
                     <span><i class="fa fa-envelope"></i></span>
                     <br>
-                    <p style="word-wrap: break-word;">support@slingshotassociation.com</p>
+                    <p style="word-wrap: break-word;">slingshot.maha@gmail.com</p>
                 </div>
             </div>
         </div>
         <div class="user-info text-center mt-5">
             <h2>Our Members</h2>
             <div class="row justify-content-center">
-                <div class="col-sm-6 col-md-3 card-col" *ngFor="let user of users">
+                <div class="col-sm-6 col-md-4 card-col" *ngFor="let member of members">
                     <div class="card card-cascade">
                         <div class="view view-cascade overlay">
                             <div class="img-area mt-5">
@@ -34,13 +34,13 @@
                             </div>
                         </div>
                         <div class="card-body card-body-cascade text-center">
-                            <h4 class="mt-3"><strong>Mr. Lalit Dhoke</strong></h4>
-                            <span>(General Secretory)</span>
+                            <h4 class="mt-3"><strong>{{member.name}}</strong></h4>
+                            <span class="text-info">({{member.role}})</span>
                             <br>
-                            <span>lalit.dhoke@gmail.com</span>
+                            <span>{{member.email}}</span>
                             <div class="social-icons mt-3">
-                                <i class="fa fa-phone" matTooltip="9767986750" matTooltipPosition="above"></i>
-                                <i class="fa fa-envelope" matTooltip="example@gmail.com" matTooltipPosition="above"></i>
+                                <i class="fa fa-phone" [matTooltip]="member.mobile" matTooltipPosition="above"></i>
+                                <i class="fa fa-envelope" [matTooltip]="member.email" matTooltipPosition="above"></i>
                                 <i class="fa fa-facebook" matTooltip="facebook" matTooltipPosition="above"></i>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
             </div>
             <div class="row mt-5 mb-5">
                 <div class="col-md-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.411540644868!2d78.12331016498716!3d20.407138940141095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd3ef5069c2f4d3%3A0x64917a602369d8c0!2sVeddharini%20Primary%2C%20Madhyamik%20%26%20uccha%20Madhyamik%20Vidhyalay%2CPimpalgaon%2CYavatmal!5e0!3m2!1sen!2sin!4v1582019705692!5m2!1sen!2sin"
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.296419656939!2d78.1262283696957!3d20.4118795880123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd3ef4606797df5%3A0x99fdaa3c4f6b7d9d!2sPimpalgaon%2C%20Yavatmal%2C%20Maharashtra%20445001!5e0!3m2!1sen!2sin!4v1583593786510!5m2!1sen!2sin"
                         width="100%" class="shadow map" height="350" frameborder="0" scrolling="no" marginheight="0" allowfullscreen=""></iframe>
                 </div>
                 <div class="col-md-6">

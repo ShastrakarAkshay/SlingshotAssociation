@@ -32,6 +32,10 @@ import { ProfileComponent } from './admin/profile/profile.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { PopupDialog } from './shared/services/auth.service';
 import { ToastrModule } from 'ngx-toastr';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -67,7 +71,11 @@ import { ToastrModule } from 'ngx-toastr';
     MatInputModule,
     MatCheckboxModule,
     MatDialogModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatIconModule
   ],
   entryComponents: [PopupDialog],
   providers: [],

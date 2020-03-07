@@ -1,4 +1,9 @@
 #approval {
     font-family: "Didact Gothic", sans-serif;
-    margin-top: 100px;
+    margin-top: 80px;
+    .data-table {
+        .mat-header-cell {
+            font-size: 15px !important;
+        }
+    }
 }
