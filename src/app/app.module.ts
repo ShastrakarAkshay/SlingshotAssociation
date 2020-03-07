@@ -16,7 +16,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { SlingshotComponent } from './slingshot/slingshot.component';
 import { GalleryComponent } from './gallery/gallery.component';
-import { AssociationComponent, PopupDialog } from './association/association.component';
+import { AssociationComponent } from './association/association.component';
 import { MatchResultsComponent } from './match-results/match-results.component';
 import {MatInputModule} from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
@@ -30,6 +30,8 @@ import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { PopupDialog } from './shared/services/auth.service';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     MatTooltipModule,
     MatInputModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    ToastrModule.forRoot()
   ],
   entryComponents: [PopupDialog],
   providers: [],

@@ -28,7 +28,6 @@ export class AssociationComponent implements OnInit {
   constructor(
     private slingshotService: SlingshotService,
     private formBuilder: FormBuilder,
-    private dialog: MatDialog,
     private auth: AuthService) {
     this.getAvailableDistrictList();
   }
@@ -90,9 +89,6 @@ export class AssociationComponent implements OnInit {
     let formData = this.registerForm.value;
     formData['requestedDistrict'] = this.selectedDistrict;
     this.auth.signUp(formData);
-    this.dialog.open(PopupDialog, {
-      width: '80%'
-    });
   }
 
   onFormReset() {
@@ -116,24 +112,5 @@ export class AssociationComponent implements OnInit {
         else if (doc == 'doc3')
           this.isFileValid3 = true;
     }
-  }
-}
-
-@Component({
-  selector: 'popup-dialog',
-  templateUrl: 'registration-popup.html'
-})
-export class PopupDialog implements OnInit {
-
-  constructor(private router: Router, public dialogRef: MatDialogRef<PopupDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: {}) {
-    dialogRef.disableClose = true;
-  }
-
-  ngOnInit() { }
-
-  onNoClick() {
-    this.dialogRef.close();
-    this.router.navigateByUrl('/login');
   }
 }

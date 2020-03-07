@@ -8,6 +8,7 @@
 6. npm install -g firebase firebase-tools --save
 7. npm install @angular/fire --save
 8. npm i @fortawesome/angular-fontawesome --save
+9. npm i ngx-toastr --save
 
 
 #team

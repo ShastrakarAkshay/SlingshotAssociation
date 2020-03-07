@@ -2,7 +2,6 @@
 #admin {
     font-family: "Didact Gothic", sans-serif;
     margin-top: 100px;
-
     .actions {
         .card {
             margin-top: 30px;
@@ -43,6 +42,13 @@
         }
         .badge {
             background-color: $th-color;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        //mobile device
+        .actions {
+            margin-left: 20px;
+            margin-right: 20px;
         }
     }
 }
