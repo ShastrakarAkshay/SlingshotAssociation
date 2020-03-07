@@ -25,3 +25,19 @@ export interface UpcommingEventsConfig {
     phone: string;
 }
 
+export interface UserConfig {
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    email: string;
+    mobile: string;
+    dateOfBirth: string;
+    panNo: string;
+    aadhaarNo: string;
+    addressLine1: string;
+    addressLine2: string;
+    city: string;
+    state: string;
+    pin: string;
+}
+

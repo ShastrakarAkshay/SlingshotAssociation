@@ -6,6 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,7 @@ export class AuthService {
       .then((result) => {
         this.router.navigate(['/admin']);
         localStorage.setItem('login-token', result.user.uid);
+        localStorage.setItem('user-id', result.user.uid);
         this.isLoggedIn();
       }).catch((error) => {
         console.log("error")
@@ -70,6 +72,7 @@ export class AuthService {
     } else {
       this.loginResource.next(false);
       localStorage.removeItem('login-token');
+      localStorage.removeItem('user-id');
     }
     return user;
   }

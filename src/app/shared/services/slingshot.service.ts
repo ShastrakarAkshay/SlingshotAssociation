@@ -46,7 +46,11 @@ export class SlingshotService {
   }
 
   getAffiliationRequests(): any {
-    this.firestore.collection("req").snapshotChanges();
+    this.firestore.collection("RegistrationRequests").snapshotChanges();
+  }
+
+  getUserById(id: string): any {
+    return this.firestore.collection('RegistrationRequests').doc(id).get();
   }
 
   getLatestMatchResults() {

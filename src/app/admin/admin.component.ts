@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SlingshotService } from '../shared/services/slingshot.service';
+import { UserConfig } from '../shared/interfaces/slingshot.interface';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  private userID: string;
+  private userData: UserConfig;
 
-  ngOnInit() {
+  constructor(private _service: SlingshotService) {
+    this.userID = localStorage.getItem('user-id');
   }
 
+  ngOnInit() {
+    this._service.getUserById(this.userID).subscribe(config => {
+    
+    });
+    console.log(this.userData)
+  }
 }
