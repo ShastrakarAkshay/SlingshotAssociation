@@ -9,6 +9,7 @@
 7. npm install @angular/fire --save
 8. npm i @fortawesome/angular-fontawesome --save
 9. npm i ngx-toastr@10.0.4 --save
+10. npm i ngx-spinner --save
 
 
 #team

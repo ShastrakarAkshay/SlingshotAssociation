@@ -24,7 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AdminComponent } from './admin/admin.component';
-import { AffiliationRequestsComponent } from './admin/affiliation-requests/affiliation-requests.component';
+import { AffiliationRequestsComponent, DistrictApprovalDialog } from './admin/affiliation-requests/affiliation-requests.component';
 import { EventsComponent } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
@@ -36,6 +36,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatchResultsComponent,
     LoginComponent,
     PopupDialog,
+    DistrictApprovalDialog,
     AdminComponent,
     AffiliationRequestsComponent,
     EventsComponent,
@@ -75,9 +77,10 @@ import {MatIconModule} from '@angular/material/icon';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatIconModule
+    MatIconModule,
+    NgxSpinnerModule
   ],
-  entryComponents: [PopupDialog],
+  entryComponents: [PopupDialog, DistrictApprovalDialog],
   providers: [],
   bootstrap: [AppComponent]
 })

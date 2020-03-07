@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { DistrictConfig } from '../shared/interfaces/slingshot.interface';
 import { SlingshotService } from '../shared/services/slingshot.service';
 import { AuthService } from '../shared/services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-association',
@@ -24,15 +25,20 @@ export class AssociationComponent implements OnInit {
   private allDistricts: Array<any> = [];
   private isChecked: boolean = false;
   private selectedDistrict: DistrictConfig;
+  private showSpinner: boolean = false;
 
   constructor(
     private slingshotService: SlingshotService,
     private formBuilder: FormBuilder,
-    private auth: AuthService) {
-    this.getAvailableDistrictList();
+    private auth: AuthService,
+    private _spinner: NgxSpinnerService) {
+
   }
 
   ngOnInit() {
+    this._spinner.show();
+    this.showSpinner = true;
+    this.getAvailableDistrictList();
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       middleName: ['', Validators.required],
@@ -62,6 +68,8 @@ export class AssociationComponent implements OnInit {
   getAvailableDistrictList() {
     this.slingshotService.getAvailabelDistricts().subscribe(data => {
       data.map(item => { this.availableDistricts.push(item.payload.doc.data()) });
+      this._spinner.hide();
+      this.showSpinner = false;
     });
 
     this.slingshotService.getAllDistricts().subscribe(data => {

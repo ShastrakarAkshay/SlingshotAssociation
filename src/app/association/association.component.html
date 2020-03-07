@@ -16,7 +16,6 @@
             </div>
         </div>
     </div>
-
     <div class="container form-area mt-5" *ngIf="showForm">
         <h4 class="text-center title">Affiliation For "{{selectedDistrict.name}}" District</h4>
         <form id="regForm" class="mt-4" [formGroup]="registerForm">
@@ -243,5 +242,12 @@
                 <input type="button" class="btn act-btn ml-2" value="clear" height="50px" (click)="onFormReset()">
             </div>
         </form>
+    </div>
+
+    <div class="row spinner-area" *ngIf="showSpinner">
+        <div class="col-md-12 p-5">
+            <ngx-spinner bdOpacity="0.3" bdColor="#00000030" size="default" color="#581f87" type="ball-pulse-sync" [fullScreen]="true">
+            </ngx-spinner>
+        </div>
     </div>
 </section>
