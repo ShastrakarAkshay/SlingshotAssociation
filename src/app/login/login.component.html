@@ -6,22 +6,13 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-5 mt-3">
                         <form [formGroup]="loginForm">
-                            <div class="col" hidden>
-                                <div class="form-group alert alert-danger">
-                                    Please provid valid email or password.
-                                </div>
-                            </div>
-
                             <div class="col">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" formControlName="email"
-                                        placeholder="enter email" height="50px"
-                                        [ngClass]="{'is-invalid':loginForm.get('email').touched && loginForm.get('email').invalid}">
+                                    <input type="email" class="form-control" formControlName="email" placeholder="enter email" height="50px" [ngClass]="{'is-invalid':loginForm.get('email').touched && loginForm.get('email').invalid}">
                                     <span class="invalid-feedback alert alert-danger">
                                         <span *ngIf="loginForm.get('email').errors?.required">Field is
                                             required</span>
-                                        <span
-                                            *ngIf="loginForm.get('email').invalid && !loginForm.get('email').errors?.required">
+                                    <span *ngIf="loginForm.get('email').invalid && !loginForm.get('email').errors?.required">
                                             Invalid email.</span>
                                     </span>
                                 </div>
@@ -29,10 +20,7 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="enter password"
-                                        formControlName="password"
-                                        [ngClass]="{'is-invalid':loginForm.get('password').touched && loginForm.get('password').invalid}"
-                                        height="50px">
+                                    <input type="password" class="form-control" placeholder="enter password" formControlName="password" [ngClass]="{'is-invalid':loginForm.get('password').touched && loginForm.get('password').invalid}" height="50px">
                                     <span class="invalid-feedback alert alert-danger">
                                         Field is required
                                     </span>
@@ -41,8 +29,7 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <input type="button" class="btn form-control" value="Login" (click)="login()"
-                                        [disabled]="!loginForm.valid">
+                                    <input type="button" class="btn form-control" value="Login" (click)="login()" [disabled]="!loginForm.valid">
                                 </div>
                             </div>
                             <div class="col text-center">
@@ -69,8 +56,7 @@
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="confirm password"
-                                    height="50px">
+                                <input type="password" class="form-control" placeholder="confirm password" height="50px">
                             </div>
                         </div>
                         <div class="col">

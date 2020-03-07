@@ -45,10 +45,15 @@ export class AuthService {
     return await this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.router.navigate(['/admin']);
-        localStorage.setItem('login-token', 'jjraobiskxzh32asdfkjhkzzxdf64sdf');
+        localStorage.setItem('login-token', result.user.uid);
         this.isLoggedIn();
       }).catch((error) => {
-        window.alert(error.message);
+        console.log("error")
+        console.log(error)
+        switch(error.code){
+          case 'auth/user-not-found' : this.toastr.error('User Not Found'); break;
+          case 'auth/wrong-password' : this.toastr.error('Wrong Password'); break;
+        }
       })
   }
 

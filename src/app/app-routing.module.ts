@@ -15,6 +15,7 @@ import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { LoginGuard } from './shared/guards/login.guard';
 
 
 const routes: Routes = [
@@ -48,7 +49,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [LoginGuard]
   },
   {
     path: 'admin',
