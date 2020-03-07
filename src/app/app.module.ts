@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { NavbarComponent } from './layout/navbar/navbar.component';
+import { NavbarComponent, LogouDialog } from './layout/navbar/navbar.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
@@ -52,6 +52,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatchResultsComponent,
     LoginComponent,
     PopupDialog,
+    LogouDialog,
     DistrictApprovalDialog,
     AdminComponent,
     AffiliationRequestsComponent,
@@ -80,7 +81,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatIconModule,
     NgxSpinnerModule
   ],
-  entryComponents: [PopupDialog, DistrictApprovalDialog],
+  entryComponents: [PopupDialog, DistrictApprovalDialog, LogouDialog],
   providers: [],
   bootstrap: [AppComponent]
 })
