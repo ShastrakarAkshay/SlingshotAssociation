@@ -65,8 +65,8 @@ export class AssociationComponent implements OnInit {
   }
 
   // fetch all available district list
-  getAvailableDistrictList() {
-    this.slingshotService.getAvailabelDistricts().subscribe(data => {
+  async getAvailableDistrictList() {
+    await this.slingshotService.getAvailabelDistricts().subscribe(data => {
       data.map(item => { this.availableDistricts.push(item.payload.doc.data()) });
       this._spinner.hide();
       this.showSpinner = false;
@@ -96,6 +96,7 @@ export class AssociationComponent implements OnInit {
     // create authentication user in firebase
     let formData = this.registerForm.value;
     formData['requestedDistrict'] = this.selectedDistrict;
+    delete formData.terms; delete formData.confirmPassword; delete formData.requestedDistrict.isRegistered;
     this.auth.signUp(formData);
   }
 

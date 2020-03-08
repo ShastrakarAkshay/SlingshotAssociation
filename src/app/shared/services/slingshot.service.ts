@@ -9,27 +9,64 @@ import { of } from 'rxjs';
 export class SlingshotService {
 
   constructor(private firestore: AngularFirestore, private _toastr: ToastrService) { }
-
+  districtList = [
+    { name: 'Ahmednagar', isRegistered: false },
+    { name: 'Akola', isRegistered: false },
+    { name: 'Amravati', isRegistered: false },
+    { name: 'Aurangabad', isRegistered: false },
+    { name: 'Bhandara', isRegistered: false },
+    { name: 'Buldhana', isRegistered: false },
+    { name: 'Chandrapur', isRegistered: false },
+    { name: 'Dhule', isRegistered: false },
+    { name: 'Gadchiroli', isRegistered: false },
+    { name: 'Gondia', isRegistered: false },
+    { name: 'Hingoli', isRegistered: false },
+    { name: 'Jalgaon', isRegistered: false },
+    { name: 'Jalna', isRegistered: false },
+    { name: 'Kolhapur', isRegistered: false },
+    { name: 'Latur', isRegistered: false },
+    { name: 'Mumbai', isRegistered: false },
+    { name: 'Nagpur', isRegistered: false },
+    { name: 'Nanded', isRegistered: false },
+    { name: 'Nandurbar', isRegistered: false },
+    { name: 'Nashik', isRegistered: false },
+    { name: 'Osmanabad', isRegistered: false },
+    { name: 'Palghar', isRegistered: false },
+    { name: 'Parbhani', isRegistered: false },
+    { name: 'Pune', isRegistered: false },
+    { name: 'Raigad', isRegistered: false },
+    { name: 'Alibag', isRegistered: false },
+    { name: 'Ratnagiri', isRegistered: false },
+    { name: 'Sangli', isRegistered: false },
+    { name: 'Satara', isRegistered: false },
+    { name: 'Sindhudurg', isRegistered: false },
+    { name: 'Oros', isRegistered: false },
+    { name: 'Solapur', isRegistered: false },
+    { name: 'Thane', isRegistered: false },
+    { name: 'Wardha', isRegistered: false },
+    { name: 'Washim', isRegistered: false },
+    { name: 'Yavatmal', isRegistered: false }
+  ];
   addDist() {
-    console.log('service called');
+    // console.log('service called');
     // this.districtList.forEach((item, index) => {
-    //   this.firestore.collection("districtList").add(item).then(ref => {
+    //   this.firestore.collection("DistrictList").add(item).then(ref => {
     //     ref.set({ id: ref.id }, { merge: true });
     //   });
     // });
   }
 
   getAllDistricts(): any {
-    return this.firestore.collection('districtList', ref => ref.orderBy('name')).snapshotChanges();
+    return this.firestore.collection('DistrictList', ref => ref.orderBy('name', 'asc')).snapshotChanges();
 
   }
 
   getAvailabelDistricts(): any {
-    return this.firestore.collection('districtList', ref => ref.where('isRegistered', '==', false).orderBy('name')).snapshotChanges();
+    return this.firestore.collection('DistrictList', ref => ref.where('isRegistered', '==', false).orderBy('name', 'asc')).snapshotChanges();
   }
 
   getRegisteredDistricts(): any {
-    return this.firestore.collection('districtList', ref => ref.where('isRegistered', '==', true).orderBy('name')).snapshotChanges();
+    return this.firestore.collection('DistrictList', ref => ref.where('isRegistered', '==', true).orderBy('name', 'asc')).snapshotChanges();
   }
 
   getDistrictById(distArr: any, id: string): any {
@@ -38,33 +75,33 @@ export class SlingshotService {
     return district;
   }
 
-  getDistrictInfoById(id: string): any {
-    return this.firestore.collection("districtList").doc(id);
+  getRegisteredDistrictInfoById(id: string): any {
+    return this.firestore.collection("ApprovedDistricts").doc(id).collection('Members').snapshotChanges();
   }
 
   districtRegistration(data: any, userID: any) {
-    // this.firestore.collection("RegistrationRequests").add(data);
-    this.firestore.collection("RegistrationRequests").doc(userID).set(data);
+    // this.firestore.collection("AffiliationRequests").add(data);
+    this.firestore.collection("AffiliationRequests").doc(userID).set(data);
   }
 
   getAffiliationRequests(): any {
-    return this.firestore.collection("RegistrationRequests", ref => ref.orderBy('firstName', 'asc')).snapshotChanges();
+    return this.firestore.collection("AffiliationRequests", ref => ref.orderBy('firstName', 'asc')).snapshotChanges();
   }
 
   getUserById(id: string): any {
-    return this.firestore.collection('RegistrationRequests').doc(id).get();
+    return this.firestore.collection('AffiliationRequests').doc(id).get();
   }
 
   approveDistrict(data: any): any {
-    this.firestore.doc('RegisteredDistricts/' + data.requestedDistrict.id).collection('Members').get().subscribe(config => {
+    this.firestore.doc('ApprovedDistricts/' + data.requestedDistrict.id).collection('Members').get().subscribe(config => {
       // 1. check district id is already exist or not
       if (config.size === 0) {
         // If not exist then add
-        this.firestore.collection('RegisteredDistricts').doc(data.requestedDistrict.id).collection('Members').doc(data.id).set(data);
+        this.firestore.collection('ApprovedDistricts').doc(data.requestedDistrict.id).collection('Members').doc(data.id).set(data);
         // Update isRegister flag in district list
-        this.firestore.collection('districtList').doc(data.requestedDistrict.id).update({ isRegistered: true });
+        this.firestore.collection('DistrictList').doc(data.requestedDistrict.id).update({ isRegistered: true });
         // Delete user data from RegistrationRequests collection
-        this.firestore.collection('RegistrationRequests').doc(data.id).delete();
+        this.firestore.collection('AffiliationRequests').doc(data.id).delete();
       } else {
         this._toastr.error("District is already allocated.");
       }

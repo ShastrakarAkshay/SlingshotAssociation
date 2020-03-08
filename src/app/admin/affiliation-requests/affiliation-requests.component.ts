@@ -36,11 +36,10 @@ export class AffiliationRequestsComponent implements OnInit {
       this.affiliatinRequests = data.map(item => {
         return {
           id: item.payload.doc.id,
-          index: Number(item.payload.newIndex) + 1,
-          name: item.payload.doc.get('firstName') + ' ' + item.payload.doc.get('lastName'),
           ...item.payload.doc.data()
         }
       });
+      console.log(this.affiliatinRequests)
       this.dataSource.data = this.affiliatinRequests;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -56,7 +55,6 @@ export class AffiliationRequestsComponent implements OnInit {
   getPersonInfo(personData: string) {
     const dialogConfig = new MatDialogConfig();
     this._dialog.open(DistrictApprovalDialog, {
-      // width: '90%',
       data: personData,
       autoFocus: false
     });
@@ -97,8 +95,9 @@ export class DistrictApprovalDialog implements OnInit {
     this._dialogRef.close();
   }
 
-  approveDistrict() {
-    this._service.approveDistrict(this.personData);
+  approveDistrict(personData) {
+    personData.approvedOn = new Date();
+    this._service.approveDistrict(personData);
     this.close();
   }
 }

@@ -13,22 +13,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AffliationComponent implements OnInit {
 
-  disticts: any;
-  distInfo: any;
-  members: AffiliatedMembers;
-  distName: string;
-
-  private selectedDistrict: DistrictConfig;
-  private registeredDistricts: Array<any> = [];
+  private selectedDistrict: DistrictConfig[] = [];
+  private registeredDistrictsList: Array<any> = [];
   private showSpinner: boolean = false;
 
-  constructor(private affiliationService: AffilationService, private slingshotService: SlingshotService, private _spinner: NgxSpinnerService) { }
+  constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.disticts = this.affiliationService.getRegisteredDistricts();
-    this.distInfo = this.affiliationService.getDistrictInfo();
-    this.members = this.distInfo.members;
-
     this.showSpinner = true;
     this._spinner.show();
     this.getRegisteredDistrictList();
@@ -36,9 +27,9 @@ export class AffliationComponent implements OnInit {
 
   // Fetch all registered districts list
   getRegisteredDistrictList() {
-    this.slingshotService.getRegisteredDistricts().subscribe(data => {
+    this._service.getRegisteredDistricts().subscribe(data => {
       data.map(item => {
-        this.registeredDistricts.push(item.payload.doc.data());
+        this.registeredDistrictsList.push(item.payload.doc.data());
       });
       this._spinner.hide();
       this.showSpinner = false;
@@ -46,14 +37,19 @@ export class AffliationComponent implements OnInit {
   }
 
   getDistrictInfo(id) {
-    this.selectedDistrict = this.slingshotService.getDistrictById(this.registeredDistricts, id);
+    this._service.getRegisteredDistrictInfoById(id).subscribe(config => {
+      this.selectedDistrict = [];
+      config.map(data => {
+        console.log(data.payload.doc.data())
+        this.selectedDistrict.push(data.payload.doc.data());
+      });
+      console.log("selectedDistrict")
+      console.log(this.selectedDistrict)
+    })
   }
 
   searchDistrict(distName) {
-    this.disticts.map(name => {
-      if (distName.toLowerCase().includes(name.toLowerCase())) {
-      }
-    });
+    
   }
 
 }

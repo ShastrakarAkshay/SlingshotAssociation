@@ -28,8 +28,8 @@ export class AuthService {
   signUp(data): any {
     return this.afAuth.auth.createUserWithEmailAndPassword(data.email, data.password)
       .then((result) => {
-        delete data.password; delete data.terms; delete data.confirmPassword; data.isApproved = false;
-        this.firestore.collection("RegistrationRequests").doc(result.user.uid).set(data);
+        delete data.password;
+        this.firestore.collection("AffiliationRequests").doc(result.user.uid).set({role: 'President', ...data});
         this.dialog.open(PopupDialog, {
           width: '80%'
         });
