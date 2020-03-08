@@ -10,16 +10,15 @@ import { UserConfig } from '../shared/interfaces/slingshot.interface';
 export class AdminComponent implements OnInit {
 
   private userID: string;
-  private userData: UserConfig;
+  private requestCount: number = 0;
 
   constructor(private _service: SlingshotService) {
     this.userID = localStorage.getItem('user-id');
   }
 
   ngOnInit() {
-    this._service.getUserById(this.userID).subscribe(config => {
-    
+    this._service.getAffiliationRequests().subscribe(data => {
+      this.requestCount = data.length;
     });
-    console.log(this.userData)
   }
 }

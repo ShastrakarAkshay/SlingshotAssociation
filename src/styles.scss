@@ -39,6 +39,11 @@ $th-color-dark: #ff3600;
     background: #edf3f5;
 }
 
+.sling-btn {
+    background-color: #ff8b23;
+    color: #fff;
+}
+
 
 /* Logo-Text */
 
@@ -69,6 +74,11 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+// Global dialog css
 .cdk-overlay-dark-backdrop {
     background: rgba(0, 0, 0, 0.69) !important;
+}
+
+.cdk-overlay-container {
+    z-index: 2000 !important;
 }
