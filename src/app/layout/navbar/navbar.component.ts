@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
 
   signOut() {
     this._dialog.open(LogouDialog, {
-      width: '30%',
+      autoFocus: false
     });
   }
 

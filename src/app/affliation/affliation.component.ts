@@ -36,7 +36,7 @@ export class AffliationComponent implements OnInit {
 
   // Fetch all registered districts list
   getRegisteredDistrictList() {
-    this.slingshotService.getAvailabelDistricts().subscribe(data => {
+    this.slingshotService.getRegisteredDistricts().subscribe(data => {
       data.map(item => {
         this.registeredDistricts.push(item.payload.doc.data());
       });

@@ -244,10 +244,8 @@
         </form>
     </div>
 
-    <div class="row spinner-area" *ngIf="showSpinner">
-        <div class="col-md-12 p-5">
-            <ngx-spinner bdOpacity="0.3" bdColor="#00000030" size="default" color="#581f87" type="ball-pulse-sync" [fullScreen]="true">
-            </ngx-spinner>
-        </div>
+    <div class="spinner-area" *ngIf="showSpinner">
+        <ngx-spinner bdOpacity="0.3" bdColor="#00000030" size="default" color="#581f87" type="ball-pulse-sync" [fullScreen]="true">
+        </ngx-spinner>
     </div>
 </section>

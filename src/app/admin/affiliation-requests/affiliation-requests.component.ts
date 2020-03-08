@@ -21,7 +21,7 @@ export class AffiliationRequestsComponent implements OnInit {
 
   private affiliatinRequests: any[] = [];
   private totalCount: number = 0;
-  private showSpinner:boolean = false;
+  private showSpinner: boolean = false;
 
   constructor(private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService) { }
 
@@ -56,8 +56,9 @@ export class AffiliationRequestsComponent implements OnInit {
   getPersonInfo(personData: string) {
     const dialogConfig = new MatDialogConfig();
     this._dialog.open(DistrictApprovalDialog, {
-      width: '80%',
-      data: personData
+      // width: '90%',
+      data: personData,
+      autoFocus: false
     });
   }
 
@@ -70,13 +71,22 @@ export class AffiliationRequestsComponent implements OnInit {
   templateUrl: 'district-approval.html',
   styles: [`* {
     font-family: "Didact Gothic", sans-serif;
-  }`]
+  }
+  .mat-dialog-container {
+    margin-top: 100px !important;
+  }
+  `]
 })
 export class DistrictApprovalDialog implements OnInit {
 
   private personData: any;
-  constructor(private _router: Router, public _dialogRef: MatDialogRef<DistrictApprovalDialog>,
-    @Inject(MAT_DIALOG_DATA) public data) {
+
+  constructor(
+    public _dialogRef: MatDialogRef<DistrictApprovalDialog>,
+    private _service: SlingshotService,
+    private _spinner: NgxSpinnerService,
+    @Inject(MAT_DIALOG_DATA) public data
+  ) {
     _dialogRef.disableClose = true;
     this.personData = data;
   }
@@ -85,5 +95,10 @@ export class DistrictApprovalDialog implements OnInit {
 
   close() {
     this._dialogRef.close();
+  }
+
+  approveDistrict() {
+    this._service.approveDistrict(this.personData);
+    this.close();
   }
 }

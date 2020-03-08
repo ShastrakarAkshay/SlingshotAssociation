@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ToastrService } from 'ngx-toastr';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SlingshotService {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore, private _toastr: ToastrService) { }
 
   addDist() {
     console.log('service called');
@@ -51,6 +53,22 @@ export class SlingshotService {
 
   getUserById(id: string): any {
     return this.firestore.collection('RegistrationRequests').doc(id).get();
+  }
+
+  approveDistrict(data: any): any {
+    this.firestore.doc('RegisteredDistricts/' + data.requestedDistrict.id).collection('Members').get().subscribe(config => {
+      // 1. check district id is already exist or not
+      if (config.size === 0) {
+        // If not exist then add
+        this.firestore.collection('RegisteredDistricts').doc(data.requestedDistrict.id).collection('Members').doc(data.id).set(data);
+        // Update isRegister flag in district list
+        this.firestore.collection('districtList').doc(data.requestedDistrict.id).update({ isRegistered: true });
+        // Delete user data from RegistrationRequests collection
+        this.firestore.collection('RegistrationRequests').doc(data.id).delete();
+      } else {
+        this._toastr.error("District is already allocated.");
+      }
+    });
   }
 
   getLatestMatchResults() {

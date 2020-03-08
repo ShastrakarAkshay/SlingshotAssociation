@@ -1,10 +1,45 @@
 <h3 class="text-center"><strong>Requested For "{{personData.requestedDistrict.name}}" District</strong></h3>
-
+<hr>
 <mat-dialog-content>
-
-
+    <table class="table table-responsive table-borderless" width="100%">
+        <tbody>
+            <tr>
+                <td width="30%" class="text-right"><strong>Name</strong></td>
+                <td width="70%" class="text-capitalize">{{personData.firstName}} {{personData.middleName}} {{personData.lastName}}</td>
+            </tr>
+            <tr>
+                <td width="30%" class="text-right"><strong>Address</strong></td>
+                <td width="70%" class="text-capitalize">{{personData.addressLine1}}, {{personData.addressLine2}}, {{personData.city}}, {{personData.district}}, Pin Code - {{personData.pin}}.</td>
+            </tr>
+            <tr>
+                <td width="30%" class="text-right"><strong>Email</strong></td>
+                <td width="70%">{{personData.email}}</td>
+            </tr>
+            <tr>
+                <td width="30%" class="text-right"><strong>Mobile</strong></td>
+                <td width="70%">{{personData.mobile}}</td>
+            </tr>
+            <tr>
+                <td width="30%" class="text-right"><strong>Date of Birth</strong></td>
+                <td width="70%">{{personData.dateOfBirth}}</td>
+            </tr>
+            <tr>
+                <td width="30%" class="text-right"><strong>PAN No.</strong></td>
+                <td width="70%" class="text-uppercase">{{personData.panNo}}</td>
+            </tr>
+            <tr>
+                <td width="30%" class="text-right"><strong>Aadhaar No.</strong></td>
+                <td width="70%">{{personData.aadhaarNo}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center mt-3 mb-3">
+        <button mat-raised-button class="btn" (click)="approveDistrict()">Approve</button>
+        <button mat-raised-button class="btn ml-3" (click)="close()">Close</button>
+    </div>
 </mat-dialog-content>
 
-<mat-dialog-actions>
-    <button class="btn btn-primary" (click)="close()">Close</button>
-</mat-dialog-actions>
+<div *ngIf="showSpinner">
+    <ngx-spinner bdOpacity="0.3" bdColor="#00000030" size="default" color="#581f87" type="ball-pulse-sync" [fullScreen]="true">
+    </ngx-spinner>
+</div>

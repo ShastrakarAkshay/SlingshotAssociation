@@ -37,6 +37,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import { NgxSpinnerModule } from "ngx-spinner";
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatButtonModule
   ],
   entryComponents: [PopupDialog, DistrictApprovalDialog, LogouDialog],
   providers: [],
