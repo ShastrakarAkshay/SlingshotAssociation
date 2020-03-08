@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AffilationService } from '../Services/affilation.service';
-import { AffiliatedMembers } from './affiliation.interface';
 import { SlingshotService } from '../shared/services/slingshot.service';
-import { DistrictConfig } from '../shared/interfaces/slingshot.interface';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -13,9 +9,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AffliationComponent implements OnInit {
 
-  private selectedDistrict: DistrictConfig[] = [];
-  private registeredDistrictsList: Array<any> = [];
+  private selectedDistrict: any[] = [];
+  private registeredDistrictsList: any[] = [];
   private showSpinner: boolean = false;
+  private districtInfo: any = { districtName: '', approvedOn: ''};
 
   constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService) { }
 
@@ -25,11 +22,13 @@ export class AffliationComponent implements OnInit {
     this.getRegisteredDistrictList();
   }
 
-  // Fetch all registered districts list
   getRegisteredDistrictList() {
     this._service.getRegisteredDistricts().subscribe(data => {
-      data.map(item => {
+      data.map((item, index) => { 
         this.registeredDistrictsList.push(item.payload.doc.data());
+        if(index === 0){
+          this.getDistrictInfo(this.registeredDistrictsList[0].id);
+        }
       });
       this._spinner.hide();
       this.showSpinner = false;
@@ -39,17 +38,15 @@ export class AffliationComponent implements OnInit {
   getDistrictInfo(id) {
     this._service.getRegisteredDistrictInfoById(id).subscribe(config => {
       this.selectedDistrict = [];
-      config.map(data => {
-        console.log(data.payload.doc.data())
+      config.map((data, index) => {
         this.selectedDistrict.push(data.payload.doc.data());
+        if (index === 0) {
+          this.districtInfo = { districtName: this.selectedDistrict[0].requestedDistrict.name, approvedOn: this.selectedDistrict[0].approvedOn }
+        }
       });
-      console.log("selectedDistrict")
-      console.log(this.selectedDistrict)
     })
   }
 
-  searchDistrict(distName) {
-    
-  }
+  searchDistrict(distName) { }
 
 }

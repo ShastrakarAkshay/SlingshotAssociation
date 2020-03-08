@@ -102,6 +102,7 @@ export class SlingshotService {
         this.firestore.collection('DistrictList').doc(data.requestedDistrict.id).update({ isRegistered: true });
         // Delete user data from RegistrationRequests collection
         this.firestore.collection('AffiliationRequests').doc(data.id).delete();
+        this._toastr.success("District Approved Successfully.")
       } else {
         this._toastr.error("District is already allocated.");
       }
