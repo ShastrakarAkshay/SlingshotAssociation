@@ -55,47 +55,75 @@
             </div>
             <div class="row mt-5 mb-5">
                 <div class="col-md-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.296419656939!2d78.1262283696957!3d20.4118795880123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd3ef4606797df5%3A0x99fdaa3c4f6b7d9d!2sPimpalgaon%2C%20Yavatmal%2C%20Maharashtra%20445001!5e0!3m2!1sen!2sin!4v1583593786510!5m2!1sen!2sin"
-                        width="100%" class="shadow map" height="350" frameborder="0" scrolling="no" marginheight="0" allowfullscreen=""></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.296419656939!2d78.1262283696957!3d20.4118795880123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd3ef4606797df5%3A0x99fdaa3c4f6b7d9d!2sPimpalgaon%2C%20Yavatmal%2C%20Maharashtra%20445001!5e0!3m2!1sen!2sin!4v1583593786510!5m2!1sen!2sin"
+                        width="100%" class="shadow map" height="350" frameborder="0" scrolling="no" marginheight="0"
+                        allowfullscreen=""></iframe>
                 </div>
                 <div class="col-md-6">
-                    <form action="" class="contactForm">
+                    <form [formGroup]="contactForm" class="contactForm">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control field" placeholder="First Name">
+                                    <input type="text" class="form-control field" placeholder="First Name"
+                                        formcontrolname="firtName"
+                                        [ngClass]="{'is-invalid':contactForm.get('firtName').touched && contactForm.get('firtName').invalid}">
+                                    <span class="invalid-feedback alert alert-danger">
+                                        Field is required
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control field" placeholder="Last Name">
+                                    <input type="text" class="form-control field" placeholder="Last Name"
+                                        formcontrolname="lastName"
+                                        [ngClass]="{'is-invalid':contactForm.get('lastName').touched && contactForm.get('lastName').invalid}">
+                                    <span class="invalid-feedback alert alert-danger">
+                                        Field is required
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control field" placeholder="Email">
+                                    <input type="text" class="form-control field" placeholder="Email"
+                                        formcontrolname="email"  minlength="10" maxlength="10"
+                                        [ngClass]="{'is-invalid':contactForm.get('email').touched && contactForm.get('email').invalid}">
+                                    <span class="invalid-feedback alert alert-danger">
+                                        Field is required
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control field" placeholder="Mobile">
+                                    <input type="text" class="form-control field" placeholder="Mobile"
+                                        formcontrolname="mobile"
+                                        [ngClass]="{'is-invalid':contactForm.get('mobile').touched && contactForm.get('mobile').invalid}">
+                                    <span class="invalid-feedback alert alert-danger">
+                                        Field is required
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <textarea rows="4" cols="50" class="form-control" placeholder="Message"></textarea>
+                                    <textarea rows="4" cols="50" class="form-control" placeholder="Message"
+                                        formcontrolname="message"
+                                        [ngClass]="{'is-invalid':contactForm.get('message').touched && contactForm.get('message').invalid}"></textarea>
+                                    <span class="invalid-feedback alert alert-danger">
+                                        Field is required
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div class="row text-center">
                             <div class="col-sm-12">
-                                <input type="button" class="btn action-button" name="Send" value="Send">
+                                <input type="button" class="btn action-button" name="Send" value="Send"
+                                    (click)="sendEnquiry()" [disabled]="!contactForm.valid">
                             </div>
                         </div>
                     </form>
