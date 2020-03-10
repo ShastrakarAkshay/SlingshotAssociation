@@ -38,6 +38,7 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatIconModule} from '@angular/material/icon';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatSortModule,
     MatIconModule,
     NgxSpinnerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule
   ],
   entryComponents: [PopupDialog, DistrictApprovalDialog, LogouDialog],
   providers: [],
