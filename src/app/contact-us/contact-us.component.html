@@ -9,7 +9,7 @@
                 <div class="col-sm-4 mt-3">
                     <span><i class="fa fa-map-marker"></i></span>
                     <br>
-                    <p>Matoshree Niwas, Dhamangaon By-Pass, Pimpalgaon, Yavatmal, Maharashtra, Pin - 445001.</p>
+                    <p>Matoshree Niwas, Dhamangaon By-Pass, Pimpalgaon, Yavatmal, Maharashtra, Pin Code - 445001.</p>
                 </div>
                 <div class="col-sm-4 mt-3">
                     <span><i class="fa fa-phone"></i></span>
@@ -66,8 +66,8 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control field" placeholder="First Name"
-                                        formcontrolname="firtName"
-                                        [ngClass]="{'is-invalid':contactForm.get('firtName').touched && contactForm.get('firtName').invalid}">
+                                        formControlName="firstName"
+                                        [ngClass]="{'is-invalid':contactForm.get('firstName')?.touched && contactForm.get('firstName').invalid}">
                                     <span class="invalid-feedback alert alert-danger">
                                         Field is required
                                     </span>
@@ -76,8 +76,8 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control field" placeholder="Last Name"
-                                        formcontrolname="lastName"
-                                        [ngClass]="{'is-invalid':contactForm.get('lastName').touched && contactForm.get('lastName').invalid}">
+                                        formControlName="lastName"
+                                        [ngClass]="{'is-invalid':contactForm.get('lastName')?.touched && contactForm.get('lastName').invalid}">
                                     <span class="invalid-feedback alert alert-danger">
                                         Field is required
                                     </span>
@@ -88,10 +88,13 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control field" placeholder="Email"
-                                        formcontrolname="email"  minlength="10" maxlength="10"
-                                        [ngClass]="{'is-invalid':contactForm.get('email').touched && contactForm.get('email').invalid}">
+                                        formControlName="email"
+                                        [ngClass]="{'is-invalid':contactForm.get('email')?.touched && contactForm.get('email').invalid}">
                                     <span class="invalid-feedback alert alert-danger">
-                                        Field is required
+                                        <span *ngIf="contactForm.get('email').errors?.required">Field is required</span>
+                                        <span
+                                            *ngIf="contactForm.get('email').invalid && !contactForm.get('email').errors?.required">
+                                            Invalid email.</span>
                                     </span>
                                 </div>
                             </div>
@@ -100,10 +103,14 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control field" placeholder="Mobile"
-                                        formcontrolname="mobile"
-                                        [ngClass]="{'is-invalid':contactForm.get('mobile').touched && contactForm.get('mobile').invalid}">
+                                        formControlName="mobile" minlength="10" maxlength="10"
+                                        [ngClass]="{'is-invalid':contactForm.get('mobile')?.touched && contactForm.get('mobile').invalid}">
                                     <span class="invalid-feedback alert alert-danger">
-                                        Field is required
+                                        <span *ngIf="contactForm.get('mobile').errors?.required">Field is
+                                            required</span>
+                                        <span
+                                            *ngIf="contactForm.get('mobile').invalid && !contactForm.get('mobile').errors?.required">
+                                            Invalid Mobile Number</span>
                                     </span>
                                 </div>
                             </div>
@@ -112,8 +119,8 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <textarea rows="4" cols="50" class="form-control" placeholder="Message"
-                                        formcontrolname="message"
-                                        [ngClass]="{'is-invalid':contactForm.get('message').touched && contactForm.get('message').invalid}"></textarea>
+                                        formControlName="message"
+                                        [ngClass]="{'is-invalid':contactForm.get('message')?.touched && contactForm.get('message').invalid}"></textarea>
                                     <span class="invalid-feedback alert alert-danger">
                                         Field is required
                                     </span>
@@ -122,8 +129,10 @@
                         </div>
                         <div class="row text-center">
                             <div class="col-sm-12">
-                                <input type="button" class="btn action-button" name="Send" value="Send"
-                                    (click)="sendEnquiry()" [disabled]="!contactForm.valid">
+                                <input type="button" mat-raised-button class="btn sling-btn" name="Send"
+                                    value="Send" (click)="sendEnquiry()" [disabled]="!contactForm.valid">
+                                <input type="button" mat-raised-button class="btn sling-btn ml-2" name="clear"
+                                    value="Clear" (click)="clearForm()">
                             </div>
                         </div>
                     </form>

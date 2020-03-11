@@ -109,6 +109,14 @@ export class SlingshotService {
     });
   }
 
+  sendEnquiry(data: any) {
+    this.firestore.collection('Enquiries').add(data);
+  }
+
+  getEnquiries(): any {
+    return this.firestore.collection('Enquiries').snapshotChanges();
+  }
+
   getLatestMatchResults() {
     // return only 3 or 4 latest records (winning)
     return null;

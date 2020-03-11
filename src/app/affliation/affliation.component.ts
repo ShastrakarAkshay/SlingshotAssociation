@@ -12,30 +12,29 @@ export class AffliationComponent implements OnInit {
   private selectedDistrict: any[] = [];
   private registeredDistrictsList: any[] = [];
   private showSpinner: boolean = false;
-  private districtInfo: any = { districtName: '', approvedOn: ''};
+  private districtInfo: any = { districtName: '', approvedOn: '' };
 
   constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.showSpinner = true;
-    this._spinner.show();
+    this.spinnerShow();
     this.getRegisteredDistrictList();
   }
 
   getRegisteredDistrictList() {
     this._service.getRegisteredDistricts().subscribe(data => {
-      data.map((item, index) => { 
+      data.map((item, index) => {
         this.registeredDistrictsList.push(item.payload.doc.data());
-        if(index === 0){
+        if (index === 0) {
           this.getDistrictInfo(this.registeredDistrictsList[0].id);
         }
       });
-      this._spinner.hide();
-      this.showSpinner = false;
+      this.spinnerHide();
     });
   }
 
   getDistrictInfo(id) {
+    this.spinnerShow();
     this._service.getRegisteredDistrictInfoById(id).subscribe(config => {
       this.selectedDistrict = [];
       config.map((data, index) => {
@@ -44,9 +43,20 @@ export class AffliationComponent implements OnInit {
           this.districtInfo = { districtName: this.selectedDistrict[0].requestedDistrict.name, approvedOn: this.selectedDistrict[0].approvedOn }
         }
       });
-    })
+      this.spinnerHide();
+    });
   }
 
   searchDistrict(distName) { }
+
+  spinnerShow() {
+    this.showSpinner = true;
+    this._spinner.show();
+  }
+
+  spinnerHide() {
+    this._spinner.hide();
+    this.showSpinner = false;
+  }
 
 }

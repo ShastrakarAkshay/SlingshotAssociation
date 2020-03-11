@@ -11,6 +11,7 @@ export class AdminComponent implements OnInit {
 
   private userID: string;
   private requestCount: number = 0;
+  private enquiryCount: number = 0;
 
   constructor(private _service: SlingshotService) {
     this.userID = localStorage.getItem('user-id');
@@ -19,6 +20,10 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this._service.getAffiliationRequests().subscribe(data => {
       this.requestCount = data.length;
+    });
+
+    this._service.getEnquiries().subscribe(data => {
+      this.enquiryCount = data.length;
     });
   }
 }

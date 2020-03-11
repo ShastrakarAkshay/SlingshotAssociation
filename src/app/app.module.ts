@@ -24,7 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AdminComponent } from './admin/admin.component';
-import { AffiliationRequestsComponent, DistrictApprovalDialog } from './admin/affiliation-requests/affiliation-requests.component';
+import { AffiliationRequestsComponent, DistrictApprovalDialog, ConfirmDeleteDialog, ConfirmApprovalDialog } from './admin/affiliation-requests/affiliation-requests.component';
 import { EventsComponent } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
@@ -55,6 +55,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     LoginComponent,
     PopupDialog,
     LogouDialog,
+    ConfirmApprovalDialog,
+    ConfirmDeleteDialog,
     DistrictApprovalDialog,
     AdminComponent,
     AffiliationRequestsComponent,
@@ -85,7 +87,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatButtonModule,
     MatDatepickerModule
   ],
-  entryComponents: [PopupDialog, DistrictApprovalDialog, LogouDialog],
+  entryComponents: [PopupDialog, DistrictApprovalDialog, LogouDialog, ConfirmDeleteDialog, ConfirmApprovalDialog],
   providers: [],
   bootstrap: [AppComponent]
 })

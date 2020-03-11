@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SlingshotService } from '../shared/services/slingshot.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -53,8 +54,8 @@ export class ContactUsComponent implements OnInit {
     }
   ];
 
-  private contactForm : FormGroup;
-  constructor( private formBuilder: FormBuilder) { }
+  private contactForm: FormGroup;
+  constructor(private formBuilder: FormBuilder, private _service: SlingshotService) { }
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
@@ -65,5 +66,16 @@ export class ContactUsComponent implements OnInit {
       message: ['', Validators.required]
     });
   }
+
+  clearForm() {
+    this.contactForm.reset();
+  }
+
+  sendEnquiry() {
+    this._service.sendEnquiry(this.contactForm.value);
+    this.clearForm();
+  }
+
+
 
 }
