@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
 declare var $: any;
 @Component({
   selector: 'app-navbar',
@@ -24,8 +25,15 @@ export class NavbarComponent implements OnInit {
   }
 
   signOut() {
-    this._dialog.open(LogouDialog, {
+    let dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to logout?', type: 'confirm' },
       autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.auth.signOut();
+      }
     });
   }
 
@@ -41,33 +49,5 @@ export class NavbarComponent implements OnInit {
         $('.navbar-collapse').collapse('hide');
       }
     });
-  }
-}
-
-
-
-@Component({
-  selector: 'logout-dialog',
-  templateUrl: 'logout-dialog.html',
-  styles: [`* {
-    font-family: "Didact Gothic", sans-serif;
-  }`]
-})
-export class LogouDialog implements OnInit {
-
-  constructor(private _router: Router,  private _auth: AuthService, public _dialogRef: MatDialogRef<LogouDialog>,
-    @Inject(MAT_DIALOG_DATA) public data) {
-    _dialogRef.disableClose = true;
-  }
-
-  ngOnInit() { }
-
-  close() {
-    this._dialogRef.close();
-  }
-
-  sigOut(){
-    this.close();
-    this._auth.signOut();
   }
 }

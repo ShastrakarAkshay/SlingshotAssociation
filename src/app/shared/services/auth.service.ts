@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { ConfirmDialogComponent } from '../dialogs/confirm-dialog/confirm-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +31,16 @@ export class AuthService {
       .then((result) => {
         delete data.password;
         this.firestore.collection("AffiliationRequests").doc(result.user.uid).set({role: 'President', ...data});
-        this.dialog.open(PopupDialog, {
+
+        let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+          data: { message: 'Do you want to approve user?', type: 'register' },
+          autoFocus: false,
           width: '80%'
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+            this.router.navigateByUrl('/login');
+          }
         });
       }).catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
@@ -50,8 +59,6 @@ export class AuthService {
         localStorage.setItem('user-id', result.user.uid);
         this.isLoggedIn();
       }).catch((error) => {
-        console.log("error")
-        console.log(error)
         switch(error.code){
           case 'auth/user-not-found' : this.toastr.error('User Not Found'); break;
           case 'auth/wrong-password' : this.toastr.error('Wrong Password'); break;
@@ -75,25 +82,5 @@ export class AuthService {
       localStorage.removeItem('user-id');
     }
     return user;
-  }
-}
-
-
-@Component({
-  selector: 'popup-dialog',
-  templateUrl: 'popup-views/registration-popup.html'
-})
-export class PopupDialog implements OnInit {
-
-  constructor(private router: Router, public dialogRef: MatDialogRef<PopupDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: {}) {
-    dialogRef.disableClose = true;
-  }
-
-  ngOnInit() { }
-
-  onNoClick() {
-    this.dialogRef.close();
-    this.router.navigateByUrl('/login');
   }
 }

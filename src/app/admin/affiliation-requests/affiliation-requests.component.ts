@@ -7,6 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatDialogConfig } from '@angu
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-affiliation-requests',
@@ -24,7 +25,7 @@ export class AffiliationRequestsComponent implements OnInit {
   private totalCount: number = 0;
   private showSpinner: boolean = false;
 
-  constructor(private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService) { }
+  constructor(private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService, private _toastr: ToastrService, ) { }
 
   ngOnInit() {
     this.showSpinner = true;
@@ -53,7 +54,6 @@ export class AffiliationRequestsComponent implements OnInit {
   }
 
   getPersonInfo(personData: any) {
-    const dialogConfig = new MatDialogConfig();
     this._dialog.open(DistrictApprovalDialog, {
       data: personData,
       autoFocus: false
@@ -61,17 +61,19 @@ export class AffiliationRequestsComponent implements OnInit {
   }
 
   deleteRequest(personData: any) {
-    const dialogConfig = new MatDialogConfig();
-    this._dialog.open(ConfirmDeleteDialog, {
-      data: personData,
+    let dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to delete record?', type: 'confirm' },
       autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._toastr.success('Request Deleted Successfully.');
+      }
     });
   }
 
 }
-
-
-
 @Component({
   selector: 'district-approval-dialog',
   templateUrl: 'dialogs/district-approval.html',
@@ -103,87 +105,16 @@ export class DistrictApprovalDialog implements OnInit {
   }
 
   approveDistrict(personData: any) {
-    const dialogConfig = new MatDialogConfig();
-    this._dialog.open(ConfirmApprovalDialog, {
-      data: personData,
+    let dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to approve user?', type: 'confirm' },
       autoFocus: false
     });
-    this.close();
-  }
-}
 
-
-@Component({
-  selector: 'confirm-delete-dialog',
-  templateUrl: 'dialogs/confirm-delete-dialog.html',
-  styles: [`* {
-    font-family: "Didact Gothic", sans-serif;
-  }
-  .mat-dialog-container {
-    margin-top: 100px !important;
-  }
-  `]
-})
-export class ConfirmDeleteDialog implements OnInit {
-  private personData: any;
-  constructor(
-    public _dialogRef: MatDialogRef<ConfirmDeleteDialog>,
-    private _service: SlingshotService,
-    private _spinner: NgxSpinnerService,
-    private toastr: ToastrService,
-    @Inject(MAT_DIALOG_DATA) public data
-  ) {
-    _dialogRef.disableClose = true;
-    this.personData = data;
-  }
-
-  ngOnInit() { }
-
-  close() {
-    this._dialogRef.close();
-  }
-
-  delete() {
-    this.close();
-    this.toastr.success('Request Deleted Successfully.');
-  }
-}
-
-
-
-@Component({
-  selector: 'confirm-approval-dialog',
-  templateUrl: 'dialogs/confirm-approval-dialog.html',
-  styles: [`* {
-    font-family: "Didact Gothic", sans-serif;
-  }
-  .mat-dialog-container {
-    margin-top: 100px !important;
-  }
-  `]
-})
-export class ConfirmApprovalDialog implements OnInit {
-  private personData: any;
-  constructor(
-    public _dialogRef: MatDialogRef<ConfirmApprovalDialog>,
-    private _service: SlingshotService,
-    private _spinner: NgxSpinnerService,
-    private toastr: ToastrService,
-    @Inject(MAT_DIALOG_DATA) public data
-  ) {
-    _dialogRef.disableClose = true;
-    this.personData = data;
-  }
-
-  ngOnInit() { }
-
-  close() {
-    this._dialogRef.close();
-  }
-
-  approve() {
-    this.personData.approvedOn = new Date();
-    this._service.approveDistrict(this.personData);
-    this.close();
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        personData.approvedOn = new Date();
+        this._service.approveDistrict(personData);
+      }
+    });
   }
 }

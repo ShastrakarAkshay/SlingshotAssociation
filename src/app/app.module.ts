@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { NavbarComponent, LogouDialog } from './layout/navbar/navbar.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
@@ -24,13 +24,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AdminComponent } from './admin/admin.component';
-import { AffiliationRequestsComponent, DistrictApprovalDialog, ConfirmDeleteDialog, ConfirmApprovalDialog } from './admin/affiliation-requests/affiliation-requests.component';
+import { AffiliationRequestsComponent, DistrictApprovalDialog} from './admin/affiliation-requests/affiliation-requests.component';
 import { EventsComponent } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
 import { ProfileComponent } from './admin/profile/profile.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { PopupDialog } from './shared/services/auth.service';
 import { ToastrModule } from 'ngx-toastr';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -39,6 +38,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -53,17 +53,14 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     AssociationComponent,
     MatchResultsComponent,
     LoginComponent,
-    PopupDialog,
-    LogouDialog,
-    ConfirmApprovalDialog,
-    ConfirmDeleteDialog,
     DistrictApprovalDialog,
     AdminComponent,
     AffiliationRequestsComponent,
     EventsComponent,
     EnquiriesComponent,
     MatchEventResultsComponent,
-    ProfileComponent
+    ProfileComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     FormsModule,
@@ -87,7 +84,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatButtonModule,
     MatDatepickerModule
   ],
-  entryComponents: [PopupDialog, DistrictApprovalDialog, LogouDialog, ConfirmDeleteDialog, ConfirmApprovalDialog],
+  entryComponents: [DistrictApprovalDialog, ConfirmDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
