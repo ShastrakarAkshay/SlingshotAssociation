@@ -15,42 +15,48 @@ export class HomeComponent implements OnInit {
       role: 'President',
       email: 'xyz@gmail.com',
       mobile: '',
-      class: 'active'
+      class: 'active',
+      pic: './assets/images/bipin-chaudhari.jpg'
     },
     {
       name: 'Mr. Vikas Shelke',
       role: 'General Secretory',
       email: 'xyz@gmail.com',
       mobile: '',
-      class: ''
+      class: '',
+      pic: './assets/images/vikas-shelke.jpg'
     },
     {
       name: 'Mr. Lalit Dhoke',
       role: 'Vice President',
       email: 'xyz@gmail.com',
       mobile: '',
-      class: ''
+      class: '',
+      pic: './assets/images/lalit-dhoke.jpg'
     },
     {
       name: 'Mr. Sham Khemaskar',
       role: 'Treasurer',
       email: 'xyz@gmail.com',
       mobile: '',
-      class: ''
+      class: '',
+      pic: './assets/images/user-pic.jpg'
     },
     {
       name: 'Mr. Pravin Dighade',
       role: 'Join Secretory',
       email: 'xyz@gmail.com',
       mobile: '',
-      class: ''
+      class: '',
+      pic: './assets/images/user-pic.jpg'
     },
     {
       name: 'Mr. Sunil Shinde',
       role: 'Representative',
       email: 'xyz@gmail.com',
       mobile: '',
-      class: ''
+      class: '',
+      pic: './assets/images/user-pic.jpg'
     }
   ];
 
