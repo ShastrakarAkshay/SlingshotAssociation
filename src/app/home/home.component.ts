@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
       email: 'xyz@gmail.com',
       mobile: '',
       class: 'active',
-      pic: './assets/images/bipin-chaudhari.jpg'
+      pic: './assets/images/members/bipin-chaudhari.jpg'
     },
     {
       name: 'Mr. Vikas Shelke',
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
       email: 'xyz@gmail.com',
       mobile: '',
       class: '',
-      pic: './assets/images/vikas-shelke.jpg'
+      pic: './assets/images/members/vikas-shelke.jpg'
     },
     {
       name: 'Mr. Lalit Dhoke',
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       email: 'xyz@gmail.com',
       mobile: '',
       class: '',
-      pic: './assets/images/lalit-dhoke.jpg'
+      pic: './assets/images/members/lalit-dhoke.jpg'
     },
     {
       name: 'Mr. Sham Khemaskar',

@@ -196,9 +196,9 @@
                         <li data-target="#contactCourousel" *ngFor="let member of members; let i = index" [ngClass]="member.class"></li>
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item pb-5" *ngFor="let member of members;" [ngClass]="member.class">
+                        <div class="carousel-item pb-5" *ngFor="let member of members" [ngClass]="member.class">
                             <div class="img-area">
-                                <img src="./assets/images/user-pic.jpg" alt="">
+                                <img [src]="member.pic" alt="">
                             </div>
                             <div class="carousel-caption">
                                 <h3 class="mt-3">{{member.name}}</h3>
