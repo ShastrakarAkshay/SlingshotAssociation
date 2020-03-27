@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-events',
@@ -48,6 +49,28 @@ export class EventsComponent implements OnInit {
       width: '60%'
     });
   }
+
+  deleteEventById(id) {
+    let dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to delete?', type: 'confirm' },
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._service.deleteEventById(id);
+      }
+    });
+  }
+
+  editEvent(event: any) {
+    this._dialog.open(CreateEventDialog, {
+      autoFocus: false,
+      width: '60%',
+      data: event
+    });
+  }
+
 }
 
 
@@ -64,6 +87,8 @@ export class EventsComponent implements OnInit {
 })
 export class CreateEventDialog implements OnInit {
   private eventForm: FormGroup;
+  private eventData: any;
+
   constructor(
     public _dialogRef: MatDialogRef<CreateEventDialog>,
     private _service: SlingshotService,
@@ -71,6 +96,7 @@ export class CreateEventDialog implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     _dialogRef.disableClose = true;
+    this.eventData = data;
   }
 
   ngOnInit() {
@@ -81,6 +107,16 @@ export class CreateEventDialog implements OnInit {
       contactPersons: ['', Validators.required],
       contactNumbers: ['', Validators.required]
     });
+
+    if (this.eventData) {
+      this.eventForm.setValue({
+        eventTitle: this.eventData.eventTitle,
+        eventAddress: this.eventData.eventAddress,
+        eventDate: this.eventData.eventDate,
+        contactPersons: this.eventData.contactPersons,
+        contactNumbers: this.eventData.contactNumbers
+      })
+    }
   }
 
   close() {

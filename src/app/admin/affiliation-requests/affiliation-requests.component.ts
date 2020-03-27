@@ -60,15 +60,15 @@ export class AffiliationRequestsComponent implements OnInit {
     });
   }
 
-  deleteRequest(personData: any) {
+  deleteRequest(id: any) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Do you want to delete record?', type: 'confirm' },
+      data: { message: 'Do you want to delete?', type: 'confirm' },
       autoFocus: false
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this._toastr.success('Request Deleted Successfully.');
+        this._service.deleteRequestById(id);
       }
     });
   }

@@ -37,7 +37,7 @@
                     <td mat-cell *matCellDef="let element" width="20%">
                         <div class="row p-2">
                             <a class="btn text-info pointer" (click)="getPersonInfo(element)">View</a>
-                            <a class="btn text-danger pointer" (click)="deleteRequest(element)">Delete</a>
+                            <a class="btn text-danger pointer" (click)="deleteRequest(element.id)">Delete</a>
                         </div>
                     </td>
                 </ng-container>

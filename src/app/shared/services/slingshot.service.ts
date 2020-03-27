@@ -88,6 +88,11 @@ export class SlingshotService {
     return this.firestore.collection("AffiliationRequests", ref => ref.orderBy('firstName', 'asc')).snapshotChanges();
   }
 
+  deleteRequestById(id: any):any {
+    this.firestore.collection('AffiliationRequests').doc(id).delete();
+    this._toastr.info("Request Deleted Successfully.");
+  }
+
   getUserById(id: string): any {
     return this.firestore.collection('AffiliationRequests').doc(id).get();
   }
@@ -117,6 +122,11 @@ export class SlingshotService {
     return this.firestore.collection('Enquiries').snapshotChanges();
   }
 
+  deleteEnquiryById(id:any) {
+    this.firestore.collection('Enquiries').doc(id).delete();
+    this._toastr.info("Enquiry Deleted Successfully.");
+  }
+
   createEvent(event) {
     this.firestore.collection('Events').add(event);
     this._toastr.success("Event Created Successfully.");
@@ -124,6 +134,11 @@ export class SlingshotService {
 
   getAllEvents(): any {
     return this.firestore.collection('Events').snapshotChanges();
+  }
+
+  deleteEventById(id: any): any {
+    this.firestore.collection('Events').doc(id).delete();
+    this._toastr.info("Event Deleted Successfully.");
   }
 
   getLatestMatchResults() {
