@@ -25,7 +25,7 @@ export class AffiliationRequestsComponent implements OnInit {
   private totalCount: number = 0;
   private showSpinner: boolean = false;
 
-  constructor(private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService, private _toastr: ToastrService, ) { }
+  constructor(private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
   ngOnInit() {
     this.showSpinner = true;

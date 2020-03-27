@@ -1,143 +1,145 @@
 @import "../../styles.scss";
 .action-button {
-    display: inline-block;
-    padding: 10px 45px;
-    background-color: $th-color;
-    font-size: 17px;
-    color: #fff;
-    text-transform: uppercase;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    margin-top: 10px;
-    text-decoration: none;
-    border-radius: 0em !important;
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: $th-color;
+  font-size: 17px;
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin-top: 10px;
+  text-decoration: none;
+  border-radius: 0em !important;
 }
 
 #contact-us {
-    font-family: "Didact Gothic", sans-serif;
-    margin-top: 80px;
-    .jumbotron {
-        background-color: #212325 !important;
-        color: #fff;
-        border-radius: 0em;
+  font-family: "Didact Gothic", sans-serif;
+  margin-top: 80px;
+  .jumbotron {
+    background-color: #212325 !important;
+    color: #fff;
+    border-radius: 0em;
+  }
+  .img-area {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
     }
-    .img-area {
-        width: 150px;
-        height: 150px;
-        margin: auto;
-        border: 2px solid #fff;
-        border-radius: 50%;
-        overflow: hidden;
-        img {
-            width: 100%;
-        }
+  }
+  .social-icons i {
+    padding: 10px;
+  }
+  .social-icons i:hover {
+    color: $th-color;
+  }
+  .association-info {
+    h2 {
+      font-family: "Righteous";
     }
-    .social-icons i {
-        padding: 10px;
+    i {
+      font-size: 30px;
+      padding: 15px;
+      border-radius: 50%;
+      text-align: center;
+      background: #1b1919;
+      margin-right: 15px;
+      width: 60px;
+      color: #fff;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
     }
-    .social-icons i:hover {
-        color: $th-color;
+    p {
+      font-size: 20px;
+      margin-top: 20px;
     }
-    .association-info {
-        h2 {
-            font-family: "Righteous";
-        }
-        i {
-            font-size: 30px;
-            padding: 15px;
-            border-radius: 50%;
-            text-align: center;
-            background: #1b1919;
-            margin-right: 15px;
-            width: 60px;
-            color: #fff;
-            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
-            ;
-        }
-        p {
-            font-size: 20px;
-            margin-top: 20px;
-        }
+  }
+  .user-info {
+    h2 {
+      font-family: "Righteous";
     }
-    .user-info {
-        h2 {
-            font-family: "Righteous";
+    .card {
+      margin-top: 30px;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+      overflow: hidden;
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        background: $th-color;
+        height: 4px;
+        -webkit-transition-property: left right;
+        transition-property: left right;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+      }
+      &:hover:before {
+        left: 0;
+        right: 0;
+      }
+      &:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        .member-name {
+          color: $th-color;
         }
-        .card {
-            margin-top: 30px;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            -moz-osx-font-smoothing: grayscale;
-            position: relative;
-            overflow: hidden;
-            &:before {
-                content: "";
-                position: absolute;
-                z-index: -1;
-                left: 50%;
-                right: 50%;
-                bottom: 0;
-                background: $th-color;
-                height: 4px;
-                -webkit-transition-property: left right;
-                transition-property: left right;
-                -webkit-transition-duration: 0.3s;
-                transition-duration: 0.3s;
-                -webkit-transition-timing-function: ease-out;
-                transition-timing-function: ease-out;
-            }
-            &:hover:before {
-                left: 0;
-                right: 0;
-            }
-            &:hover {
-                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-            }
-        }
+      }
     }
-    .contact-form {
-        margin-top: 80px !important;
-        h2 {
-            font-family: "Righteous";
-        }
-        .field {
-            height: 50px;
-        }
-        .field,
-        textarea {
-            border-radius: 0em;
-        }
-        .field:hover,
-        textarea:hover,
-        .action-button:hover {
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
-        }
-        .map {
-            border-radius: 0.3em;
-        }
+  }
+  .contact-form {
+    margin-top: 80px !important;
+    h2 {
+      font-family: "Righteous";
     }
+    .field {
+      height: 50px;
+    }
+    .field,
+    textarea {
+      border-radius: 0em;
+    }
+    .field:hover,
+    textarea:hover,
+    .action-button:hover {
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+    }
+    .map {
+      border-radius: 0.3em;
+    }
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    //mobile device
-    #contact-us {
-        .user-info {
-            .card {
-                margin-top: 20px;
-            }
-        }
-        .card-col {
-            padding-left: 50px;
-            padding-right: 50px;
-        }
-        .contactForm {
-            margin-top: 50px;
-        }
-        .contact-form {
-            padding-left: 10px;
-            padding-right: 10px;
-        }
+  //mobile device
+  #contact-us {
+    .user-info {
+      .card {
+        margin-top: 20px;
+      }
     }
+    .card-col {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    .contactForm {
+      margin-top: 50px;
+    }
+    .contact-form {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
 }

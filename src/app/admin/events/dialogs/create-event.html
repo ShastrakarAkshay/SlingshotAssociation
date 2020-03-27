@@ -1,0 +1,72 @@
+<h2 class="text-center p-3 bg-dark text-white">Create Event</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="eventForm">
+        <div class="row mt-5">
+            <div class="col-sm-12">
+                <label><strong>Event Title</strong></label>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="eventTitle" [ngClass]="{'is-invalid':eventForm.get('eventTitle').touched && eventForm.get('eventTitle').invalid}">
+                    <span class="invalid-feedback alert alert-danger">
+                        Field is required
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label><strong>Event Addresss</strong></label>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="eventAddress" [ngClass]="{'is-invalid':eventForm.get('eventAddress').touched && eventForm.get('eventAddress').invalid}">
+                    <span class="invalid-feedback alert alert-danger">
+                        Field is required
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label><strong>Event Date</strong></label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="date" class="form-control" formControlName="eventDate" [ngClass]="{'is-invalid':eventForm.get('eventDate').touched && eventForm.get('eventDate').invalid}">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label> <strong>Contact Persons</strong> </label>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="contactPersons" [ngClass]="{'is-invalid':eventForm.get('contactPersons').touched && eventForm.get('contactPersons').invalid}">
+                    <span class="invalid-feedback alert alert-danger">
+                        Field is required
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label><strong>Contact Numbers</strong></label>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="contactNumbers" [ngClass]="{'is-invalid':eventForm.get('contactNumbers').touched && eventForm.get('contactNumbers').invalid}">
+                    <span class="invalid-feedback alert alert-danger">
+                        Field is required
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<div mat-dialog-actions class="pb-4 pt-4 row justify-content-center">
+    <button mat-button class="btn sling-btn" (click)="createEvent()" [disabled]="!eventForm.valid">Create</button>
+    <button mat-button class="btn sling-btn ml-3" (click)="close()" cdkFocusInitial>Close</button>
+</div>

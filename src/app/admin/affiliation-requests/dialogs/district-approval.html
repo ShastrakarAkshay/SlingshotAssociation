@@ -1,7 +1,6 @@
-<h3 class="text-center"><strong>Requested For "{{personData.requestedDistrict.name}}" District</strong></h3>
-<hr>
+<h3 class="text-center bg-dark text-white p-3"><strong>Requested For "{{personData.requestedDistrict.name}}" District</strong></h3>
 <mat-dialog-content>
-    <table class="table table-responsive table-borderless" width="100%">
+    <table class="table table-responsive table-bordered" width="100%">
         <tbody>
             <tr>
                 <td width="30%" class="text-right"><strong>Name</strong></td>
@@ -33,11 +32,12 @@
             </tr>
         </tbody>
     </table>
-    <div class="text-center mt-3 mb-3">
-        <button mat-raised-button class="btn sling-btn" (click)="approveDistrict(personData)">Approve</button>
-        <button mat-raised-button class="btn sling-btn ml-3" (click)="close()">Close</button>
-    </div>
 </mat-dialog-content>
+
+<div mat-dialog-actions class="pb-4 pt-4 row justify-content-center">
+    <button mat-button class="btn sling-btn" (click)="approveDistrict(personData)">Approve</button>
+    <button mat-button class="btn sling-btn ml-3" (click)="close()">Close</button>
+</div>
 
 <div *ngIf="showSpinner">
     <ngx-spinner bdOpacity="0.3" bdColor="#00000030" size="default" color="#581f87" type="ball-pulse-sync" [fullScreen]="true">

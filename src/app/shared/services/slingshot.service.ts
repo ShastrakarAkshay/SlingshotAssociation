@@ -117,6 +117,15 @@ export class SlingshotService {
     return this.firestore.collection('Enquiries').snapshotChanges();
   }
 
+  createEvent(event) {
+    this.firestore.collection('Events').add(event);
+    this._toastr.success("Event Created Successfully.");
+  }
+
+  getAllEvents(): any {
+    return this.firestore.collection('Events').snapshotChanges();
+  }
+
   getLatestMatchResults() {
     // return only 3 or 4 latest records (winning)
     return null;

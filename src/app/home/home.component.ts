@@ -101,12 +101,21 @@ export class HomeComponent implements OnInit {
   ];
 
   districtList: any[] = [];
+  private eventData: any[] = [];
 
-  constructor(private slingshotService: SlingshotService) {
-
+  constructor(private _service: SlingshotService) {
   }
 
   ngOnInit() {
+    this.getAllEvents();
+    console.log(this.eventData)
   }
 
+  getAllEvents() {
+    this._service.getAllEvents().subscribe(data => {
+      data.map(item => {
+        this.eventData.push({ id: item.payload.doc.id, ...item.payload.doc.data() })
+      });
+    })
+  }
 }

@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"contact-us\">\r\n    <div class=\"jumbotron text-center\">\r\n        <h2>Contact Us</h2>\r\n    </div>\r\n    <div class=\"container mt-5\">\r\n        <div class=\"association-info text-center\">\r\n            <h2>Contact Our Association</h2>\r\n            <div class=\"row mt-5\">\r\n                <div class=\"col-sm-4 mt-3\">\r\n                    <span><i class=\"fa fa-map-marker\"></i></span>\r\n                    <br>\r\n                    <p>Matoshree Niwas, Dhamangaon By-Pass, Pimpalgaon, Yavatmal, Maharashtra, Pin Code - 445001.</p>\r\n                </div>\r\n                <div class=\"col-sm-4 mt-3\">\r\n                    <span><i class=\"fa fa-phone\"></i></span>\r\n                    <br>\r\n                    <p>8180008641, 9511663616, 8432146555</p>\r\n                </div>\r\n                <div class=\"col-sm-4 mt-3\">\r\n                    <span><i class=\"fa fa-envelope\"></i></span>\r\n                    <br>\r\n                    <p style=\"word-wrap: break-word;\">slingshot.maha@gmail.com</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"user-info text-center mt-5\">\r\n            <h2>Our Members</h2>\r\n            <div class=\"row justify-content-center\">\r\n                <div class=\"col-sm-6 col-md-4 card-col\" *ngFor=\"let member of members\">\r\n                    <div class=\"card card-cascade\">\r\n                        <div class=\"view view-cascade overlay\">\r\n                            <div class=\"img-area mt-5\">\r\n                                <img src=\"./assets/images/user-pic-default.png\" alt=\"\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"card-body card-body-cascade text-center\">\r\n                            <h4 class=\"mt-3\"><strong>{{member.name}}</strong></h4>\r\n                            <span class=\"text-info\">({{member.role}})</span>\r\n                            <br>\r\n                            <span>{{member.email}}</span>\r\n                            <div class=\"social-icons mt-3\">\r\n                                <i class=\"fa fa-phone\" [matTooltip]=\"member.mobile\" matTooltipPosition=\"above\"></i>\r\n                                <i class=\"fa fa-envelope\" [matTooltip]=\"member.email\" matTooltipPosition=\"above\"></i>\r\n                                <i class=\"fa fa-facebook\" matTooltip=\"facebook\" matTooltipPosition=\"above\"></i>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"contact-form mt-5\">\r\n            <div class=\"text-center\">\r\n                <h2>Get in touch</h2>\r\n            </div>\r\n            <div class=\"row mt-5 mb-5\">\r\n                <div class=\"col-md-6\">\r\n                    <iframe\r\n                        src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.296419656939!2d78.1262283696957!3d20.4118795880123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd3ef4606797df5%3A0x99fdaa3c4f6b7d9d!2sPimpalgaon%2C%20Yavatmal%2C%20Maharashtra%20445001!5e0!3m2!1sen!2sin!4v1583593786510!5m2!1sen!2sin\"\r\n                        width=\"100%\" class=\"shadow map\" height=\"350\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\"\r\n                        allowfullscreen=\"\"></iframe>\r\n                </div>\r\n                <div class=\"col-md-6\">\r\n                    <form [formGroup]=\"contactForm\" class=\"contactForm\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-6\">\r\n                                <div class=\"form-group\">\r\n                                    <input type=\"text\" class=\"form-control field\" placeholder=\"First Name\"\r\n                                        formControlName=\"firstName\"\r\n                                        [ngClass]=\"{'is-invalid':contactForm.get('firstName')?.touched && contactForm.get('firstName').invalid}\">\r\n                                    <span class=\"invalid-feedback alert alert-danger\">\r\n                                        Field is required\r\n                                    </span>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-sm-6\">\r\n                                <div class=\"form-group\">\r\n                                    <input type=\"text\" class=\"form-control field\" placeholder=\"Last Name\"\r\n                                        formControlName=\"lastName\"\r\n                                        [ngClass]=\"{'is-invalid':contactForm.get('lastName')?.touched && contactForm.get('lastName').invalid}\">\r\n                                    <span class=\"invalid-feedback alert alert-danger\">\r\n                                        Field is required\r\n                                    </span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <div class=\"form-group\">\r\n                                    <input type=\"text\" class=\"form-control field\" placeholder=\"Email\"\r\n                                        formControlName=\"email\"\r\n                                        [ngClass]=\"{'is-invalid':contactForm.get('email')?.touched && contactForm.get('email').invalid}\">\r\n                                    <span class=\"invalid-feedback alert alert-danger\">\r\n                                        <span *ngIf=\"contactForm.get('email').errors?.required\">Field is required</span>\r\n                                        <span\r\n                                            *ngIf=\"contactForm.get('email').invalid && !contactForm.get('email').errors?.required\">\r\n                                            Invalid email.</span>\r\n                                    </span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <div class=\"form-group\">\r\n                                    <input type=\"text\" class=\"form-control field\" placeholder=\"Mobile\"\r\n                                        formControlName=\"mobile\" minlength=\"10\" maxlength=\"10\"\r\n                                        [ngClass]=\"{'is-invalid':contactForm.get('mobile')?.touched && contactForm.get('mobile').invalid}\">\r\n                                    <span class=\"invalid-feedback alert alert-danger\">\r\n                                        <span *ngIf=\"contactForm.get('mobile').errors?.required\">Field is\r\n                                            required</span>\r\n                                        <span\r\n                                            *ngIf=\"contactForm.get('mobile').invalid && !contactForm.get('mobile').errors?.required\">\r\n                                            Invalid Mobile Number</span>\r\n                                    </span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <div class=\"form-group\">\r\n                                    <textarea rows=\"4\" cols=\"50\" class=\"form-control\" placeholder=\"Message\"\r\n                                        formControlName=\"message\"\r\n                                        [ngClass]=\"{'is-invalid':contactForm.get('message')?.touched && contactForm.get('message').invalid}\"></textarea>\r\n                                    <span class=\"invalid-feedback alert alert-danger\">\r\n                                        Field is required\r\n                                    </span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row text-center\">\r\n                            <div class=\"col-sm-12\">\r\n                                <input type=\"button\" mat-raised-button class=\"btn sling-btn\" name=\"Send\"\r\n                                    value=\"Send\" (click)=\"sendEnquiry()\" [disabled]=\"!contactForm.valid\">\r\n                                <input type=\"button\" mat-raised-button class=\"btn sling-btn ml-2\" name=\"clear\"\r\n                                    value=\"Clear\" (click)=\"clearForm()\">\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>");
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"contact-us\">\r\n    <div class=\"jumbotron text-center\">\r\n        <h2>Contact Us</h2>\r\n    </div>\r\n    <div class=\"container mt-5\">\r\n        <div class=\"association-info text-center\">\r\n            <h2>Contact Our Association</h2>\r\n            <div class=\"row mt-5\">\r\n                <div class=\"col-sm-4 mt-3\">\r\n                    <span><i class=\"fa fa-map-marker\"></i></span>\r\n                    <br>\r\n                    <p>Matoshree Niwas, Dhamangaon By-Pass, Pimpalgaon, Yavatmal, Maharashtra, Pin Code - 445001.</p>\r\n                </div>\r\n                <div class=\"col-sm-4 mt-3\">\r\n                    <span><i class=\"fa fa-phone\"></i></span>\r\n                    <br>\r\n                    <p>8180008641, 9511663616, 8432146555</p>\r\n                </div>\r\n                <div class=\"col-sm-4 mt-3\">\r\n                    <span><i class=\"fa fa-envelope\"></i></span>\r\n                    <br>\r\n                    <p style=\"word-wrap: break-word;\">slingshot.maha@gmail.com</p>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"user-info text-center mt-5\">\r\n            <h2>Our Members</h2>\r\n            <div class=\"row justify-content-center\">\r\n                <div class=\"col-sm-6 col-md-4 card-col\" *ngFor=\"let member of members\">\r\n                    <div class=\"card card-cascade\">\r\n                        <div class=\"view view-cascade overlay\">\r\n                            <div class=\"img-area mt-5\">\r\n                                <img [src]=\"member.pic\" alt=\"\">\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"card-body card-body-cascade text-center\">\r\n                            <h4 class=\"mt-3\"><strong>{{member.name}}</strong></h4>\r\n                            <span class=\"text-info\">({{member.role}})</span>\r\n                            <br>\r\n                            <span>{{member.email}}</span>\r\n                            <div class=\"social-icons mt-3\">\r\n                                <i class=\"fa fa-phone\" [matTooltip]=\"member.mobile\" matTooltipPosition=\"above\"></i>\r\n                                <i class=\"fa fa-envelope\" [matTooltip]=\"member.email\" matTooltipPosition=\"above\"></i>\r\n                                <i class=\"fa fa-facebook\" matTooltip=\"facebook\" matTooltipPosition=\"above\"></i>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"contact-form mt-5\">\r\n            <div class=\"text-center\">\r\n                <h2>Get in touch</h2>\r\n            </div>\r\n            <div class=\"row mt-5 mb-5\">\r\n                <div class=\"col-md-6\">\r\n                    <iframe\r\n                        src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.296419656939!2d78.1262283696957!3d20.4118795880123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd3ef4606797df5%3A0x99fdaa3c4f6b7d9d!2sPimpalgaon%2C%20Yavatmal%2C%20Maharashtra%20445001!5e0!3m2!1sen!2sin!4v1583593786510!5m2!1sen!2sin\"\r\n                        width=\"100%\" class=\"shadow map\" height=\"350\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\"\r\n                        allowfullscreen=\"\"></iframe>\r\n                </div>\r\n                <div class=\"col-md-6\">\r\n                    <form [formGroup]=\"contactForm\" class=\"contactForm\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-6\">\r\n                                <div class=\"form-group\">\r\n                                    <input type=\"text\" class=\"form-control field\" placeholder=\"First Name\"\r\n                                        formControlName=\"firstName\"\r\n                                        [ngClass]=\"{'is-invalid':contactForm.get('firstName')?.touched && contactForm.get('firstName').invalid}\">\r\n                                    <span class=\"invalid-feedback alert alert-danger\">\r\n                                        Field is required\r\n                                    </span>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"col-sm-6\">\r\n                                <div class=\"form-group\">\r\n                                    <input type=\"text\" class=\"form-control field\" placeholder=\"Last Name\"\r\n                                        formControlName=\"lastName\"\r\n                                        [ngClass]=\"{'is-invalid':contactForm.get('lastName')?.touched && contactForm.get('lastName').invalid}\">\r\n                                    <span class=\"invalid-feedback alert alert-danger\">\r\n                                        Field is required\r\n                                    </span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <div class=\"form-group\">\r\n                                    <input type=\"text\" class=\"form-control field\" placeholder=\"Email\"\r\n                                        formControlName=\"email\"\r\n                                        [ngClass]=\"{'is-invalid':contactForm.get('email')?.touched && contactForm.get('email').invalid}\">\r\n                                    <span class=\"invalid-feedback alert alert-danger\">\r\n                                        <span *ngIf=\"contactForm.get('email').errors?.required\">Field is required</span>\r\n                                        <span\r\n                                            *ngIf=\"contactForm.get('email').invalid && !contactForm.get('email').errors?.required\">\r\n                                            Invalid email.</span>\r\n                                    </span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <div class=\"form-group\">\r\n                                    <input type=\"text\" class=\"form-control field\" placeholder=\"Mobile\"\r\n                                        formControlName=\"mobile\" minlength=\"10\" maxlength=\"10\"\r\n                                        [ngClass]=\"{'is-invalid':contactForm.get('mobile')?.touched && contactForm.get('mobile').invalid}\">\r\n                                    <span class=\"invalid-feedback alert alert-danger\">\r\n                                        <span *ngIf=\"contactForm.get('mobile').errors?.required\">Field is\r\n                                            required</span>\r\n                                        <span\r\n                                            *ngIf=\"contactForm.get('mobile').invalid && !contactForm.get('mobile').errors?.required\">\r\n                                            Invalid Mobile Number</span>\r\n                                    </span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row\">\r\n                            <div class=\"col-sm-12\">\r\n                                <div class=\"form-group\">\r\n                                    <textarea rows=\"4\" cols=\"50\" class=\"form-control\" placeholder=\"Message\"\r\n                                        formControlName=\"message\"\r\n                                        [ngClass]=\"{'is-invalid':contactForm.get('message')?.touched && contactForm.get('message').invalid}\"></textarea>\r\n                                    <span class=\"invalid-feedback alert alert-danger\">\r\n                                        Field is required\r\n                                    </span>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"row text-center\">\r\n                            <div class=\"col-sm-12\">\r\n                                <input type=\"button\" mat-raised-button class=\"btn sling-btn\" name=\"Send\"\r\n                                    value=\"Send\" (click)=\"sendEnquiry()\" [disabled]=\"!contactForm.valid\">\r\n                                <input type=\"button\" mat-raised-button class=\"btn sling-btn ml-2\" name=\"clear\"\r\n                                    value=\"Clear\" (click)=\"clearForm()\">\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>");
 
 /***/ }),
 
@@ -1550,43 +1550,89 @@ let ContactUsComponent = class ContactUsComponent {
                 name: 'Mr. Bipin Chaudhari',
                 role: 'President',
                 email: 'xyz@gmail.com',
-                mobile: '',
-                class: 'active'
-            },
-            {
-                name: 'Mr. Vikas Shelke',
-                role: 'General Secretory',
-                email: 'xyz@gmail.com',
-                mobile: '',
-                class: ''
+                mobile: '9404141861',
+                class: 'active',
+                pic: './assets/images/members/bipin-chaudhari.jpg'
             },
             {
                 name: 'Mr. Lalit Dhoke',
                 role: 'Vice President',
                 email: 'xyz@gmail.com',
-                mobile: '',
-                class: ''
+                mobile: '9588430982',
+                class: '',
+                pic: './assets/images/members/lalit-dhoke.jpg'
+            },
+            {
+                name: 'Mr. Manikraj Landge',
+                role: 'Vice President',
+                email: 'xyz@gmail.com',
+                mobile: '9004409664',
+                class: '',
+                pic: './assets/images/user-pic-default.png'
+            },
+            {
+                name: 'Mr. Vikas Shelke',
+                role: 'General Secretory',
+                email: 'vikasshelke313918@gmail.com',
+                mobile: '8432146555',
+                class: '',
+                pic: './assets/images/members/vikas-shelke.jpg'
             },
             {
                 name: 'Mr. Sham Khemaskar',
                 role: 'Treasurer',
                 email: 'xyz@gmail.com',
-                mobile: '',
-                class: ''
+                mobile: '9823545618',
+                class: '',
+                pic: './assets/images/user-pic-default.png'
             },
             {
                 name: 'Mr. Pravin Dighade',
                 role: 'Join Secretory',
                 email: 'xyz@gmail.com',
-                mobile: '',
-                class: ''
+                mobile: '8830993120',
+                class: '',
+                pic: './assets/images/members/pravin-dighade.jpg'
+            },
+            {
+                name: 'Mr. Suraj Kadukar',
+                role: 'Representative',
+                email: 'xyz@gmail.com',
+                mobile: '9370155501',
+                class: '',
+                pic: './assets/images/members/suraj-kadukar.jpg'
             },
             {
                 name: 'Mr. Sunil Shinde',
                 role: 'Representative',
                 email: 'xyz@gmail.com',
-                mobile: '',
-                class: ''
+                mobile: '8888424233',
+                class: '',
+                pic: './assets/images/members/sunil-shinde.jpg'
+            },
+            {
+                name: 'Mr. Giriraj Gupta',
+                role: 'Representative',
+                email: 'xyz@gmail.com',
+                mobile: '9049228777',
+                class: '',
+                pic: './assets/images/members/giriraj-gupta.jpg'
+            },
+            {
+                name: 'Miss Snehal Khantade',
+                role: 'Member',
+                email: 'xyz@gmail.com',
+                mobile: '9552822470',
+                class: '',
+                pic: './assets/images/members/snehal-khantade.jpg'
+            },
+            {
+                name: 'Mr. Praful Kodape',
+                role: 'Member',
+                email: 'xyz@gmail.com',
+                mobile: '9673398819',
+                class: '',
+                pic: './assets/images/user-pic-default.png'
             }
         ];
     }
@@ -1705,49 +1751,89 @@ let HomeComponent = class HomeComponent {
                 name: 'Mr. Bipin Chaudhari',
                 role: 'President',
                 email: 'xyz@gmail.com',
-                mobile: '',
+                mobile: '9404141861',
                 class: 'active',
                 pic: './assets/images/members/bipin-chaudhari.jpg'
-            },
-            {
-                name: 'Mr. Vikas Shelke',
-                role: 'General Secretory',
-                email: 'xyz@gmail.com',
-                mobile: '',
-                class: '',
-                pic: './assets/images/members/vikas-shelke.jpg'
             },
             {
                 name: 'Mr. Lalit Dhoke',
                 role: 'Vice President',
                 email: 'xyz@gmail.com',
-                mobile: '',
+                mobile: '9588430982',
                 class: '',
                 pic: './assets/images/members/lalit-dhoke.jpg'
+            },
+            {
+                name: 'Mr. Manikraj Landge',
+                role: 'Vice President',
+                email: 'xyz@gmail.com',
+                mobile: '9004409664',
+                class: '',
+                pic: './assets/images/user-pic-default.png'
+            },
+            {
+                name: 'Mr. Vikas Shelke',
+                role: 'General Secretory',
+                email: 'vikasshelke313918@gmail.com',
+                mobile: '8432146555',
+                class: '',
+                pic: './assets/images/members/vikas-shelke.jpg'
             },
             {
                 name: 'Mr. Sham Khemaskar',
                 role: 'Treasurer',
                 email: 'xyz@gmail.com',
-                mobile: '',
+                mobile: '9823545618',
                 class: '',
-                pic: './assets/images/user-pic.jpg'
+                pic: './assets/images/user-pic-default.png'
             },
             {
                 name: 'Mr. Pravin Dighade',
                 role: 'Join Secretory',
                 email: 'xyz@gmail.com',
-                mobile: '',
+                mobile: '8830993120',
                 class: '',
-                pic: './assets/images/user-pic.jpg'
+                pic: './assets/images/members/pravin-dighade.jpg'
+            },
+            {
+                name: 'Mr. Suraj Kadukar',
+                role: 'Representative',
+                email: 'xyz@gmail.com',
+                mobile: '9370155501',
+                class: '',
+                pic: './assets/images/members/suraj-kadukar.jpg'
             },
             {
                 name: 'Mr. Sunil Shinde',
                 role: 'Representative',
                 email: 'xyz@gmail.com',
-                mobile: '',
+                mobile: '8888424233',
                 class: '',
-                pic: './assets/images/user-pic.jpg'
+                pic: './assets/images/members/sunil-shinde.jpg'
+            },
+            {
+                name: 'Mr. Giriraj Gupta',
+                role: 'Representative',
+                email: 'xyz@gmail.com',
+                mobile: '9049228777',
+                class: '',
+                pic: './assets/images/members/giriraj-gupta.jpg'
+            },
+            {
+                name: 'Miss Snehal Khantade',
+                role: 'Member',
+                email: 'xyz@gmail.com',
+                mobile: '9552822470',
+                class: '',
+                pic: './assets/images/members/snehal-khantade.jpg'
+            },
+            {
+                name: 'Mr. Praful Kodape',
+                role: 'Member',
+                email: 'xyz@gmail.com',
+                mobile: '9673398819',
+                class: '',
+                pic: './assets/images/user-pic-default.png'
             }
         ];
         this.districtList = [];

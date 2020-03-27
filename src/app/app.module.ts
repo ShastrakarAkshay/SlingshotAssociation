@@ -25,7 +25,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AdminComponent } from './admin/admin.component';
 import { AffiliationRequestsComponent, DistrictApprovalDialog} from './admin/affiliation-requests/affiliation-requests.component';
-import { EventsComponent } from './admin/events/events.component';
+import { EventsComponent, CreateEventDialog } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
 import { ProfileComponent } from './admin/profile/profile.component';
@@ -60,7 +60,8 @@ import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-
     EnquiriesComponent,
     MatchEventResultsComponent,
     ProfileComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    CreateEventDialog
   ],
   imports: [
     FormsModule,
@@ -84,7 +85,7 @@ import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-
     MatButtonModule,
     MatDatepickerModule
   ],
-  entryComponents: [DistrictApprovalDialog, ConfirmDialogComponent],
+  entryComponents: [DistrictApprovalDialog, ConfirmDialogComponent, CreateEventDialog],
   providers: [],
   bootstrap: [AppComponent]
 })
