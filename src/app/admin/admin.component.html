@@ -1,4 +1,4 @@
-<section id="admin">
+<section id="admin" class="bg-offwhite pb-5">
     <div class="mt-5">
         <div class="row justify-content-center">
             <h2><strong>Welcome Akshay Shastrakar</strong></h2>
@@ -7,7 +7,8 @@
             <div class="col-sm-2">
                 <div class="card mt-3 text-white bg-dark" routerLink="./requests">
                     <div class="card-body text-center">
-                        <h4 class="card-title">Requests <span class="badge badge-primary">{{requestCount}}</span></h4>
+                        <h4 class="card-title">Requests <span class="badge badge-primary">{{requestCount}}</span>
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -28,7 +29,8 @@
             <div class="col-sm-2">
                 <div class="card mt-3 text-white bg-dark" routerLink="./enquiries">
                     <div class="card-body text-center">
-                        <h4 class="card-title">Enquiries <span class="badge badge-primary">{{enquiryCount}}</span></h4>
+                        <h4 class="card-title">Enquiries <span class="badge badge-primary">{{enquiryCount}}</span>
+                        </h4>
                     </div>
                 </div>
             </div>
@@ -40,8 +42,9 @@
                 </div>
             </div>
         </div>
-        <div class="container mt-5 bg-light">
-            <router-outlet></router-outlet>
-        </div>
     </div>
 </section>
+
+<div class="container mt-5 bg-light">
+    <router-outlet></router-outlet>
+</div>

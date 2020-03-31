@@ -141,6 +141,11 @@ export class SlingshotService {
     this._toastr.info("Event Deleted Successfully.");
   }
 
+  updateEventById(id:any, data: any) {
+    this.firestore.collection('Events').doc(id).update(data);
+    this._toastr.success("Event Updated Successfully.");
+  }
+
   getLatestMatchResults() {
     // return only 3 or 4 latest records (winning)
     return null;

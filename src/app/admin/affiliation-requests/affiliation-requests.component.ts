@@ -106,7 +106,7 @@ export class DistrictApprovalDialog implements OnInit {
 
   approveDistrict(personData: any) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Do you want to approve user?', type: 'confirm' },
+      data: { message: 'Do you want to approve?', type: 'confirm' },
       autoFocus: false
     });
 

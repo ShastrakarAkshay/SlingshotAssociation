@@ -13,7 +13,7 @@
   border-radius: 0em !important;
 }
 
-#contact-us {
+#contact-us, #contact-us1, #contact-us2 {
   font-family: "Didact Gothic", sans-serif;
   margin-top: 80px;
   .jumbotron {
@@ -124,7 +124,7 @@
 
 @media only screen and (max-width: 768px) {
   //mobile device
-  #contact-us {
+  #contact-us, #contact-us1, #contact-us2 {
     .user-info {
       .card {
         margin-top: 20px;

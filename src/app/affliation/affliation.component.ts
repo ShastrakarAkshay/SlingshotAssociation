@@ -17,11 +17,11 @@ export class AffliationComponent implements OnInit {
   constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    this.spinnerShow();
     this.getRegisteredDistrictList();
   }
 
   getRegisteredDistrictList() {
+    this.spinnerShow();
     this._service.getRegisteredDistricts().subscribe(data => {
       data.map((item, index) => {
         this.registeredDistrictsList.push(item.payload.doc.data());

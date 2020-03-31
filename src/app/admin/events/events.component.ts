@@ -22,6 +22,7 @@ export class EventsComponent implements OnInit {
   displayedColumns: string[] = ['index', 'eventTitle', 'eventDate', 'actions'];
 
   private eventData: any[] = [];
+  private showSpinner:boolean = false;
 
   constructor(private _dialog: MatDialog, private _service: SlingshotService, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
@@ -30,6 +31,9 @@ export class EventsComponent implements OnInit {
   }
 
   getAllEvents() {
+    this.showSpinner = true;
+    this._spinner.show();
+
     this._service.getAllEvents().subscribe(data => {
       this.eventData = data.map(item => {
         return {
@@ -40,6 +44,9 @@ export class EventsComponent implements OnInit {
       this.dataSource.data = this.eventData;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
+
+      this.showSpinner = false;
+      this._spinner.hide();
     })
   }
 
@@ -88,6 +95,7 @@ export class EventsComponent implements OnInit {
 export class CreateEventDialog implements OnInit {
   private eventForm: FormGroup;
   private eventData: any;
+  private isEdit: boolean = false;
 
   constructor(
     public _dialogRef: MatDialogRef<CreateEventDialog>,
@@ -115,7 +123,8 @@ export class CreateEventDialog implements OnInit {
         eventDate: this.eventData.eventDate,
         contactPersons: this.eventData.contactPersons,
         contactNumbers: this.eventData.contactNumbers
-      })
+      });
+      this.isEdit = true;
     }
   }
 
@@ -127,8 +136,15 @@ export class CreateEventDialog implements OnInit {
     if (this.eventForm.invalid) {
       return;
     }
-
     this._service.createEvent(this.eventForm.value);
+    this.close();
+  }
+
+  updateEvent() {
+    if(this.eventForm.invalid){
+      return;
+    }
+    this._service.updateEventById(this.eventData.id, this.eventForm.value);
     this.close();
   }
 }

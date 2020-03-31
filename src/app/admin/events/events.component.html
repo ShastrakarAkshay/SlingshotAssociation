@@ -1,7 +1,7 @@
 <section id="events">
     <div class="container">
         <h2>Events</h2>
-        <button (click)="createEvent()">Create events</button>
+        <button (click)="createEvent()" class="btn sling-btn">Create events</button>
         <div class="data-table mt-3 mb-5" style="border:1px solid #00000017;">
             <table mat-table [dataSource]="dataSource" matSort class="table-hover data-table" width="100%">
 
@@ -43,3 +43,8 @@
         </div>
     </div>
 </section>
+
+<div *ngIf="showSpinner">
+    <ngx-spinner bdOpacity="0.3" bdColor="#000000d4" size="default" color="#581f87" type="ball-pulse-sync" [fullScreen]="true">
+    </ngx-spinner>
+</div>
