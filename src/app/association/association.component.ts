@@ -96,6 +96,7 @@ export class AssociationComponent implements OnInit {
     // create authentication user in firebase
     let formData = this.registerForm.value;
     formData['requestedDistrict'] = this.selectedDistrict;
+    formData.dateOfBirth = new Date(formData.dateOfBirth).getTime();
     delete formData.terms; delete formData.confirmPassword; delete formData.requestedDistrict.isRegistered;
     this.auth.signUp(formData);
   }

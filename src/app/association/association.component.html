@@ -60,7 +60,7 @@
                     <label>Date of Birth</label>
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="date" class="form-control" formControlName="dateOfBirth" [ngClass]="{'is-invalid':registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').invalid}">
+                            <input type="date" class="form-control" formControlName="dateOfBirth" [ngClass]="{'is-invalid':registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').invalid}" max="Date.now()">
                             <div class="input-group-append">
                                 <button class="btn btn-secondary" type="button">
                                     <i class="fa fa-calendar" aria-hidden="true"></i>
