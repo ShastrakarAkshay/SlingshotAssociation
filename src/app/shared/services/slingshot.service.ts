@@ -136,6 +136,10 @@ export class SlingshotService {
     return this.firestore.collection('Events').snapshotChanges();
   }
 
+  getActiveEvents(): any {
+    return this.firestore.collection('Events', ref => ref.where('status', '==' ,'Active')).snapshotChanges();
+  }
+
   deleteEventById(id: any): any {
     this.firestore.collection('Events').doc(id).delete();
     this._toastr.info("Event Deleted Successfully.");

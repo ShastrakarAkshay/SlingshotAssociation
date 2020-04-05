@@ -16,6 +16,7 @@ import { MatchEventResultsComponent } from './admin/match-event-results/match-ev
 import { ProfileComponent } from './admin/profile/profile.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { LoginGuard } from './shared/guards/login.guard';
+import { RefreePanelComponent } from './admin/refree-panel/refree-panel.component';
 
 
 const routes: Routes = [
@@ -57,12 +58,14 @@ const routes: Routes = [
     component: AdminComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'requests', pathMatch: 'full'},
-      { path: 'requests', component: AffiliationRequestsComponent},
-      { path: 'events', component: EventsComponent},
-      { path: 'match', component: MatchEventResultsComponent},
-      { path: 'enquiries', component: EnquiriesComponent},
-      { path: 'profile', component: ProfileComponent}
+      { path: '', redirectTo: 'requests', pathMatch: 'full' },
+      { path: 'requests', component: AffiliationRequestsComponent },
+      { path: 'events', component: EventsComponent },
+      { path: 'match', component: MatchEventResultsComponent },
+      { path: 'enquiries', component: EnquiriesComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'refree', component: RefreePanelComponent }
+
     ]
   },
   {

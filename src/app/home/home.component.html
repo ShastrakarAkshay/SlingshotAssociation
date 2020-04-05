@@ -231,7 +231,7 @@
                     <li data-target="#eventsCourousel" data-slide-to="0" class="active"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item active" *ngFor="let event of eventData">
+                    <div class="carousel-item" *ngFor="let event of eventData; let i = index" [ngClass]="{'active': i === 0}">
                         <div class="carousel-caption">
                             <div class="jumbotron bg-white">
                                 <h5 class="text-uppercase"><strong>{{event.eventTitle}}</strong></h5>
@@ -245,9 +245,9 @@
                                     <div class="p-2">
                                         <div class="info text-left">
                                             <span><strong><i class="fa fa-map-marker pr-1"></i>Address</strong></span>
-                                            <p>{{event.eventAddress}}</p>
+                                            <p class="text-capitalize">{{event.eventAddress}}</p>
                                             <span><strong><i class="fa fa-user pr-1"></i>Contact Persons</strong></span>
-                                            <p>{{event.contactPersons}}</p>
+                                            <p class="text-capitalize">{{event.contactPersons}}</p>
                                             <span><strong><i class="fa fa-phone pr-1"></i>Phone</strong></span>
                                             <p>{{event.contactNumbers}}</p>
                                         </div>

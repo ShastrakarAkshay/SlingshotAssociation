@@ -19,7 +19,7 @@ export class EventsComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['index', 'eventTitle', 'eventDate', 'actions'];
+  displayedColumns: string[] = ['index', 'eventTitle', 'eventDate', 'status', 'actions'];
 
   private eventData: any[] = [];
   private showSpinner:boolean = false;
@@ -113,7 +113,8 @@ export class CreateEventDialog implements OnInit {
       eventAddress: ['', Validators.required],
       eventDate: ['', Validators.required],
       contactPersons: ['', Validators.required],
-      contactNumbers: ['', Validators.required]
+      contactNumbers: ['', Validators.required],
+      status: ['', Validators.required]
     });
 
     if (this.eventData) {
@@ -122,7 +123,8 @@ export class CreateEventDialog implements OnInit {
         eventAddress: this.eventData.eventAddress,
         eventDate: this.eventData.eventDate,
         contactPersons: this.eventData.contactPersons,
-        contactNumbers: this.eventData.contactNumbers
+        contactNumbers: this.eventData.contactNumbers,
+        status: this.eventData.status
       });
       this.isEdit = true;
     }

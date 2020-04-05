@@ -39,7 +39,28 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { RefereeComponent } from './referee/referee.component';
+import { RefreePanelComponent, AddRefreeDialog } from './admin/refree-panel/refree-panel.component';
 
+const APP_DIALOGS = [
+  DistrictApprovalDialog, 
+  ConfirmDialogComponent, 
+  CreateEventDialog, 
+  AddRefreeDialog
+];
+
+const MATERIAL_MODULES = [
+  MatTooltipModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatIconModule,
+  MatButtonModule,
+  MatDatepickerModule
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,15 +74,15 @@ import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-
     AssociationComponent,
     MatchResultsComponent,
     LoginComponent,
-    DistrictApprovalDialog,
     AdminComponent,
     AffiliationRequestsComponent,
     EventsComponent,
     EnquiriesComponent,
     MatchEventResultsComponent,
     ProfileComponent,
-    ConfirmDialogComponent,
-    CreateEventDialog
+    RefereeComponent,
+    RefreePanelComponent,
+    ...APP_DIALOGS
   ],
   imports: [
     FormsModule,
@@ -70,22 +91,13 @@ import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    ToastrModule.forRoot(),
+    NgxSpinnerModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
-    MatTooltipModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    ToastrModule.forRoot(),
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatIconModule,
-    NgxSpinnerModule,
-    MatButtonModule,
-    MatDatepickerModule
+    ...MATERIAL_MODULES
   ],
-  entryComponents: [DistrictApprovalDialog, ConfirmDialogComponent, CreateEventDialog],
+  entryComponents: APP_DIALOGS,
   providers: [],
   bootstrap: [AppComponent]
 })

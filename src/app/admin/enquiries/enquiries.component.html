@@ -1,62 +1,61 @@
 <section id="enquiries">
-    <div class="container">
-        <div class="text-center">
-            <h2><strong>Enquiries</strong></h2>
-        </div>
-        <div class="data-table mt-5 mb-5" style="border:1px solid #00000017;">
-            <table mat-table [dataSource]="dataSource" matSort class="table-hover data-table" width="100%">
+    <div class="text-center">
+        <h2><strong>Enquiries</strong></h2>
+    </div>
+    <div class="data-table mt-5 mb-5" style="border:1px solid #00000017;">
+        <table mat-table [dataSource]="dataSource" matSort class="table-hover data-table" width="100%">
 
-                <!-- Position Column -->
-                <ng-container matColumnDef="index">
-                    <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> # </th>
-                    <td mat-cell *matCellDef="let element; let i = index" width="5%"> {{i+1}} </td>
-                </ng-container>
+            <!-- Position Column -->
+            <ng-container matColumnDef="index">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> # </th>
+                <td mat-cell *matCellDef="let element; let i = index" width="5%"> {{i+1}} </td>
+            </ng-container>
 
-                <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                    <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Name </th>
-                    <td mat-cell *matCellDef="let element" width="20%" class="empNameLink pointer text-capitalize">
-                        {{element.firstName}} {{element.lastName}} </td>
-                </ng-container>
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Name </th>
+                <td mat-cell *matCellDef="let element" width="20%" class="empNameLink pointer text-capitalize">
+                    {{element.firstName}} {{element.lastName}} </td>
+            </ng-container>
 
-                <!-- Weight Column -->
-                <ng-container matColumnDef="email">
-                    <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Email </th>
-                    <td mat-cell *matCellDef="let element" width="20%" class="text-capitalize"> {{element.email}} </td>
-                </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="email">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Email </th>
+                <td mat-cell *matCellDef="let element" width="20%" class="text-capitalize"> {{element.email}} </td>
+            </ng-container>
 
-                 <!-- Weight Column -->
-                 <ng-container matColumnDef="mobile">
-                    <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Mobile </th>
-                    <td mat-cell *matCellDef="let element" width="10%" class="text-capitalize"> {{element.mobile}} </td>
-                </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="mobile">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Mobile </th>
+                <td mat-cell *matCellDef="let element" width="10%" class="text-capitalize"> {{element.mobile}} </td>
+            </ng-container>
 
-                 <!-- Weight Column -->
-                 <ng-container matColumnDef="message">
-                    <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Message </th>
-                    <td mat-cell *matCellDef="let element" width="25%" class="text-capitalize"> {{element.message}} </td>
-                </ng-container>
+            <!-- Weight Column -->
+            <ng-container matColumnDef="message">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Message </th>
+                <td mat-cell *matCellDef="let element" width="25%" class="text-capitalize"> {{element.message}} </td>
+            </ng-container>
 
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="action">
-                    <th mat-header-cell *matHeaderCellDef class="bg-dark text-white">Action</th>
-                    <td mat-cell *matCellDef="let element" width="15%">
-                        <div class="row p-2">
-                            <a class="btn text-danger pointer" (click)="deleteEnquiryById(element.id)">Delete</a>
-                        </div>
-                    </td>
-                </ng-container>
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef class="bg-dark text-white">Action</th>
+                <td mat-cell *matCellDef="let element" width="15%">
+                    <div class="row p-2">
+                        <a class="btn text-danger pointer" (click)="deleteEnquiryById(element.id)">Delete</a>
+                    </div>
+                </td>
+            </ng-container>
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index"></tr>
-            </table>
-            <mat-paginator [length]="100 " [pageSize]="5 " [pageSizeOptions]="[5, 10, 25, 50] " showFirstLastButtons>
-            </mat-paginator>
-        </div>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index"></tr>
+        </table>
+        <mat-paginator [length]="100 " [pageSize]="5 " [pageSizeOptions]="[5, 10, 25, 50] " showFirstLastButtons>
+        </mat-paginator>
+    </div>
 
-        <div *ngIf="showSpinner">
-            <ngx-spinner bdOpacity="0.3" bdColor="#00000030" size="default" color="#581f87" type="ball-pulse-sync" [fullScreen]="true">
-            </ngx-spinner>
-        </div>
+    <div *ngIf="showSpinner">
+        <ngx-spinner bdOpacity="0.3" bdColor="#00000030" size="default" color="#581f87" type="ball-pulse-sync"
+            [fullScreen]="true">
+        </ngx-spinner>
     </div>
 </section>

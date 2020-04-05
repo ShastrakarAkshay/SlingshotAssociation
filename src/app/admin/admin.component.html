@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <h2><strong>Welcome Akshay Shastrakar</strong></h2>
         </div>
-        <div class="row actions justify-content-center mt-3">
+        <div class="row actions justify-content-center mt-3 p-3">
             <div class="col-sm-2">
                 <div class="card mt-3 text-white bg-dark" routerLink="./requests">
                     <div class="card-body text-center">
@@ -27,6 +27,13 @@
                 </div>
             </div>
             <div class="col-sm-2">
+                <div class="card mt-3 text-white bg-dark" routerLink="./refree">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Refree</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
                 <div class="card mt-3 text-white bg-dark" routerLink="./enquiries">
                     <div class="card-body text-center">
                         <h4 class="card-title">Enquiries <span class="badge badge-primary">{{enquiryCount}}</span>
@@ -45,6 +52,6 @@
     </div>
 </section>
 
-<div class="container mt-5 bg-light">
+<div class="mt-5 bg-light pl-3 pr-3">
     <router-outlet></router-outlet>
 </div>

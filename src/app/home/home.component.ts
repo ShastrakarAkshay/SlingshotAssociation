@@ -112,7 +112,7 @@ export class HomeComponent implements OnInit {
   }
 
   getAllEvents() {
-    this._service.getAllEvents().subscribe(data => {
+    this._service.getActiveEvents().subscribe(data => {
       data.map(item => {
         this.eventData.push({ id: item.payload.doc.id, ...item.payload.doc.data() })
       });
