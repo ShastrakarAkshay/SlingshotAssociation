@@ -1,13 +1,13 @@
 <h2 class="text-center p-3 bg-dark text-white">Add Refree</h2>
 
 <mat-dialog-content>
-    <form id="regForm" class="mt-4" [formGroup]="registerForm">
+    <form id="regForm" class="mt-4" [formGroup]="refreeForm">
         <div class="row">
             <div class="col-sm-4">
                 <label>First Name</label>
                 <div class="form-group">
                     <input type="text" class="form-control" formControlName="firstName"
-                        [ngClass]="{'is-invalid':registerForm.get('firstName').touched && registerForm.get('firstName').invalid}">
+                        [ngClass]="{'is-invalid':refreeForm.get('firstName').touched && refreeForm.get('firstName').invalid}">
                     <span class="invalid-feedback alert alert-danger">
                         Field is required
                     </span>
@@ -18,7 +18,7 @@
                 <label>Middle Name</label>
                 <div class="form-group">
                     <input type="text" class="form-control" formControlName="middleName"
-                        [ngClass]="{'is-invalid':registerForm.get('middleName').touched && registerForm.get('middleName').invalid}">
+                        [ngClass]="{'is-invalid':refreeForm.get('middleName').touched && refreeForm.get('middleName').invalid}">
                     <span class="invalid-feedback alert alert-danger">
                         Field is required
                     </span>
@@ -28,7 +28,7 @@
                 <label>Last Name</label>
                 <div class="form-group">
                     <input type="text" class="form-control" formControlName="lastName"
-                        [ngClass]="{'is-invalid':registerForm.get('lastName').touched && registerForm.get('lastName').invalid}">
+                        [ngClass]="{'is-invalid':refreeForm.get('lastName').touched && refreeForm.get('lastName').invalid}">
                     <span class="invalid-feedback alert alert-danger">
                         Field is required
                     </span>
@@ -37,34 +37,26 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <label>Date of Birth</label>
+                <label>Email</label>
                 <div class="form-group">
-                    <div class="input-group">
-                        <input type="date" class="form-control" formControlName="dateOfBirth"
-                            [ngClass]="{'is-invalid':registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').invalid}"
-                            max="Date.now()">
-                        <div class="input-group-append">
-                            <button class="btn btn-secondary" type="button">
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
-                    </div>
-
+                    <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid':refreeForm.get('email').touched && refreeForm.get('email').invalid}">
+                    <span class="invalid-feedback alert alert-danger">
+                            <span *ngIf="refreeForm.get('email').errors?.required">Field is required</span>
+                    <span *ngIf="refreeForm.get('email').invalid && !refreeForm.get('email').errors?.required">
+                                Invalid email.</span>
+                    </span>
                 </div>
             </div>
+
             <div class="col-sm-6">
                 <label>Mobile No.</label>
                 <div class="form-group">
-                    <input type="text" matTooltip="Mobile Number use for password recovery & notifications!"
-                        matTooltipPosition="above" class="form-control" formControlName="mobile" maxlength="10"
-                        [ngClass]="{'is-invalid':registerForm.get('mobile').touched && registerForm.get('mobile').invalid}">
+                    <input type="text" class="form-control" formControlName="mobile" maxlength="10"
+                        [ngClass]="{'is-invalid':refreeForm.get('mobile').touched && refreeForm.get('mobile').invalid}">
                     <span class="invalid-feedback alert alert-danger">
-                        <span *ngIf="registerForm.get('mobile').errors?.required">Field is required</span>
+                        <span *ngIf="refreeForm.get('mobile').errors?.required">Field is required</span>
                         <span
-                            *ngIf="registerForm.get('mobile').invalid && !registerForm.get('mobile').errors?.required">
+                            *ngIf="refreeForm.get('mobile').invalid && !refreeForm.get('mobile').errors?.required">
                             Invalid Mobile Number</span>
                     </span>
                 </div>
@@ -72,22 +64,10 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <label>Address Line 1</label>
+                <label>Address</label>
                 <div class="form-group">
-                    <input type="text" class="form-control" formControlName="addressLine1"
-                        [ngClass]="{'is-invalid':registerForm.get('addressLine1').touched && registerForm.get('addressLine1').invalid}">
-                    <span class="invalid-feedback alert alert-danger">
-                        Field is required
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <label>Address Line 2</label>
-                <div class="form-group">
-                    <input type="text" class="form-control" formControlName="addressLine2"
-                        [ngClass]="{'is-invalid':registerForm.get('addressLine2').touched && registerForm.get('addressLine2').invalid}">
+                    <input type="text" class="form-control" formControlName="address"
+                        [ngClass]="{'is-invalid':refreeForm.get('address').touched && refreeForm.get('address').invalid}">
                     <span class="invalid-feedback alert alert-danger">
                         Field is required
                     </span>
@@ -99,7 +79,7 @@
                 <label>City</label>
                 <div class="form-group">
                     <input type="text" class="form-control" formControlName="city"
-                        [ngClass]="{'is-invalid':registerForm.get('city').touched && registerForm.get('city').invalid}">
+                        [ngClass]="{'is-invalid':refreeForm.get('city').touched && refreeForm.get('city').invalid}">
                     <span class="invalid-feedback alert alert-danger">
                         Field is required
                     </span>
@@ -109,7 +89,7 @@
                 <label>District</label>
                 <div class="form-group">
                     <select class="form-control" formControlName="district"
-                        [ngClass]="{'is-invalid':registerForm.get('district').touched && registerForm.get('district').invalid}">
+                        [ngClass]="{'is-invalid':refreeForm.get('district').touched && refreeForm.get('district').invalid}">
                         <option selected disabled>select district</option>
                         <option *ngFor="let dist of allDistricts" value="{{dist.name}}">{{dist.name}}</option>
                     </select>
@@ -122,10 +102,10 @@
                 <label>Pin Code</label>
                 <div class="form-group">
                     <input type="text" class="form-control" formControlName="pin" maxlength="6"
-                        [ngClass]="{'is-invalid':registerForm.get('pin').touched && registerForm.get('pin').invalid}">
+                        [ngClass]="{'is-invalid':refreeForm.get('pin').touched && refreeForm.get('pin').invalid}">
                     <span class="invalid-feedback alert alert-danger">
-                        <span *ngIf="registerForm.get('pin').errors?.required">Field is required</span>
-                        <span *ngIf="registerForm.get('pin').invalid && !registerForm.get('pin').errors?.required">
+                        <span *ngIf="refreeForm.get('pin').errors?.required">Field is required</span>
+                        <span *ngIf="refreeForm.get('pin').invalid && !refreeForm.get('pin').errors?.required">
                             Invalid Pin Code</span>
                     </span>
                 </div>
@@ -136,45 +116,50 @@
                 <label>Aadhaar No.</label>
                 <div class="form-group">
                     <input type="text" class="form-control" formControlName="aadhaarNo" maxlength="12"
-                        [ngClass]="{'is-invalid':registerForm.get('aadhaarNo').touched && registerForm.get('aadhaarNo').invalid}">
+                        [ngClass]="{'is-invalid':refreeForm.get('aadhaarNo').touched && refreeForm.get('aadhaarNo').invalid}">
                     <span class="invalid-feedback alert alert-danger">
-                        <span *ngIf="registerForm.get('aadhaarNo').errors?.required">Field is required</span>
+                        <span *ngIf="refreeForm.get('aadhaarNo').errors?.required">Field is required</span>
                         <span
-                            *ngIf="registerForm.get('aadhaarNo').invalid && !registerForm.get('aadhaarNo').errors?.required">
+                            *ngIf="refreeForm.get('aadhaarNo').invalid && !refreeForm.get('aadhaarNo').errors?.required">
                             Invalid Aadhaar No.</span>
                     </span>
                 </div>
             </div>
             <div class="col-sm-6">
-                <label>PAN No.</label>
+                <label>Date of Birth</label>
                 <div class="form-group">
-                    <input type="text" class="form-control" formControlName="panNo" maxlength="10"
-                        [ngClass]="{'is-invalid':registerForm.get('panNo').touched && registerForm.get('panNo').invalid}">
-                    <span class="invalid-feedback alert alert-danger">
-                        <span *ngIf="registerForm.get('panNo').errors?.required">Field is required</span>
-                        <span *ngIf="registerForm.get('panNo').invalid && !registerForm.get('panNo').errors?.required">
-                            Invalid PAN No.</span>
-                    </span>
+                    <div class="input-group">
+                        <input type="date" class="form-control" formControlName="dateOfBirth"
+                            [ngClass]="{'is-invalid':refreeForm.get('dateOfBirth').touched && refreeForm.get('dateOfBirth').invalid}"
+                            max="Date.now()">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4 mt-3">
                 <label for=""><strong>Passport Photo</strong></label>
-                <input type="file" id="files3" name="files3" formControlName="file3"
-                    (input)="validateFileUpload($event, 'doc3')"
-                    [ngClass]="{'is-invalid':registerForm.get('file3').touched && registerForm.get('file3').invalid}">
+                <input type="file" id="files3" name="files" formControlName="file"
+                    [ngClass]="{'is-invalid':refreeForm.get('file').touched && refreeForm.get('file').invalid}">
                 <span class="invalid-feedback alert alert-danger">
-                    <span *ngIf="registerForm.get('file3').errors?.required">Field is required</span>
+                    <span *ngIf="refreeForm.get('file').errors?.required">Field is required</span>
                 </span>
             </div>
         </div>
     </form>
 </mat-dialog-content>
 <div mat-dialog-actions class="pb-4 pt-4 row justify-content-center">
-    <button mat-button class="btn sling-btn" (click)="createEvent()" [disabled]="!eventForm.valid"
+    <button mat-button class="btn sling-btn" (click)="addRefree()" [disabled]="!refreeForm.valid"
         *ngIf="!isEdit">Create</button>
-    <button mat-button class="btn sling-btn" (click)="updateEvent()" [disabled]="!eventForm.valid"
+    <button mat-button class="btn sling-btn" (click)="updateRefree()" [disabled]="!refreeForm.valid"
         *ngIf="isEdit">Update</button>
     <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>Close</button>
 </div>

@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
   private requestCount: number = 0;
   private enquiryCount: number = 0;
   private eventCount: number = 0;
+  private refreeCount: number = 0;
 
   constructor(private _service: SlingshotService) {
     this.userID = localStorage.getItem('user-id');
@@ -29,6 +30,10 @@ export class AdminComponent implements OnInit {
 
     this._service.getAllEvents().subscribe(data => {
       this.eventCount = data.length;
+    })
+
+    this._service.getAllRefrees().subscribe(data => {
+      this.refreeCount = data.length;
     })
   }
 }

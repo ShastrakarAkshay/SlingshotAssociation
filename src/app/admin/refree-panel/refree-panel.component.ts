@@ -7,6 +7,7 @@ import { SlingshotService } from 'src/app/shared/services/slingshot.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-refree-panel',
@@ -18,21 +19,67 @@ export class RefreePanelComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['index', 'eventTitle', 'eventDate', 'status', 'actions'];
+  displayedColumns: string[] = ['index', 'name', 'email', 'mobile', 'district', 'actions'];
 
   private refreeData: any[] = [];
-  private showSpinner:boolean = false;
-  
+  private showSpinner: boolean = false;
+
   constructor(private _dialog: MatDialog, private _service: SlingshotService, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
   ngOnInit() {
+
+    this._showSpinner();
+    this._service.getAllRefrees().subscribe(data => {
+      this.refreeData = data.map(item => {
+        return {
+          id: item.payload.doc.id,
+          name: item.payload.doc.data().firstName + ' ' + item.payload.doc.data().middleName + ' ' + item.payload.doc.data().lastName,
+          ...item.payload.doc.data()
+        }
+      });
+      this.dataSource.data = this.refreeData;
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      this._hideSpinner();
+    })
   }
 
   addRefree() {
     this._dialog.open(AddRefreeDialog, {
       autoFocus: false,
-      width: '60%'
+      width: '99%'
     });
+  }
+
+  editRefree(refreeData) {
+    this._dialog.open(AddRefreeDialog, {
+      autoFocus: false,
+      width: '99%',
+      data: refreeData
+    });
+  }
+
+  deleteRefree(id:any){
+    let dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to delete?', type: 'confirm' },
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._service.deleteRefreeById(id);
+      }
+    });
+  }
+
+  _showSpinner() {
+    this._spinner.show();
+    this.showSpinner = true;
+  }
+
+  _hideSpinner() {
+    this.showSpinner = false;
+    this._spinner.hide();
   }
 
 }
@@ -52,8 +99,9 @@ export class RefreePanelComponent implements OnInit {
 })
 export class AddRefreeDialog implements OnInit {
   private refreeForm: FormGroup;
-  private eventData: any;
+  private refreeData: any;
   private isEdit: boolean = false;
+  private allDistricts: any[] = [];
 
   constructor(
     public _dialogRef: MatDialogRef<AddRefreeDialog>,
@@ -62,7 +110,7 @@ export class AddRefreeDialog implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     _dialogRef.disableClose = true;
-    this.eventData = data;
+    this.refreeData = data;
   }
 
   ngOnInit() {
@@ -71,43 +119,56 @@ export class AddRefreeDialog implements OnInit {
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
-      emial: ['', Validators.required],
-      mobile: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      mobile: ['', [Validators.required, Validators.pattern(/\d{10}/)]],
       address: ['', Validators.required],
-      aadhaarNo: ['', Validators.required],
-      district: ['', Validators.required]
+      city: ['', Validators.required],
+      district: ['', Validators.required],
+      pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
+      aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
+      file: ['', Validators.required]
     });
 
-    if (this.eventData) {
+    if (this.refreeData) {
       this.refreeForm.setValue({
-        eventTitle: this.eventData.eventTitle,
-        eventAddress: this.eventData.eventAddress,
-        eventDate: this.eventData.eventDate,
-        contactPersons: this.eventData.contactPersons,
-        contactNumbers: this.eventData.contactNumbers,
-        status: this.eventData.status
+        firstName: this.refreeData.firstName,
+        middleName: this.refreeData.middleName,
+        lastName: this.refreeData.lastName,
+        email: this.refreeData.email,
+        mobile: this.refreeData.mobile,
+        address: this.refreeData.address,
+        city: this.refreeData.city,
+        district: this.refreeData.district,
+        pin: this.refreeData.pin,
+        aadhaarNo: this.refreeData.aadhaarNo,
+        dateOfBirth: this.refreeData.dateOfBirth,
+        file: '',
       });
       this.isEdit = true;
     }
+
+    this._service.getAllDistricts().subscribe(data => {
+      data.map(item => { this.allDistricts.push(item.payload.doc.data()) });
+    });
   }
 
   close() {
     this._dialogRef.close();
   }
 
-  AddRefree() {
+  addRefree() {
     if (this.refreeForm.invalid) {
       return;
     }
-    this._service.createEvent(this.refreeForm.value);
+    this._service.addRefree(this.refreeForm.value);
     this.close();
   }
 
   updateRefree() {
-    if(this.refreeForm.invalid){
+    if (this.refreeForm.invalid) {
       return;
     }
-    this._service.updateEventById(this.eventData.id, this.refreeForm.value);
+    this._service.updateRefreeById(this.refreeData.id, this.refreeForm.value);
     this.close();
   }
 }

@@ -88,7 +88,7 @@ export class SlingshotService {
     return this.firestore.collection("AffiliationRequests", ref => ref.orderBy('firstName', 'asc')).snapshotChanges();
   }
 
-  deleteRequestById(id: any):any {
+  deleteRequestById(id: any): any {
     this.firestore.collection('AffiliationRequests').doc(id).delete();
     this._toastr.info("Request Deleted Successfully.");
   }
@@ -122,7 +122,7 @@ export class SlingshotService {
     return this.firestore.collection('Enquiries').snapshotChanges();
   }
 
-  deleteEnquiryById(id:any) {
+  deleteEnquiryById(id: any) {
     this.firestore.collection('Enquiries').doc(id).delete();
     this._toastr.info("Enquiry Deleted Successfully.");
   }
@@ -137,7 +137,7 @@ export class SlingshotService {
   }
 
   getActiveEvents(): any {
-    return this.firestore.collection('Events', ref => ref.where('status', '==' ,'Active')).snapshotChanges();
+    return this.firestore.collection('Events', ref => ref.where('status', '==', 'Active')).snapshotChanges();
   }
 
   deleteEventById(id: any): any {
@@ -145,9 +145,28 @@ export class SlingshotService {
     this._toastr.info("Event Deleted Successfully.");
   }
 
-  updateEventById(id:any, data: any) {
+  updateEventById(id: any, data: any) {
     this.firestore.collection('Events').doc(id).update(data);
     this._toastr.success("Event Updated Successfully.");
+  }
+
+  addRefree(data: any) {
+    this.firestore.collection('Refree').add(data);
+    this._toastr.success("Refree Added Successfully.");
+  }
+
+  getAllRefrees(): any {
+    return this.firestore.collection('Refree').snapshotChanges();
+  }
+
+  updateRefreeById(id: any, data: any) {
+    this.firestore.collection('Refree').doc(id).update(data);
+    this._toastr.success("Refree Updated Successfully.");
+  }
+
+  deleteRefreeById(id: any): any {
+    this.firestore.collection('Refree').doc(id).delete();
+    this._toastr.info("Refree Deleted Successfully.");
   }
 
   getLatestMatchResults() {
