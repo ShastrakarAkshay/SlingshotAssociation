@@ -19,7 +19,7 @@ export class AffiliationRequestsComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['index', 'name', 'requestedDistrict.name', 'actions'];
+  displayedColumns: string[] = ['index', 'name', 'mobile', 'requestedDistrict.name', 'actions'];
 
   private affiliatinRequests: any[] = [];
   private totalCount: number = 0;

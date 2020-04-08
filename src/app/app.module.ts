@@ -41,6 +41,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { RefereeComponent } from './referee/referee.component';
 import { RefreePanelComponent, AddRefreeDialog } from './admin/refree-panel/refree-panel.component';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 
 const APP_DIALOGS = [
   DistrictApprovalDialog, 
@@ -82,7 +83,8 @@ const MATERIAL_MODULES = [
     ProfileComponent,
     RefereeComponent,
     RefreePanelComponent,
-    ...APP_DIALOGS
+    ...APP_DIALOGS,
+    SpinnerComponent
   ],
   imports: [
     FormsModule,

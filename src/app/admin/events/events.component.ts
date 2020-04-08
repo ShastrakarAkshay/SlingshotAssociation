@@ -73,7 +73,7 @@ export class EventsComponent implements OnInit {
   editEvent(event: any) {
     this._dialog.open(CreateEventDialog, {
       autoFocus: false,
-      width: '60%',
+      width: '99%',
       data: event
     });
   }

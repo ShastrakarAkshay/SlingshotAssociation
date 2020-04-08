@@ -82,3 +82,9 @@ body {
 .cdk-overlay-container {
     z-index: 2000 !important;
 }
+
+.data-table {
+    .mat-header-cell {
+        font-size: 15px !important;
+    }
+}
