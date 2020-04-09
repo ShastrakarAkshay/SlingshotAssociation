@@ -42,7 +42,6 @@ import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-
 import { RefereeComponent } from './referee/referee.component';
 import { RefreePanelComponent, AddRefreeDialog } from './admin/refree-panel/refree-panel.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
-import { SlingshotModal } from './shared/modal/slingshot.modal';
 
 const APP_DIALOGS = [
   DistrictApprovalDialog,
@@ -85,8 +84,7 @@ const MATERIAL_MODULES = [
     RefereeComponent,
     RefreePanelComponent,
     ...APP_DIALOGS,
-    SpinnerComponent,
-    SlingshotModal
+    SpinnerComponent
   ],
   imports: [
     FormsModule,
