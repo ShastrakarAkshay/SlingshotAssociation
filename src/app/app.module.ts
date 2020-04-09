@@ -13,18 +13,18 @@ import { environment } from 'src/environments/environment';
 import { AffliationComponent } from './affliation/affliation.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { SlingshotComponent } from './slingshot/slingshot.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AssociationComponent } from './association/association.component';
 import { MatchResultsComponent } from './match-results/match-results.component';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AdminComponent } from './admin/admin.component';
-import { AffiliationRequestsComponent, DistrictApprovalDialog} from './admin/affiliation-requests/affiliation-requests.component';
+import { AffiliationRequestsComponent, DistrictApprovalDialog } from './admin/affiliation-requests/affiliation-requests.component';
 import { EventsComponent, CreateEventDialog } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
@@ -34,19 +34,20 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { NgxSpinnerModule } from "ngx-spinner";
-import {MatButtonModule} from '@angular/material/button';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { RefereeComponent } from './referee/referee.component';
 import { RefreePanelComponent, AddRefreeDialog } from './admin/refree-panel/refree-panel.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+import { SlingshotModal } from './shared/modal/slingshot.modal';
 
 const APP_DIALOGS = [
-  DistrictApprovalDialog, 
-  ConfirmDialogComponent, 
-  CreateEventDialog, 
+  DistrictApprovalDialog,
+  ConfirmDialogComponent,
+  CreateEventDialog,
   AddRefreeDialog
 ];
 
@@ -84,7 +85,8 @@ const MATERIAL_MODULES = [
     RefereeComponent,
     RefreePanelComponent,
     ...APP_DIALOGS,
-    SpinnerComponent
+    SpinnerComponent,
+    SlingshotModal
   ],
   imports: [
     FormsModule,

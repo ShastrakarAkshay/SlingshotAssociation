@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SlingshotService } from '../shared/services/slingshot.service';
+import { SlingshotModal } from '../shared/modal/slingshot.modal';
 
 @Component({
   selector: 'app-home',

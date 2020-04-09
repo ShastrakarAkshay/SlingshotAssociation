@@ -1,3 +1,5 @@
+@import "../../styles.scss";
+
 #game {
   font-family: "Didact Gothic", sans-serif;
   overflow-x: hidden;
@@ -10,6 +12,9 @@
   .card:hover,
   .list-group-item:hover {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    .category-title {
+      color: $th-color-dark;
+    }
   }
   .sling-img {
     width: 80%;
