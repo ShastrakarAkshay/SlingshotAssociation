@@ -85,7 +85,7 @@ export class AssociationComponent implements OnInit {
 
   registerDistrict() {
     this.showForm = true;
-    window.scrollTo(0,300);
+    window.scrollTo(0,570);
   }
 
   onFormSubmit() {
