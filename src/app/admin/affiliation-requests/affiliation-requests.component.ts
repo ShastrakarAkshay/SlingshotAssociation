@@ -56,7 +56,8 @@ export class AffiliationRequestsComponent implements OnInit {
   getPersonInfo(personData: any) {
     this._dialog.open(DistrictApprovalDialog, {
       data: personData,
-      autoFocus: false
+      autoFocus: false,
+      width: '99%'
     });
   }
 
