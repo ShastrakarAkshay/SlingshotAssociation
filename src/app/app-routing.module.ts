@@ -17,6 +17,7 @@ import { ProfileComponent } from './admin/profile/profile.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { LoginGuard } from './shared/guards/login.guard';
 import { RefreePanelComponent } from './admin/refree-panel/refree-panel.component';
+import { CommitteeComponent } from './committee/committee.component';
 
 
 const routes: Routes = [
@@ -52,6 +53,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [LoginGuard]
+  },
+  {
+    path: 'committee', 
+    component: CommitteeComponent
   },
   {
     path: 'admin',
