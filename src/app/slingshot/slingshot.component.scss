@@ -44,8 +44,8 @@
     font-size: 18px !important;
   }
 
-  .equipment {
-    // To do for Rameshwar
+  .tool:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
   }
 }
 
@@ -74,7 +74,7 @@
     padding-right: 10px !important;
   }
 
-  .equipment {
-    // To do for Rameshwar
+  .tool {
+    margin-top: 10px;
   }
 }
