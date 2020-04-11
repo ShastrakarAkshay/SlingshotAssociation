@@ -16,6 +16,7 @@ export class ContactUsComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private _service: SlingshotService, private dataService: ModalDataService) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.members = this.dataService.getAssociationMembers();
     this.contactForm = this.formBuilder.group({
       firstName: ['', Validators.required],

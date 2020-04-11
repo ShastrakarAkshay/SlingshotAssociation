@@ -16,6 +16,7 @@ export class SlingshotComponent implements OnInit {
   ngOnInit() {
     this.categories = this.dataService.getSlingshotCategories();
     this.rules = this.dataService.getSlingshotRules();
+    window.scrollTo(0, 0);
   }
 
 }

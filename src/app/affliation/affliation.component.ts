@@ -18,6 +18,7 @@ export class AffliationComponent implements OnInit {
 
   ngOnInit() {
     this.getRegisteredDistrictList();
+    window.scrollTo(0, 0);
   }
 
   getRegisteredDistrictList() {
