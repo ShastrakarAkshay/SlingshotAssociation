@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalDataService } from '../shared/services/modal-data.service';
+import { SlingshotService } from '../shared/services/slingshot.service';
 
 @Component({
   selector: 'app-committee',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommitteeComponent implements OnInit {
 
-  constructor() { }
+  members: any[] = [];
+  referees: any[] = [];
+
+  constructor(private dataModal: ModalDataService, private _service: SlingshotService) { }
 
   ngOnInit() {
+    this.members = this.dataModal.getAssociationMembers();
+    this._service.getAllRefrees().subscribe(data => {
+      this.referees = data.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+      });
+    })
   }
 
 }

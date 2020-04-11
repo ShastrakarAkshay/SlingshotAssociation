@@ -79,7 +79,7 @@ export class ModalDataService {
       pic: './assets/images/members/giriraj-gupta.jpg'
     },
     {
-      name: 'Miss Snehal Khantade',
+      name: 'Miss. Snehal Khantade',
       role: 'Member',
       email: 'xyz@gmail.com',
       mobile: '9552822470',

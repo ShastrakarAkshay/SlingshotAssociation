@@ -1,19 +1,47 @@
 <section id="committee">
-    <div class="container">
-        <div class="association-info mt-5">
-            Association info
+    <div class="jumbotron text-center">
+        <h2 class="page-title">Slingshot Sports Association Members</h2>
+    </div>
+    <div class="container mb-5">
+        <div class="mt-5">
+            <h5 class="font-weight-bold">Association Members</h5>
+            <table class="table table-bordered mt-3">
+                <tr *ngFor="let member of members; let i = index;" class="bg-white">
+                    <td width="10%">{{ i+1 }}</td>
+                    <td width="50%">{{member.name}}</td> 
+                    <td width="40%">{{member.role}}</td>
+                </tr>
+            </table>
         </div>
         <div class="mt-5">
-            committee1
+            <h5 class="font-weight-bold">Referee Committee</h5>
+            <table class="table table-bordered mt-3">
+                <tr *ngFor="let referee of referees; let i = index;" class="bg-white">
+                    <td width="10%">{{ i+1 }}</td>
+                    <td width="50%">{{referee.firstName}} {{referee.middleName}} {{referee.lastName}}</td> 
+                    <td width="40%">{{referee.district}}</td>
+                </tr>
+            </table>
         </div>
         <div class="mt-5">
-            committee1
+            <h5 class="font-weight-bold">Coaches Panel</h5>
+            <table class="table table-bordered mt-3">
+                <tr *ngFor="let member of members; let i = index;" class="bg-white">
+                    <td width="10%">{{ i+1 }}</td>
+                    <td width="50%">{{member.name}}</td> 
+                    <td width="40%">{{member.role}}</td>
+                </tr>
+            </table>
         </div>
         <div class="mt-5">
-            committee1
-        </div>
-        <div class="mt-5">
-            committee1
+            <h5 class="font-weight-bold">Affiliation Committee</h5>
+            <table class="table table-bordered mt-3">
+                <tr *ngFor="let member of members; let i = index;" class="bg-white">
+                    <td width="10%">{{ i+1 }}</td>
+                    <td width="50%">{{member.name}}</td> 
+                    <td width="40%">{{member.role}}</td>
+                </tr>
+            </table>
         </div>
     </div>
 </section>
