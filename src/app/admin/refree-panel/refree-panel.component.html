@@ -1,6 +1,12 @@
 <section id="refree-panel">
-    <h2>Refree</h2>
-    <button (click)="addRefree()" class="btn sling-btn">Add Refree</button>
+    <div class="row justify-content-between">
+        <div class="col-6">
+            <h2><strong><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Referee</strong></h2>
+        </div>
+        <div class="col-6">
+            <button (click)="addRefree()" class="btn sling-btn pull-right">Add Refree</button>
+        </div>
+    </div>
     <div class="data-table mt-3 mb-5 table-responsive" style="border:1px solid #00000017;">
         <table mat-table [dataSource]="dataSource" matSort class="table-hover data-table" width="100%">
 
@@ -17,8 +23,8 @@
                     {{element.name}}</td>
             </ng-container>
 
-             <!-- Weight Column -->
-             <ng-container matColumnDef="email">
+            <!-- Weight Column -->
+            <ng-container matColumnDef="email">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Email </th>
                 <td mat-cell *matCellDef="let element" width="20%" class="text-capitalize"> {{element.email}} </td>
             </ng-container>
@@ -40,8 +46,10 @@
                 <th mat-header-cell *matHeaderCellDef class="bg-dark text-white">Action</th>
                 <td mat-cell *matCellDef="let element" width="15%">
                     <div class="row p-2">
-                        <a class="btn text-info pointer" (click)="editRefree(element)" matTooltip="Edit" matTooltipPosition="above"><i class="fa fa-pencil"></i></a>
-                        <a class="btn text-danger pointer" (click)="deleteRefree(element.id)" matTooltip="Delete" matTooltipPosition="above"><i class="fa fa-trash text-danger"></i></a>
+                        <a class="btn text-info pointer" (click)="editRefree(element)" matTooltip="Edit"
+                            matTooltipPosition="above"><i class="fa fa-pencil"></i></a>
+                        <a class="btn text-danger pointer" (click)="deleteRefree(element.id)" matTooltip="Delete"
+                            matTooltipPosition="above"><i class="fa fa-trash text-danger"></i></a>
                     </div>
                 </td>
             </ng-container>

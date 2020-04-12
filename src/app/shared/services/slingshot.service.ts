@@ -56,9 +56,12 @@ export class SlingshotService {
     // });
   }
 
+  registerAffiliationRequest(data: any) {
+    this.firestore.collection("AffiliationRequests").add(data);
+  }
+
   getAllDistricts(): any {
     return this.firestore.collection('DistrictList', ref => ref.orderBy('name', 'asc')).snapshotChanges();
-
   }
 
   getAvailabelDistricts(): any {

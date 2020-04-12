@@ -7,6 +7,7 @@ import { DistrictConfig } from '../shared/interfaces/slingshot.interface';
 import { SlingshotService } from '../shared/services/slingshot.service';
 import { AuthService } from '../shared/services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-association',
@@ -31,11 +32,14 @@ export class AssociationComponent implements OnInit {
     private slingshotService: SlingshotService,
     private formBuilder: FormBuilder,
     private auth: AuthService,
+    private dialog: MatDialog,
+    private router: Router,
     private _spinner: NgxSpinnerService) {
 
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this._spinner.show();
     this.showSpinner = true;
     this.getAvailableDistrictList();
@@ -53,15 +57,17 @@ export class AssociationComponent implements OnInit {
       aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
       panNo: ['', [Validators.required, Validators.pattern(/[0-9 a-z A-Z]{10}/)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required],
+      // password: ['', [Validators.required, Validators.minLength(8)]],
+      // confirmPassword: ['', Validators.required],
       file1: ['', Validators.required],
       file2: ['', Validators.required],
       file3: ['', Validators.required],
-      terms: ['', Validators.required]
-    }, {
-      validator: ConfirmPasswordValidator.MatchPassword
+      terms: ['', Validators.required],
+      gender: ['', Validators.required]
     });
+    // {
+    //   validator: ConfirmPasswordValidator.MatchPassword
+    // });
   }
 
   // fetch all available district list
@@ -85,7 +91,7 @@ export class AssociationComponent implements OnInit {
 
   registerDistrict() {
     this.showForm = true;
-    window.scrollTo(0,570);
+    window.scrollTo(0, 570);
   }
 
   onFormSubmit() {
@@ -97,9 +103,22 @@ export class AssociationComponent implements OnInit {
     // create authentication user in firebase
     let formData = this.registerForm.value;
     formData['requestedDistrict'] = this.selectedDistrict;
+    formData['role'] = 'President';
     formData.dateOfBirth = new Date(formData.dateOfBirth).getTime();
-    delete formData.terms; delete formData.confirmPassword; delete formData.requestedDistrict.isRegistered;
-    this.auth.signUp(formData);
+    delete formData.terms; 
+    delete formData.requestedDistrict.isRegistered;
+    // this.auth.signUp(formData);
+    this.slingshotService.registerAffiliationRequest(formData);
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to approve user?', type: 'register' },
+      autoFocus: false,
+      width: '80%'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.router.navigateByUrl('/home');
+      }
+    });
   }
 
   onFormReset() {

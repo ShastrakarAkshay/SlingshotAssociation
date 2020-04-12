@@ -29,7 +29,6 @@ export class AuthService {
   signUp(data): any {
     return this.afAuth.auth.createUserWithEmailAndPassword(data.email, data.password)
       .then((result) => {
-        delete data.password;
         this.firestore.collection("AffiliationRequests").doc(result.user.uid).set({role: 'President', ...data});
 
         let dialogRef = this.dialog.open(ConfirmDialogComponent, {
