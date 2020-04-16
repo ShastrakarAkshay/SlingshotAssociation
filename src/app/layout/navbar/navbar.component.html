@@ -29,7 +29,8 @@
                 <a class="nav-link" routerLink="/contact">Contact us</a>
             </li>
         </ul>
-        <button class="btn outline" *ngIf="isLoggedIn" (click)="signOut()">Logout</button>
-        <button class="btn outline" routerLink="/login" *ngIf="!isLoggedIn">Login</button>
+        <button class="btn outline" routerLink="/association">Register</button>
+        <button class="btn outline ml-2" routerLink="/login" *ngIf="!isLoggedIn">Login</button>
+        <button class="btn outline ml-2" *ngIf="isLoggedIn" (click)="signOut()">Logout</button>
     </div>
 </nav>
