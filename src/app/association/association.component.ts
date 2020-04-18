@@ -86,7 +86,7 @@ export class AssociationComponent implements OnInit {
 
   onDistrictChange(id) {
     this.disabledRegBtn = false;
-    this.selectedDistrict = this.slingshotService.getDistrictById(this.availableDistricts, id);
+    this.availableDistricts.forEach(dist => { if (dist.id === id) { this.selectedDistrict = dist } });
   }
 
   registerDistrict() {
@@ -100,14 +100,7 @@ export class AssociationComponent implements OnInit {
       return;
     }
 
-    // create authentication user in firebase
-    let formData = this.registerForm.value;
-    formData['requestedDistrict'] = this.selectedDistrict;
-    formData['role'] = 'President';
-    formData.dateOfBirth = new Date(formData.dateOfBirth).getTime();
-    delete formData.terms; 
-    delete formData.requestedDistrict.isRegistered;
-    // this.auth.signUp(formData);
+    let formData = this.prepareFormData(this.registerForm.value);
     this.slingshotService.registerAffiliationRequest(formData);
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to approve user?', type: 'register' },
@@ -119,6 +112,41 @@ export class AssociationComponent implements OnInit {
         this.router.navigateByUrl('/home');
       }
     });
+  }
+
+  prepareFormData(data: any): any {
+    return {
+      requestedDistrict: {
+        id: this.selectedDistrict.id,
+        name: this.selectedDistrict.name
+      },
+      members: [
+        {
+          id: this.selectedDistrict.id + 'Member01',
+          role: 'President',
+          firstName: data.firstName,
+          middleName: data.middleName,
+          lastName: data.lastName,
+          dateOfBirth: data.dateOfBirth,
+          gender: data.gender,
+          email: data.email,
+          mobile: data.mobile,
+          addressLine1: data.addressLine1,
+          addressLine2: data.addressLine2,
+          city: data.city,
+          district: data.district,
+          pin: data.pin,
+          aadhaarNo: data.aadhaarNo,
+          panNo: data.panNo,
+          documents: {}
+        }
+      ],
+      approvedOn: '',
+      approvedBy: '',
+      modifiedOn: '',
+      modifiedBy: '',
+      status: 'Pending'
+    }
   }
 
   onFormReset() {

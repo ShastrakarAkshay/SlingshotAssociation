@@ -9,14 +9,18 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AffliationComponent implements OnInit {
 
-  private selectedDistrict: any[] = [];
+  private selectedDistrictInfo: any;
   private registeredDistrictsList: any[] = [];
   private showSpinner: boolean = false;
-  private districtInfo: any = { districtName: '', approvedOn: '' };
 
   constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.selectedDistrictInfo = {
+      approvedOn: '',
+      requestedDistrict: { id: '', name: '' },
+      members: [{ firstName: '', middleName: '', lastName: '', email: '', mobile: '', role: ' ' }]
+    }
     this.getRegisteredDistrictList();
     window.scrollTo(0, 0);
   }
@@ -37,13 +41,7 @@ export class AffliationComponent implements OnInit {
   getDistrictInfo(id) {
     this.spinnerShow();
     this._service.getRegisteredDistrictInfoById(id).subscribe(config => {
-      this.selectedDistrict = [];
-      config.map((data, index) => {
-        this.selectedDistrict.push(data.payload.doc.data());
-        if (index === 0) {
-          this.districtInfo = { districtName: this.selectedDistrict[0].requestedDistrict.name, approvedOn: this.selectedDistrict[0].approvedOn }
-        }
-      });
+      this.selectedDistrictInfo = config.payload.data();
       this.spinnerHide();
     });
   }

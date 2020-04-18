@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { AngularFirestore } from '@angular/fire/firestore';
+import * as rxjs from 'rxjs/operators'
 
 @Component({
   selector: 'app-affiliation-requests',
@@ -19,7 +21,7 @@ export class AffiliationRequestsComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['index', 'name', 'mobile', 'requestedDistrict.name', 'actions'];
+  displayedColumns: string[] = ['index', 'name', 'mobile', 'districtName', 'actions'];
 
   private affiliatinRequests: any[] = [];
   private totalCount: number = 0;
@@ -93,6 +95,8 @@ export class DistrictApprovalDialog implements OnInit {
     private _service: SlingshotService,
     private _spinner: NgxSpinnerService,
     private _dialog: MatDialog,
+    private _toastr: ToastrService,
+    private firestore: AngularFirestore,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     _dialogRef.disableClose = true;
@@ -105,7 +109,7 @@ export class DistrictApprovalDialog implements OnInit {
     this._dialogRef.close();
   }
 
-  approveDistrict(personData: any) {
+  approveDistrict(districtData: any) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to approve?', type: 'confirm' },
       autoFocus: false
@@ -113,8 +117,20 @@ export class DistrictApprovalDialog implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        personData.approvedOn = new Date();
-        this._service.approveDistrict(personData);
+        districtData.approvedOn = 'approvedDate';
+        districtData.approvedBy = 'username';
+        districtData.status = 'approved';
+        this._service.approveDistrict(districtData).pipe(rxjs.take(1)).subscribe(data => {
+          if (!data.payload.exists) {
+            this.firestore.collection('ApprovedDistricts').doc(districtData.requestedDistrict.id).set({ ...districtData, id: districtData.requestedDistrict.id });
+            this.firestore.collection('DistrictList').doc(districtData.requestedDistrict.id).update({ isRegistered: true });
+            this.firestore.collection('AffiliationRequests').doc(districtData.id).delete();
+            this._toastr.success('Approved Successfully');
+            this.close();
+          } else {
+            this._toastr.error('District is already allocated');
+          }
+        });
       }
     });
   }

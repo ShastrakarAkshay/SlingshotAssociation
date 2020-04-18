@@ -10,85 +10,72 @@ export class SlingshotService {
 
   constructor(private firestore: AngularFirestore, private _toastr: ToastrService) { }
   districtList = [
-    { name: 'Ahmednagar', isRegistered: false },
-    { name: 'Akola', isRegistered: false },
-    { name: 'Amravati', isRegistered: false },
-    { name: 'Aurangabad', isRegistered: false },
-    { name: 'Bhandara', isRegistered: false },
-    { name: 'Buldhana', isRegistered: false },
-    { name: 'Chandrapur', isRegistered: false },
-    { name: 'Dhule', isRegistered: false },
-    { name: 'Gadchiroli', isRegistered: false },
-    { name: 'Gondia', isRegistered: false },
-    { name: 'Hingoli', isRegistered: false },
-    { name: 'Jalgaon', isRegistered: false },
-    { name: 'Jalna', isRegistered: false },
-    { name: 'Kolhapur', isRegistered: false },
-    { name: 'Latur', isRegistered: false },
-    { name: 'Mumbai', isRegistered: false },
-    { name: 'Nagpur', isRegistered: false },
-    { name: 'Nanded', isRegistered: false },
-    { name: 'Nandurbar', isRegistered: false },
-    { name: 'Nashik', isRegistered: false },
-    { name: 'Osmanabad', isRegistered: false },
-    { name: 'Palghar', isRegistered: false },
-    { name: 'Parbhani', isRegistered: false },
-    { name: 'Pune', isRegistered: false },
-    { name: 'Raigad', isRegistered: false },
-    { name: 'Alibag', isRegistered: false },
-    { name: 'Ratnagiri', isRegistered: false },
-    { name: 'Sangli', isRegistered: false },
-    { name: 'Satara', isRegistered: false },
-    { name: 'Sindhudurg', isRegistered: false },
-    { name: 'Oros', isRegistered: false },
-    { name: 'Solapur', isRegistered: false },
-    { name: 'Thane', isRegistered: false },
-    { name: 'Wardha', isRegistered: false },
-    { name: 'Washim', isRegistered: false },
-    { name: 'Yavatmal', isRegistered: false }
+    { id: 'SLINGSHOTMH0001', name: 'Ahmednagar', isRegistered: false },
+    { id: 'SLINGSHOTMH0002', name: 'Akola', isRegistered: false },
+    { id: 'SLINGSHOTMH0003', name: 'Amravati', isRegistered: false },
+    { id: 'SLINGSHOTMH0004', name: 'Aurangabad', isRegistered: false },
+    { id: 'SLINGSHOTMH0005', name: 'Bhandara', isRegistered: false },
+    { id: 'SLINGSHOTMH0006', name: 'Buldhana', isRegistered: false },
+    { id: 'SLINGSHOTMH0007', name: 'Chandrapur', isRegistered: false },
+    { id: 'SLINGSHOTMH0008', name: 'Dhule', isRegistered: false },
+    { id: 'SLINGSHOTMH0009', name: 'Gadchiroli', isRegistered: false },
+    { id: 'SLINGSHOTMH0010', name: 'Gondia', isRegistered: false },
+    { id: 'SLINGSHOTMH0011', name: 'Hingoli', isRegistered: false },
+    { id: 'SLINGSHOTMH0012', name: 'Jalgaon', isRegistered: false },
+    { id: 'SLINGSHOTMH0013', name: 'Jalna', isRegistered: false },
+    { id: 'SLINGSHOTMH0014', name: 'Kolhapur', isRegistered: false },
+    { id: 'SLINGSHOTMH0015', name: 'Latur', isRegistered: false },
+    { id: 'SLINGSHOTMH0016', name: 'Mumbai', isRegistered: false },
+    { id: 'SLINGSHOTMH0017', name: 'Nagpur', isRegistered: false },
+    { id: 'SLINGSHOTMH0018', name: 'Nanded', isRegistered: false },
+    { id: 'SLINGSHOTMH0019', name: 'Nandurbar', isRegistered: false },
+    { id: 'SLINGSHOTMH0020', name: 'Nashik', isRegistered: false },
+    { id: 'SLINGSHOTMH0021', name: 'Osmanabad', isRegistered: false },
+    { id: 'SLINGSHOTMH0022', name: 'Palghar', isRegistered: false },
+    { id: 'SLINGSHOTMH0023', name: 'Parbhani', isRegistered: false },
+    { id: 'SLINGSHOTMH0024', name: 'Pune', isRegistered: false },
+    { id: 'SLINGSHOTMH0025', name: 'Raigad', isRegistered: false },
+    { id: 'SLINGSHOTMH0026', name: 'Alibag', isRegistered: false },
+    { id: 'SLINGSHOTMH0027', name: 'Ratnagiri', isRegistered: false },
+    { id: 'SLINGSHOTMH0028', name: 'Sangli', isRegistered: false },
+    { id: 'SLINGSHOTMH0029', name: 'Satara', isRegistered: false },
+    { id: 'SLINGSHOTMH0030', name: 'Sindhudurg', isRegistered: false },
+    { id: 'SLINGSHOTMH0031', name: 'Oros', isRegistered: false },
+    { id: 'SLINGSHOTMH0032', name: 'Solapur', isRegistered: false },
+    { id: 'SLINGSHOTMH0033', name: 'Thane', isRegistered: false },
+    { id: 'SLINGSHOTMH0034', name: 'Wardha', isRegistered: false },
+    { id: 'SLINGSHOTMH0035', name: 'Washim', isRegistered: false },
+    { id: 'SLINGSHOTMH0036', name: 'Yavatmal', isRegistered: false }
   ];
-  addDist() {
-    // console.log('service called');
-    // this.districtList.forEach((item, index) => {
-    //   this.firestore.collection("DistrictList").add(item).then(ref => {
-    //     ref.set({ id: ref.id }, { merge: true });
-    //   });
-    // });
-  }
 
-  registerAffiliationRequest(data: any) {
-    this.firestore.collection("AffiliationRequests").add(data);
-  }
+  // addDist() {
+  //   this.districtList.forEach((item, index) => {
+  //     this.firestore.collection('DistrictList').doc(item.id).set(item);
+  //   });
+  // }
 
   getAllDistricts(): any {
     return this.firestore.collection('DistrictList', ref => ref.orderBy('name', 'asc')).snapshotChanges();
   }
 
   getAvailabelDistricts(): any {
-    return this.firestore.collection('DistrictList', ref => ref.where('isRegistered', '==', false).orderBy('name', 'asc')).snapshotChanges();
+    return this.firestore.collection('DistrictList', ref => ref.where('isRegistered', '==', false)).snapshotChanges();
   }
 
   getRegisteredDistricts(): any {
-    return this.firestore.collection('DistrictList', ref => ref.where('isRegistered', '==', true).orderBy('name', 'asc')).snapshotChanges();
-  }
-
-  getDistrictById(distArr: any, id: string): any {
-    let district;
-    distArr.forEach(dist => { if (dist.id === id) { district = dist } });
-    return district;
+    return this.firestore.collection('DistrictList', ref => ref.where('isRegistered', '==', true)).snapshotChanges();
   }
 
   getRegisteredDistrictInfoById(id: string): any {
-    return this.firestore.collection("ApprovedDistricts").doc(id).collection('Members').snapshotChanges();
+    return this.firestore.collection('ApprovedDistricts').doc(id).snapshotChanges();
   }
 
   districtRegistration(data: any, userID: any) {
-    // this.firestore.collection("AffiliationRequests").add(data);
     this.firestore.collection("AffiliationRequests").doc(userID).set(data);
   }
 
   getAffiliationRequests(): any {
-    return this.firestore.collection("AffiliationRequests", ref => ref.orderBy('firstName', 'asc')).snapshotChanges();
+    return this.firestore.collection("AffiliationRequests").snapshotChanges();
   }
 
   deleteRequestById(id: any): any {
@@ -100,22 +87,15 @@ export class SlingshotService {
     return this.firestore.collection('AffiliationRequests').doc(id).get();
   }
 
-  approveDistrict(data: any): any {
-    this.firestore.doc('ApprovedDistricts/' + data.requestedDistrict.id).collection('Members').get().subscribe(config => {
-      // 1. check district id is already exist or not
-      if (config.size === 0) {
-        // If not exist then add
-        this.firestore.collection('ApprovedDistricts').doc(data.requestedDistrict.id).collection('Members').doc(data.id).set(data);
-        // Update isRegister flag in district list
-        this.firestore.collection('DistrictList').doc(data.requestedDistrict.id).update({ isRegistered: true });
-        // Delete user data from RegistrationRequests collection
-        this.firestore.collection('AffiliationRequests').doc(data.id).delete();
-        this._toastr.success("District Approved Successfully.")
-      } else {
-        this._toastr.error("District is already allocated.");
-      }
-    });
+  registerAffiliationRequest(data: any) {
+    this.firestore.collection("AffiliationRequests").add(data);
   }
+
+  approveDistrict(districtData: any): any {
+    return this.firestore.collection('ApprovedDistricts').doc(districtData.requestedDistrict.id).snapshotChanges();
+  }
+
+   // ----------------- ENQUIRIES ---------------
 
   sendEnquiry(data: any) {
     this.firestore.collection('Enquiries').add(data);
@@ -129,6 +109,8 @@ export class SlingshotService {
     this.firestore.collection('Enquiries').doc(id).delete();
     this._toastr.info("Enquiry Deleted Successfully.");
   }
+
+   // ----------------- EVENTS ---------------
 
   createEvent(event) {
     this.firestore.collection('Events').add(event);
@@ -153,6 +135,8 @@ export class SlingshotService {
     this._toastr.success("Event Updated Successfully.");
   }
 
+  // ----------------- REFREE ---------------
+
   addRefree(data: any) {
     this.firestore.collection('Refree').add(data);
     this._toastr.success("Refree Added Successfully.");
@@ -172,20 +156,4 @@ export class SlingshotService {
     this._toastr.info("Refree Deleted Successfully.");
   }
 
-  getLatestMatchResults() {
-    // return only 3 or 4 latest records (winning)
-    return null;
-  }
-
-  getAllMatchesResults() {
-    return null;
-  }
-
-  getUpcommingEvents() {
-    return null;
-  }
-
-  getAssociationMemberList() {
-    return null;
-  }
 }

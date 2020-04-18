@@ -4,31 +4,31 @@
         <tbody>
             <tr>
                 <td width="30%" class=""><strong>Name</strong></td>
-                <td width="70%" class="text-capitalize">{{personData.firstName}} {{personData.middleName}} {{personData.lastName}}</td>
+                <td width="70%" class="text-capitalize">{{personData.members[0].firstName}} {{personData.members[0].middleName}} {{personData.members[0].lastName}}</td>
             </tr>
             <tr>
                 <td width="30%" class=""><strong>Address</strong></td>
-                <td width="70%" class="text-capitalize">{{personData.addressLine1}}, {{personData.addressLine2}}, {{personData.city}}, {{personData.district}}, Pin Code - {{personData.pin}}.</td>
+                <td width="70%" class="text-capitalize">{{personData.members[0].addressLine1}}, {{personData.members[0].addressLine2}}, {{personData.members[0].city}}, {{personData.members[0].district}}, Pin Code - {{personData.members[0].pin}}.</td>
             </tr>
             <tr>
                 <td width="30%" class=""><strong>Email</strong></td>
-                <td width="70%">{{personData.email}}</td>
+                <td width="70%">{{personData.members[0].email}}</td>
             </tr>
             <tr>
                 <td width="30%" class=""><strong>Mobile</strong></td>
-                <td width="70%">{{personData.mobile}}</td>
+                <td width="70%">{{personData.members[0].mobile}}</td>
             </tr>
             <tr>
                 <td width="30%" class=""><strong>Date of Birth</strong></td>
-                <td width="70%">{{personData.dateOfBirth}}</td>
+                <td width="70%">{{personData.members[0].dateOfBirth}}</td>
             </tr>
             <tr>
                 <td width="30%" class=""><strong>PAN No.</strong></td>
-                <td width="70%" class="text-uppercase">{{personData.panNo}}</td>
+                <td width="70%" class="text-uppercase">{{personData.members[0].panNo}}</td>
             </tr>
             <tr>
                 <td width="30%" class=""><strong>Aadhaar No.</strong></td>
-                <td width="70%">{{personData.aadhaarNo}}</td>
+                <td width="70%">{{personData.members[0].aadhaarNo}}</td>
             </tr>
         </tbody>
     </table>

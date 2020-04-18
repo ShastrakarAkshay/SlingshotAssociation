@@ -30,7 +30,7 @@
                 <div class="col-sm-4">
                     <label>First Name</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="firstName"
+                        <input type="text" class="form-control text-capitalize" formControlName="firstName"
                             [ngClass]="{'is-invalid':registerForm.get('firstName').touched && registerForm.get('firstName').invalid}">
                         <span class="invalid-feedback alert alert-danger">
                             Field is required
@@ -41,7 +41,7 @@
                 <div class="col-sm-4">
                     <label>Middle Name</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="middleName"
+                        <input type="text" class="form-control text-capitalize" formControlName="middleName"
                             [ngClass]="{'is-invalid':registerForm.get('middleName').touched && registerForm.get('middleName').invalid}">
                         <span class="invalid-feedback alert alert-danger">
                             Field is required
@@ -51,7 +51,7 @@
                 <div class="col-sm-4">
                     <label>Last Name</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="lastName"
+                        <input type="text" class="form-control text-capitalize" formControlName="lastName"
                             [ngClass]="{'is-invalid':registerForm.get('lastName').touched && registerForm.get('lastName').invalid}">
                         <span class="invalid-feedback alert alert-danger">
                             Field is required
@@ -76,7 +76,7 @@
                 <div class="col-sm-6">
                     <label>Mobile No.</label>
                     <div class="form-group">
-                        <input type="text" matTooltip="Mobile Number use for password recovery & notifications!"
+                        <input type="text" matTooltip="Mobile Number use for notifications!"
                             matTooltipPosition="above" class="form-control" formControlName="mobile" maxlength="10"
                             [ngClass]="{'is-invalid':registerForm.get('mobile').touched && registerForm.get('mobile').invalid}">
                         <span class="invalid-feedback alert alert-danger">
@@ -127,7 +127,7 @@
                 <div class="col-sm-12">
                     <label>Address Line 1</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="addressLine1"
+                        <input type="text" class="form-control text-capitalize" formControlName="addressLine1"
                             [ngClass]="{'is-invalid':registerForm.get('addressLine1').touched && registerForm.get('addressLine1').invalid}">
                         <span class="invalid-feedback alert alert-danger">
                             Field is required
@@ -139,7 +139,7 @@
                 <div class="col-sm-12">
                     <label>Address Line 2</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="addressLine2"
+                        <input type="text" class="form-control text-capitalize" formControlName="addressLine2"
                             [ngClass]="{'is-invalid':registerForm.get('addressLine2').touched && registerForm.get('addressLine2').invalid}">
                         <span class="invalid-feedback alert alert-danger">
                             Field is required
@@ -151,7 +151,7 @@
                 <div class="col-sm-4">
                     <label>City</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="city"
+                        <input type="text" class="form-control text-capitalize" formControlName="city"
                             [ngClass]="{'is-invalid':registerForm.get('city').touched && registerForm.get('city').invalid}">
                         <span class="invalid-feedback alert alert-danger">
                             Field is required
@@ -201,7 +201,7 @@
                 <div class="col-sm-6">
                     <label>PAN No.</label>
                     <div class="form-group">
-                        <input type="text" class="form-control" formControlName="panNo" maxlength="10"
+                        <input type="text" class="form-control text-uppercase" formControlName="panNo" maxlength="10"
                             [ngClass]="{'is-invalid':registerForm.get('panNo').touched && registerForm.get('panNo').invalid}">
                         <span class="invalid-feedback alert alert-danger">
                             <span *ngIf="registerForm.get('panNo').errors?.required">Field is required</span>
