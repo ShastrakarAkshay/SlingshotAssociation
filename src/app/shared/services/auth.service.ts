@@ -29,24 +29,7 @@ export class AuthService {
   signUp(data): any {
     return this.afAuth.auth.createUserWithEmailAndPassword(data.email, data.password)
       .then((result) => {
-        this.firestore.collection("AffiliationRequests").doc(result.user.uid).set({role: 'President', ...data});
-
-        let dialogRef = this.dialog.open(ConfirmDialogComponent, {
-          data: { message: 'Do you want to approve user?', type: 'register' },
-          autoFocus: false,
-          width: '80%'
-        });
-        dialogRef.afterClosed().subscribe(result => {
-          if (result) {
-            this.router.navigateByUrl('/login');
-          }
-        });
-      }).catch((error) => {
-        if (error.code === 'auth/email-already-in-use') {
-          this.toastr.error('Email address already in used.')
-        } else {
-          this.toastr.error(error.message);
-        }
+        // Do something...
       });
   }
 
@@ -58,9 +41,9 @@ export class AuthService {
         localStorage.setItem('user-id', result.user.uid);
         this.isLoggedIn();
       }).catch((error) => {
-        switch(error.code){
-          case 'auth/user-not-found' : this.toastr.error('User Not Found'); break;
-          case 'auth/wrong-password' : this.toastr.error('Wrong Password'); break;
+        switch (error.code) {
+          case 'auth/user-not-found': this.toastr.error('User Not Found'); break;
+          case 'auth/wrong-password': this.toastr.error('Wrong Password'); break;
         }
       })
   }

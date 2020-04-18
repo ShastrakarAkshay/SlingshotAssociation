@@ -80,7 +80,6 @@ export class SlingshotService {
 
   deleteRequestById(id: any): any {
     this.firestore.collection('AffiliationRequests').doc(id).delete();
-    this._toastr.info("Request Deleted Successfully.");
   }
 
   getUserById(id: string): any {
@@ -107,14 +106,12 @@ export class SlingshotService {
 
   deleteEnquiryById(id: any) {
     this.firestore.collection('Enquiries').doc(id).delete();
-    this._toastr.info("Enquiry Deleted Successfully.");
   }
 
    // ----------------- EVENTS ---------------
 
   createEvent(event) {
     this.firestore.collection('Events').add(event);
-    this._toastr.success("Event Created Successfully.");
   }
 
   getAllEvents(): any {
@@ -127,19 +124,16 @@ export class SlingshotService {
 
   deleteEventById(id: any): any {
     this.firestore.collection('Events').doc(id).delete();
-    this._toastr.info("Event Deleted Successfully.");
   }
 
   updateEventById(id: any, data: any) {
     this.firestore.collection('Events').doc(id).update(data);
-    this._toastr.success("Event Updated Successfully.");
   }
 
   // ----------------- REFREE ---------------
 
   addRefree(data: any) {
     this.firestore.collection('Refree').add(data);
-    this._toastr.success("Refree Added Successfully.");
   }
 
   getAllRefrees(): any {
@@ -148,12 +142,10 @@ export class SlingshotService {
 
   updateRefreeById(id: any, data: any) {
     this.firestore.collection('Refree').doc(id).update(data);
-    this._toastr.success("Refree Updated Successfully.");
   }
 
   deleteRefreeById(id: any): any {
     this.firestore.collection('Refree').doc(id).delete();
-    this._toastr.info("Refree Deleted Successfully.");
   }
 
 }

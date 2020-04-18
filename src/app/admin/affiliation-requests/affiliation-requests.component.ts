@@ -72,6 +72,7 @@ export class AffiliationRequestsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this._service.deleteRequestById(id);
+        this._toastr.info("Request Deleted Successfully.");
       }
     });
   }

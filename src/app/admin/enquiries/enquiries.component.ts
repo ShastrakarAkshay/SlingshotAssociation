@@ -6,6 +6,7 @@ import { SlingshotService } from 'src/app/shared/services/slingshot.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-enquiries',
@@ -21,7 +22,7 @@ export class EnquiriesComponent implements OnInit {
   private enquiries: any[] = [];
   private showSpinner: boolean = false;
   
-  constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService, private _dialog: MatDialog) { }
+  constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService, private _dialog: MatDialog, private _toastr: ToastrService) { }
 
   ngOnInit() {
     this.showSpinner = true;
@@ -50,6 +51,7 @@ export class EnquiriesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this._service.deleteEnquiryById(id);
+        this._toastr.info("Enquiry Deleted Successfully.");
       }
     });
   }

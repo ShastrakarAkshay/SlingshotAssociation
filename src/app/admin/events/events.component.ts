@@ -66,6 +66,7 @@ export class EventsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this._service.deleteEventById(id);
+        this._toastr.info("Event Deleted Successfully.");
       }
     });
   }
@@ -101,6 +102,7 @@ export class CreateEventDialog implements OnInit {
     public _dialogRef: MatDialogRef<CreateEventDialog>,
     private _service: SlingshotService,
     private formBuilder: FormBuilder,
+    private _toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     _dialogRef.disableClose = true;
@@ -139,6 +141,7 @@ export class CreateEventDialog implements OnInit {
       return;
     }
     this._service.createEvent(this.eventForm.value);
+    this._toastr.success("Event Created Successfully.");
     this.close();
   }
 
@@ -147,6 +150,7 @@ export class CreateEventDialog implements OnInit {
       return;
     }
     this._service.updateEventById(this.eventData.id, this.eventForm.value);
+    this._toastr.success("Event Updated Successfully.");
     this.close();
   }
 }

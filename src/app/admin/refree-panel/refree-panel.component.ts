@@ -68,6 +68,7 @@ export class RefreePanelComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this._service.deleteRefreeById(id);
+        this._toastr.info("Refree Deleted Successfully.");
       }
     });
   }
@@ -107,6 +108,7 @@ export class AddRefreeDialog implements OnInit {
     public _dialogRef: MatDialogRef<AddRefreeDialog>,
     private _service: SlingshotService,
     private formBuilder: FormBuilder,
+    private _toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     _dialogRef.disableClose = true;
@@ -125,8 +127,7 @@ export class AddRefreeDialog implements OnInit {
       city: ['', Validators.required],
       district: ['', Validators.required],
       pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
-      aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
-      file: ['', Validators.required]
+      aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]]
     });
 
     if (this.refreeData) {
@@ -141,8 +142,7 @@ export class AddRefreeDialog implements OnInit {
         district: this.refreeData.district,
         pin: this.refreeData.pin,
         aadhaarNo: this.refreeData.aadhaarNo,
-        dateOfBirth: this.refreeData.dateOfBirth,
-        file: '',
+        dateOfBirth: this.refreeData.dateOfBirth
       });
       this.isEdit = true;
     }
@@ -161,6 +161,7 @@ export class AddRefreeDialog implements OnInit {
       return;
     }
     this._service.addRefree(this.refreeForm.value);
+    this._toastr.success("Refree Added Successfully.");
     this.close();
   }
 
@@ -168,7 +169,9 @@ export class AddRefreeDialog implements OnInit {
     if (this.refreeForm.invalid) {
       return;
     }
+
     this._service.updateRefreeById(this.refreeData.id, this.refreeForm.value);
+    this._toastr.success("Refree Updated Successfully.");
     this.close();
   }
 }
