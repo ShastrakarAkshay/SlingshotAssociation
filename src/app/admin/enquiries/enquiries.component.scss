@@ -1,6 +1,9 @@
+@import "../../../styles.scss";
 #enquiries {
     font-family: "Didact Gothic", sans-serif;
     margin-top: 100px;
     margin-bottom: 100px;
-   
+    .badge {
+        background-color: $th-color;
+    }
 }
