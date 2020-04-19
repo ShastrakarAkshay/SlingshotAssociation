@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { of } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -94,7 +95,21 @@ export class SlingshotService {
     return this.firestore.collection('ApprovedDistricts').doc(districtData.requestedDistrict.id).snapshotChanges();
   }
 
-   // ----------------- ENQUIRIES ---------------
+  getApprovedDistrictInfo(): any {
+    return this.firestore.collection('ApprovedDistricts').snapshotChanges();
+  }
+
+  deleteDistrictAffiliation(data: any): any {
+    this.firestore.collection('OLD_AFFILIATIONS').add({...data, status: 'rejected'});
+    this.firestore.collection('DistrictList').doc(data.requestedDistrict.id).update({ isRegistered: false });
+    this.firestore.collection('ApprovedDistricts').doc(data.requestedDistrict.id).delete();
+  }
+
+  getOldAffiliations():any {
+    return this.firestore.collection('OLD_AFFILIATIONS').snapshotChanges();
+  }
+
+  // ----------------- ENQUIRIES ---------------
 
   sendEnquiry(data: any) {
     this.firestore.collection('Enquiries').add(data);
@@ -108,7 +123,7 @@ export class SlingshotService {
     this.firestore.collection('Enquiries').doc(id).delete();
   }
 
-   // ----------------- EVENTS ---------------
+  // ----------------- EVENTS ---------------
 
   createEvent(event) {
     this.firestore.collection('Events').add(event);

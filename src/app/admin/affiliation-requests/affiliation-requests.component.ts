@@ -21,21 +21,30 @@ export class AffiliationRequestsComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['index', 'name', 'mobile', 'districtName', 'actions'];
+  displayedColumns: string[] = ['index', 'districtName', 'name', 'mobile', 'status', 'actions'];
+
+  dataSource2 = new MatTableDataSource();
+  displayedColumns2: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'actions'];
+
+  dataSource3 = new MatTableDataSource();
+  displayedColumns3: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status'];
 
   private affiliatinRequests: any[] = [];
+  private approvedDistricts: any[] = [];
+  private oldAffiliations: any[] = [];
   private totalCount: number = 0;
   private showSpinner: boolean = false;
 
   constructor(private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
   ngOnInit() {
-    this.showSpinner = true;
-    this._spinner.show();
     this.getAffiliationRequestData();
+    this.getApprovedDistrictInfo();
+    this.getOldAffiliations();
   }
 
   getAffiliationRequestData() {
+    this.show_spinner();
     this._service.getAffiliationRequests().subscribe(data => {
       this.affiliatinRequests = data.map(item => {
         return {
@@ -46,10 +55,42 @@ export class AffiliationRequestsComponent implements OnInit {
       this.dataSource.data = this.affiliatinRequests;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      this._spinner.hide();
-      this.showSpinner = false;
+      this.hide_spinner();
     })
   }
+
+  getApprovedDistrictInfo() {
+    this.show_spinner();
+    this._service.getApprovedDistrictInfo().subscribe(data => {
+      this.approvedDistricts = data.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+      });
+      this.dataSource2.data = this.approvedDistricts;
+      this.dataSource2.sort = this.sort;
+      this.dataSource2.paginator = this.paginator;
+      this.hide_spinner();
+    })
+  }
+
+  getOldAffiliations() {
+    this.show_spinner();
+    this._service.getOldAffiliations().subscribe(data => {
+      this.oldAffiliations = data.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+      });
+      this.dataSource3.data = this.oldAffiliations;
+      this.dataSource3.sort = this.sort;
+      this.dataSource3.paginator = this.paginator;
+      this.hide_spinner();
+    })
+  }
+
 
   filterResult(serachKey: string) {
     this.dataSource.filter = serachKey.trim().toLowerCase();
@@ -57,7 +98,15 @@ export class AffiliationRequestsComponent implements OnInit {
 
   getPersonInfo(personData: any) {
     this._dialog.open(DistrictApprovalDialog, {
-      data: personData,
+      data: { distInfo: personData, flag: false },
+      autoFocus: false,
+      width: '99%'
+    });
+  }
+
+  getRegisteredDistrctInfo(personData: any) {
+    this._dialog.open(DistrictApprovalDialog, {
+      data: { distInfo: personData, flag: true },
       autoFocus: false,
       width: '99%'
     });
@@ -77,6 +126,16 @@ export class AffiliationRequestsComponent implements OnInit {
     });
   }
 
+  show_spinner() {
+    this.showSpinner = true;
+    this._spinner.show();
+  }
+
+  hide_spinner() {
+    this._spinner.hide();
+    this.showSpinner = false;
+  }
+
 }
 @Component({
   selector: 'district-approval-dialog',
@@ -91,6 +150,8 @@ export class AffiliationRequestsComponent implements OnInit {
 })
 export class DistrictApprovalDialog implements OnInit {
   private personData: any;
+  public flag: boolean = false;
+  public title: string = '';
   constructor(
     public _dialogRef: MatDialogRef<DistrictApprovalDialog>,
     private _service: SlingshotService,
@@ -101,7 +162,13 @@ export class DistrictApprovalDialog implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     _dialogRef.disableClose = true;
-    this.personData = data;
+    this.personData = data.distInfo;
+    this.flag = data.flag;
+    if (this.flag) {
+      this.title = this.personData.requestedDistrict.name;
+    } else {
+      this.title = 'Requested For "' + this.personData.requestedDistrict.name + '" District';
+    }
   }
 
   ngOnInit() { }
@@ -132,6 +199,20 @@ export class DistrictApprovalDialog implements OnInit {
             this._toastr.error('District is already allocated');
           }
         });
+      }
+    });
+  }
+
+  deleteAffiliation() {
+    let dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to delete affiliation?', type: 'confirm' },
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._service.deleteDistrictAffiliation(this.personData);
+        this._toastr.error('Affiliation Canceled Successfully');
+        this.close();
       }
     });
   }

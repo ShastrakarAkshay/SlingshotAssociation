@@ -10,7 +10,6 @@ import { UserConfig } from '../shared/interfaces/slingshot.interface';
 export class AdminComponent implements OnInit {
 
   private userID: string;
-  private requestCount: number = 0;
   private enquiryCount: number = 0;
   private eventCount: number = 0;
   private refreeCount: number = 0;
@@ -20,10 +19,6 @@ export class AdminComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._service.getAffiliationRequests().subscribe(data => {
-      this.requestCount = data.length;
-    });
-
     this._service.getEnquiries().subscribe(data => {
       this.enquiryCount = data.length;
     });
