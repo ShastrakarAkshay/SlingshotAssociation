@@ -1,9 +1,16 @@
 #committee {
-    font-family: "Didact Gothic", sans-serif;
-    margin-top: 80px;
-    .jumbotron {
-        background-color: #212325 !important;
-        color: #fff;
-        border-radius: 0em;
-      }
+  font-family: "Didact Gothic", sans-serif;
+  margin-top: 80px;
+  .jumbotron {
+    background-color: #212325 !important;
+    color: #fff;
+    border-radius: 0em;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  //mobile device
+  .page-title {
+    font-size: 1.2rem !important;
+  }
 }
