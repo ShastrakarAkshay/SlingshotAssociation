@@ -1,14 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow">
     <div class='navbar-brand'>
-        <span class='navbar-title ml-2'><span class="main-title">Slingshot</span><span class="sub-title">Association</span></span>
+        <span class='navbar-title ml-2'><span class="main-title">Slingshot</span><span
+                class="sub-title">Association</span></span>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/sports">Sports</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/affiliation">Affiliation</a>
@@ -18,9 +23,6 @@
             </li>
             <li class="nav-item" *ngIf="isLoggedIn">
                 <a class="nav-link" routerLink="/admin">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/sports">Sports</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#gallery-area">Gallery</a>
