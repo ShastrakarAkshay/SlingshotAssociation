@@ -6,7 +6,7 @@
             <div class="col-sm-12">
                 <label><strong>Event Title</strong></label>
                 <div class="form-group">
-                    <input type="text" class="form-control" formControlName="eventTitle" [ngClass]="{'is-invalid':eventForm.get('eventTitle').touched && eventForm.get('eventTitle').invalid}">
+                    <input type="text" class="form-control text-capitalize" formControlName="eventTitle" [ngClass]="{'is-invalid':eventForm.get('eventTitle').touched && eventForm.get('eventTitle').invalid}">
                     <span class="invalid-feedback alert alert-danger">
                         Field is required
                     </span>
@@ -17,7 +17,7 @@
             <div class="col-sm-12">
                 <label><strong>Event Addresss</strong></label>
                 <div class="form-group">
-                    <input type="text" class="form-control" formControlName="eventAddress" [ngClass]="{'is-invalid':eventForm.get('eventAddress').touched && eventForm.get('eventAddress').invalid}">
+                    <input type="text" class="form-control text-capitalize" formControlName="eventAddress" [ngClass]="{'is-invalid':eventForm.get('eventAddress').touched && eventForm.get('eventAddress').invalid}">
                     <span class="invalid-feedback alert alert-danger">
                         Field is required
                     </span>
@@ -46,7 +46,7 @@
             <div class="col-sm-12">
                 <label> <strong>Contact Persons</strong> </label>
                 <div class="form-group">
-                    <input type="text" class="form-control" formControlName="contactPersons" [ngClass]="{'is-invalid':eventForm.get('contactPersons').touched && eventForm.get('contactPersons').invalid}">
+                    <input type="text" class="form-control text-capitalize" formControlName="contactPersons" [ngClass]="{'is-invalid':eventForm.get('contactPersons').touched && eventForm.get('contactPersons').invalid}">
                     <span class="invalid-feedback alert alert-danger">
                         Field is required
                     </span>

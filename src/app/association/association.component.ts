@@ -8,6 +8,7 @@ import { SlingshotService } from '../shared/services/slingshot.service';
 import { AuthService } from '../shared/services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { UtilityService } from '../shared/services/utility.service';
 
 @Component({
   selector: 'app-association',
@@ -34,6 +35,7 @@ export class AssociationComponent implements OnInit {
     private auth: AuthService,
     private dialog: MatDialog,
     private router: Router,
+    private utility: UtilityService,
     private _spinner: NgxSpinnerService) {
 
   }
@@ -127,7 +129,7 @@ export class AssociationComponent implements OnInit {
           firstName: data.firstName,
           middleName: data.middleName,
           lastName: data.lastName,
-          dateOfBirth: data.dateOfBirth,
+          dateOfBirth: this.utility.convertDateToEPOC(data.dateOfBirth),
           gender: data.gender,
           email: data.email,
           mobile: data.mobile,
@@ -143,7 +145,7 @@ export class AssociationComponent implements OnInit {
       ],
       approvedOn: '',
       approvedBy: '',
-      modifiedOn: '',
+      modifiedOn: this.utility.convertDateToEPOC(new Date()),
       modifiedBy: '',
       status: 'Pending'
     }

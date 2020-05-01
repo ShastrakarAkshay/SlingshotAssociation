@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as rxjs from 'rxjs/operators'
+import { UtilityService } from 'src/app/shared/services/utility.service';
 
 @Component({
   selector: 'app-affiliation-requests',
@@ -68,6 +69,7 @@ export class AffiliationRequestsComponent implements OnInit {
           ...item.payload.doc.data()
         }
       });
+      console.log(this.approvedDistricts)
       this.dataSource2.data = this.approvedDistricts;
       this.dataSource2.sort = this.sort;
       this.dataSource2.paginator = this.paginator;
@@ -159,6 +161,7 @@ export class DistrictApprovalDialog implements OnInit {
     private _dialog: MatDialog,
     private _toastr: ToastrService,
     private firestore: AngularFirestore,
+    private utility: UtilityService,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     _dialogRef.disableClose = true;
@@ -185,7 +188,7 @@ export class DistrictApprovalDialog implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        districtData.approvedOn = 'approvedDate';
+        districtData.approvedOn = this.utility.convertDateToEPOC(new Date());
         districtData.approvedBy = 'username';
         districtData.status = 'approved';
         this._service.approveDistrict(districtData).pipe(rxjs.take(1)).subscribe(data => {

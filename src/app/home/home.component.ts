@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SlingshotService } from '../shared/services/slingshot.service';
 import { ModalDataService } from '../shared/services/modal-data.service';
+import { UtilityService } from '../shared/services/utility.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   private members: any[] = [];
   private eventData: any[] = [];
 
-  constructor(private _service: SlingshotService, private _dataService: ModalDataService) {
+  constructor(private _service: SlingshotService, private _dataService: ModalDataService, private _utility: UtilityService) {
   }
 
   ngOnInit() {

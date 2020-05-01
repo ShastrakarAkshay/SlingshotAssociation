@@ -20,7 +20,9 @@
             </tr>
             <tr>
                 <td width="30%" class=""><strong>Date of Birth</strong></td>
-                <td width="70%">{{personData.members[0].dateOfBirth}}</td>
+                <td width="70%">
+                    {{personData.members[0].dateOfBirth | date: 'dd'}}-{{personData.members[0].dateOfBirth | date: 'MMM'}}-{{personData.members[0].dateOfBirth | date: 'yyy'}}
+                </td>
             </tr>
             <tr>
                 <td width="30%" class=""><strong>PAN No.</strong></td>

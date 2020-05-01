@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyDNNEjrEcydtyB4J1Jl5j0DA-O-Yq1mcbk",
-    authDomain: "app-slingshot.firebaseapp.com",
-    databaseURL: "https://app-slingshot.firebaseio.com",
-    projectId: "app-slingshot",
-    storageBucket: "app-slingshot.appspot.com",
-    messagingSenderId: "991898216379",
-    appId: "1:991898216379:web:1dcb79d01b9884c1c3069e",
-    measurementId: "G-LN0W4KE743"
+    apiKey: "AIzaSyBBxCGm7ikvSRr0zxcAVF3J6XLwBdAxitE",
+    authDomain: "slingshot-association-maha.firebaseapp.com",
+    databaseURL: "https://slingshot-association-maha.firebaseio.com",
+    projectId: "slingshot-association-maha",
+    storageBucket: "slingshot-association-maha.appspot.com",
+    messagingSenderId: "932012418325",
+    appId: "1:932012418325:web:b293d4927597ad32e4351c",
+    measurementId: "G-T7T1NC0YNJ"
   }
 };
 
