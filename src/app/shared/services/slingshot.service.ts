@@ -100,12 +100,12 @@ export class SlingshotService {
   }
 
   deleteDistrictAffiliation(data: any): any {
-    this.firestore.collection('OLD_AFFILIATIONS').add({...data, status: 'rejected'});
+    this.firestore.collection('OLD_AFFILIATIONS').add({ ...data, status: 'rejected' });
     this.firestore.collection('DistrictList').doc(data.requestedDistrict.id).update({ isRegistered: false });
     this.firestore.collection('ApprovedDistricts').doc(data.requestedDistrict.id).delete();
   }
 
-  getOldAffiliations():any {
+  getOldAffiliations(): any {
     return this.firestore.collection('OLD_AFFILIATIONS').snapshotChanges();
   }
 
@@ -161,6 +161,15 @@ export class SlingshotService {
 
   deleteRefreeById(id: any): any {
     this.firestore.collection('Refree').doc(id).delete();
+  }
+
+  // ----------------- MATCH RESULTS ---------------
+  addMatchResults(data: any) {
+    this.firestore.collection('MatchResults').add(data);
+  }
+
+  getAllMatchResults(): any {
+    return this.firestore.collection('MatchResults').snapshotChanges();
   }
 
 }

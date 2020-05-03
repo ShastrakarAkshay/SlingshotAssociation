@@ -65,7 +65,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index"></tr>
         </table>
-        <mat-paginator [length]="100 " [pageSize]="5 " [pageSizeOptions]="[5, 10, 25, 50] " showFirstLastButtons>
+        <mat-paginator #paginator1  [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]">
         </mat-paginator>
     </div>
 
@@ -130,7 +130,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns2; let i = index"></tr>
         </table>
-        <mat-paginator [length]="100 " [pageSize]="5 " [pageSizeOptions]="[5, 10, 25, 50] " showFirstLastButtons>
+        <mat-paginator #paginator2 [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]">
         </mat-paginator>
     </div>
 
@@ -184,7 +184,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns3; let i = index"></tr>
         </table>
-        <mat-paginator [length]="100 " [pageSize]="5 " [pageSizeOptions]="[5, 10, 25, 50] " showFirstLastButtons>
+        <mat-paginator #paginator3 [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 50]">
         </mat-paginator>
     </div>
 

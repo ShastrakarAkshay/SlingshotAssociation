@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -17,16 +17,20 @@ import { UtilityService } from 'src/app/shared/services/utility.service';
   templateUrl: './affiliation-requests.component.html',
   styleUrls: ['./affiliation-requests.component.scss']
 })
-export class AffiliationRequestsComponent implements OnInit {
+export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'districtName', 'name', 'mobile', 'status', 'actions'];
 
+  @ViewChild(MatPaginator, { static: false }) paginator2: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort2: MatSort;
   dataSource2 = new MatTableDataSource();
   displayedColumns2: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'actions'];
 
+  @ViewChild(MatPaginator, { static: false }) paginator3: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort3: MatSort;
   dataSource3 = new MatTableDataSource();
   displayedColumns3: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status'];
 
@@ -44,6 +48,12 @@ export class AffiliationRequestsComponent implements OnInit {
     this.getOldAffiliations();
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource2.paginator = this.paginator2;
+    this.dataSource3.paginator = this.paginator3;
+  }
+
   getAffiliationRequestData() {
     this.show_spinner();
     this._service.getAffiliationRequests().subscribe(data => {
@@ -53,7 +63,7 @@ export class AffiliationRequestsComponent implements OnInit {
           ...item.payload.doc.data()
         }
       });
-      this.dataSource.data = this.affiliatinRequests;
+      this.dataSource = new MatTableDataSource(this.affiliatinRequests);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.hide_spinner();
@@ -69,10 +79,9 @@ export class AffiliationRequestsComponent implements OnInit {
           ...item.payload.doc.data()
         }
       });
-      console.log(this.approvedDistricts)
-      this.dataSource2.data = this.approvedDistricts;
-      this.dataSource2.sort = this.sort;
-      this.dataSource2.paginator = this.paginator;
+      this.dataSource2 = new MatTableDataSource(this.approvedDistricts);
+      this.dataSource2.sort = this.sort2;
+      this.dataSource2.paginator = this.paginator2;
       this.hide_spinner();
     })
   }
@@ -86,9 +95,9 @@ export class AffiliationRequestsComponent implements OnInit {
           ...item.payload.doc.data()
         }
       });
-      this.dataSource3.data = this.oldAffiliations;
-      this.dataSource3.sort = this.sort;
-      this.dataSource3.paginator = this.paginator;
+      this.dataSource3 = new MatTableDataSource(this.oldAffiliations);
+      this.dataSource3.sort = this.sort3;
+      this.dataSource3.paginator = this.paginator3;
       this.hide_spinner();
     })
   }

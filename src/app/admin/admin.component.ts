@@ -15,5 +15,9 @@ export class AdminComponent implements OnInit {
     this.userID = localStorage.getItem('user-id');
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // TO DO....
+    // check first use is logged in or not
+    // if not logged in then remove all localstorage and redirect to login page
+  } 
 }

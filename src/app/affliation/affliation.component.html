@@ -30,7 +30,8 @@
                 <div class="row raw-info justify-content-center mt-5">
                     <div class="col-sm-8">
                         <p class="text-justify">This district is registered under "Slingshot Sports Association of Maharashtra, India" affilated to - "Indian Slingshot Sport Federation", "Asian Slingshot Sport Federation", "World organizes Slingshot Sport Federation. Affiliated
-                            on Date - {{selectedDistrictInfo.approvedOn}}"</p>
+                            on Date - {{selectedDistrictInfo.approvedOn | date: 'dd'}}/{{selectedDistrictInfo.approvedOn | date:'MMM'}}/{{selectedDistrictInfo.approvedOn | date: 'yyyy'}}"
+                        </p>
                     </div>
                 </div>
                 <div class="text-center mt-4">

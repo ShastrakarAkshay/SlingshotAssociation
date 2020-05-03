@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "slingshot-association"
+    "default": "slingshot-association",
+    "slingshot-association-maha": "slingshot-association-maha"
   }
 }
