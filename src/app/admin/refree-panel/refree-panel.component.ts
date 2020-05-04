@@ -8,6 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { UtilityService } from 'src/app/shared/services/utility.service';
 
 @Component({
   selector: 'app-refree-panel',
@@ -108,6 +109,7 @@ export class AddRefreeDialog implements OnInit {
     public _dialogRef: MatDialogRef<AddRefreeDialog>,
     private _service: SlingshotService,
     private formBuilder: FormBuilder,
+    private utility: UtilityService,
     private _toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
@@ -160,7 +162,9 @@ export class AddRefreeDialog implements OnInit {
     if (this.refreeForm.invalid) {
       return;
     }
-    this._service.addRefree(this.refreeForm.value);
+    let formData = this.refreeForm.value;
+    formData['createdDate'] = this.utility.convertDateToEPOC(new Date());
+    this._service.addRefree(formData);
     this._toastr.success("Refree Added Successfully.");
     this.close();
   }

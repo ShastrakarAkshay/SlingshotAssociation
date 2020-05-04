@@ -142,7 +142,9 @@ export class CreateEventDialog implements OnInit {
     if (this.eventForm.invalid) {
       return;
     }
-    this._service.createEvent(this.eventForm.value);
+    let formData = this.eventForm.value;
+    formData['createdDate'] = this.utility.convertDateToEPOC(new Date());
+    this._service.createEvent(formData);
     this._toastr.success("Event Created Successfully.");
     this.close();
   }

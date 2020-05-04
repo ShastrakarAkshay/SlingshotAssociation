@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SlingshotService } from '../shared/services/slingshot.service';
 import { ModalDataService } from '../shared/services/modal-data.service';
+import { UtilityService } from '../shared/services/utility.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -13,7 +14,7 @@ export class ContactUsComponent implements OnInit {
   private members: any[] = [];
   private contactForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private _service: SlingshotService, private dataService: ModalDataService) { }
+  constructor(private formBuilder: FormBuilder, private _service: SlingshotService, private dataService: ModalDataService, private _utility: UtilityService) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -32,7 +33,9 @@ export class ContactUsComponent implements OnInit {
   }
 
   sendEnquiry() {
-    this._service.sendEnquiry(this.contactForm.value);
+    let formData = this.contactForm.value;
+    formData['createdDate'] = this._utility.convertDateToEPOC(new Date());
+    this._service.sendEnquiry(formData);
     this.clearForm();
   }
 

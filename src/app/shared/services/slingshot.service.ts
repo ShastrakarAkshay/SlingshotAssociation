@@ -116,7 +116,7 @@ export class SlingshotService {
   }
 
   getEnquiries(): any {
-    return this.firestore.collection('Enquiries').snapshotChanges();
+    return this.firestore.collection('Enquiries', ref => ref.orderBy('createdDate', 'desc')).snapshotChanges();
   }
 
   deleteEnquiryById(id: any) {
@@ -130,7 +130,7 @@ export class SlingshotService {
   }
 
   getAllEvents(): any {
-    return this.firestore.collection('Events').snapshotChanges();
+    return this.firestore.collection('Events', ref => ref.orderBy('createdDate', 'desc')).snapshotChanges();
   }
 
   getActiveEvents(): any {
@@ -152,7 +152,7 @@ export class SlingshotService {
   }
 
   getAllRefrees(): any {
-    return this.firestore.collection('Refree').snapshotChanges();
+    return this.firestore.collection('Refree', ref => ref.orderBy('createdDate', 'desc')).snapshotChanges();
   }
 
   updateRefreeById(id: any, data: any) {
@@ -169,7 +169,7 @@ export class SlingshotService {
   }
 
   getAllMatchResults(): any {
-    return this.firestore.collection('MatchResults').snapshotChanges();
+    return this.firestore.collection('MatchResults', ref => ref.orderBy('createdDate', 'desc')).snapshotChanges();
   }
 
 }
