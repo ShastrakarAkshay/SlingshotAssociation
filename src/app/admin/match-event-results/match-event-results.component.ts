@@ -9,6 +9,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { NgxSpinner } from 'ngx-spinner/lib/ngx-spinner.enum';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-match-event-results',
@@ -25,7 +26,12 @@ export class MatchEventResultsComponent implements OnInit {
   private results: any[] = [];
   private showSpinner: boolean = false;
 
-  constructor(private _dialog: MatDialog, private _service: SlingshotService, private _spinner: NgxSpinnerService) { }
+  constructor(private _dialog: MatDialog,
+    private _service: SlingshotService,
+    private _spinner: NgxSpinnerService,
+    private _toastr: ToastrService) {
+
+  }
 
   ngOnInit() {
     this.getAllResultRecords();
@@ -51,6 +57,21 @@ export class MatchEventResultsComponent implements OnInit {
       width: '99%'
     });
   }
+
+  deleteResultById(id) {
+    let dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to delete?', type: 'confirm' },
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._service.deleteMatchResultById(id);
+        this._toastr.info("Result Deleted Successfully.");
+      }
+    });
+  }
+
 
 }
 

@@ -1,0 +1,36 @@
+<section id="result-area">
+    <ul class="list-group mt-4">
+        <li class="list-group-item mt-1" *ngFor="let item of result; let i=index;">
+            <span class="index font-weight-bold">{{i+1}}</span>
+            <div class="event-panel row pt-3">
+                <div class="col-sm-4 align-items-center text-center justify-content-start">
+                    <div class="img-area">
+                        <img src="./assets/images/user-pic-default.png" alt="">
+                    </div>
+                    <span class="text-capitalize">{{item.winnerCandidateName}}</span>
+                    <br>
+                    <span>({{item.winnerCandidateDistrict}})</span>
+                </div>
+                <div class="col-sm-4 text-center res-sec">
+                    <div class="result" style="font-size: 35px;
+                font-weight: bold;">8 : 3</div>
+                    <span class="text-rank font-weight-bold">{{item.rank}}</span>
+                    <div>August 25, 2018</div>
+                    <div class="row text-center justify-content-center">
+                        <p class="text-capitalize"><i class="fa fa-map-marker"></i> Nehru Stadium, Vitthal Nagar,
+                            Yavatmal. Maharashtra.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center align-items-center justify-content-end">
+                    <div class="img-area">
+                        <img src="./assets/images/user-pic-default.png" alt="">
+                    </div>
+                    <span class="text-capitalize">{{item.looserCandidateName}}</span>
+                    <br>
+                    <span>({{item.winnerCandidateDistrict}})</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>

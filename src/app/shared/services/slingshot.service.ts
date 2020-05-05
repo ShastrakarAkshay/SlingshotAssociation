@@ -172,4 +172,12 @@ export class SlingshotService {
     return this.firestore.collection('MatchResults', ref => ref.orderBy('createdDate', 'desc')).snapshotChanges();
   }
 
+  getFiveMatchResults(): any {
+    return this.firestore.collection('MatchResults', ref => ref.orderBy('createdDate', 'desc').limit(5)).snapshotChanges();
+  }
+
+  deleteMatchResultById(id: any): any {
+    this.firestore.collection('MatchResults').doc(id).delete();
+  }
+
 }

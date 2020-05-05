@@ -44,7 +44,7 @@
                 <td mat-cell *matCellDef="let element" width="20%">
                     <div class="row p-2">
                         <a class="btn text-info pointer" (click)="editEvent(element)" matTooltip="Edit" matTooltipPosition="above"><i class="fa fa-pencil"></i></a>
-                        <a class="btn text-danger pointer" (click)="deleteEventById(element.id)" matTooltip="Delete" matTooltipPosition="above"><i class="fa fa-trash text-danger"></i></a>
+                        <button class="btn text-danger pointer" (click)="deleteEventById(element.id, element.isDelete)" matTooltip="Delete" matTooltipPosition="above" [disabled]="!element.isDelete"><i class="fa fa-trash text-danger"></i></button>
                     </div>
                 </td>
             </ng-container>

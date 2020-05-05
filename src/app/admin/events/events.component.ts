@@ -23,7 +23,7 @@ export class EventsComponent implements OnInit {
   displayedColumns: string[] = ['index', 'eventTitle', 'eventDate', 'status', 'actions'];
 
   private eventData: any[] = [];
-  private showSpinner:boolean = false;
+  private showSpinner: boolean = false;
 
   constructor(private _dialog: MatDialog, private _service: SlingshotService, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
@@ -42,13 +42,25 @@ export class EventsComponent implements OnInit {
           ...item.payload.doc.data()
         }
       });
-      this.dataSource.data = this.eventData;
+      this.dataSource.data = this.validateDelete(this.eventData);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
 
       this.showSpinner = false;
       this._spinner.hide();
     })
+  }
+
+  validateDelete(eventData) {
+    eventData.forEach(item => {
+      item.isDelete = true;
+      let eventDate = new Date(item.eventDate);
+      let currentDate = new Date();
+      if (eventDate < currentDate) {
+        item.isDelete = false;
+      }
+    });
+    return eventData;
   }
 
   createEvent() {
@@ -58,7 +70,11 @@ export class EventsComponent implements OnInit {
     });
   }
 
-  deleteEventById(id) {
+  deleteEventById(id, isDelete) {
+    if (!isDelete) {
+      return;
+    }
+    
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to delete?', type: 'confirm' },
       autoFocus: false
@@ -150,7 +166,7 @@ export class CreateEventDialog implements OnInit {
   }
 
   updateEvent() {
-    if(this.eventForm.invalid){
+    if (this.eventForm.invalid) {
       return;
     }
     this._service.updateEventById(this.eventData.id, this.eventForm.value);

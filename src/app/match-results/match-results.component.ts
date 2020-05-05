@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SlingshotService } from '../shared/services/slingshot.service';
 
 @Component({
   selector: 'app-match-results',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatchResultsComponent implements OnInit {
 
-  constructor() { }
+  private matchResults: any[] = [];
+  
+  constructor(private _service: SlingshotService) { }
 
   ngOnInit() {
+    this.getAllResultRecords();
+  }
+
+  getAllResultRecords() {
+    this._service.getAllMatchResults().subscribe(data => {
+      this.matchResults = data.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+      });
+    })
   }
 
 }
