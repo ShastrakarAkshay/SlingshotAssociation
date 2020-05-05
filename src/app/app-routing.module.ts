@@ -13,11 +13,11 @@ import { AffiliationRequestsComponent } from './admin/affiliation-requests/affil
 import { EventsComponent } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent } from './admin/match-event-results/match-event-results.component';
-import { ProfileComponent } from './admin/profile/profile.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { LoginGuard } from './shared/guards/login.guard';
 import { RefreePanelComponent } from './admin/refree-panel/refree-panel.component';
 import { CommitteeComponent } from './committee/committee.component';
+import { SupportComponent } from './support/support.component';
 
 
 const routes: Routes = [
@@ -68,7 +68,7 @@ const routes: Routes = [
       { path: 'events', component: EventsComponent },
       { path: 'match', component: MatchEventResultsComponent },
       { path: 'enquiries', component: EnquiriesComponent },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'support', component: SupportComponent },
       { path: 'refree', component: RefreePanelComponent }
 
     ]

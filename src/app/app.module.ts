@@ -28,7 +28,6 @@ import { AffiliationRequestsComponent, DistrictApprovalDialog } from './admin/af
 import { EventsComponent, CreateEventDialog } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent, MatchResultsDialog } from './admin/match-event-results/match-event-results.component';
-import { ProfileComponent } from './admin/profile/profile.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ToastrModule } from 'ngx-toastr';
 import { MatTableModule } from '@angular/material/table';
@@ -43,6 +42,7 @@ import { RefreePanelComponent, AddRefreeDialog } from './admin/refree-panel/refr
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { CommitteeComponent } from './committee/committee.component';
 import { ScoreBoardComponent } from './score-board/score-board.component';
+import { SupportComponent } from './support/support.component';
 
 const APP_DIALOGS = [
   DistrictApprovalDialog,
@@ -82,12 +82,12 @@ const MATERIAL_MODULES = [
     EventsComponent,
     EnquiriesComponent,
     MatchEventResultsComponent,
-    ProfileComponent,
     RefreePanelComponent,
     ...APP_DIALOGS,
     SpinnerComponent,
     CommitteeComponent,
-    ScoreBoardComponent
+    ScoreBoardComponent,
+    SupportComponent
   ],
   imports: [
     FormsModule,
