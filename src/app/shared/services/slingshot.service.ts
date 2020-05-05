@@ -180,4 +180,8 @@ export class SlingshotService {
     this.firestore.collection('MatchResults').doc(id).delete();
   }
 
+  updateMatchResults(id: any, data: any) {
+    this.firestore.collection('MatchResults').doc(id).update(data);
+  }
+
 }

@@ -166,7 +166,7 @@ export class CreateEventDialog implements OnInit {
   }
 
   updateEvent() {
-    if (this.eventForm.invalid) {
+    if (this.eventForm.invalid || !this.eventData.isDelete) {
       return;
     }
     this._service.updateEventById(this.eventData.id, this.eventForm.value);

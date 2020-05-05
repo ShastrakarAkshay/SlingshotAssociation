@@ -19,17 +19,20 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center mt-5">
-            <div class="col-sm-6">
-                <h3 class="text-center">Ask Question?</h3>
-                <div class="form-group">
-                    <textarea rows="4" cols="50" class="form-control" placeholder="enter message" name="message">
+        <form [formGroup]="enquiryForm">
+            <div class="row justify-content-center mt-5">
+                <div class="col-sm-6">
+                    <h3 class="text-center">Ask Question?</h3>
+                    <div class="form-group">
+                        <textarea rows="4" cols="50" class="form-control" placeholder="enter message" formControlName="message">
                     </textarea>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-center">
-                <input type="button" mat-raised-button class="btn sling-btn pl-3 pr-3" name="clear" value="Send" style="height:50px;">
-        </div>
+            <div class="row justify-content-center">
+                <input type="button" mat-raised-button class="btn sling-btn pl-3 pr-3" name="clear" value="Send"
+                     [disabled]="!enquiryForm.valid">
+            </div>
+        </form>
     </div>
 </section>

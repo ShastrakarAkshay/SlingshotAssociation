@@ -58,6 +58,14 @@ export class MatchEventResultsComponent implements OnInit {
     });
   }
 
+  editMatchResult(resultData){
+    this._dialog.open(MatchResultsDialog, {
+      autoFocus: false,
+      width: '99%',
+      data: resultData
+    });
+  }
+
   deleteResultById(id) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to delete?', type: 'confirm' },
@@ -96,6 +104,7 @@ export class MatchResultsDialog implements OnInit {
   private allEvents: any[] = [];
   private isEdit: boolean = false;
   private eventName: string = '';
+  private resultData: any;
   @ViewChild('event', { static: false }) event: ElementRef;
 
   constructor(
@@ -107,6 +116,7 @@ export class MatchResultsDialog implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     _dialogRef.disableClose = true;
+    this.resultData = data;
   }
 
   ngOnInit() {
@@ -124,6 +134,19 @@ export class MatchResultsDialog implements OnInit {
       data.map(item => { this.allDistricts.push(item.payload.doc.data()) });
     });
     this.getAllEvents();
+    if(this.resultData){
+      this.resultForm.setValue({
+        eventId: this.resultData.eventId,
+        winnerCandidateName: this.resultData.winnerCandidateName,
+        winnerCandidateDistrict: this.resultData.winnerCandidateDistrict,
+        looserCandidateName: this.resultData.looserCandidateName,
+        looserCandidateDistrict: this.resultData.looserCandidateDistrict,
+        rank: this.resultData.rank,
+        winnerScore: this.resultData.winnerScore,
+        looserScore: this.resultData.looserScore
+      })
+      this.isEdit = true;
+    }
   }
 
   getAllEvents() {
@@ -165,6 +188,7 @@ export class MatchResultsDialog implements OnInit {
     if (this.resultForm.invalid) {
       return;
     }
+    this._service.updateMatchResults(this.resultData.id, this.resultForm.value);
     this._toastr.success("Result Updated Successfully.");
     this.close();
   }

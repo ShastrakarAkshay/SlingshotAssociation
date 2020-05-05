@@ -83,6 +83,6 @@
 </mat-dialog-content>
 <div mat-dialog-actions class="pb-4 pt-4 row justify-content-center">
     <button mat-button class="btn sling-btn" (click)="createEvent()" [disabled]="!eventForm.valid" *ngIf="!isEdit">Create</button>
-    <button mat-button class="btn sling-btn" (click)="updateEvent()" [disabled]="!eventForm.valid" *ngIf="isEdit">Update</button>
+    <button mat-button class="btn sling-btn" (click)="updateEvent()" [disabled]="!eventForm.valid || !eventData.isDelete" *ngIf="isEdit">Update</button>
     <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>Close</button>
 </div>
