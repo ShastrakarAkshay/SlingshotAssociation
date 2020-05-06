@@ -13,6 +13,7 @@ export class MatchResultsComponent implements OnInit {
   constructor(private _service: SlingshotService) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getAllResultRecords();
   }
 

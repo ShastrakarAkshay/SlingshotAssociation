@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"admin\" class=\"bg-offwhite pb-5\">\r\n    <div class=\"mt-5\">\r\n        <div class=\"row justify-content-center\">\r\n            <h2><strong>Welcome To Association</strong></h2>\r\n        </div>\r\n        <div class=\"row actions justify-content-center mt-3 p-3\">\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./requests\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Affiliation</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./events\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Events</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./match\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Match Results</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./refree\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Refree</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./enquiries\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Enquiries</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./profile\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Profile</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n\r\n<div class=\"mt-5 bg-light pl-3 pr-3\">\r\n    <router-outlet></router-outlet>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"admin\" class=\"bg-offwhite pb-5\">\r\n    <div class=\"mt-5\">\r\n        <div class=\"row justify-content-center\">\r\n            <h2><strong>Welcome To Association</strong></h2>\r\n        </div>\r\n        <div class=\"row actions justify-content-center mt-3 p-3\">\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./requests\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Affiliation</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./events\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Events</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./match\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Match Results</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./refree\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Refree</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./enquiries\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Enquiries</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-sm-2\">\r\n                <div class=\"card mt-3 text-white bg-dark\" routerLink=\"./support\">\r\n                    <div class=\"card-body text-center\">\r\n                        <h4 class=\"card-title\">Support</h4>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>\r\n\r\n<div class=\"mt-5 bg-light pl-3 pr-3\">\r\n    <router-outlet></router-outlet>\r\n</div>");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h2 class=\"text-center p-3 bg-dark text-white\">Create Event</h2>\r\n\r\n<mat-dialog-content>\r\n    <form [formGroup]=\"eventForm\">\r\n        <div class=\"row mt-3\">\r\n            <div class=\"col-sm-12\">\r\n                <label><strong>Event Title</strong></label>\r\n                <div class=\"form-group\">\r\n                    <input type=\"text\" class=\"form-control text-capitalize\" formControlName=\"eventTitle\" [ngClass]=\"{'is-invalid':eventForm.get('eventTitle').touched && eventForm.get('eventTitle').invalid}\">\r\n                    <span class=\"invalid-feedback alert alert-danger\">\r\n                        Field is required\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12\">\r\n                <label><strong>Event Addresss</strong></label>\r\n                <div class=\"form-group\">\r\n                    <input type=\"text\" class=\"form-control text-capitalize\" formControlName=\"eventAddress\" [ngClass]=\"{'is-invalid':eventForm.get('eventAddress').touched && eventForm.get('eventAddress').invalid}\">\r\n                    <span class=\"invalid-feedback alert alert-danger\">\r\n                        Field is required\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12\">\r\n                <label><strong>Event Date</strong></label>\r\n                <div class=\"form-group\">\r\n                    <div class=\"input-group\">\r\n                        <input type=\"date\" class=\"form-control\" formControlName=\"eventDate\" [ngClass]=\"{'is-invalid':eventForm.get('eventDate').touched && eventForm.get('eventDate').invalid}\">\r\n                        <div class=\"input-group-append\">\r\n                            <button class=\"btn btn-secondary\" type=\"button\">\r\n                                <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                            </button>\r\n                        </div>\r\n                        <span class=\"invalid-feedback alert alert-danger\">\r\n                            Field is required\r\n                        </span>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12\">\r\n                <label> <strong>Contact Persons</strong> </label>\r\n                <div class=\"form-group\">\r\n                    <input type=\"text\" class=\"form-control text-capitalize\" formControlName=\"contactPersons\" [ngClass]=\"{'is-invalid':eventForm.get('contactPersons').touched && eventForm.get('contactPersons').invalid}\">\r\n                    <span class=\"invalid-feedback alert alert-danger\">\r\n                        Field is required\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12\">\r\n                <label><strong>Contact Numbers</strong></label>\r\n                <div class=\"form-group\">\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"contactNumbers\" [ngClass]=\"{'is-invalid':eventForm.get('contactNumbers').touched && eventForm.get('contactNumbers').invalid}\">\r\n                    <span class=\"invalid-feedback alert alert-danger\">\r\n                        Field is required\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12\">\r\n                <label><strong>Status</strong></label>\r\n                <div class=\"form-group\">\r\n                    <select formControlName=\"status\" class=\"form-control\" [ngClass]=\"{'is-invalid':eventForm.get('status').touched && eventForm.get('status').invalid}\">\r\n                        <option value=\"\" selected disabled>Select status</option>\r\n                        <option value=\"Active\" class=\"text-success\">Active</option>\r\n                        <option value=\"Inactive\" class=\"text-danger\">Inactive</option>\r\n                    </select>\r\n                    <span class=\"invalid-feedback alert alert-danger\">\r\n                        Field is required\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </form>\r\n</mat-dialog-content>\r\n<div mat-dialog-actions class=\"pb-4 pt-4 row justify-content-center\">\r\n    <button mat-button class=\"btn sling-btn\" (click)=\"createEvent()\" [disabled]=\"!eventForm.valid\" *ngIf=\"!isEdit\">Create</button>\r\n    <button mat-button class=\"btn sling-btn\" (click)=\"updateEvent()\" [disabled]=\"!eventForm.valid\" *ngIf=\"isEdit\">Update</button>\r\n    <button mat-button class=\"btn sling-btn\" (click)=\"close()\" cdkFocusInitial>Close</button>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<h2 class=\"text-center p-3 bg-dark text-white\">Create Event</h2>\r\n\r\n<mat-dialog-content>\r\n    <form [formGroup]=\"eventForm\">\r\n        <div class=\"row mt-3\">\r\n            <div class=\"col-sm-12\">\r\n                <label><strong>Event Title</strong></label>\r\n                <div class=\"form-group\">\r\n                    <input type=\"text\" class=\"form-control text-capitalize\" formControlName=\"eventTitle\" [ngClass]=\"{'is-invalid':eventForm.get('eventTitle').touched && eventForm.get('eventTitle').invalid}\">\r\n                    <span class=\"invalid-feedback alert alert-danger\">\r\n                        Field is required\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12\">\r\n                <label><strong>Event Addresss</strong></label>\r\n                <div class=\"form-group\">\r\n                    <input type=\"text\" class=\"form-control text-capitalize\" formControlName=\"eventAddress\" [ngClass]=\"{'is-invalid':eventForm.get('eventAddress').touched && eventForm.get('eventAddress').invalid}\">\r\n                    <span class=\"invalid-feedback alert alert-danger\">\r\n                        Field is required\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12\">\r\n                <label><strong>Event Date</strong></label>\r\n                <div class=\"form-group\">\r\n                    <div class=\"input-group\">\r\n                        <input type=\"date\" class=\"form-control\" formControlName=\"eventDate\" [ngClass]=\"{'is-invalid':eventForm.get('eventDate').touched && eventForm.get('eventDate').invalid}\">\r\n                        <div class=\"input-group-append\">\r\n                            <button class=\"btn btn-secondary\" type=\"button\">\r\n                                <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>\r\n                            </button>\r\n                        </div>\r\n                        <span class=\"invalid-feedback alert alert-danger\">\r\n                            Field is required\r\n                        </span>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12\">\r\n                <label> <strong>Contact Persons</strong> </label>\r\n                <div class=\"form-group\">\r\n                    <input type=\"text\" class=\"form-control text-capitalize\" formControlName=\"contactPersons\" [ngClass]=\"{'is-invalid':eventForm.get('contactPersons').touched && eventForm.get('contactPersons').invalid}\">\r\n                    <span class=\"invalid-feedback alert alert-danger\">\r\n                        Field is required\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12\">\r\n                <label><strong>Contact Numbers</strong></label>\r\n                <div class=\"form-group\">\r\n                    <input type=\"text\" class=\"form-control\" formControlName=\"contactNumbers\" [ngClass]=\"{'is-invalid':eventForm.get('contactNumbers').touched && eventForm.get('contactNumbers').invalid}\">\r\n                    <span class=\"invalid-feedback alert alert-danger\">\r\n                        Field is required\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12\">\r\n                <label><strong>Status</strong></label>\r\n                <div class=\"form-group\">\r\n                    <select formControlName=\"status\" class=\"form-control\" [ngClass]=\"{'is-invalid':eventForm.get('status').touched && eventForm.get('status').invalid}\">\r\n                        <option value=\"\" selected disabled>Select status</option>\r\n                        <option value=\"Active\" class=\"text-success\">Active</option>\r\n                        <option value=\"Inactive\" class=\"text-danger\">Inactive</option>\r\n                    </select>\r\n                    <span class=\"invalid-feedback alert alert-danger\">\r\n                        Field is required\r\n                    </span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </form>\r\n</mat-dialog-content>\r\n<div mat-dialog-actions class=\"pb-4 pt-4 row justify-content-center\">\r\n    <button mat-button class=\"btn sling-btn\" (click)=\"createEvent()\" [disabled]=\"!eventForm.valid\" *ngIf=\"!isEdit\">Create</button>\r\n    <button mat-button class=\"btn sling-btn\" (click)=\"updateEvent()\" [disabled]=\"!eventForm.valid || !eventData.isDelete\" *ngIf=\"isEdit\">Update</button>\r\n    <button mat-button class=\"btn sling-btn\" (click)=\"close()\" cdkFocusInitial>Close</button>\r\n</div>");
 
 /***/ }),
 
@@ -123,20 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"match\">\n    <div class=\"row justify-content-between\">\n        <div class=\"col-6\">\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Match Results <span\n                        class=\"badge badge-primary\">{{results.length}}</span></strong></h2>\n        </div>\n        <div class=\"col-6\">\n            <button (click)=\"addMatchRecord()\" class=\"btn sling-btn pull-right\">Add Record</button>\n        </div>\n    </div>\n    <div class=\"data-table mt-4 mb-5 table-responsive\" style=\"border:1px solid #00000017;\">\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\n\n            <ng-container matColumnDef=\"index\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"5%\"> {{i+1}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"eventName\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Event Name </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"30%\" class=\"empNameLink pointer text-capitalize\">\n                    {{element.eventName}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"winner\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Winner </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\" class=\"text-capitalize\"> {{element.winnerCandidateName}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"looser\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Looser </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\" class=\"text-capitalize\"> {{element.looserCandidateName}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"score\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Score </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\" class=\"text-capitalize\"> {{element.winnerScore}} : {{element.looserScore}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"rank\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Rank </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\" class=\"text-capitalize\"> {{element.rank}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"action\" class=\"pull-right\">\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\">\n                    <div class=\"row p-2\">\n                        <a class=\"btn text-info pointer\" (click)=\"getPersonInfo(element)\" matTooltip=\"Edit\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\n                        <a class=\"btn text-danger pointer\" (click)=\"deleteResultById(element.id)\" matTooltip=\"Delete\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-trash text-danger\"></i></a>\n                    </div>\n                </td>\n            </ng-container>\n\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\n        </table>\n        <mat-paginator [length]=\"100\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\" showFirstLastButtons>\n        </mat-paginator>\n    </div>\n\n    <div *ngIf=\"showSpinner\">\n        <app-spinner></app-spinner>\n    </div>\n</section>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/profile/profile.component.html":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/admin/profile/profile.component.html ***!
-  \********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>profile works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"match\">\n    <div class=\"row justify-content-between\">\n        <div class=\"col-6\">\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Match Results <span\n                        class=\"badge badge-primary\">{{results.length}}</span></strong></h2>\n        </div>\n        <div class=\"col-6\">\n            <button (click)=\"addMatchRecord()\" class=\"btn sling-btn pull-right\">Add Record</button>\n        </div>\n    </div>\n    <div class=\"data-table mt-4 mb-5 table-responsive\" style=\"border:1px solid #00000017;\">\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\n\n            <ng-container matColumnDef=\"index\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"5%\"> {{i+1}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"eventName\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Event Name </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"30%\" class=\"empNameLink pointer text-capitalize\">\n                    {{element.eventName}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"winner\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Winner </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\" class=\"text-capitalize\"> {{element.winnerCandidateName}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"looser\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Looser </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\" class=\"text-capitalize\"> {{element.looserCandidateName}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"score\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Score </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\" class=\"text-capitalize\"> {{element.winnerScore}} : {{element.looserScore}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"rank\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Rank </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\" class=\"text-capitalize\"> {{element.rank}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"action\" class=\"pull-right\">\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\">\n                    <div class=\"row p-2\">\n                        <a class=\"btn text-info pointer\" (click)=\"editMatchResult(element)\" matTooltip=\"Edit\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\n                        <a class=\"btn text-danger pointer\" (click)=\"deleteResultById(element.id)\" matTooltip=\"Delete\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-trash text-danger\"></i></a>\n                    </div>\n                </td>\n            </ng-container>\n\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\n        </table>\n        <mat-paginator [length]=\"100\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\" showFirstLastButtons>\n        </mat-paginator>\n    </div>\n\n    <div *ngIf=\"showSpinner\">\n        <app-spinner></app-spinner>\n    </div>\n</section>");
 
 /***/ }),
 
@@ -318,7 +305,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"result-area\">\n    <ul class=\"list-group mt-4\">\n        <li class=\"list-group-item mt-1\" *ngFor=\"let item of result; let i=index;\">\n            <span class=\"index font-weight-bold\">{{i+1}}</span>\n            <div class=\"event-panel row pt-3\">\n                <div class=\"col-sm-4 align-items-center text-center justify-content-start\">\n                    <div class=\"img-area\">\n                        <img src=\"./assets/images/user-pic-default.png\" alt=\"\">\n                    </div>\n                    <span class=\"text-capitalize\">{{item.winnerCandidateName}}</span>\n                    <br>\n                    <span>({{item.winnerCandidateDistrict}})</span>\n                </div>\n                <div class=\"col-sm-4 text-center res-sec\">\n                    <div class=\"result\" style=\"font-size: 35px;\n                font-weight: bold;\">8 : 3</div>\n                    <span class=\"text-rank font-weight-bold\">{{item.rank}}</span>\n                    <div>August 25, 2018</div>\n                    <div class=\"row text-center justify-content-center\">\n                        <p class=\"text-capitalize\"><i class=\"fa fa-map-marker\"></i> Nehru Stadium, Vitthal Nagar,\n                            Yavatmal. Maharashtra.\n                        </p>\n                    </div>\n                </div>\n                <div class=\"col-sm-4 text-center align-items-center justify-content-end\">\n                    <div class=\"img-area\">\n                        <img src=\"./assets/images/user-pic-default.png\" alt=\"\">\n                    </div>\n                    <span class=\"text-capitalize\">{{item.looserCandidateName}}</span>\n                    <br>\n                    <span>({{item.winnerCandidateDistrict}})</span>\n                </div>\n            </div>\n        </li>\n    </ul>\n</section>");
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"result-area\">\n    <ul class=\"list-group mt-4\">\n        <li class=\"list-group-item mt-1\" *ngFor=\"let item of result; let i=index;\">\n            <span class=\"index font-weight-bold\">{{i+1}}</span>\n            <div class=\"event-panel row pt-3\">\n                <div class=\"col-sm-4 align-items-center text-center justify-content-start\">\n                    <div class=\"img-area\">\n                        <img src=\"./assets/images/user-pic-default.png\" alt=\"\">\n                    </div>\n                    <span class=\"text-capitalize\">{{item.winnerCandidateName}}</span>\n                    <br>\n                    <span>({{item.winnerCandidateDistrict}})</span>\n                </div>\n                <div class=\"col-sm-4 text-center res-sec\">\n                    <div class=\"result\" style=\"font-size: 35px;\n                font-weight: bold;\">{{item.winnerScore}} : {{item.looserScore}}</div>\n                    <span class=\"text-rank font-weight-bold\">{{item.rank}}</span>\n                    <div>August 25, 2018</div>\n                    <div class=\"row text-center justify-content-center\">\n                        <p class=\"text-capitalize\"><i class=\"fa fa-map-marker\"></i> Nehru Stadium, Vitthal Nagar,\n                            Yavatmal. Maharashtra.\n                        </p>\n                    </div>\n                </div>\n                <div class=\"col-sm-4 text-center align-items-center justify-content-end\">\n                    <div class=\"img-area\">\n                        <img src=\"./assets/images/user-pic-default.png\" alt=\"\">\n                    </div>\n                    <span class=\"text-capitalize\">{{item.looserCandidateName}}</span>\n                    <br>\n                    <span>({{item.winnerCandidateDistrict}})</span>\n                </div>\n            </div>\n        </li>\n    </ul>\n</section>");
 
 /***/ }),
 
@@ -357,7 +344,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"game\">\r\n    <div class=\"jumbotron text-center\">\r\n        <h2 class=\"page-title\">Slingshot Sports Association of Maharashtra</h2>\r\n    </div>\r\n\r\n    <div class=\"container wrapper\">\r\n        <div class=\"row mt-5\">\r\n            <div class=\"col-sm-6 text-center\">\r\n                <img class=\"sling-img shadow rounded\" src=\"./assets/images/slingshot2.jpg\" alt=\"\">\r\n            </div>\r\n            <div class=\"col-sm-6 game-info pt-5\">\r\n                <h4>Slingshot</h4>\r\n                <p class=\"text-justify mt-4\">In INDIA, We are playing this game from our childhood. We have enjoyed lots\r\n                    of moment with this game to hit the target. Now lets make this game as our sports. We provide the\r\n                    opportunity to compete the people with this game, and achieve\r\n                    some position in this game under the <strong>\"</strong>Slingshot Sports Association of Maharashtra,\r\n                    India<strong>\"</strong>. Please read the rules for this game before you start.</p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"category mt-5 wrapper bg-offwhite\">\r\n        <h4 class=\"text-center\"><strong>Categories of Slingshot</strong> </h4>\r\n        <div class=\"row mt-4 cat-cards justify-content-center\">\r\n            <div class=\"col-sm-2 col-xs-3 mt-2\" *ngFor=\"let cat of categories\">\r\n                <div class=\"card text-center\">\r\n                    <div class=\"card-body\">\r\n                        <h5 class=\"card-title\">{{cat.categoryName}}</h5>\r\n                        <h5 class=\"card-title category-title\"><strong>{{cat.categoryTitle}}</strong></h5>\r\n                        <div>\r\n                            <span>{{cat.distance}}</span>\r\n                            <p>{{cat.age}}</p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"container\">\r\n        <div class=\"rules mt-5\">\r\n            <h4 class=\"text-center\"><strong>Rules of Game</strong> </h4>\r\n            <div class=\"row mt-4 justify-content-center\">\r\n                <div class=\"col-sm-12\">\r\n                    <ul class=\"list-group mt-4\">\r\n                        <li class=\"list-group-item p-5\" *ngFor=\"let rule of rules; let i = index;\"\r\n                            [ngClass]=\"{'mt-1': i > 0}\">\r\n                            <table>\r\n                                <tr>\r\n                                    <td><span class=\"circle mr-3\"> {{ i+1 }} </span></td>\r\n                                    <td class=\"text-justify\">{{rule}}</td>\r\n                                </tr>\r\n                            </table>\r\n                        </li>\r\n                        <li class=\"list-group-item p-5 text-justify  mt-1\">\r\n                            <span class=\"text-danger\">स्पष्टीकरण : </span> समजा एखाद्या स्पर्धकाने 5 मिनिटांमध्ये 15\r\n                            लक्ष्यवेध केलेत, या 15 लक्ष्यवेधांमध्ये 3\r\n                            गुणांच्या वर्तुळात 3, 4 गुणांच्या वर्तुळात 3, 5 गुणांच्या वर्तुळात 1 व 8,9,10 गुणांच्या\r\n                            वर्तुळात प्रत्येकी 2 लक्ष्यवेध केले असेल तर अशा प्रसंगात अंतिम गुण मोजताना 3,4,5,6 या\r\n                            गुणांच्या वर्तुळातील वेध व 8 गुणांच्या\r\n                            वर्तुळातील कुठलाही एक वेध मोजले जातील आणि त्यानुसार स्पर्धकांचे गुण ठरविल्या जातील.\r\n                        </li>\r\n                    </ul>\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"p-5 mt-5 bg-offwhite equipment\">\r\n        <h4 class=\"text-center\"><strong>Equipments of Slingshot</strong> </h4>\r\n        <div class=\"container\">\r\n            <div class=\"row mt-4\">\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool1.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool2.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool3.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool4.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n            </div>\r\n            <div class=\"row mt-4\">\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool5.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool6.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool7.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool8.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>");
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"game\">\r\n    <div class=\"jumbotron text-center\">\r\n        <h2 class=\"page-title\">Slingshot Sports Association of Maharashtra</h2>\r\n    </div>\r\n\r\n    <div class=\"container wrapper\">\r\n        <div class=\"row mt-5\">\r\n            <div class=\"col-sm-6 text-center\">\r\n                <img class=\"sling-img shadow rounded\" src=\"./assets/images/slingshot2.jpg\" alt=\"\">\r\n            </div>\r\n            <div class=\"col-sm-6 game-info pt-5\">\r\n                <h4><i class=\"fa fa-bullseye mr-2\"></i>Slingshot</h4>\r\n                <p class=\"text-justify mt-4\">In INDIA, We are playing this game from our childhood. We have enjoyed lots\r\n                    of moment with this game to hit the target. Now lets make this game as our sports. We provide the\r\n                    opportunity to compete the people with this game, and achieve\r\n                    some position in this game under the <strong>\"</strong>Slingshot Sports Association of Maharashtra,\r\n                    India<strong>\"</strong>. Please read the rules for this game before you start.</p>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"category mt-5 wrapper bg-offwhite\">\r\n        <h4 class=\"text-center\"><strong>Categories of Slingshot</strong> </h4>\r\n        <div class=\"row mt-4 cat-cards justify-content-center\">\r\n            <div class=\"col-sm-2 col-xs-3 mt-2\" *ngFor=\"let cat of categories\">\r\n                <div class=\"card text-center\">\r\n                    <div class=\"card-body\">\r\n                        <h5 class=\"card-title\">{{cat.categoryName}}</h5>\r\n                        <h5 class=\"card-title category-title\"><strong>{{cat.categoryTitle}}</strong></h5>\r\n                        <div>\r\n                            <span>{{cat.distance}}</span>\r\n                            <p>{{cat.age}}</p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"container\">\r\n        <div class=\"rules mt-5\">\r\n            <h4 class=\"text-center\"><strong>Rules of Game</strong> </h4>\r\n            <div class=\"row mt-4 justify-content-center\">\r\n                <div class=\"col-sm-12\">\r\n                    <ul class=\"list-group mt-4\">\r\n                        <li class=\"list-group-item p-5\" *ngFor=\"let rule of rules; let i = index;\"\r\n                            [ngClass]=\"{'mt-1': i > 0}\">\r\n                            <table>\r\n                                <tr>\r\n                                    <td><span class=\"circle mr-3\"> {{ i+1 }} </span></td>\r\n                                    <td class=\"text-justify\">{{rule}}</td>\r\n                                </tr>\r\n                            </table>\r\n                        </li>\r\n                        <li class=\"list-group-item p-5 text-justify  mt-1\">\r\n                            <span class=\"text-danger\">स्पष्टीकरण : </span> समजा एखाद्या स्पर्धकाने 5 मिनिटांमध्ये 15\r\n                            लक्ष्यवेध केलेत, या 15 लक्ष्यवेधांमध्ये 3\r\n                            गुणांच्या वर्तुळात 3, 4 गुणांच्या वर्तुळात 3, 5 गुणांच्या वर्तुळात 1 व 8,9,10 गुणांच्या\r\n                            वर्तुळात प्रत्येकी 2 लक्ष्यवेध केले असेल तर अशा प्रसंगात अंतिम गुण मोजताना 3,4,5,6 या\r\n                            गुणांच्या वर्तुळातील वेध व 8 गुणांच्या\r\n                            वर्तुळातील कुठलाही एक वेध मोजले जातील आणि त्यानुसार स्पर्धकांचे गुण ठरविल्या जातील.\r\n                        </li>\r\n                    </ul>\r\n\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"p-5 mt-5 bg-offwhite equipment\">\r\n        <h4 class=\"text-center\"><strong>Equipments of Slingshot</strong> </h4>\r\n        <div class=\"container\">\r\n            <div class=\"row mt-4\">\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool1.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool2.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool3.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool4.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n            </div>\r\n            <div class=\"row mt-4\">\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool5.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool6.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool7.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n                <div class=\"col-sm-3\">\r\n                    <img src=\"./assets/images/tool8.jpg\" width=\"100%\" class=\"rounded tool\">\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/support/support.component.html":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/support/support.component.html ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"support\">\n    <div class=\"container mb-5\">\n        <h1 class=\"title  text-center\">Developer Contact</h1>\n        <div class=\"row mt-5 justify-content-center  text-center\">\n            <div class=\"col-sm-6\">\n                <div class=\"img-area\">\n                    <img src=\"./assets/images/user-pic-default.png\" alt=\"\">\n                </div>\n                <h4 class=\"mt-3 member-name\"><strong>Mr. Akshay Shalikram Shastrakar</strong></h4>\n                <span class=\"text-info font-weight-bold\">(Software Developer)</span><br>\n                <span>akshay.shastrakar1@gmail.com</span><br>\n                <span>9767986750</span>\n                <div class=\"social-icons mt-3\">\n                    <i class=\"fa fa-phone ml-3 mr-3 icon-circle\" matTooltip=\"9767986750\" matTooltipPosition=\"above\"></i>\n                    <i class=\"fa fa-envelope ml-3 mr-3 icon-circle\" matTooltip=\"akshay.shastrakar1@gmail.com\"\n                        matTooltipPosition=\"above\"></i>\n                    <i class=\"fa fa-facebook ml-3 mr-3 icon-circle\" matTooltip=\"facebook\"\n                        matTooltipPosition=\"above\"></i>\n                </div>\n            </div>\n        </div>\n        <form [formGroup]=\"enquiryForm\">\n            <div class=\"row justify-content-center mt-5\">\n                <div class=\"col-sm-6\">\n                    <h3 class=\"text-center\">Ask Question?</h3>\n                    <div class=\"form-group\">\n                        <textarea rows=\"4\" cols=\"50\" class=\"form-control\" placeholder=\"enter message\" formControlName=\"message\">\n                    </textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <input type=\"button\" mat-raised-button class=\"btn sling-btn pl-3 pr-3\" name=\"clear\" value=\"Send\"\n                     [disabled]=\"!enquiryForm.valid\">\n            </div>\n        </form>\n    </div>\n</section>");
 
 /***/ }),
 
@@ -1205,7 +1205,7 @@ let CreateEventDialog = class CreateEventDialog {
         this.close();
     }
     updateEvent() {
-        if (this.eventForm.invalid) {
+        if (this.eventForm.invalid || !this.eventData.isDelete) {
             return;
         }
         this._service.updateEventById(this.eventData.id, this.eventForm.value);
@@ -1312,6 +1312,13 @@ let MatchEventResultsComponent = class MatchEventResultsComponent {
             width: '99%'
         });
     }
+    editMatchResult(resultData) {
+        this._dialog.open(MatchResultsDialog, {
+            autoFocus: false,
+            width: '99%',
+            data: resultData
+        });
+    }
     deleteResultById(id) {
         let dialogRef = this._dialog.open(src_app_shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_11__["ConfirmDialogComponent"], {
             data: { message: 'Do you want to delete?', type: 'confirm' },
@@ -1358,6 +1365,7 @@ let MatchResultsDialog = class MatchResultsDialog {
         this.isEdit = false;
         this.eventName = '';
         _dialogRef.disableClose = true;
+        this.resultData = data;
     }
     ngOnInit() {
         this.resultForm = this.formBuilder.group({
@@ -1374,6 +1382,19 @@ let MatchResultsDialog = class MatchResultsDialog {
             data.map(item => { this.allDistricts.push(item.payload.doc.data()); });
         });
         this.getAllEvents();
+        if (this.resultData) {
+            this.resultForm.setValue({
+                eventId: this.resultData.eventId,
+                winnerCandidateName: this.resultData.winnerCandidateName,
+                winnerCandidateDistrict: this.resultData.winnerCandidateDistrict,
+                looserCandidateName: this.resultData.looserCandidateName,
+                looserCandidateDistrict: this.resultData.looserCandidateDistrict,
+                rank: this.resultData.rank,
+                winnerScore: this.resultData.winnerScore,
+                looserScore: this.resultData.looserScore
+            });
+            this.isEdit = true;
+        }
     }
     getAllEvents() {
         this._service.getAllEvents().subscribe(data => {
@@ -1407,6 +1428,7 @@ let MatchResultsDialog = class MatchResultsDialog {
         if (this.resultForm.invalid) {
             return;
         }
+        this._service.updateMatchResults(this.resultData.id, this.resultForm.value);
         this._toastr.success("Result Updated Successfully.");
         this.close();
     }
@@ -1430,50 +1452,6 @@ MatchResultsDialog = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](5, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"]))
 ], MatchResultsDialog);
-
-
-
-/***/ }),
-
-/***/ "./src/app/admin/profile/profile.component.scss":
-/*!******************************************************!*\
-  !*** ./src/app/admin/profile/profile.component.scss ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3Byb2ZpbGUvcHJvZmlsZS5jb21wb25lbnQuc2NzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/admin/profile/profile.component.ts":
-/*!****************************************************!*\
-  !*** ./src/app/admin/profile/profile.component.ts ***!
-  \****************************************************/
-/*! exports provided: ProfileComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let ProfileComponent = class ProfileComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-profile',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/profile/profile.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./profile.component.scss */ "./src/app/admin/profile/profile.component.scss")).default]
-    })
-], ProfileComponent);
 
 
 
@@ -1812,11 +1790,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_events_events_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/events/events.component */ "./src/app/admin/events/events.component.ts");
 /* harmony import */ var _admin_enquiries_enquiries_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/enquiries/enquiries.component */ "./src/app/admin/enquiries/enquiries.component.ts");
 /* harmony import */ var _admin_match_event_results_match_event_results_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/match-event-results/match-event-results.component */ "./src/app/admin/match-event-results/match-event-results.component.ts");
-/* harmony import */ var _admin_profile_profile_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/profile/profile.component */ "./src/app/admin/profile/profile.component.ts");
-/* harmony import */ var _shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./shared/guards/auth.guard */ "./src/app/shared/guards/auth.guard.ts");
-/* harmony import */ var _shared_guards_login_guard__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/guards/login.guard */ "./src/app/shared/guards/login.guard.ts");
-/* harmony import */ var _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/refree-panel/refree-panel.component */ "./src/app/admin/refree-panel/refree-panel.component.ts");
-/* harmony import */ var _committee_committee_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./committee/committee.component */ "./src/app/committee/committee.component.ts");
+/* harmony import */ var _shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./shared/guards/auth.guard */ "./src/app/shared/guards/auth.guard.ts");
+/* harmony import */ var _shared_guards_login_guard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./shared/guards/login.guard */ "./src/app/shared/guards/login.guard.ts");
+/* harmony import */ var _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/refree-panel/refree-panel.component */ "./src/app/admin/refree-panel/refree-panel.component.ts");
+/* harmony import */ var _committee_committee_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./committee/committee.component */ "./src/app/committee/committee.component.ts");
+/* harmony import */ var _support_support_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./support/support.component */ "./src/app/support/support.component.ts");
 
 
 
@@ -1870,24 +1848,24 @@ const routes = [
     {
         path: 'login',
         component: _login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
-        canActivate: [_shared_guards_login_guard__WEBPACK_IMPORTED_MODULE_18__["LoginGuard"]]
+        canActivate: [_shared_guards_login_guard__WEBPACK_IMPORTED_MODULE_17__["LoginGuard"]]
     },
     {
         path: 'committee',
-        component: _committee_committee_component__WEBPACK_IMPORTED_MODULE_20__["CommitteeComponent"]
+        component: _committee_committee_component__WEBPACK_IMPORTED_MODULE_19__["CommitteeComponent"]
     },
     {
         path: 'admin',
         component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_11__["AdminComponent"],
-        canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_17__["AuthGuard"]],
+        canActivate: [_shared_guards_auth_guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"]],
         children: [
             { path: '', redirectTo: 'requests', pathMatch: 'full' },
             { path: 'requests', component: _admin_affiliation_requests_affiliation_requests_component__WEBPACK_IMPORTED_MODULE_12__["AffiliationRequestsComponent"] },
             { path: 'events', component: _admin_events_events_component__WEBPACK_IMPORTED_MODULE_13__["EventsComponent"] },
             { path: 'match', component: _admin_match_event_results_match_event_results_component__WEBPACK_IMPORTED_MODULE_15__["MatchEventResultsComponent"] },
             { path: 'enquiries', component: _admin_enquiries_enquiries_component__WEBPACK_IMPORTED_MODULE_14__["EnquiriesComponent"] },
-            { path: 'profile', component: _admin_profile_profile_component__WEBPACK_IMPORTED_MODULE_16__["ProfileComponent"] },
-            { path: 'refree', component: _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_19__["RefreePanelComponent"] }
+            { path: 'support', component: _support_support_component__WEBPACK_IMPORTED_MODULE_20__["SupportComponent"] },
+            { path: 'refree', component: _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_18__["RefreePanelComponent"] }
         ]
     },
     {
@@ -1992,21 +1970,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_events_events_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/events/events.component */ "./src/app/admin/events/events.component.ts");
 /* harmony import */ var _admin_enquiries_enquiries_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/enquiries/enquiries.component */ "./src/app/admin/enquiries/enquiries.component.ts");
 /* harmony import */ var _admin_match_event_results_match_event_results_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./admin/match-event-results/match-event-results.component */ "./src/app/admin/match-event-results/match-event-results.component.ts");
-/* harmony import */ var _admin_profile_profile_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./admin/profile/profile.component */ "./src/app/admin/profile/profile.component.ts");
-/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/es2015/index.js");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/esm2015/table.js");
-/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
-/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm2015/sort.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm2015/icon.js");
-/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm2015/ngx-spinner.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm2015/button.js");
-/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! @angular/material/datepicker */ "./node_modules/@angular/material/esm2015/datepicker.js");
-/* harmony import */ var _shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./shared/dialogs/confirm-dialog/confirm-dialog.component */ "./src/app/shared/dialogs/confirm-dialog/confirm-dialog.component.ts");
-/* harmony import */ var _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./admin/refree-panel/refree-panel.component */ "./src/app/admin/refree-panel/refree-panel.component.ts");
-/* harmony import */ var _shared_components_spinner_spinner_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./shared/components/spinner/spinner.component */ "./src/app/shared/components/spinner/spinner.component.ts");
-/* harmony import */ var _committee_committee_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./committee/committee.component */ "./src/app/committee/committee.component.ts");
-/* harmony import */ var _score_board_score_board_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./score-board/score-board.component */ "./src/app/score-board/score-board.component.ts");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/auth/es2015/index.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/esm2015/table.js");
+/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
+/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm2015/sort.js");
+/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm2015/icon.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm2015/ngx-spinner.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm2015/button.js");
+/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @angular/material/datepicker */ "./node_modules/@angular/material/esm2015/datepicker.js");
+/* harmony import */ var _shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./shared/dialogs/confirm-dialog/confirm-dialog.component */ "./src/app/shared/dialogs/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./admin/refree-panel/refree-panel.component */ "./src/app/admin/refree-panel/refree-panel.component.ts");
+/* harmony import */ var _shared_components_spinner_spinner_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./shared/components/spinner/spinner.component */ "./src/app/shared/components/spinner/spinner.component.ts");
+/* harmony import */ var _committee_committee_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./committee/committee.component */ "./src/app/committee/committee.component.ts");
+/* harmony import */ var _score_board_score_board_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./score-board/score-board.component */ "./src/app/score-board/score-board.component.ts");
+/* harmony import */ var _support_support_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./support/support.component */ "./src/app/support/support.component.ts");
 
 
 
@@ -2053,9 +2031,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const APP_DIALOGS = [
     _admin_affiliation_requests_affiliation_requests_component__WEBPACK_IMPORTED_MODULE_25__["DistrictApprovalDialog"],
-    _shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_39__["ConfirmDialogComponent"],
+    _shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_38__["ConfirmDialogComponent"],
     _admin_events_events_component__WEBPACK_IMPORTED_MODULE_26__["CreateEventDialog"],
-    _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_40__["AddRefreeDialog"],
+    _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_39__["AddRefreeDialog"],
     _admin_match_event_results_match_event_results_component__WEBPACK_IMPORTED_MODULE_28__["MatchResultsDialog"]
 ];
 const MATERIAL_MODULES = [
@@ -2063,12 +2041,12 @@ const MATERIAL_MODULES = [
     _angular_material_input__WEBPACK_IMPORTED_MODULE_19__["MatInputModule"],
     _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_22__["MatCheckboxModule"],
     _angular_material_dialog__WEBPACK_IMPORTED_MODULE_23__["MatDialogModule"],
-    _angular_material_table__WEBPACK_IMPORTED_MODULE_32__["MatTableModule"],
-    _angular_material_paginator__WEBPACK_IMPORTED_MODULE_33__["MatPaginatorModule"],
-    _angular_material_sort__WEBPACK_IMPORTED_MODULE_34__["MatSortModule"],
-    _angular_material_icon__WEBPACK_IMPORTED_MODULE_35__["MatIconModule"],
-    _angular_material_button__WEBPACK_IMPORTED_MODULE_37__["MatButtonModule"],
-    _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_38__["MatDatepickerModule"]
+    _angular_material_table__WEBPACK_IMPORTED_MODULE_31__["MatTableModule"],
+    _angular_material_paginator__WEBPACK_IMPORTED_MODULE_32__["MatPaginatorModule"],
+    _angular_material_sort__WEBPACK_IMPORTED_MODULE_33__["MatSortModule"],
+    _angular_material_icon__WEBPACK_IMPORTED_MODULE_34__["MatIconModule"],
+    _angular_material_button__WEBPACK_IMPORTED_MODULE_36__["MatButtonModule"],
+    _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_37__["MatDatepickerModule"]
 ];
 let AppModule = class AppModule {
 };
@@ -2091,12 +2069,12 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _admin_events_events_component__WEBPACK_IMPORTED_MODULE_26__["EventsComponent"],
             _admin_enquiries_enquiries_component__WEBPACK_IMPORTED_MODULE_27__["EnquiriesComponent"],
             _admin_match_event_results_match_event_results_component__WEBPACK_IMPORTED_MODULE_28__["MatchEventResultsComponent"],
-            _admin_profile_profile_component__WEBPACK_IMPORTED_MODULE_29__["ProfileComponent"],
-            _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_40__["RefreePanelComponent"],
+            _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_39__["RefreePanelComponent"],
             ...APP_DIALOGS,
-            _shared_components_spinner_spinner_component__WEBPACK_IMPORTED_MODULE_41__["SpinnerComponent"],
-            _committee_committee_component__WEBPACK_IMPORTED_MODULE_42__["CommitteeComponent"],
-            _score_board_score_board_component__WEBPACK_IMPORTED_MODULE_43__["ScoreBoardComponent"]
+            _shared_components_spinner_spinner_component__WEBPACK_IMPORTED_MODULE_40__["SpinnerComponent"],
+            _committee_committee_component__WEBPACK_IMPORTED_MODULE_41__["CommitteeComponent"],
+            _score_board_score_board_component__WEBPACK_IMPORTED_MODULE_42__["ScoreBoardComponent"],
+            _support_support_component__WEBPACK_IMPORTED_MODULE_43__["SupportComponent"]
         ],
         imports: [
             _angular_forms__WEBPACK_IMPORTED_MODULE_21__["FormsModule"],
@@ -2105,9 +2083,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"],
             _angular_fire__WEBPACK_IMPORTED_MODULE_9__["AngularFireModule"].initializeApp(src_environments_environment__WEBPACK_IMPORTED_MODULE_11__["environment"].firebaseConfig),
-            ngx_toastr__WEBPACK_IMPORTED_MODULE_31__["ToastrModule"].forRoot(),
-            ngx_spinner__WEBPACK_IMPORTED_MODULE_36__["NgxSpinnerModule"],
-            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_30__["AngularFireAuthModule"],
+            ngx_toastr__WEBPACK_IMPORTED_MODULE_30__["ToastrModule"].forRoot(),
+            ngx_spinner__WEBPACK_IMPORTED_MODULE_35__["NgxSpinnerModule"],
+            _angular_fire_auth__WEBPACK_IMPORTED_MODULE_29__["AngularFireAuthModule"],
             _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_10__["AngularFirestoreModule"],
             ...MATERIAL_MODULES
         ],
@@ -3535,6 +3513,9 @@ let SlingshotService = class SlingshotService {
     deleteMatchResultById(id) {
         this.firestore.collection('MatchResults').doc(id).delete();
     }
+    updateMatchResults(id, data) {
+        this.firestore.collection('MatchResults').doc(id).update(data);
+    }
 };
 SlingshotService.ctorParameters = () => [
     { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_2__["AngularFirestore"] },
@@ -3637,6 +3618,60 @@ SlingshotComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./slingshot.component.scss */ "./src/app/slingshot/slingshot.component.scss")).default]
     })
 ], SlingshotComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/support/support.component.scss":
+/*!************************************************!*\
+  !*** ./src/app/support/support.component.scss ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/* You can add global styles to this file, and also import other style files */\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  margin: 0;\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\n  background-color: #f8f9fa;\n}\n/* -------------------------- global colors ----------------------------- */\n::-webkit-scrollbar {\n  width: 5px;\n}\n::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n::-webkit-scrollbar-thumb {\n  background: #888;\n}\n::-webkit-scrollbar-thumb:hover {\n  background: #ff8b23;\n}\n/* Theme-Colors */\n.bg-offwhite {\n  background: #edf3f5;\n}\n.sling-btn {\n  background-color: #ff8b23;\n  color: #fff;\n}\n/* Logo-Text */\n.main-title {\n  font-family: \"Righteous\", cursive;\n  font-size: 30px;\n  letter-spacing: 2px;\n  color: #ff3600;\n}\n.sub-title {\n  font-family: \"Didact Gothic\", sans-serif;\n  letter-spacing: 2px;\n  font-size: 11px;\n  text-transform: uppercase;\n  position: relative;\n  padding-left: 2px;\n  font-weight: bold;\n}\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  margin: 0;\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\n}\n.cdk-overlay-dark-backdrop {\n  background: rgba(0, 0, 0, 0.69) !important;\n}\n.cdk-overlay-container {\n  z-index: 2000 !important;\n}\n.data-table .mat-header-cell {\n  font-size: 15px !important;\n}\n#support {\n  font-family: \"Didact Gothic\", sans-serif;\n}\n#support .title {\n  font-family: \"Righteous\";\n}\n#support .img-area {\n  width: 150px;\n  height: 150px;\n  margin: auto;\n  border: 2px solid #fff;\n  border-radius: 50%;\n  overflow: hidden;\n}\n#support .img-area img {\n  width: 100%;\n}\n#support .icon-circle {\n  padding: 10px;\n  border-radius: 50%;\n  font-size: 20px;\n  text-align: center;\n  background: black;\n  margin-right: 15px;\n  width: 40px;\n  color: #fff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc3VwcG9ydC9DOlxcV29ya3NwYWNlXFxPdGhlclxcU2xpbmdzaG90QXNzb2NpYXRpb24vc3JjXFxzdHlsZXMuc2NzcyIsInNyYy9hcHAvc3VwcG9ydC9zdXBwb3J0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9zdXBwb3J0L0M6XFxXb3Jrc3BhY2VcXE90aGVyXFxTbGluZ3Nob3RBc3NvY2lhdGlvbi9zcmNcXGFwcFxcc3VwcG9ydFxcc3VwcG9ydC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSw4RUFBQTtBQUVBOztFQUVJLFlBQUE7QUNBSjtBREdBO0VBQ0ksU0FBQTtFQUNBLGlEQUFBO0VBQ0EseUJBQUE7QUNBSjtBRElBLDJFQUFBO0FBSUE7RUFDSSxVQUFBO0FDSko7QURPQTtFQUNJLG1CQUFBO0FDSko7QURPQztFQUNHLGdCQUFBO0FDSko7QURPQztFQUNHLG1CQUFBO0FDSko7QURRQSxpQkFBQTtBQUVBO0VBQ0ksbUJBQUE7QUNOSjtBRFNBO0VBQ0kseUJBQUE7RUFDQSxXQUFBO0FDTko7QURVQSxjQUFBO0FBRUE7RUFDSSxpQ0FBQTtFQUNBLGVBQUE7RUFDQSxtQkFBQTtFQUNBLGNBQUE7QUNSSjtBRFdBO0VBQ0ksd0NBQUE7RUFDQSxtQkFBQTtFQUNBLGVBQUE7RUFDQSx5QkFBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxpQkFBQTtBQ1JKO0FEV0E7O0VBRUksWUFBQTtBQ1JKO0FEV0E7RUFDSSxTQUFBO0VBQ0EsaURBQUE7QUNSSjtBRFlBO0VBQ0ksMENBQUE7QUNUSjtBRFlBO0VBQ0ksd0JBQUE7QUNUSjtBRGFJO0VBQ0ksMEJBQUE7QUNWUjtBQzVFQTtFQUNJLHdDQUFBO0FEK0VKO0FDOUVJO0VBQ0ksd0JBQUE7QURnRlI7QUM5RUk7RUFDSSxZQUFBO0VBQ0EsYUFBQTtFQUNBLFlBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7QURnRlI7QUMvRVE7RUFDRSxXQUFBO0FEaUZWO0FDN0VNO0VBQ0UsYUFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxXQUFBO0FEK0VSIiwiZmlsZSI6InNyYy9hcHAvc3VwcG9ydC9zdXBwb3J0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogWW91IGNhbiBhZGQgZ2xvYmFsIHN0eWxlcyB0byB0aGlzIGZpbGUsIGFuZCBhbHNvIGltcG9ydCBvdGhlciBzdHlsZSBmaWxlcyAqL1xyXG5cclxuaHRtbCxcclxuYm9keSB7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuXHJcbmJvZHkge1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgZm9udC1mYW1pbHk6IFJvYm90bywgXCJIZWx2ZXRpY2EgTmV1ZVwiLCBzYW5zLXNlcmlmO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2Y4ZjlmYTtcclxufVxyXG5cclxuXHJcbi8qIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIGdsb2JhbCBjb2xvcnMgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gKi9cclxuXHJcbiR0aC1jb2xvcjogI2ZmOGIyMztcclxuJHRoLWNvbG9yLWRhcms6ICNmZjM2MDA7XHJcbjo6LXdlYmtpdC1zY3JvbGxiYXIge1xyXG4gICAgd2lkdGg6IDVweDtcclxufVxyXG5cclxuOjotd2Via2l0LXNjcm9sbGJhci10cmFjayB7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZjFmMWYxO1xyXG59XHJcblxyXG4gOjotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7XHJcbiAgICBiYWNrZ3JvdW5kOiAjODg4O1xyXG59XHJcblxyXG4gOjotd2Via2l0LXNjcm9sbGJhci10aHVtYjpob3ZlciB7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZmY4YjIzO1xyXG59XHJcblxyXG5cclxuLyogVGhlbWUtQ29sb3JzICovXHJcblxyXG4uYmctb2Zmd2hpdGUge1xyXG4gICAgYmFja2dyb3VuZDogI2VkZjNmNTtcclxufVxyXG5cclxuLnNsaW5nLWJ0biB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmY4YjIzO1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbn1cclxuXHJcblxyXG4vKiBMb2dvLVRleHQgKi9cclxuXHJcbi5tYWluLXRpdGxlIHtcclxuICAgIGZvbnQtZmFtaWx5OiAnUmlnaHRlb3VzJywgY3Vyc2l2ZTtcclxuICAgIGZvbnQtc2l6ZTogMzBweDtcclxuICAgIGxldHRlci1zcGFjaW5nOiAycHg7XHJcbiAgICBjb2xvcjogcmdiYSgyNTUsIDU0LCAwLCAxKTtcclxufVxyXG5cclxuLnN1Yi10aXRsZSB7XHJcbiAgICBmb250LWZhbWlseTogJ0RpZGFjdCBHb3RoaWMnLCBzYW5zLXNlcmlmO1xyXG4gICAgbGV0dGVyLXNwYWNpbmc6IDJweDtcclxuICAgIGZvbnQtc2l6ZTogMTFweDtcclxuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDJweDtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG59XHJcblxyXG5odG1sLFxyXG5ib2R5IHtcclxuICAgIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuYm9keSB7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBmb250LWZhbWlseTogUm9ib3RvLCBcIkhlbHZldGljYSBOZXVlXCIsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi8vIEdsb2JhbCBkaWFsb2cgY3NzXHJcbi5jZGstb3ZlcmxheS1kYXJrLWJhY2tkcm9wIHtcclxuICAgIGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgMC42OSkgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmNkay1vdmVybGF5LWNvbnRhaW5lciB7XHJcbiAgICB6LWluZGV4OiAyMDAwICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5kYXRhLXRhYmxlIHtcclxuICAgIC5tYXQtaGVhZGVyLWNlbGwge1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTVweCAhaW1wb3J0YW50O1xyXG4gICAgfVxyXG59IiwiLyogWW91IGNhbiBhZGQgZ2xvYmFsIHN0eWxlcyB0byB0aGlzIGZpbGUsIGFuZCBhbHNvIGltcG9ydCBvdGhlciBzdHlsZSBmaWxlcyAqL1xuaHRtbCxcbmJvZHkge1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbmJvZHkge1xuICBtYXJnaW46IDA7XG4gIGZvbnQtZmFtaWx5OiBSb2JvdG8sIFwiSGVsdmV0aWNhIE5ldWVcIiwgc2Fucy1zZXJpZjtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2Y4ZjlmYTtcbn1cblxuLyogLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gZ2xvYmFsIGNvbG9ycyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAqL1xuOjotd2Via2l0LXNjcm9sbGJhciB7XG4gIHdpZHRoOiA1cHg7XG59XG5cbjo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sge1xuICBiYWNrZ3JvdW5kOiAjZjFmMWYxO1xufVxuXG46Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHtcbiAgYmFja2dyb3VuZDogIzg4ODtcbn1cblxuOjotd2Via2l0LXNjcm9sbGJhci10aHVtYjpob3ZlciB7XG4gIGJhY2tncm91bmQ6ICNmZjhiMjM7XG59XG5cbi8qIFRoZW1lLUNvbG9ycyAqL1xuLmJnLW9mZndoaXRlIHtcbiAgYmFja2dyb3VuZDogI2VkZjNmNTtcbn1cblxuLnNsaW5nLWJ0biB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmZjhiMjM7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG4vKiBMb2dvLVRleHQgKi9cbi5tYWluLXRpdGxlIHtcbiAgZm9udC1mYW1pbHk6IFwiUmlnaHRlb3VzXCIsIGN1cnNpdmU7XG4gIGZvbnQtc2l6ZTogMzBweDtcbiAgbGV0dGVyLXNwYWNpbmc6IDJweDtcbiAgY29sb3I6ICNmZjM2MDA7XG59XG5cbi5zdWItdGl0bGUge1xuICBmb250LWZhbWlseTogXCJEaWRhY3QgR290aGljXCIsIHNhbnMtc2VyaWY7XG4gIGxldHRlci1zcGFjaW5nOiAycHg7XG4gIGZvbnQtc2l6ZTogMTFweDtcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBwYWRkaW5nLWxlZnQ6IDJweDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59XG5cbmh0bWwsXG5ib2R5IHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG5ib2R5IHtcbiAgbWFyZ2luOiAwO1xuICBmb250LWZhbWlseTogUm9ib3RvLCBcIkhlbHZldGljYSBOZXVlXCIsIHNhbnMtc2VyaWY7XG59XG5cbi5jZGstb3ZlcmxheS1kYXJrLWJhY2tkcm9wIHtcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjY5KSAhaW1wb3J0YW50O1xufVxuXG4uY2RrLW92ZXJsYXktY29udGFpbmVyIHtcbiAgei1pbmRleDogMjAwMCAhaW1wb3J0YW50O1xufVxuXG4uZGF0YS10YWJsZSAubWF0LWhlYWRlci1jZWxsIHtcbiAgZm9udC1zaXplOiAxNXB4ICFpbXBvcnRhbnQ7XG59XG5cbiNzdXBwb3J0IHtcbiAgZm9udC1mYW1pbHk6IFwiRGlkYWN0IEdvdGhpY1wiLCBzYW5zLXNlcmlmO1xufVxuI3N1cHBvcnQgLnRpdGxlIHtcbiAgZm9udC1mYW1pbHk6IFwiUmlnaHRlb3VzXCI7XG59XG4jc3VwcG9ydCAuaW1nLWFyZWEge1xuICB3aWR0aDogMTUwcHg7XG4gIGhlaWdodDogMTUwcHg7XG4gIG1hcmdpbjogYXV0bztcbiAgYm9yZGVyOiAycHggc29saWQgI2ZmZjtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuI3N1cHBvcnQgLmltZy1hcmVhIGltZyB7XG4gIHdpZHRoOiAxMDAlO1xufVxuI3N1cHBvcnQgLmljb24tY2lyY2xlIHtcbiAgcGFkZGluZzogMTBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBmb250LXNpemU6IDIwcHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgYmFja2dyb3VuZDogYmxhY2s7XG4gIG1hcmdpbi1yaWdodDogMTVweDtcbiAgd2lkdGg6IDQwcHg7XG4gIGNvbG9yOiAjZmZmO1xufSIsIkBpbXBvcnQgXCIuLi8uLi9zdHlsZXMuc2Nzc1wiO1xyXG4jc3VwcG9ydHtcclxuICAgIGZvbnQtZmFtaWx5OiBcIkRpZGFjdCBHb3RoaWNcIiwgc2Fucy1zZXJpZjtcclxuICAgIC50aXRsZSB7XHJcbiAgICAgICAgZm9udC1mYW1pbHk6IFwiUmlnaHRlb3VzXCI7XHJcbiAgICB9XHJcbiAgICAuaW1nLWFyZWEge1xyXG4gICAgICAgIHdpZHRoOiAxNTBweDtcclxuICAgICAgICBoZWlnaHQ6IDE1MHB4O1xyXG4gICAgICAgIG1hcmdpbjogYXV0bztcclxuICAgICAgICBib3JkZXI6IDJweCBzb2xpZCAjZmZmO1xyXG4gICAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgICAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gICAgICAgIGltZyB7XHJcbiAgICAgICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgICB9XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5pY29uLWNpcmNsZSB7XHJcbiAgICAgICAgcGFkZGluZzogMTBweDtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgICAgICBiYWNrZ3JvdW5kOiBibGFjaztcclxuICAgICAgICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbiAgICAgICAgd2lkdGg6IDQwcHg7XHJcbiAgICAgICAgY29sb3I6ICNmZmY7XHJcbiAgICAgIH1cclxufSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/support/support.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/support/support.component.ts ***!
+  \**********************************************/
+/*! exports provided: SupportComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupportComponent", function() { return SupportComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+
+
+
+let SupportComponent = class SupportComponent {
+    constructor(formBuilder) {
+        this.formBuilder = formBuilder;
+    }
+    ngOnInit() {
+        this.enquiryForm = this.formBuilder.group({
+            message: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
+        });
+    }
+};
+SupportComponent.ctorParameters = () => [
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
+];
+SupportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-support',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./support.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/support/support.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./support.component.scss */ "./src/app/support/support.component.scss")).default]
+    })
+], SupportComponent);
 
 
 
