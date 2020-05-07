@@ -201,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"committee\">\n    <div class=\"jumbotron text-center\">\n        <h2 class=\"page-title\">Slingshot Sports Association Members of Maharashtra</h2>\n    </div>\n    <div class=\"container mb-5\">\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Association Members</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of members; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\">{{member.name}}</td> \n                    <td width=\"40%\">{{member.role}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Referee Committee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let referee of referees; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\">{{referee.firstName}} {{referee.middleName}} {{referee.lastName}}</td> \n                    <td width=\"40%\">{{referee.district}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Coaches Panel</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of members; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\">{{member.name}}</td> \n                    <td width=\"40%\">{{member.role}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Affiliation Committee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of members; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\">{{member.name}}</td> \n                    <td width=\"40%\">{{member.role}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Technical Committee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of members; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\">{{member.name}}</td> \n                    <td width=\"40%\">{{member.role}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Selection Committee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of members; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\">{{member.name}}</td> \n                    <td width=\"40%\">{{member.role}}</td>\n                </tr>\n            </table>\n        </div>\n    </div>\n</section>");
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"committee\">\n    <div class=\"jumbotron text-center\">\n        <h2 class=\"page-title\">Slingshot Sports Association Members of Maharashtra</h2>\n    </div>\n    <div class=\"container mb-5\">\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Affiliation Members</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.AFFILIATION_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Tournament Technical\n                commmitee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.TOURNAMENT_TECHNICAL_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Tournament Organizer\n                committee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.TOURNAMENT_ORGANIZER_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Selection Committee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.SELECTION_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Official Referee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let referee of referees; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"referee-name\">\n                        <img src=\"./assets/images/user-pic-default.png\" alt=\"\" class=\"user-pic\">\n                        {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}\n                    </td>\n                    <td width=\"40%\" class=\"text-center\">{{referee.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n    </div>\n</section>");
 
 /***/ }),
 
@@ -2316,7 +2316,7 @@ AssociationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#committee {\n  font-family: \"Didact Gothic\", sans-serif;\n  margin-top: 80px;\n}\n#committee .jumbotron {\n  background-color: #212325 !important;\n  color: #fff;\n  border-radius: 0em;\n}\n@media only screen and (max-width: 768px) {\n  .page-title {\n    font-size: 1.2rem !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tbWl0dGVlL0M6XFxXb3Jrc3BhY2VcXE90aGVyXFxTbGluZ3Nob3RBc3NvY2lhdGlvbi9zcmNcXGFwcFxcY29tbWl0dGVlXFxjb21taXR0ZWUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbW1pdHRlZS9jb21taXR0ZWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx3Q0FBQTtFQUNBLGdCQUFBO0FDQ0Y7QURBRTtFQUNFLG9DQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0FDRUo7QURFQTtFQUVFO0lBQ0UsNEJBQUE7RUNBRjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvY29tbWl0dGVlL2NvbW1pdHRlZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjb21taXR0ZWUge1xyXG4gIGZvbnQtZmFtaWx5OiBcIkRpZGFjdCBHb3RoaWNcIiwgc2Fucy1zZXJpZjtcclxuICBtYXJnaW4tdG9wOiA4MHB4O1xyXG4gIC5qdW1ib3Ryb24ge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzIxMjMyNSAhaW1wb3J0YW50O1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbiAgICBib3JkZXItcmFkaXVzOiAwZW07XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KSB7XHJcbiAgLy9tb2JpbGUgZGV2aWNlXHJcbiAgLnBhZ2UtdGl0bGUge1xyXG4gICAgZm9udC1zaXplOiAxLjJyZW0gIWltcG9ydGFudDtcclxuICB9XHJcbn1cclxuIiwiI2NvbW1pdHRlZSB7XG4gIGZvbnQtZmFtaWx5OiBcIkRpZGFjdCBHb3RoaWNcIiwgc2Fucy1zZXJpZjtcbiAgbWFyZ2luLXRvcDogODBweDtcbn1cbiNjb21taXR0ZWUgLmp1bWJvdHJvbiB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyMTIzMjUgIWltcG9ydGFudDtcbiAgY29sb3I6ICNmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDBlbTtcbn1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjhweCkge1xuICAucGFnZS10aXRsZSB7XG4gICAgZm9udC1zaXplOiAxLjJyZW0gIWltcG9ydGFudDtcbiAgfVxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("#committee {\n  font-family: \"Didact Gothic\", sans-serif;\n  margin-top: 80px;\n}\n#committee .jumbotron {\n  background-color: #212325 !important;\n  color: #fff;\n  border-radius: 0em;\n}\n#committee .referee-name:hover {\n  color: #17a2b8;\n}\n#committee .user-pic {\n  width: 30px;\n  margin: auto;\n  border: 2px solid #fff;\n  border-radius: 50%;\n  overflow: hidden;\n}\n@media only screen and (max-width: 768px) {\n  .page-title {\n    font-size: 1.2rem !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tbWl0dGVlL0M6XFxXb3Jrc3BhY2VcXE90aGVyXFxTbGluZ3Nob3RBc3NvY2lhdGlvbi9zcmNcXGFwcFxcY29tbWl0dGVlXFxjb21taXR0ZWUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbW1pdHRlZS9jb21taXR0ZWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx3Q0FBQTtFQUNBLGdCQUFBO0FDQ0Y7QURBRTtFQUNFLG9DQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0FDRUo7QURBRTtFQUNFLGNBQUE7QUNFSjtBREFFO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7QUNFSjtBREVBO0VBRUU7SUFDRSw0QkFBQTtFQ0FGO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9jb21taXR0ZWUvY29tbWl0dGVlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2NvbW1pdHRlZSB7XHJcbiAgZm9udC1mYW1pbHk6IFwiRGlkYWN0IEdvdGhpY1wiLCBzYW5zLXNlcmlmO1xyXG4gIG1hcmdpbi10b3A6IDgwcHg7XHJcbiAgLmp1bWJvdHJvbiB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjEyMzI1ICFpbXBvcnRhbnQ7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDBlbTtcclxuICB9XHJcbiAgLnJlZmVyZWUtbmFtZTpob3ZlciB7XHJcbiAgICBjb2xvcjogIzE3YTJiODtcclxuICB9XHJcbiAgLnVzZXItcGljIHtcclxuICAgIHdpZHRoOiAzMHB4O1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgYm9yZGVyOiAycHggc29saWQgI2ZmZjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KSB7XHJcbiAgLy9tb2JpbGUgZGV2aWNlXHJcbiAgLnBhZ2UtdGl0bGUge1xyXG4gICAgZm9udC1zaXplOiAxLjJyZW0gIWltcG9ydGFudDtcclxuICB9XHJcbn1cclxuIiwiI2NvbW1pdHRlZSB7XG4gIGZvbnQtZmFtaWx5OiBcIkRpZGFjdCBHb3RoaWNcIiwgc2Fucy1zZXJpZjtcbiAgbWFyZ2luLXRvcDogODBweDtcbn1cbiNjb21taXR0ZWUgLmp1bWJvdHJvbiB7XG4gIGJhY2tncm91bmQtY29sb3I6ICMyMTIzMjUgIWltcG9ydGFudDtcbiAgY29sb3I6ICNmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDBlbTtcbn1cbiNjb21taXR0ZWUgLnJlZmVyZWUtbmFtZTpob3ZlciB7XG4gIGNvbG9yOiAjMTdhMmI4O1xufVxuI2NvbW1pdHRlZSAudXNlci1waWMge1xuICB3aWR0aDogMzBweDtcbiAgbWFyZ2luOiBhdXRvO1xuICBib3JkZXI6IDJweCBzb2xpZCAjZmZmO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpIHtcbiAgLnBhZ2UtdGl0bGUge1xuICAgIGZvbnQtc2l6ZTogMS4ycmVtICFpbXBvcnRhbnQ7XG4gIH1cbn0iXX0= */");
 
 /***/ }),
 
@@ -2344,10 +2344,13 @@ let CommitteeComponent = class CommitteeComponent {
         this._service = _service;
         this.members = [];
         this.referees = [];
+        this.committee = [];
     }
     ngOnInit() {
         window.scrollTo(0, 0);
         this.members = this.dataModal.getAssociationMembers();
+        this.committee = this.dataModal.getAllCommitte();
+        console.log(this.committee);
         this._service.getAllRefrees().subscribe(data => {
             this.referees = data.map(item => {
                 return Object.assign({ id: item.payload.doc.id }, item.payload.doc.data());
@@ -3334,6 +3337,56 @@ let ModalDataService = class ModalDataService {
             'गरज भासल्यास तांत्रिक समितीला दुसरी फेरी घेता येईल.',
             'लक्ष्यावर दिलेल्या मर्यादेपेक्षा जास्त मारा केल्यास गुणांसाठी वैध योग्य लक्षवेध आत मोजल्या जातील.',
         ];
+        this.COMMITTEE = {
+            AFFILIATION_COMMITTEE: [
+                { name: 'Mr. Bipin Anil Chaudhari', mobile: '' },
+                { name: 'Mr. Vikas Vinod Shelke', mobile: '' },
+                { name: 'Mr. Manikraj Landage', mobile: '' },
+                { name: 'Mr. Shyam Digambar Khemaskar', mobile: '' },
+                { name: 'Mr. Sunil Bhagwan Shinde', mobile: '' },
+                { name: 'Miss. Snehal Yogiraj Khantade', mobile: '' }
+            ],
+            TOURNAMENT_TECHNICAL_COMMITTEE: [
+                { name: 'Mr. Manikraj Landage', mobile: '' },
+                { name: 'Mr. Suraj Prakashrao Kadukar', mobile: '' },
+                { name: 'Mr. Giriraj Ganesh Gupta', mobile: '' },
+                { name: 'Mr. Tanshu Sanjiv Jhasi', mobile: '' },
+                { name: 'Miss. Preksha Balkrushna Shetti', mobile: '' },
+                { name: 'Miss. Srushti Vinod Gupta', mobile: '' },
+                { name: 'Mr. Suraj Kanojiya', mobile: '' }
+            ],
+            TOURNAMENT_ORGANIZER_COMMITTEE: [
+                { name: 'Mr. Sunil Bhagwan Shinde', mobile: '' },
+                { name: 'Mr. Padmakar Kamble', mobile: '' },
+                { name: 'Mr. Akash Upadhe', mobile: '' },
+                { name: 'Mr. Mayur Santosh Meshram', mobile: '' },
+                { name: 'Miss. Sayali Sunil Shinde', mobile: '' },
+                { name: 'Mr. Sunil Kalabante', mobile: '' },
+                { name: 'Mr. Rushikesh Uttamrao Bansod', mobile: '' }
+            ],
+            SELECTION_COMMITTEE: [
+                { name: 'Mr. Shyam Digambar Khemaskar', mobile: '' },
+                { name: 'Mr. Lalit Dhoke', mobile: '' },
+                { name: 'Miss. Snehal Yogiraj Khantade', mobile: '' },
+                { name: 'Miss. Samiksha Raju Patil', mobile: '' },
+                { name: 'Mr. Tushar tanaji Durge', mobile: '' },
+                { name: 'Mr. Rakesh Dattuji Chapattiwar', mobile: '' },
+                { name: 'Mr. Ashvin Siddham Shettiwar', mobile: '' },
+                { name: 'Mr. Saurabh Ramteke', mobile: '' },
+            ],
+            OFFICIAL_REFEREE: [
+                { name: 'Miss. Akansha Raju Patil', mobile: '' },
+                { name: 'Miss. Minal Gajan Nagrale', mobile: '' },
+                { name: 'Mr. Mayur Santosh Meshram', mobile: '' },
+                { name: 'Mr. Prajwal Lalit Dhoke', mobile: '' },
+                { name: 'Miss. Sayali Sanjay Savadh', mobile: '' },
+                { name: 'Miss. Riya manoj Godale', mobile: '' },
+                { name: 'Mr. Abhishek Joshi', mobile: '' },
+                { name: 'Miss. Kiran Kabdi', mobile: '' },
+                { name: 'Mr. Dinesh Soyade', mobile: '' },
+                { name: 'Mr. Ishu Shittewar', mobile: '' },
+            ]
+        };
     }
     getAssociationMembers() {
         return this.MEMBERS;
@@ -3343,6 +3396,9 @@ let ModalDataService = class ModalDataService {
     }
     getSlingshotRules() {
         return this.RULES;
+    }
+    getAllCommitte() {
+        return this.COMMITTEE;
     }
 };
 ModalDataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
