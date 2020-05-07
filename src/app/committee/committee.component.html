@@ -4,62 +4,57 @@
     </div>
     <div class="container mb-5">
         <div class="mt-5">
-            <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Association Members</h5>
+            <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Affiliation Members</h5>
             <table class="table table-bordered mt-3">
-                <tr *ngFor="let member of members; let i = index;" class="bg-white">
+                <tr *ngFor="let member of committee.AFFILIATION_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%">{{member.name}}</td> 
-                    <td width="40%">{{member.role}}</td>
+                    <td width="50%">{{member.name}}</td>
+                    <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
         </div>
         <div class="mt-5">
-            <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Referee Committee</h5>
+            <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Tournament Technical
+                commmitee</h5>
             <table class="table table-bordered mt-3">
-                <tr *ngFor="let referee of referees; let i = index;" class="bg-white">
+                <tr *ngFor="let member of committee.TOURNAMENT_TECHNICAL_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%">{{referee.firstName}} {{referee.middleName}} {{referee.lastName}}</td> 
-                    <td width="40%">{{referee.district}}</td>
+                    <td width="50%">{{member.name}}</td>
+                    <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
         </div>
         <div class="mt-5">
-            <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Coaches Panel</h5>
+            <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Tournament Organizer
+                committee</h5>
             <table class="table table-bordered mt-3">
-                <tr *ngFor="let member of members; let i = index;" class="bg-white">
+                <tr *ngFor="let member of committee.TOURNAMENT_ORGANIZER_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%">{{member.name}}</td> 
-                    <td width="40%">{{member.role}}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="mt-5">
-            <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Affiliation Committee</h5>
-            <table class="table table-bordered mt-3">
-                <tr *ngFor="let member of members; let i = index;" class="bg-white">
-                    <td width="10%">{{ i+1 }}</td>
-                    <td width="50%">{{member.name}}</td> 
-                    <td width="40%">{{member.role}}</td>
-                </tr>
-            </table>
-        </div>
-        <div class="mt-5">
-            <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Technical Committee</h5>
-            <table class="table table-bordered mt-3">
-                <tr *ngFor="let member of members; let i = index;" class="bg-white">
-                    <td width="10%">{{ i+1 }}</td>
-                    <td width="50%">{{member.name}}</td> 
-                    <td width="40%">{{member.role}}</td>
+                    <td width="50%">{{member.name}}</td>
+                    <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
         </div>
         <div class="mt-5">
             <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Selection Committee</h5>
             <table class="table table-bordered mt-3">
-                <tr *ngFor="let member of members; let i = index;" class="bg-white">
+                <tr *ngFor="let member of committee.SELECTION_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%">{{member.name}}</td> 
-                    <td width="40%">{{member.role}}</td>
+                    <td width="50%">{{member.name}}</td>
+                    <td width="40%" class="text-center">{{member.mobile}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="mt-5">
+            <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Official Referee</h5>
+            <table class="table table-bordered mt-3">
+                <tr *ngFor="let referee of referees; let i = index;" class="bg-white">
+                    <td width="10%">{{ i+1 }}</td>
+                    <td width="50%" class="referee-name">
+                        <img src="./assets/images/user-pic-default.png" alt="" class="user-pic">
+                        {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}
+                    </td>
+                    <td width="40%" class="text-center">{{referee.mobile}}</td>
                 </tr>
             </table>
         </div>

@@ -143,6 +143,57 @@ export class ModalDataService {
     // 'समजा एखाद्या स्पर्धकाने 5 मिनिटांमध्ये 15 लक्ष्यवेध केलेत, या 15 लक्ष्यवेधांमध्ये 3 गुणांच्या वर्तुळात 3, 4 गुणांच्या वर्तुळात 3, 5 गुणांच्या वर्तुळात 1 व 8,9,10 गुणांच्या वर्तुळात प्रत्येकी 2 लक्ष्यवेध केले असेल तर अशा प्रसंगात अंतिम गुण मोजताना 3,4,5,6 या गुणांच्या वर्तुळातील वेध व 8 गुणांच्या वर्तुळातील कुठलाही एक वेध मोजले जातील आणि त्यानुसार स्पर्धकांचे गुण ठरविल्या जातील.'
   ];
 
+  public COMMITTEE = {
+    AFFILIATION_COMMITTEE: [
+      {name:'Mr. Bipin Anil Chaudhari', mobile:''},
+      {name:'Mr. Vikas Vinod Shelke', mobile:''},
+      {name:'Mr. Manikraj Landage', mobile:''},
+      {name:'Mr. Shyam Digambar Khemaskar', mobile:''},
+      {name:'Mr. Sunil Bhagwan Shinde', mobile:''},
+      {name:'Miss. Snehal Yogiraj Khantade', mobile:''}
+    ],
+    TOURNAMENT_TECHNICAL_COMMITTEE: [
+      {name:'Mr. Manikraj Landage', mobile:''},
+      {name:'Mr. Suraj Prakashrao Kadukar', mobile:''},
+      {name:'Mr. Giriraj Ganesh Gupta', mobile:''},
+      {name:'Mr. Tanshu Sanjiv Jhasi', mobile:''},
+      {name:'Miss. Preksha Balkrushna Shetti', mobile:''},
+      {name:'Miss. Srushti Vinod Gupta', mobile:''},
+      {name:'Mr. Suraj Kanojiya', mobile:''}
+    ],
+    TOURNAMENT_ORGANIZER_COMMITTEE: [
+      {name:'Mr. Sunil Bhagwan Shinde', mobile:''},
+      {name:'Mr. Padmakar Kamble', mobile:''},
+      {name:'Mr. Akash Upadhe', mobile:''},
+      {name:'Mr. Mayur Santosh Meshram', mobile:''},
+      {name:'Miss. Sayali Sunil Shinde', mobile:''},
+      {name:'Mr. Sunil Kalabante', mobile:''},
+      {name:'Mr. Rushikesh Uttamrao Bansod', mobile:''}
+    ],
+    SELECTION_COMMITTEE: [
+      {name:'Mr. Shyam Digambar Khemaskar', mobile:''},
+      {name:'Mr. Lalit Dhoke', mobile:''},
+      {name:'Miss. Snehal Yogiraj Khantade', mobile:''},
+      {name:'Miss. Samiksha Raju Patil', mobile:''},
+      {name:'Mr. Tushar tanaji Durge', mobile:''},
+      {name:'Mr. Rakesh Dattuji Chapattiwar', mobile:''},
+      {name:'Mr. Ashvin Siddham Shettiwar', mobile:''},
+      {name:'Mr. Saurabh Ramteke', mobile:''},
+    ],
+    OFFICIAL_REFEREE: [
+      {name:'Miss. Akansha Raju Patil', mobile:''},
+      {name:'Miss. Minal Gajan Nagrale', mobile:''},
+      {name:'Mr. Mayur Santosh Meshram', mobile:''},
+      {name:'Mr. Prajwal Lalit Dhoke', mobile:''},
+      {name:'Miss. Sayali Sanjay Savadh', mobile:''},
+      {name:'Miss. Riya manoj Godale', mobile:''},
+      {name:'Mr. Abhishek Joshi', mobile:''},
+      {name:'Miss. Kiran Kabdi', mobile:''},
+      {name:'Mr. Dinesh Soyade', mobile:''},
+      {name:'Mr. Ishu Shittewar', mobile:''},
+    ]
+  }
+
   constructor() { }
 
   getAssociationMembers(): any {
@@ -155,5 +206,9 @@ export class ModalDataService {
 
   getSlingshotRules(): any {
     return this.RULES;
+  }
+
+  getAllCommitte(): any {
+    return this.COMMITTEE;
   }
 }

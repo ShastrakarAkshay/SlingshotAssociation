@@ -2821,6 +2821,7 @@ let MatchResultsComponent = class MatchResultsComponent {
         this.matchResults = [];
     }
     ngOnInit() {
+        window.scrollTo(0, 0);
         this.getAllResultRecords();
     }
     getAllResultRecords() {

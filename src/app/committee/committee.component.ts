@@ -11,12 +11,15 @@ export class CommitteeComponent implements OnInit {
 
   members: any[] = [];
   referees: any[] = [];
+  committee: any[] = [];
 
   constructor(private dataModal: ModalDataService, private _service: SlingshotService) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
     this.members = this.dataModal.getAssociationMembers();
+    this.committee = this.dataModal.getAllCommitte();
+    console.log(this.committee)
     this._service.getAllRefrees().subscribe(data => {
       this.referees = data.map(item => {
         return {

@@ -4993,6 +4993,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(MatchResultsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          window.scrollTo(0, 0);
           this.getAllResultRecords();
         }
       }, {
