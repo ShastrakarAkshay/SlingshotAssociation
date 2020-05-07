@@ -6,8 +6,14 @@
     color: #fff;
     border-radius: 0em;
   }
-  .referee-name:hover {
-    color: #17a2b8;
+  .referee-table > tr:hover {
+    .referee-name {
+      color: #17a2b8;
+    }
+  }
+
+  .pointer {
+    cursor: pointer;
   }
 }
 

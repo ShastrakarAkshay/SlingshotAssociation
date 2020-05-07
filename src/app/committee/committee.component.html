@@ -47,14 +47,15 @@
         </div>
         <div class="mt-5">
             <h5 class="font-weight-bold"><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Official Referee</h5>
-            <table class="table table-bordered mt-3">
+            <table class="table table-bordered mt-3 referee-table">
                 <tr *ngFor="let referee of referees; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%" class="referee-name">
+                    <td width="40%" class="referee-name">
                         <i class="fa fa-user-circle"></i>
                         {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}
                     </td>
-                    <td width="40%" class="text-center">{{referee.mobile}}</td>
+                    <td width="30%" class="text-center">{{referee.mobile}}</td>
+                    <td width="20%" class="text-center text-info pointer">view</td>
                 </tr>
             </table>
         </div>
