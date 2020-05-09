@@ -145,6 +145,12 @@ export class SlingshotService {
     this.firestore.collection('Events').doc(id).update(data);
   }
 
+  updateEventStatusById(id: any, status_desc: string) {
+    this.firestore.collection('Events').doc(id).update({
+      status: status_desc
+    })
+  }
+
   // ----------------- REFREE ---------------
 
   addRefree(data: any) {

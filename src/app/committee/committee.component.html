@@ -8,7 +8,7 @@
             <table class="table table-bordered mt-3">
                 <tr *ngFor="let member of committee.AFFILIATION_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%">{{member.name}}</td>
+                    <td width="50%" class="text-capitalize">{{member.name}}</td>
                     <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
@@ -19,7 +19,7 @@
             <table class="table table-bordered mt-3">
                 <tr *ngFor="let member of committee.TOURNAMENT_TECHNICAL_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%">{{member.name}}</td>
+                    <td width="50%" class="text-capitalize">{{member.name}}</td>
                     <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
@@ -30,7 +30,7 @@
             <table class="table table-bordered mt-3">
                 <tr *ngFor="let member of committee.TOURNAMENT_ORGANIZER_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%">{{member.name}}</td>
+                    <td width="50%" class="text-capitalize">{{member.name}}</td>
                     <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
@@ -40,7 +40,7 @@
             <table class="table table-bordered mt-3">
                 <tr *ngFor="let member of committee.SELECTION_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%">{{member.name}}</td>
+                    <td width="50%" class="text-capitalize">{{member.name}}</td>
                     <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
@@ -50,12 +50,12 @@
             <table class="table table-bordered mt-3 referee-table">
                 <tr *ngFor="let referee of referees; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="40%" class="referee-name">
+                    <td width="50%" class="referee-name text-capitalize">
                         <i class="fa fa-user-circle"></i>
                         {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}
                     </td>
-                    <td width="30%" class="text-center">{{referee.mobile}}</td>
-                    <td width="20%" class="text-center text-info pointer">view</td>
+                    <td width="25%" class="text-center">{{referee.mobile}}</td>
+                    <td width="15%" class="text-center text-info pointer">view</td>
                 </tr>
             </table>
         </div>

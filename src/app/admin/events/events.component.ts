@@ -74,7 +74,7 @@ export class EventsComponent implements OnInit {
     if (!isDelete) {
       return;
     }
-    
+
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to delete?', type: 'confirm' },
       autoFocus: false
@@ -166,10 +166,15 @@ export class CreateEventDialog implements OnInit {
   }
 
   updateEvent() {
-    if (this.eventForm.invalid || !this.eventData.isDelete) {
+    if (this.eventForm.invalid) {
       return;
     }
-    this._service.updateEventById(this.eventData.id, this.eventForm.value);
+    if (this.eventData.isDelete) {
+      this._service.updateEventById(this.eventData.id, this.eventForm.value);
+    }
+    else {
+      this._service.updateEventStatusById(this.eventData.id, this.eventForm.get('status').value);
+    }
     this._toastr.success("Event Updated Successfully.");
     this.close();
   }
