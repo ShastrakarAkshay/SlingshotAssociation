@@ -36,9 +36,10 @@ export class EventsComponent implements OnInit {
     this._spinner.show();
 
     this._service.getAllEvents().subscribe(data => {
-      this.eventData = data.map(item => {
+      this.eventData = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
+          index: index + 1,
           ...item.payload.doc.data()
         }
       });

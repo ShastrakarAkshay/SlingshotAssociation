@@ -28,9 +28,10 @@ export class EnquiriesComponent implements OnInit {
     this.showSpinner = true;
     this._spinner.show();
     this._service.getEnquiries().subscribe(data => {
-      this.enquiries = data.map(item => {
+      this.enquiries = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
+          index: index + 1,
           ...item.payload.doc.data()
         }
       });

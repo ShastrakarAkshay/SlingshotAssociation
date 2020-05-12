@@ -31,9 +31,10 @@ export class RefreePanelComponent implements OnInit {
 
     this._showSpinner();
     this._service.getAllRefrees().subscribe(data => {
-      this.refreeData = data.map(item => {
+      this.refreeData = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
+          index: index + 1,
           name: item.payload.doc.data().firstName + ' ' + item.payload.doc.data().middleName + ' ' + item.payload.doc.data().lastName,
           ...item.payload.doc.data()
         }

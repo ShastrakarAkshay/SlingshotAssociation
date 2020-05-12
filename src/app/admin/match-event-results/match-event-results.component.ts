@@ -41,9 +41,10 @@ export class MatchEventResultsComponent implements OnInit {
 
   getAllResultRecords() {
     this._service.getAllMatchResults().subscribe(data => {
-      this.results = data.map(item => {
+      this.results = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
+          index: index + 1,
           ...item.payload.doc.data()
         }
       });

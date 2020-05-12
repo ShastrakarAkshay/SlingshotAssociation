@@ -25,8 +25,6 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['index', 'districtName', 'name', 'mobile', 'status', 'actions'];
 
   private affiliatinRequests: any[] = [];
-
-  private totalCount: number = 0;
   private showSpinner: boolean = false;
 
   constructor(private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
@@ -42,9 +40,10 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   getAffiliationRequestData() {
     this.show_spinner();
     this._service.getAffiliationRequests().subscribe(data => {
-      this.affiliatinRequests = data.map(item => {
+      this.affiliatinRequests = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
+          index: index + 1,
           ...item.payload.doc.data()
         }
       });
@@ -206,9 +205,10 @@ export class ApprovedDistrictComponent implements OnInit {
   getApprovedDistrictInfo() {
     this.show_spinner();
     this._service.getApprovedDistrictInfo().subscribe(data => {
-      this.approvedDistricts = data.map(item => {
+      this.approvedDistricts = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
+          index: index + 1,
           ...item.payload.doc.data()
         }
       });
@@ -262,9 +262,10 @@ export class RejectedAffiliationComponent implements OnInit {
   getOldAffiliations() {
     this.show_spinner();
     this._service.getOldAffiliations().subscribe(data => {
-      this.oldAffiliations = data.map(item => {
+      this.oldAffiliations = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
+          index: index + 1,
           ...item.payload.doc.data()
         }
       });
