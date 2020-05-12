@@ -6,3 +6,7 @@
         <app-score-board [result]="matchResults"></app-score-board>
     </div>
 </section>
+
+<div *ngIf="showSpinner">
+    <app-spinner></app-spinner>
+</div>

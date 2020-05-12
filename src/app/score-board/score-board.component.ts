@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-score-board',
@@ -9,7 +10,7 @@ export class ScoreBoardComponent implements OnInit {
 
   @Input() result: any[] = [];
 
-  constructor() { }
+  constructor(private _spinner: NgxSpinnerService) { }
 
   ngOnInit() {
   }

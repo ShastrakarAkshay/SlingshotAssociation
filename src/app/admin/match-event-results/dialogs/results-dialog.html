@@ -8,22 +8,22 @@
                 <div class="form-group">
                     <select class="form-control" formControlName="eventId" (change)="onEventChange($event)" #event>
                         <option selected disabled value="">Select Event</option>
-                        <option *ngFor="let event of allEvents" [value]="event.id">{{event.eventTitle}} ({{event.eventDate}})</option>
+                        <option *ngFor="let event of allEvents" [value]="event.id">{{event.eventTitle}}
+                            ({{event.eventDate}})</option>
                     </select>
                 </div>
             </div>
         </div>
 
         <div class="row mt-3 bg-light p-5">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <!-- Winner candidate -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <label class="font-weight-bold">Winner Candidate Name</label>
+                        <label class="font-weight-bold">Candidate Name</label>
                         <div class="form-group">
-                            <input type="text" class="form-control text-capitalize"
-                                formControlName="winnerCandidateName"
-                                [ngClass]="{'is-invalid':resultForm.get('winnerCandidateName').touched && resultForm.get('winnerCandidateName').invalid}">
+                            <input type="text" class="form-control text-capitalize" formControlName="candidateName"
+                                [ngClass]="{'is-invalid':resultForm.get('candidateName').touched && resultForm.get('candidateName').invalid}">
                             <span class="invalid-feedback alert alert-danger">
                                 Field is required
                             </span>
@@ -34,8 +34,8 @@
                     <div class="col-sm-12">
                         <label class="font-weight-bold">District</label>
                         <div class="form-group">
-                            <select class="form-control" formControlName="winnerCandidateDistrict"
-                                [ngClass]="{'is-invalid':resultForm.get('winnerCandidateDistrict').touched && resultForm.get('winnerCandidateDistrict').invalid}">
+                            <select class="form-control" formControlName="candidateDistrict"
+                                [ngClass]="{'is-invalid':resultForm.get('candidateDistrict').touched && resultForm.get('candidateDistrict').invalid}">
                                 <option selected disabled>select district</option>
                                 <option *ngFor="let dist of allDistricts" value="{{dist.name}}">{{dist.name}}</option>
                             </select>
@@ -45,28 +45,52 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="font-weight-bold">Certificate No.</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control text-capitalize"
+                                formControlName="candidateCertificateNo"
+                                [ngClass]="{'is-invalid':resultForm.get('candidateCertificateNo').touched && resultForm.get('candidateCertificateNo').invalid}">
+                            <span class="invalid-feedback alert alert-danger">
+                                Field is required
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label class="font-weight-bold">Date Of Birth</label>
+                        <div class="form-group">
+                            <input type="date" class="form-control" formControlName="candidateDOB"
+                                [ngClass]="{'is-invalid':resultForm.get('candidateDOB').touched && resultForm.get('candidateDOB').invalid}">
+                            <span class="invalid-feedback alert alert-danger">
+                                Field is required
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6 text-center">
                 <!-- Result Area -->
-                <h3 class="font-weight-bold text-center">SCORE</h3>
+                <h1 class="text-center">
+                    <i class="fa fa-trophy"></i>
+                </h1>
+                <h3 class="font-weight-bold text-center mt-3">SCORE</h3>
                 <div class="row text-center mt-3">
                     <div class="col-sm-12">
-                        <input type="text" class="w-box text-center font-weight-bold" formControlName="winnerScore">
-                        <span class="font-weight-bold pl-2 pr-2">:</span>
-                        <input type="text" class="w-box text-center font-weight-bold" formControlName="looserScore">
+                        <input type="text" class="w-box text-center font-weight-bold" formControlName="candidateScore">
                     </div>
                 </div>
                 <div class="row justify-content-center mt-3">
-                    <div class="col-sm-6">
+                    <div class="col-sm-8 text-center">
+                        <label class="font-weight-bold text-center">Age Category</label>
                         <div class="form-group">
-                            <select class="form-control" formControlName="rank"
-                                [ngClass]="{'is-invalid':resultForm.get('rank').touched && resultForm.get('rank').invalid}">
-                                <option disabled selected value="">Select Rank</option>
-                                <option value="First Rank">First Rank</option>
-                                <option value="Second Rank">Second Rank</option>
-                                <option value="Third Rank">Third Rank</option>
-                                <option value="Fourth Rank">Fourth Rank</option>
-                                <option value="Fifth Rank">Fifth Rank</option>
+                            <select class="form-control" formControlName="ageCategory"
+                                [ngClass]="{'is-invalid':resultForm.get('ageCategory').touched && resultForm.get('ageCategory').invalid}">
+                                <option disabled selected value="">Select category</option>
+                                <option *ngFor="let cat of ageCategory" value="{{cat.categoryTitle}} {{cat.age}}">
+                                    {{cat.categoryTitle}} {{cat.age}}</option>
                             </select>
                             <span class="invalid-feedback alert alert-danger">
                                 Field is required
@@ -74,30 +98,17 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-4">
-                <!-- Looser candidate -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label class="font-weight-bold">Looser Candidate Name</label>
+                <div class="row justify-content-center">
+                    <div class="col-sm-8">
+                        <label class="font-weight-bold">Select Rank</label>
                         <div class="form-group">
-                            <input type="text" class="form-control text-capitalize"
-                                formControlName="looserCandidateName"
-                                [ngClass]="{'is-invalid':resultForm.get('looserCandidateName').touched && resultForm.get('looserCandidateName').invalid}">
-                            <span class="invalid-feedback alert alert-danger">
-                                Field is required
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label class="font-weight-bold">District</label>
-                        <div class="form-group">
-                            <select class="form-control" formControlName="looserCandidateDistrict"
-                                [ngClass]="{'is-invalid':resultForm.get('looserCandidateDistrict').touched && resultForm.get('looserCandidateDistrict').invalid}">
-                                <option selected disabled>select district</option>
-                                <option *ngFor="let dist of allDistricts" value="{{dist.name}}">{{dist.name}}</option>
+                            <select class="form-control" formControlName="candidateRank"
+                                [ngClass]="{'is-invalid':resultForm.get('candidateRank').touched && resultForm.get('candidateRank').invalid}">
+                                <option disabled selected value="">Select Rank</option>
+                                <option value="First Rank (Gold)">First Rank (Gold)</option>
+                                <option value="Second Rank (Siver)">Second Rank (Siver)</option>
+                                <option value="Third Rank (Bronze I)">Third Rank (Bronze I)</option>
+                                <option value="Fourth Rank (Bronze II)">Fourth Rank (Bronze II)</option>
                             </select>
                             <span class="invalid-feedback alert alert-danger">
                                 Field is required

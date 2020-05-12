@@ -18,28 +18,28 @@
 
             <ng-container matColumnDef="eventName">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Event Name </th>
-                <td mat-cell *matCellDef="let element" width="30%" class="empNameLink pointer text-capitalize">
-                    {{element.eventName}} </td>
+                <td mat-cell *matCellDef="let element" width="25%" class="empNameLink pointer text-capitalize">
+                    {{element.eventInfo.eventTitle}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="winner">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Winner </th>
-                <td mat-cell *matCellDef="let element" width="15%" class="text-capitalize"> {{element.winnerCandidateName}} </td>
+            <ng-container matColumnDef="candidateName">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> CandidateName </th>
+                <td mat-cell *matCellDef="let element" width="20%" class="text-capitalize"> {{element.name}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="looser">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Looser </th>
-                <td mat-cell *matCellDef="let element" width="15%" class="text-capitalize"> {{element.looserCandidateName}} </td>
+            <ng-container matColumnDef="district">
+                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> District </th>
+                <td mat-cell *matCellDef="let element" width="13%" class="text-capitalize"> {{element.district}} </td>
             </ng-container>
 
             <ng-container matColumnDef="score">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Score </th>
-                <td mat-cell *matCellDef="let element" width="10%" class="text-capitalize"> {{element.winnerScore}} : {{element.looserScore}} </td>
+                <td mat-cell *matCellDef="let element" width="8%" class="text-capitalize"> {{element.score}} </td>
             </ng-container>
 
             <ng-container matColumnDef="rank">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Rank </th>
-                <td mat-cell *matCellDef="let element" width="10%" class="text-capitalize"> {{element.rank}} </td>
+                <td mat-cell *matCellDef="let element" width="14%" class="text-capitalize"> {{element.rank}} </td>
             </ng-container>
 
             <ng-container matColumnDef="action" class="pull-right">

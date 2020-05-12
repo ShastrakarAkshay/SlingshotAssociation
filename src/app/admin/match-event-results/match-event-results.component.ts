@@ -10,6 +10,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { NgxSpinner } from 'ngx-spinner/lib/ngx-spinner.enum';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { ModalDataService } from 'src/app/shared/services/modal-data.service';
+import { MatIconRegistry } from '@angular/material/icon';
 
 @Component({
   selector: 'app-match-event-results',
@@ -21,7 +23,7 @@ export class MatchEventResultsComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['index', 'eventName', 'winner', 'looser', 'score', 'rank', 'action'];
+  displayedColumns: string[] = ['index', 'eventName', 'candidateName', 'district', 'score', 'rank', 'action'];
 
   private results: any[] = [];
   private showSpinner: boolean = false;
@@ -58,7 +60,7 @@ export class MatchEventResultsComponent implements OnInit {
     });
   }
 
-  editMatchResult(resultData){
+  editMatchResult(resultData) {
     this._dialog.open(MatchResultsDialog, {
       autoFocus: false,
       width: '99%',
@@ -103,8 +105,9 @@ export class MatchResultsDialog implements OnInit {
   private allDistricts: any[] = [];
   private allEvents: any[] = [];
   private isEdit: boolean = false;
-  private eventName: string = '';
+  private selectedEvent: any;
   private resultData: any;
+  private ageCategory: any[] = [];
   @ViewChild('event', { static: false }) event: ElementRef;
 
   constructor(
@@ -113,39 +116,59 @@ export class MatchResultsDialog implements OnInit {
     private _toastr: ToastrService,
     private _service: SlingshotService,
     private _utility: UtilityService,
+    private _modalService: ModalDataService,
+    private _mdIconRegistry: MatIconRegistry,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
-    _dialogRef.disableClose = true;
+    this._dialogRef.disableClose = true;
     this.resultData = data;
+    this._mdIconRegistry.registerFontClassAlias('fontawesome', 'fa');
   }
 
   ngOnInit() {
     this.resultForm = this.formBuilder.group({
       eventId: ['', Validators.required],
-      winnerCandidateName: ['', Validators.required],
-      looserCandidateName: ['', Validators.required],
-      winnerCandidateDistrict: ['', Validators.required],
-      looserCandidateDistrict: ['', Validators.required],
-      rank: ['', Validators.required],
-      winnerScore: ['', Validators.required],
-      looserScore: ['', Validators.required]
+      candidateName: ['', Validators.required],
+      candidateDistrict: ['', Validators.required],
+      candidateDOB: ['', Validators.required],
+      candidateCertificateNo: ['', Validators.required],
+      candidateRank: ['', Validators.required],
+      candidateScore: ['', Validators.required],
+      ageCategory: ['', Validators.required]
     });
     this._service.getAllDistricts().subscribe(data => {
       data.map(item => { this.allDistricts.push(item.payload.doc.data()) });
     });
     this.getAllEvents();
-    if(this.resultData){
+    this.ageCategory = this._modalService.getSlingshotCategories();
+    if (this.resultData) {
       this.resultForm.setValue({
-        eventId: this.resultData.eventId,
-        winnerCandidateName: this.resultData.winnerCandidateName,
-        winnerCandidateDistrict: this.resultData.winnerCandidateDistrict,
-        looserCandidateName: this.resultData.looserCandidateName,
-        looserCandidateDistrict: this.resultData.looserCandidateDistrict,
-        rank: this.resultData.rank,
-        winnerScore: this.resultData.winnerScore,
-        looserScore: this.resultData.looserScore
+        eventId: this.resultData.eventInfo.id,
+        candidateName: this.resultData.name,
+        candidateDistrict: this.resultData.district,
+        candidateDOB: this.resultData.dateOfBirth,
+        candidateCertificateNo: this.resultData.certificateNo,
+        candidateRank: this.resultData.rank,
+        candidateScore: this.resultData.score,
+        ageCategory: this.resultData.ageCategory
       })
       this.isEdit = true;
+      this.selectedEvent = this.resultData.eventInfo;
+    }
+  }
+
+  getData(formData): any {
+    return {
+      eventInfo: {
+        ...this.selectedEvent
+      },
+      name: formData.candidateName,
+      district: formData.candidateDistrict,
+      dateOfBirth: formData.candidateDOB,
+      certificateNo: formData.candidateCertificateNo,
+      ageCategory: formData.ageCategory,
+      rank: formData.candidateRank,
+      score: formData.candidateScore
     }
   }
 
@@ -163,7 +186,7 @@ export class MatchResultsDialog implements OnInit {
   onEventChange() {
     this.allEvents.forEach(item => {
       if (item.id === this.event.nativeElement.value) {
-        this.eventName = item.eventTitle;
+        this.selectedEvent = item;
       }
     })
   }
@@ -176,10 +199,7 @@ export class MatchResultsDialog implements OnInit {
     if (this.resultForm.invalid) {
       return;
     }
-    let formData = this.resultForm.value;
-    formData['createdDate'] = this._utility.convertDateToEPOC(new Date());
-    formData['eventName'] = this.eventName;
-    this._service.addMatchResults(formData);
+    this._service.addMatchResults({ ...this.getData(this.resultForm.value), createdDate: this._utility.convertDateToEPOC(new Date()) });
     this._toastr.success("Result Added Successfully.");
     this.close();
   }
@@ -188,7 +208,7 @@ export class MatchResultsDialog implements OnInit {
     if (this.resultForm.invalid) {
       return;
     }
-    this._service.updateMatchResults(this.resultData.id, this.resultForm.value);
+    this._service.updateMatchResults(this.resultData.id, this.getData(this.resultForm.value));
     this._toastr.success("Result Updated Successfully.");
     this.close();
   }

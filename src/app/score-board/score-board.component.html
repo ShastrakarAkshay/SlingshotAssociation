@@ -2,33 +2,29 @@
     <ul class="list-group mt-4">
         <li class="list-group-item mt-1" *ngFor="let item of result; let i=index;">
             <span class="index font-weight-bold">{{i+1}}</span>
-            <div class="event-panel row pt-3">
+            <div class="event-panel row pt-3 pb-3">
                 <div class="col-sm-4 align-items-center text-center justify-content-start">
                     <div class="img-area">
                         <img src="./assets/images/user-pic-default.png" alt="">
                     </div>
-                    <span class="text-capitalize">{{item.winnerCandidateName}}</span>
+                    <span class="text-capitalize font-weight-bold">{{item.name}}</span>
                     <br>
-                    <span>({{item.winnerCandidateDistrict}})</span>
+                    <span>({{item.district}})</span>
                 </div>
-                <div class="col-sm-4 text-center res-sec">
-                    <div class="result" style="font-size: 35px;
-                font-weight: bold;">{{item.winnerScore}} : {{item.looserScore}}</div>
-                    <span class="text-rank font-weight-bold"><i class="fa fa-star mr-1" aria-hidden="true"></i>{{item.rank}}</span>
-                    <div>August 25, 2018</div>
+                <div class="col-sm-4 text-center">
+                    <div class="result" style="font-size: 30px;font-weight: bold;">score : {{item.score}}</div>
+                    <span class="font-weight-bold">Category : {{item.ageCategory}}</span> <br>
+                    <span class="text-rank font-weight-bold mt-2"><i class="fa fa-star mr-1" aria-hidden="true"></i>{{item.rank}}</span>
+                </div>
+                <div class="col-sm-4 text-center justify-content-end event-sec">
+                    <h5 class="font-weight-bold">event</h5>
+                    <div>"{{item.eventInfo.eventTitle}}"</div>
+                    <div>{{item.eventInfo.eventDate}}</div>
                     <div class="row text-center justify-content-center">
-                        <p class="text-capitalize"><i class="fa fa-map-marker"></i> Nehru Stadium, Vitthal Nagar,
-                            Yavatmal. Maharashtra.
+                        <p class="text-capitalize"><i class="fa fa-map-marker"></i> 
+                            {{item.eventInfo.eventAddress}}
                         </p>
                     </div>
-                </div>
-                <div class="col-sm-4 text-center align-items-center justify-content-end">
-                    <div class="img-area">
-                        <img src="./assets/images/user-pic-default.png" alt="">
-                    </div>
-                    <span class="text-capitalize">{{item.looserCandidateName}}</span>
-                    <br>
-                    <span>({{item.winnerCandidateDistrict}})</span>
                 </div>
             </div>
         </li>

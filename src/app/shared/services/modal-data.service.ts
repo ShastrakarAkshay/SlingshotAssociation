@@ -107,7 +107,7 @@ export class ModalDataService {
       categoryName: 'Category 2',
       categoryTitle: 'Teenager',
       distance: '15 Feet',
-      age: '(10Yr - 14Yr Age)'
+      age: '(11Yr - 14Yr Age)'
     },
     {
       categoryName: 'Category 3',
@@ -119,13 +119,13 @@ export class ModalDataService {
       categoryName: 'Category 4',
       categoryTitle: 'Senior',
       distance: '30 Feet',
-      age: '(18Yr Age)'
+      age: '(18Yr+ Age)'
     },
     {
       categoryName: 'Category 5',
       categoryTitle: 'Master',
       distance: '30 Feet',
-      age: '(35Yr Age)'
+      age: '(35Yr+ Age)'
     }
   ];
 
