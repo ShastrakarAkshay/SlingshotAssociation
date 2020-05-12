@@ -24,19 +24,8 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'districtName', 'name', 'mobile', 'status', 'actions'];
 
-  @ViewChild(MatPaginator, { static: false }) paginator2: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort2: MatSort;
-  dataSource2 = new MatTableDataSource();
-  displayedColumns2: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'actions'];
-
-  @ViewChild(MatPaginator, { static: false }) paginator3: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort3: MatSort;
-  dataSource3 = new MatTableDataSource();
-  displayedColumns3: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status'];
-
   private affiliatinRequests: any[] = [];
-  private approvedDistricts: any[] = [];
-  private oldAffiliations: any[] = [];
+
   private totalCount: number = 0;
   private showSpinner: boolean = false;
 
@@ -44,14 +33,10 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.getAffiliationRequestData();
-    this.getApprovedDistrictInfo();
-    this.getOldAffiliations();
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.dataSource2.paginator = this.paginator2;
-    this.dataSource3.paginator = this.paginator3;
   }
 
   getAffiliationRequestData() {
@@ -69,39 +54,6 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
       this.hide_spinner();
     })
   }
-
-  getApprovedDistrictInfo() {
-    this.show_spinner();
-    this._service.getApprovedDistrictInfo().subscribe(data => {
-      this.approvedDistricts = data.map(item => {
-        return {
-          id: item.payload.doc.id,
-          ...item.payload.doc.data()
-        }
-      });
-      this.dataSource2 = new MatTableDataSource(this.approvedDistricts);
-      this.dataSource2.sort = this.sort2;
-      this.dataSource2.paginator = this.paginator2;
-      this.hide_spinner();
-    })
-  }
-
-  getOldAffiliations() {
-    this.show_spinner();
-    this._service.getOldAffiliations().subscribe(data => {
-      this.oldAffiliations = data.map(item => {
-        return {
-          id: item.payload.doc.id,
-          ...item.payload.doc.data()
-        }
-      });
-      this.dataSource3 = new MatTableDataSource(this.oldAffiliations);
-      this.dataSource3.sort = this.sort3;
-      this.dataSource3.paginator = this.paginator3;
-      this.hide_spinner();
-    })
-  }
-
 
   filterResult(serachKey: string) {
     this.dataSource.filter = serachKey.trim().toLowerCase();
@@ -227,5 +179,117 @@ export class DistrictApprovalDialog implements OnInit {
         this.close();
       }
     });
+  }
+}
+
+@Component({
+  selector: 'app-approved-districts',
+  templateUrl: 'views/approved-districts.html',
+  styleUrls: ['./affiliation-requests.component.scss']
+})
+export class ApprovedDistrictComponent implements OnInit {
+
+  @ViewChild(MatPaginator, { static: false }) paginator2: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort2: MatSort;
+  dataSource2 = new MatTableDataSource();
+  displayedColumns2: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'actions'];
+
+  private approvedDistricts: any[] = [];
+  private showSpinner: boolean = false;
+
+  constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService, private _dialog: MatDialog, private _toastr: ToastrService) { }
+
+  ngOnInit() {
+    this.getApprovedDistrictInfo();
+  }
+
+  getApprovedDistrictInfo() {
+    this.show_spinner();
+    this._service.getApprovedDistrictInfo().subscribe(data => {
+      this.approvedDistricts = data.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+      });
+      this.dataSource2 = new MatTableDataSource(this.approvedDistricts);
+      this.dataSource2.sort = this.sort2;
+      this.dataSource2.paginator = this.paginator2;
+      this.hide_spinner();
+    })
+  }
+
+  getRegisteredDistrctInfo(personData: any) {
+    this._dialog.open(DistrictApprovalDialog, {
+      data: { distInfo: personData, flag: true },
+      autoFocus: false,
+      width: '99%'
+    });
+  }
+
+  show_spinner() {
+    this.showSpinner = true;
+    this._spinner.show();
+  }
+
+  hide_spinner() {
+    this._spinner.hide();
+    this.showSpinner = false;
+  }
+}
+
+@Component({
+  selector: 'app-rejected-affiliation',
+  templateUrl: 'views/rejected-affiliation.html',
+  styleUrls: ['./affiliation-requests.component.scss']
+})
+export class RejectedAffiliationComponent implements OnInit {
+
+  @ViewChild(MatPaginator, { static: false }) paginator3: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort3: MatSort;
+  dataSource3 = new MatTableDataSource();
+  displayedColumns3: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status'];
+
+  private oldAffiliations: any[] = [];
+  private showSpinner: boolean = false;
+
+  constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService, private _dialog: MatDialog, private _toastr: ToastrService) { }
+
+  ngOnInit() {
+    this.getOldAffiliations();
+  }
+
+  getOldAffiliations() {
+    this.show_spinner();
+    this._service.getOldAffiliations().subscribe(data => {
+      this.oldAffiliations = data.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }
+      });
+      this.dataSource3 = new MatTableDataSource(this.oldAffiliations);
+      this.dataSource3.sort = this.sort3;
+      this.dataSource3.paginator = this.paginator3;
+      this.hide_spinner();
+    })
+  }
+
+  getRegisteredDistrctInfo(personData: any) {
+    this._dialog.open(DistrictApprovalDialog, {
+      data: { distInfo: personData, flag: true },
+      autoFocus: false,
+      width: '99%'
+    });
+  }
+
+  show_spinner() {
+    this.showSpinner = true;
+    this._spinner.show();
+  }
+
+  hide_spinner() {
+    this._spinner.hide();
+    this.showSpinner = false;
   }
 }

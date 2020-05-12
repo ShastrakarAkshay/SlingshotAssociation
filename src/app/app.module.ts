@@ -24,7 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AdminComponent } from './admin/admin.component';
-import { AffiliationRequestsComponent, DistrictApprovalDialog } from './admin/affiliation-requests/affiliation-requests.component';
+import { AffiliationRequestsComponent, DistrictApprovalDialog, ApprovedDistrictComponent, RejectedAffiliationComponent } from './admin/affiliation-requests/affiliation-requests.component';
 import { EventsComponent, CreateEventDialog } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
 import { MatchEventResultsComponent, MatchResultsDialog } from './admin/match-event-results/match-event-results.component';
@@ -45,11 +45,15 @@ import { ScoreBoardComponent } from './score-board/score-board.component';
 import { SupportComponent } from './support/support.component';
 
 const APP_DIALOGS = [
+  //dialogs
   DistrictApprovalDialog,
   ConfirmDialogComponent,
   CreateEventDialog,
   AddRefreeDialog,
-  MatchResultsDialog
+  MatchResultsDialog,
+  //child components
+  ApprovedDistrictComponent,
+  RejectedAffiliationComponent
 ];
 
 const MATERIAL_MODULES = [

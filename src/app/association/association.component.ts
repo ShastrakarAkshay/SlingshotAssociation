@@ -145,7 +145,7 @@ export class AssociationComponent implements OnInit {
       ],
       approvedOn: '',
       approvedBy: '',
-      modifiedOn: this.utility.convertDateToEPOC(new Date()),
+      createdDate: this.utility.convertDateToEPOC(new Date()),
       modifiedBy: '',
       status: 'Pending'
     }
