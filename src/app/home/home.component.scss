@@ -290,7 +290,7 @@
             width: 84%;
             position: absolute;
             /* Position the background text */
-            top: 12%;
+            top: 11%;
             /* At the bottom. Use top:0 to append it to the top */
             left: 8%;
             background: rgb(0, 0, 0);
@@ -299,6 +299,10 @@
             /* Black background with 0.5 opacity */
             color: #f1f1f1;
             /* Grey text */
+            h1 {
+                padding: 20px;
+                margin-bottom: 0px !important;
+            }
         }
     }
     .info {
