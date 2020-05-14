@@ -76,13 +76,21 @@
 
   .tool {
     margin-top: 10px !important;
-    width: 120px !important;
-    height: 120px !important;
+    width: 130px !important;
+    height: 130px !important;
   }
   .row-bottom {
     margin-top: 0px !important;
   }
   .col {
     padding: 1rem!important;
+  }
+  .tools-container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .equipment {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
   }
 }

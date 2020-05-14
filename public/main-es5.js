@@ -71,7 +71,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<section id=\"approval\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Approval Requests <span\r\n                        class=\"badge badge-primary\">{{affiliatinRequests.length}}</span></strong></h2>\r\n        </div>\r\n    </div>\r\n    <!-- <div class=\"row justify-content-end mt-5\">\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" #searchKey\r\n                (keyup)=\"filterResult(searchKey.value)\">\r\n        </div>\r\n    </div> -->\r\n    <div class=\"data-table mb-5 mt-3 table-responsive\" style=\"border:1px solid #00000017;\">\r\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\r\n\r\n            <!-- Position Column -->\r\n            <ng-container matColumnDef=\"index\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\r\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"10%\"> {{i+1}} </td>\r\n            </ng-container>\r\n\r\n            <!-- Weight Column -->\r\n            <ng-container matColumnDef=\"districtName\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Requested For </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"text-capitalize\">\r\n                    {{element.requestedDistrict.name}} </td>\r\n            </ng-container>\r\n\r\n            <!-- Name Column -->\r\n            <ng-container matColumnDef=\"name\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Name </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"empNameLink pointer text-capitalize\">\r\n                    {{element.members[0].firstName}} {{element.members[0].middleName}} {{element.members[0].lastName}}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <!-- Name Column -->\r\n            <ng-container matColumnDef=\"mobile\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Mobile </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"empNameLink pointer text-capitalize\">\r\n                    {{element.members[0].mobile}} </td>\r\n            </ng-container>\r\n\r\n            <!-- Weight Column -->\r\n            <ng-container matColumnDef=\"status\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Status </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\" class=\"text-capitalize text-info\">\r\n                    {{element.status}} </td>\r\n            </ng-container>\r\n\r\n            <!-- Symbol Column -->\r\n            <ng-container matColumnDef=\"actions\" class=\"pull-right\">\r\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\">\r\n                    <div class=\"row p-2\">\r\n                        <a class=\"btn text-info pointer\" (click)=\"getPersonInfo(element)\" matTooltip=\"Edit\"\r\n                            matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\r\n                        <a class=\"btn text-danger pointer\" (click)=\"deleteRequest(element.id)\" matTooltip=\"Delete\"\r\n                            matTooltipPosition=\"above\"><i class=\"fa fa-trash text-danger\"></i></a>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\r\n        </table>\r\n        <mat-paginator #paginator1  [pageIndex]=\"0\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\">\r\n        </mat-paginator>\r\n    </div>\r\n\r\n    <!-- TABLE SECTION 2 -->\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Affiliated Districts <span\r\n                        class=\"badge badge-primary\">{{approvedDistricts.length}}</span></strong></h2>\r\n        </div>\r\n    </div>\r\n    <div class=\"data-table mb-5 mt-3 table-responsive\" style=\"border:1px solid #00000017;\">\r\n        <table mat-table [dataSource]=\"dataSource2\" matSort class=\"table-hover data-table\" width=\"100%\">\r\n\r\n            <!-- Position Column -->\r\n            <ng-container matColumnDef=\"index\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\r\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"10%\"> {{i+1}} </td>\r\n            </ng-container>\r\n\r\n            <!-- Name Column -->\r\n            <ng-container matColumnDef=\"districtName\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> District Name </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"empNameLink pointer text-capitalize\">\r\n                    {{element.requestedDistrict.name}} </td>\r\n            </ng-container>\r\n\r\n            <!-- Name Column -->\r\n            <ng-container matColumnDef=\"member\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Member Name </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"30%\" class=\"empNameLink pointer text-capitalize\">\r\n                    {{element.members[0].firstName}} {{element.members[0].middleName}} {{element.members[0].lastName}}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <!-- Weight Column -->\r\n            <ng-container matColumnDef=\"approvedOn\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Approved On </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize\">\r\n                    {{element.approvedOn | date: 'dd'}}-{{element.approvedOn | date:'MMM'}}-{{element.approvedOn | date: 'yyyy'}}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <!-- Weight Column -->\r\n            <ng-container matColumnDef=\"status\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Status </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\" class=\"text-capitalize text-info\">\r\n                    {{element.status}} </td>\r\n            </ng-container>\r\n\r\n            <!-- Symbol Column -->\r\n            <ng-container matColumnDef=\"actions\" class=\"pull-right\">\r\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\">\r\n                    <div class=\"row p-2\">\r\n                        <a class=\"btn text-info pointer\" (click)=\"getRegisteredDistrctInfo(element)\" matTooltip=\"View\"\r\n                            matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns2\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns2; let i = index\"></tr>\r\n        </table>\r\n        <mat-paginator #paginator2 [pageIndex]=\"0\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\">\r\n        </mat-paginator>\r\n    </div>\r\n\r\n    <!-- TABLE SECTION 3 -->\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Old Affiliations <span\r\n                        class=\"badge badge-primary\">{{oldAffiliations.length}}</span></strong></h2>\r\n        </div>\r\n    </div>\r\n    <div class=\"data-table mb-5 mt-3 table-responsive\" style=\"border:1px solid #00000017;\">\r\n        <table mat-table [dataSource]=\"dataSource3\" matSort class=\"table-hover data-table\" width=\"100%\">\r\n\r\n            <!-- Position Column -->\r\n            <ng-container matColumnDef=\"index\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\r\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"10%\"> {{i+1}} </td>\r\n            </ng-container>\r\n\r\n            <!-- Name Column -->\r\n            <ng-container matColumnDef=\"districtName\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> District Name </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"empNameLink pointer text-capitalize\">\r\n                    {{element.requestedDistrict.name}} </td>\r\n            </ng-container>\r\n\r\n            <!-- Name Column -->\r\n            <ng-container matColumnDef=\"member\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Member Name </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"30%\" class=\"empNameLink pointer text-capitalize\">\r\n                    {{element.members[0].firstName}} {{element.members[0].middleName}} {{element.members[0].lastName}}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <!-- Weight Column -->\r\n            <ng-container matColumnDef=\"approvedOn\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Approved On </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"35%\" class=\"text-capitalize\">\r\n                    {{element.approvedOn | date: 'dd'}}-{{element.approvedOn | date:'MMM'}}-{{element.approvedOn | date: 'yyyy'}}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <!-- Weight Column -->\r\n            <ng-container matColumnDef=\"status\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Status </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"35%\" class=\"text-capitalize text-danger\">\r\n                    {{element.status}} </td>\r\n            </ng-container>\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns3\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns3; let i = index\"></tr>\r\n        </table>\r\n        <mat-paginator #paginator3 [pageIndex]=\"0\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\">\r\n        </mat-paginator>\r\n    </div>\r\n\r\n    <div *ngIf=\"showSpinner\">\r\n        <app-spinner></app-spinner>\r\n    </div>\r\n\r\n</section>";
+    __webpack_exports__["default"] = "<section id=\"approval\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-12\">\r\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Approval Requests <span\r\n                        class=\"badge badge-primary\">{{affiliatinRequests.length}}</span></strong></h2>\r\n        </div>\r\n    </div>\r\n    <!-- <div class=\"row justify-content-end mt-5\">\r\n        <div class=\"col-sm-4 col-xs-12\">\r\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" #searchKey\r\n                (keyup)=\"filterResult(searchKey.value)\">\r\n        </div>\r\n    </div> -->\r\n    <div class=\"data-table mb-5 mt-3 table-responsive\" style=\"border:1px solid #00000017;\">\r\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\r\n\r\n            <ng-container matColumnDef=\"index\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\r\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"10%\"> {{element.index}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"districtName\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Requested For </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"text-capitalize\">\r\n                    {{element.requestedDistrict.name}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"name\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Name </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"empNameLink pointer text-capitalize\">\r\n                    {{element.members[0].firstName}} {{element.members[0].middleName}} {{element.members[0].lastName}}\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"mobile\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Mobile </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"empNameLink pointer text-capitalize\">\r\n                    {{element.members[0].mobile}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"status\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Status </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\" class=\"text-capitalize text-info\">\r\n                    {{element.status}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"actions\" class=\"pull-right\">\r\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\">\r\n                    <div class=\"row p-2\">\r\n                        <a class=\"btn text-info pointer\" (click)=\"getPersonInfo(element)\" matTooltip=\"Edit\"\r\n                            matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\r\n                        <a class=\"btn text-danger pointer\" (click)=\"deleteRequest(element.id)\" matTooltip=\"Delete\"\r\n                            matTooltipPosition=\"above\"><i class=\"fa fa-trash text-danger\"></i></a>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\r\n        </table>\r\n        <mat-paginator #paginator1 [pageIndex]=\"0\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\">\r\n        </mat-paginator>\r\n    </div>\r\n\r\n    <!-- TABLE SECTION 2 -->\r\n    <app-approved-districts></app-approved-districts>\r\n\r\n    <!-- TABLE SECTION 3 -->\r\n    <app-rejected-affiliation></app-rejected-affiliation>\r\n\r\n</section>\r\n\r\n<div *ngIf=\"showSpinner\">\r\n    <app-spinner></app-spinner>\r\n</div>";
     /***/
   },
 
@@ -96,6 +96,46 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/affiliation-requests/views/approved-districts.html":
+  /*!****************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/admin/affiliation-requests/views/approved-districts.html ***!
+    \****************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAdminAffiliationRequestsViewsApprovedDistrictsHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"row\">\r\n    <div class=\"col-sm-12\">\r\n        <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Affiliated Districts <span\r\n                    class=\"badge badge-primary\">{{approvedDistricts.length}}</span></strong></h2>\r\n    </div>\r\n</div>\r\n<div class=\"data-table mb-5 mt-3 table-responsive\" style=\"border:1px solid #00000017;\">\r\n    <table mat-table [dataSource]=\"dataSource2\" matSort class=\"table-hover data-table\" width=\"100%\">\r\n\r\n        <ng-container matColumnDef=\"index\">\r\n            <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\r\n            <td mat-cell *matCellDef=\"let element; let i = index\" width=\"10%\"> {{element.index}} </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"districtName\">\r\n            <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> District Name </th>\r\n            <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"empNameLink pointer text-capitalize\">\r\n                {{element.requestedDistrict.name}} </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"member\">\r\n            <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Member Name </th>\r\n            <td mat-cell *matCellDef=\"let element\" width=\"30%\" class=\"empNameLink pointer text-capitalize\">\r\n                {{element.members[0].firstName}} {{element.members[0].middleName}} {{element.members[0].lastName}}\r\n            </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"approvedOn\">\r\n            <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Approved On </th>\r\n            <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize\">\r\n                {{element.approvedOn | date: 'dd'}}-{{element.approvedOn | date:'MMM'}}-{{element.approvedOn | date: 'yyyy'}}\r\n            </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"status\">\r\n            <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Status </th>\r\n            <td mat-cell *matCellDef=\"let element\" width=\"15%\" class=\"text-capitalize text-info\">\r\n                {{element.status}} </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"actions\" class=\"pull-right\">\r\n            <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\r\n            <td mat-cell *matCellDef=\"let element\" width=\"10%\">\r\n                <div class=\"row p-2\">\r\n                    <a class=\"btn text-info pointer\" (click)=\"getRegisteredDistrctInfo(element)\" matTooltip=\"View\"\r\n                        matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\r\n                </div>\r\n            </td>\r\n        </ng-container>\r\n\r\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns2\"></tr>\r\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns2; let i = index\"></tr>\r\n    </table>\r\n    <mat-paginator #paginator2 [pageIndex]=\"0\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\">\r\n    </mat-paginator>\r\n</div>\r\n\r\n<div *ngIf=\"showSpinner\">\r\n    <app-spinner></app-spinner>\r\n</div>";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/affiliation-requests/views/rejected-affiliation.html":
+  /*!******************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/admin/affiliation-requests/views/rejected-affiliation.html ***!
+    \******************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppAdminAffiliationRequestsViewsRejectedAffiliationHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"row\">\r\n    <div class=\"col-sm-12\">\r\n        <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Old Affiliations <span\r\n                    class=\"badge badge-primary\">{{oldAffiliations.length}}</span></strong></h2>\r\n    </div>\r\n</div>\r\n<div class=\"data-table mb-5 mt-3 table-responsive\" style=\"border:1px solid #00000017;\">\r\n    <table mat-table [dataSource]=\"dataSource3\" matSort class=\"table-hover data-table\" width=\"100%\">\r\n\r\n        <ng-container matColumnDef=\"index\">\r\n            <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\r\n            <td mat-cell *matCellDef=\"let element; let i = index\" width=\"10%\"> {{element.index}} </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"districtName\">\r\n            <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> District Name </th>\r\n            <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"empNameLink pointer text-capitalize\">\r\n                {{element.requestedDistrict.name}} </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"member\">\r\n            <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Member Name </th>\r\n            <td mat-cell *matCellDef=\"let element\" width=\"30%\" class=\"empNameLink pointer text-capitalize\">\r\n                {{element.members[0].firstName}} {{element.members[0].middleName}} {{element.members[0].lastName}}\r\n            </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"approvedOn\">\r\n            <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Approved On </th>\r\n            <td mat-cell *matCellDef=\"let element\" width=\"35%\" class=\"text-capitalize\">\r\n                {{element.approvedOn | date: 'dd'}}-{{element.approvedOn | date:'MMM'}}-{{element.approvedOn | date: 'yyyy'}}\r\n            </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"status\">\r\n            <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Status </th>\r\n            <td mat-cell *matCellDef=\"let element\" width=\"35%\" class=\"text-capitalize text-danger\">\r\n                {{element.status}} </td>\r\n        </ng-container>\r\n\r\n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns3\"></tr>\r\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns3; let i = index\"></tr>\r\n    </table>\r\n    <mat-paginator #paginator3 [pageIndex]=\"0\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\">\r\n    </mat-paginator>\r\n</div>\r\n\r\n<div *ngIf=\"showSpinner\">\r\n    <app-spinner></app-spinner>\r\n</div>";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/enquiries/enquiries.component.html":
   /*!************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/admin/enquiries/enquiries.component.html ***!
@@ -111,7 +151,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<section id=\"enquiries\">\r\n    <div class=\"\">\r\n        <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Enquiries <span class=\"badge badge-primary\">{{enquiries.length}}</span></strong></h2>\r\n    </div>\r\n    <div class=\"data-table mt-4 mb-5 table-responsive\" style=\"border:1px solid #00000017;\">\r\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\r\n\r\n            <ng-container matColumnDef=\"index\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\r\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"5%\"> {{i+1}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"name\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Name </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\" class=\"empNameLink pointer text-capitalize\">\r\n                    {{element.firstName}} {{element.lastName}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"email\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Email </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\" class=\"text-lowercase\"> {{element.email}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"mobile\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Mobile </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\" class=\"text-capitalize\"> {{element.mobile}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"message\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Message </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"40%\" class=\"text-capitalize\"> {{element.message}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"action\" class=\"pull-right\">\r\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"5%\">\r\n                    <div class=\"row p-2\">\r\n                        <a class=\"btn text-danger pointer\" (click)=\"deleteEnquiryById(element.id)\" matTooltip=\"Delete\" matTooltipPosition=\"above\"><i class=\"fa fa-trash text-danger\"></i></a>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\r\n        </table>\r\n        <mat-paginator [length]=\"100\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\" showFirstLastButtons>\r\n        </mat-paginator>\r\n    </div>\r\n\r\n    <div *ngIf=\"showSpinner\">\r\n        <app-spinner></app-spinner>\r\n    </div>\r\n</section>";
+    __webpack_exports__["default"] = "<section id=\"enquiries\">\r\n    <div class=\"\">\r\n        <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Enquiries <span\r\n                    class=\"badge badge-primary\">{{enquiries.length}}</span></strong></h2>\r\n    </div>\r\n    <div class=\"data-table mt-4 mb-5 table-responsive\" style=\"border:1px solid #00000017;\">\r\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\r\n\r\n            <ng-container matColumnDef=\"index\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\r\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"5%\"> {{element.index}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"name\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Name </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\" class=\"empNameLink pointer text-capitalize\">\r\n                    {{element.firstName}} {{element.lastName}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"email\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Email </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\" class=\"text-lowercase\"> {{element.email}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"mobile\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Mobile </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\" class=\"text-capitalize\"> {{element.mobile}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"message\">\r\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Message </th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"40%\" class=\"text-capitalize\"> {{element.message}} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"action\" class=\"pull-right\">\r\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\r\n                <td mat-cell *matCellDef=\"let element\" width=\"5%\">\r\n                    <div class=\"row p-2\">\r\n                        <a class=\"btn text-danger pointer\" (click)=\"deleteEnquiryById(element.id)\" matTooltip=\"Delete\"\r\n                            matTooltipPosition=\"above\"><i class=\"fa fa-trash text-danger\"></i></a>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\r\n        </table>\r\n        <mat-paginator [length]=\"100\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\" showFirstLastButtons>\r\n        </mat-paginator>\r\n    </div>\r\n\r\n    <div *ngIf=\"showSpinner\">\r\n        <app-spinner></app-spinner>\r\n    </div>\r\n</section>";
     /***/
   },
 
@@ -151,7 +191,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<section id=\"events\">\n    <div class=\"row justify-content-between\">\n        <div class=\"col-6\">\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Events <span class=\"badge badge-primary\">{{eventData.length}}</span></strong></h2>\n        </div>\n        <div class=\"col-6\">\n            <button (click)=\"createEvent()\" class=\"btn sling-btn pull-right\">Create events</button>\n        </div>\n    </div>\n    <div class=\"data-table mt-3 mb-5 table-responsive\" style=\"border:1px solid #00000017;\">\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\n\n            <!-- Position Column -->\n            <ng-container matColumnDef=\"index\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"10%\"> {{i+1}} </td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"eventTitle\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Event Title </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"40%\" class=\"empNameLink pointer text-capitalize\">\n                    {{element.eventTitle}}</td>\n            </ng-container>\n\n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"eventDate\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Event Date </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize\">\n                    {{element.eventDate | date: 'dd'}}-{{element.eventDate | date:'MMM'}}-{{element.eventDate | date: 'yyyy'}}\n             </td>\n            </ng-container>\n\n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"status\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Status </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize font-weight-bold text-success\"\n                    [ngClass]=\"{'text-danger':element.status === 'Inactive'}\"> {{element.status}} </td>\n            </ng-container>\n\n            <!-- Symbol Column -->\n            <ng-container matColumnDef=\"actions\" class=\"text-right\">\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\">\n                    <div class=\"row p-2\">\n                        <a class=\"btn text-info pointer\" (click)=\"editEvent(element)\" matTooltip=\"Edit\" matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\n                        <button class=\"btn text-danger pointer\" (click)=\"deleteEventById(element.id, element.isDelete)\" matTooltip=\"Delete\" matTooltipPosition=\"above\" [disabled]=\"!element.isDelete\"><i class=\"fa fa-trash text-danger\"></i></button>\n                    </div>\n                </td>\n            </ng-container>\n\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\n        </table>\n        <mat-paginator [length]=\"100\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\">\n        </mat-paginator>\n    </div>\n</section>\n\n<div *ngIf=\"showSpinner\">\n    <app-spinner></app-spinner>\n</div>";
+    __webpack_exports__["default"] = "<section id=\"events\">\n    <div class=\"row justify-content-between\">\n        <div class=\"col-6\">\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Events <span\n                        class=\"badge badge-primary\">{{eventData.length}}</span></strong></h2>\n        </div>\n        <div class=\"col-6\">\n            <button (click)=\"createEvent()\" class=\"btn sling-btn pull-right\">Create events</button>\n        </div>\n    </div>\n    <div class=\"data-table mt-3 mb-5 table-responsive\" style=\"border:1px solid #00000017;\">\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\n\n            <!-- Position Column -->\n            <ng-container matColumnDef=\"index\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"10%\"> {{element.index}} </td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"eventTitle\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Event Title </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"40%\" class=\"empNameLink pointer text-capitalize\">\n                    {{element.eventTitle}}</td>\n            </ng-container>\n\n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"eventDate\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Event Date </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize\">\n                    {{element.eventDate | date: 'dd'}}-{{element.eventDate | date:'MMM'}}-{{element.eventDate | date: 'yyyy'}}\n                </td>\n            </ng-container>\n\n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"status\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Status </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize font-weight-bold text-success\"\n                    [ngClass]=\"{'text-danger':element.status === 'Inactive'}\"> {{element.status}} </td>\n            </ng-container>\n\n            <!-- Symbol Column -->\n            <ng-container matColumnDef=\"actions\" class=\"text-right\">\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\">\n                    <div class=\"row p-2\">\n                        <a class=\"btn text-info pointer\" (click)=\"editEvent(element)\" matTooltip=\"Edit\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\n                        <button class=\"btn text-danger pointer\" (click)=\"deleteEventById(element.id, element.isDelete)\"\n                            matTooltip=\"Delete\" matTooltipPosition=\"above\" [disabled]=\"!element.isDelete\"><i\n                                class=\"fa fa-trash text-danger\"></i></button>\n                    </div>\n                </td>\n            </ng-container>\n\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\n        </table>\n        <mat-paginator [length]=\"100\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\">\n        </mat-paginator>\n    </div>\n</section>\n\n<div *ngIf=\"showSpinner\">\n    <app-spinner></app-spinner>\n</div>";
     /***/
   },
 
@@ -191,7 +231,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<section id=\"match\">\n    <div class=\"row justify-content-between\">\n        <div class=\"col-6\">\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Match Results <span\n                        class=\"badge badge-primary\">{{results.length}}</span></strong></h2>\n        </div>\n        <div class=\"col-6\">\n            <button (click)=\"addMatchRecord()\" class=\"btn sling-btn pull-right\">Add Record</button>\n        </div>\n    </div>\n    <div class=\"data-table mt-4 mb-5 table-responsive\" style=\"border:1px solid #00000017;\">\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\n\n            <ng-container matColumnDef=\"index\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"5%\"> {{i+1}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"eventName\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Event Name </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"empNameLink pointer text-capitalize\">\n                    {{element.eventInfo.eventTitle}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"candidateName\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> CandidateName </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize\"> {{element.name}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"district\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> District </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"13%\" class=\"text-capitalize\"> {{element.district}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"score\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Score </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"8%\" class=\"text-capitalize\"> {{element.score}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"rank\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Rank </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"14%\" class=\"text-capitalize\"> {{element.rank}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"action\" class=\"pull-right\">\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\">\n                    <div class=\"row p-2\">\n                        <a class=\"btn text-info pointer\" (click)=\"editMatchResult(element)\" matTooltip=\"Edit\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\n                        <a class=\"btn text-danger pointer\" (click)=\"deleteResultById(element.id)\" matTooltip=\"Delete\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-trash text-danger\"></i></a>\n                    </div>\n                </td>\n            </ng-container>\n\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\n        </table>\n        <mat-paginator [length]=\"100\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\" showFirstLastButtons>\n        </mat-paginator>\n    </div>\n\n    <div *ngIf=\"showSpinner\">\n        <app-spinner></app-spinner>\n    </div>\n</section>";
+    __webpack_exports__["default"] = "<section id=\"match\">\n    <div class=\"row justify-content-between\">\n        <div class=\"col-6\">\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Match Results <span\n                        class=\"badge badge-primary\">{{results.length}}</span></strong></h2>\n        </div>\n        <div class=\"col-6\">\n            <button (click)=\"addMatchRecord()\" class=\"btn sling-btn pull-right\">Add Record</button>\n        </div>\n    </div>\n    <div class=\"data-table mt-4 mb-5 table-responsive\" style=\"border:1px solid #00000017;\">\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\n\n            <ng-container matColumnDef=\"index\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"5%\"> {{element.index}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"eventName\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Event Name </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"empNameLink pointer text-capitalize\">\n                    {{element.eventInfo.eventTitle}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"candidateName\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> CandidateName </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize\"> {{element.name}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"district\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> District </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"13%\" class=\"text-capitalize\"> {{element.district}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"score\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Score </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"8%\" class=\"text-capitalize\"> {{element.score}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"rank\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Rank </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"14%\" class=\"text-capitalize\"> {{element.rank}} </td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"action\" class=\"pull-right\">\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\">\n                    <div class=\"row p-2\">\n                        <a class=\"btn text-info pointer\" (click)=\"editMatchResult(element)\" matTooltip=\"Edit\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\n                        <a class=\"btn text-danger pointer\" (click)=\"deleteResultById(element.id)\" matTooltip=\"Delete\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-trash text-danger\"></i></a>\n                    </div>\n                </td>\n            </ng-container>\n\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\n        </table>\n        <mat-paginator [length]=\"100\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\" showFirstLastButtons>\n        </mat-paginator>\n    </div>\n\n    <div *ngIf=\"showSpinner\">\n        <app-spinner></app-spinner>\n    </div>\n</section>";
     /***/
   },
 
@@ -231,7 +271,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<section id=\"refree-panel\">\n    <div class=\"row justify-content-between\">\n        <div class=\"col-6\">\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Referee <span class=\"badge badge-primary\">{{refreeData.length}}</span></strong></h2>\n        </div>\n        <div class=\"col-6\">\n            <button (click)=\"addRefree()\" class=\"btn sling-btn pull-right\">Add Refree</button>\n        </div>\n    </div>\n    <div class=\"data-table mt-3 mb-5 table-responsive\" style=\"border:1px solid #00000017;\">\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\n\n            <!-- Position Column -->\n            <ng-container matColumnDef=\"index\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"10%\"> {{i+1}} </td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"name\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Name </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"empNameLink pointer text-capitalize\">\n                    {{element.name}}</td>\n            </ng-container>\n\n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"email\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Email </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize\"> {{element.email}} </td>\n            </ng-container>\n\n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"mobile\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Mobile </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize\"> {{element.mobile}} </td>\n            </ng-container>\n\n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"district\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> District </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\" class=\"text-capitalize\"> {{element.district}} </td>\n            </ng-container>\n\n            <!-- Symbol Column -->\n            <ng-container matColumnDef=\"actions\">\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\">\n                    <div class=\"row p-2\">\n                        <a class=\"btn text-info pointer\" (click)=\"editRefree(element)\" matTooltip=\"Edit\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\n                        <a class=\"btn text-danger pointer\" (click)=\"deleteRefree(element.id)\" matTooltip=\"Delete\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-trash text-danger\"></i></a>\n                    </div>\n                </td>\n            </ng-container>\n\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\n        </table>\n        <mat-paginator [length]=\"100\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\">\n        </mat-paginator>\n    </div>\n</section>\n\n<div *ngIf=\"showSpinner\">\n    <app-spinner></app-spinner>\n</div>";
+    __webpack_exports__["default"] = "<section id=\"refree-panel\">\n    <div class=\"row justify-content-between\">\n        <div class=\"col-6\">\n            <h2><strong><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Referee <span class=\"badge badge-primary\">{{refreeData.length}}</span></strong></h2>\n        </div>\n        <div class=\"col-6\">\n            <button (click)=\"addRefree()\" class=\"btn sling-btn pull-right\">Add Refree</button>\n        </div>\n    </div>\n    <div class=\"data-table mt-3 mb-5 table-responsive\" style=\"border:1px solid #00000017;\">\n        <table mat-table [dataSource]=\"dataSource\" matSort class=\"table-hover data-table\" width=\"100%\">\n\n            <!-- Position Column -->\n            <ng-container matColumnDef=\"index\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> # </th>\n                <td mat-cell *matCellDef=\"let element; let i = index\" width=\"10%\"> {{element.index}} </td>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"name\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Name </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"25%\" class=\"empNameLink pointer text-capitalize\">\n                    {{element.name}}</td>\n            </ng-container>\n\n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"email\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Email </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize\"> {{element.email}} </td>\n            </ng-container>\n\n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"mobile\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> Mobile </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"20%\" class=\"text-capitalize\"> {{element.mobile}} </td>\n            </ng-container>\n\n            <!-- Weight Column -->\n            <ng-container matColumnDef=\"district\">\n                <th mat-sort-header mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\"> District </th>\n                <td mat-cell *matCellDef=\"let element\" width=\"10%\" class=\"text-capitalize\"> {{element.district}} </td>\n            </ng-container>\n\n            <!-- Symbol Column -->\n            <ng-container matColumnDef=\"actions\">\n                <th mat-header-cell *matHeaderCellDef class=\"bg-dark text-white\">Action</th>\n                <td mat-cell *matCellDef=\"let element\" width=\"15%\">\n                    <div class=\"row p-2\">\n                        <a class=\"btn text-info pointer\" (click)=\"editRefree(element)\" matTooltip=\"Edit\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-pencil\"></i></a>\n                        <a class=\"btn text-danger pointer\" (click)=\"deleteRefree(element.id)\" matTooltip=\"Delete\"\n                            matTooltipPosition=\"above\"><i class=\"fa fa-trash text-danger\"></i></a>\n                    </div>\n                </td>\n            </ng-container>\n\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns; let i = index\"></tr>\n        </table>\n        <mat-paginator [length]=\"100\" [pageSize]=\"5\" [pageSizeOptions]=\"[5, 10, 25, 50]\">\n        </mat-paginator>\n    </div>\n</section>\n\n<div *ngIf=\"showSpinner\">\n    <app-spinner></app-spinner>\n</div>";
     /***/
   },
 
@@ -511,7 +551,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div *ngIf=\"type==='confirm'\">\n    <mat-dialog-content>\n        <h4 class=\"text-center\">{{message}}</h4>\n    </mat-dialog-content>\n    <div class=\"text-right mt-2\">\n        <button mat-stroked-button class=\"btn\" [mat-dialog-close]=\"true\">Yes</button>\n        <button mat-stroked-button class=\"btn ml-3\" (click)=\"close()\">No</button>\n    </div>\n</div>\n\n<div class=\"text-center p-2\" *ngIf=\"type==='register'\">\n    <h1>Successfully Registered !!</h1>\n    <h5>Once it gets approved you will get notified.</h5>\n    <h5>Thank You!</h5>\n    <button class=\"btn mt-4\" style=\"background-color: #ff8b23; color: #fff;\" mat-button [mat-dialog-close]=\"true\">OK</button>\n</div>";
+    __webpack_exports__["default"] = "<div *ngIf=\"type==='confirm'\">\n    <mat-dialog-content>\n        <h4 class=\"text-center\">{{message}}</h4>\n    </mat-dialog-content>\n    <div class=\"text-right mt-2\">\n        <button mat-stroked-button class=\"btn\" [mat-dialog-close]=\"true\">Yes</button>\n        <button mat-stroked-button class=\"btn ml-3\" (click)=\"close()\">No</button>\n    </div>\n</div>\n\n<div class=\"text-center p-2\" *ngIf=\"type==='register'\">\n    <h1>Registration Successful !!</h1>\n    <h5>Once it gets approved you will get notified.</h5>\n    <h5>Thank You!</h5>\n    <button class=\"btn mt-4\" style=\"background-color: #ff8b23; color: #fff;\" mat-button [mat-dialog-close]=\"true\">OK</button>\n</div>";
     /***/
   },
 
@@ -1226,7 +1266,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "/* You can add global styles to this file, and also import other style files */\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  margin: 0;\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\n  background-color: #f8f9fa;\n}\n/* -------------------------- global colors ----------------------------- */\n::-webkit-scrollbar {\n  width: 5px;\n}\n::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n::-webkit-scrollbar-thumb {\n  background: #888;\n}\n::-webkit-scrollbar-thumb:hover {\n  background: #ff8b23;\n}\n/* Theme-Colors */\n.bg-offwhite {\n  background: #edf3f5;\n}\n.sling-btn {\n  background-color: #ff8b23;\n  color: #fff;\n}\n/* Logo-Text */\n.main-title {\n  font-family: \"Righteous\", cursive;\n  font-size: 30px;\n  letter-spacing: 2px;\n  color: #ff3600;\n}\n.sub-title {\n  font-family: \"Didact Gothic\", sans-serif;\n  letter-spacing: 2px;\n  font-size: 11px;\n  text-transform: uppercase;\n  position: relative;\n  padding-left: 2px;\n  font-weight: bold;\n}\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  margin: 0;\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\n}\n.cdk-overlay-dark-backdrop {\n  background: rgba(0, 0, 0, 0.69) !important;\n}\n.cdk-overlay-container {\n  z-index: 2000 !important;\n}\n.data-table .mat-header-cell {\n  font-size: 15px !important;\n}\n#approval {\n  font-family: \"Didact Gothic\", sans-serif;\n  margin-top: 80px;\n  margin-bottom: 100px;\n}\n#approval .badge {\n  background-color: #ff8b23;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYWZmaWxpYXRpb24tcmVxdWVzdHMvQzpcXFdvcmtzcGFjZVxcT3RoZXJcXFNsaW5nc2hvdEFzc29jaWF0aW9uL3NyY1xcc3R5bGVzLnNjc3MiLCJzcmMvYXBwL2FkbWluL2FmZmlsaWF0aW9uLXJlcXVlc3RzL2FmZmlsaWF0aW9uLXJlcXVlc3RzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hZG1pbi9hZmZpbGlhdGlvbi1yZXF1ZXN0cy9DOlxcV29ya3NwYWNlXFxPdGhlclxcU2xpbmdzaG90QXNzb2NpYXRpb24vc3JjXFxhcHBcXGFkbWluXFxhZmZpbGlhdGlvbi1yZXF1ZXN0c1xcYWZmaWxpYXRpb24tcmVxdWVzdHMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsOEVBQUE7QUFDQTs7RUFFSSxZQUFBO0FDQ0o7QURFQTtFQUNJLFNBQUE7RUFDQSxpREFBQTtFQUNBLHlCQUFBO0FDQ0o7QURHQSwyRUFBQTtBQUlBO0VBQ0ksVUFBQTtBQ0hKO0FETUE7RUFDSSxtQkFBQTtBQ0hKO0FETUM7RUFDRyxnQkFBQTtBQ0hKO0FETUM7RUFDRyxtQkFBQTtBQ0hKO0FET0EsaUJBQUE7QUFFQTtFQUNJLG1CQUFBO0FDTEo7QURRQTtFQUNJLHlCQUFBO0VBQ0EsV0FBQTtBQ0xKO0FEU0EsY0FBQTtBQUVBO0VBQ0ksaUNBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0FDUEo7QURVQTtFQUNJLHdDQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0VBQ0EseUJBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBO0VBQ0EsaUJBQUE7QUNQSjtBRFVBOztFQUVJLFlBQUE7QUNQSjtBRFVBO0VBQ0ksU0FBQTtFQUNBLGlEQUFBO0FDUEo7QURXQTtFQUNJLDBDQUFBO0FDUko7QURXQTtFQUNJLHdCQUFBO0FDUko7QURZSTtFQUNJLDBCQUFBO0FDVFI7QUM1RUE7RUFDSSx3Q0FBQTtFQUNBLGdCQUFBO0VBQ0Esb0JBQUE7QUQrRUo7QUM5RUk7RUFDSSx5QkZTRztBQ3VFWCIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2FmZmlsaWF0aW9uLXJlcXVlc3RzL2FmZmlsaWF0aW9uLXJlcXVlc3RzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogWW91IGNhbiBhZGQgZ2xvYmFsIHN0eWxlcyB0byB0aGlzIGZpbGUsIGFuZCBhbHNvIGltcG9ydCBvdGhlciBzdHlsZSBmaWxlcyAqL1xyXG5odG1sLFxyXG5ib2R5IHtcclxuICAgIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuYm9keSB7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBmb250LWZhbWlseTogUm9ib3RvLCBcIkhlbHZldGljYSBOZXVlXCIsIHNhbnMtc2VyaWY7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjhmOWZhO1xyXG59XHJcblxyXG5cclxuLyogLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gZ2xvYmFsIGNvbG9ycyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAqL1xyXG5cclxuJHRoLWNvbG9yOiAjZmY4YjIzO1xyXG4kdGgtY29sb3ItZGFyazogI2ZmMzYwMDtcclxuOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgICB3aWR0aDogNXB4O1xyXG59XHJcblxyXG46Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrIHtcclxuICAgIGJhY2tncm91bmQ6ICNmMWYxZjE7XHJcbn1cclxuXHJcbiA6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHtcclxuICAgIGJhY2tncm91bmQ6ICM4ODg7XHJcbn1cclxuXHJcbiA6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iOmhvdmVyIHtcclxuICAgIGJhY2tncm91bmQ6ICNmZjhiMjM7XHJcbn1cclxuXHJcblxyXG4vKiBUaGVtZS1Db2xvcnMgKi9cclxuXHJcbi5iZy1vZmZ3aGl0ZSB7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZWRmM2Y1O1xyXG59XHJcblxyXG4uc2xpbmctYnRuIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZjhiMjM7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxufVxyXG5cclxuXHJcbi8qIExvZ28tVGV4dCAqL1xyXG5cclxuLm1haW4tdGl0bGUge1xyXG4gICAgZm9udC1mYW1pbHk6ICdSaWdodGVvdXMnLCBjdXJzaXZlO1xyXG4gICAgZm9udC1zaXplOiAzMHB4O1xyXG4gICAgbGV0dGVyLXNwYWNpbmc6IDJweDtcclxuICAgIGNvbG9yOiByZ2JhKDI1NSwgNTQsIDAsIDEpO1xyXG59XHJcblxyXG4uc3ViLXRpdGxlIHtcclxuICAgIGZvbnQtZmFtaWx5OiAnRGlkYWN0IEdvdGhpYycsIHNhbnMtc2VyaWY7XHJcbiAgICBsZXR0ZXItc3BhY2luZzogMnB4O1xyXG4gICAgZm9udC1zaXplOiAxMXB4O1xyXG4gICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIHBhZGRpbmctbGVmdDogMnB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbmh0bWwsXHJcbmJvZHkge1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG5ib2R5IHtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIGZvbnQtZmFtaWx5OiBSb2JvdG8sIFwiSGVsdmV0aWNhIE5ldWVcIiwgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuLy8gR2xvYmFsIGRpYWxvZyBjc3NcclxuLmNkay1vdmVybGF5LWRhcmstYmFja2Ryb3Age1xyXG4gICAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjY5KSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uY2RrLW92ZXJsYXktY29udGFpbmVyIHtcclxuICAgIHotaW5kZXg6IDIwMDAgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmRhdGEtdGFibGUge1xyXG4gICAgLm1hdC1oZWFkZXItY2VsbCB7XHJcbiAgICAgICAgZm9udC1zaXplOiAxNXB4ICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbn0iLCIvKiBZb3UgY2FuIGFkZCBnbG9iYWwgc3R5bGVzIHRvIHRoaXMgZmlsZSwgYW5kIGFsc28gaW1wb3J0IG90aGVyIHN0eWxlIGZpbGVzICovXG5odG1sLFxuYm9keSB7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuYm9keSB7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1mYW1pbHk6IFJvYm90bywgXCJIZWx2ZXRpY2EgTmV1ZVwiLCBzYW5zLXNlcmlmO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjhmOWZhO1xufVxuXG4vKiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSBnbG9iYWwgY29sb3JzIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICovXG46Oi13ZWJraXQtc2Nyb2xsYmFyIHtcbiAgd2lkdGg6IDVweDtcbn1cblxuOjotd2Via2l0LXNjcm9sbGJhci10cmFjayB7XG4gIGJhY2tncm91bmQ6ICNmMWYxZjE7XG59XG5cbjo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIge1xuICBiYWNrZ3JvdW5kOiAjODg4O1xufVxuXG46Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iOmhvdmVyIHtcbiAgYmFja2dyb3VuZDogI2ZmOGIyMztcbn1cblxuLyogVGhlbWUtQ29sb3JzICovXG4uYmctb2Zmd2hpdGUge1xuICBiYWNrZ3JvdW5kOiAjZWRmM2Y1O1xufVxuXG4uc2xpbmctYnRuIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmOGIyMztcbiAgY29sb3I6ICNmZmY7XG59XG5cbi8qIExvZ28tVGV4dCAqL1xuLm1haW4tdGl0bGUge1xuICBmb250LWZhbWlseTogXCJSaWdodGVvdXNcIiwgY3Vyc2l2ZTtcbiAgZm9udC1zaXplOiAzMHB4O1xuICBsZXR0ZXItc3BhY2luZzogMnB4O1xuICBjb2xvcjogI2ZmMzYwMDtcbn1cblxuLnN1Yi10aXRsZSB7XG4gIGZvbnQtZmFtaWx5OiBcIkRpZGFjdCBHb3RoaWNcIiwgc2Fucy1zZXJpZjtcbiAgbGV0dGVyLXNwYWNpbmc6IDJweDtcbiAgZm9udC1zaXplOiAxMXB4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHBhZGRpbmctbGVmdDogMnB4O1xuICBmb250LXdlaWdodDogYm9sZDtcbn1cblxuaHRtbCxcbmJvZHkge1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbmJvZHkge1xuICBtYXJnaW46IDA7XG4gIGZvbnQtZmFtaWx5OiBSb2JvdG8sIFwiSGVsdmV0aWNhIE5ldWVcIiwgc2Fucy1zZXJpZjtcbn1cblxuLmNkay1vdmVybGF5LWRhcmstYmFja2Ryb3Age1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNjkpICFpbXBvcnRhbnQ7XG59XG5cbi5jZGstb3ZlcmxheS1jb250YWluZXIge1xuICB6LWluZGV4OiAyMDAwICFpbXBvcnRhbnQ7XG59XG5cbi5kYXRhLXRhYmxlIC5tYXQtaGVhZGVyLWNlbGwge1xuICBmb250LXNpemU6IDE1cHggIWltcG9ydGFudDtcbn1cblxuI2FwcHJvdmFsIHtcbiAgZm9udC1mYW1pbHk6IFwiRGlkYWN0IEdvdGhpY1wiLCBzYW5zLXNlcmlmO1xuICBtYXJnaW4tdG9wOiA4MHB4O1xuICBtYXJnaW4tYm90dG9tOiAxMDBweDtcbn1cbiNhcHByb3ZhbCAuYmFkZ2Uge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmY4YjIzO1xufSIsIkBpbXBvcnQgXCIuLi8uLi8uLi9zdHlsZXMuc2Nzc1wiO1xyXG4jYXBwcm92YWwge1xyXG4gICAgZm9udC1mYW1pbHk6IFwiRGlkYWN0IEdvdGhpY1wiLCBzYW5zLXNlcmlmO1xyXG4gICAgbWFyZ2luLXRvcDogODBweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDEwMHB4O1xyXG4gICAgLmJhZGdlIHtcclxuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkdGgtY29sb3I7XHJcbiAgICB9XHJcbn0iXX0= */";
+    __webpack_exports__["default"] = "/* You can add global styles to this file, and also import other style files */\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  margin: 0;\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\n  background-color: #f8f9fa;\n}\n/* -------------------------- global colors ----------------------------- */\n::-webkit-scrollbar {\n  width: 5px;\n}\n::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n::-webkit-scrollbar-thumb {\n  background: #888;\n}\n::-webkit-scrollbar-thumb:hover {\n  background: #ff8b23;\n}\n/* Theme-Colors */\n.bg-offwhite {\n  background: #edf3f5;\n}\n.sling-btn {\n  background-color: #ff8b23;\n  color: #fff;\n}\n/* Logo-Text */\n.main-title {\n  font-family: \"Righteous\", cursive;\n  font-size: 30px;\n  letter-spacing: 2px;\n  color: #ff3600;\n}\n.sub-title {\n  font-family: \"Didact Gothic\", sans-serif;\n  letter-spacing: 2px;\n  font-size: 11px;\n  text-transform: uppercase;\n  position: relative;\n  padding-left: 2px;\n  font-weight: bold;\n}\nhtml,\nbody {\n  height: 100%;\n}\nbody {\n  margin: 0;\n  font-family: Roboto, \"Helvetica Neue\", sans-serif;\n}\n.cdk-overlay-dark-backdrop {\n  background: rgba(0, 0, 0, 0.69) !important;\n}\n.cdk-overlay-container {\n  z-index: 2000 !important;\n}\n.data-table .mat-header-cell {\n  font-size: 15px !important;\n}\n#approval {\n  font-family: \"Didact Gothic\", sans-serif;\n  margin-top: 80px;\n  margin-bottom: 100px;\n}\n.badge {\n  background-color: #ff8b23;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYWZmaWxpYXRpb24tcmVxdWVzdHMvQzpcXFdvcmtzcGFjZVxcT3RoZXJcXFNsaW5nc2hvdEFzc29jaWF0aW9uL3NyY1xcc3R5bGVzLnNjc3MiLCJzcmMvYXBwL2FkbWluL2FmZmlsaWF0aW9uLXJlcXVlc3RzL2FmZmlsaWF0aW9uLXJlcXVlc3RzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hZG1pbi9hZmZpbGlhdGlvbi1yZXF1ZXN0cy9DOlxcV29ya3NwYWNlXFxPdGhlclxcU2xpbmdzaG90QXNzb2NpYXRpb24vc3JjXFxhcHBcXGFkbWluXFxhZmZpbGlhdGlvbi1yZXF1ZXN0c1xcYWZmaWxpYXRpb24tcmVxdWVzdHMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsOEVBQUE7QUFDQTs7RUFFSSxZQUFBO0FDQ0o7QURFQTtFQUNJLFNBQUE7RUFDQSxpREFBQTtFQUNBLHlCQUFBO0FDQ0o7QURHQSwyRUFBQTtBQUlBO0VBQ0ksVUFBQTtBQ0hKO0FETUE7RUFDSSxtQkFBQTtBQ0hKO0FETUM7RUFDRyxnQkFBQTtBQ0hKO0FETUM7RUFDRyxtQkFBQTtBQ0hKO0FET0EsaUJBQUE7QUFFQTtFQUNJLG1CQUFBO0FDTEo7QURRQTtFQUNJLHlCQUFBO0VBQ0EsV0FBQTtBQ0xKO0FEU0EsY0FBQTtBQUVBO0VBQ0ksaUNBQUE7RUFDQSxlQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0FDUEo7QURVQTtFQUNJLHdDQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0VBQ0EseUJBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBO0VBQ0EsaUJBQUE7QUNQSjtBRFVBOztFQUVJLFlBQUE7QUNQSjtBRFVBO0VBQ0ksU0FBQTtFQUNBLGlEQUFBO0FDUEo7QURXQTtFQUNJLDBDQUFBO0FDUko7QURXQTtFQUNJLHdCQUFBO0FDUko7QURZSTtFQUNJLDBCQUFBO0FDVFI7QUM1RUE7RUFDSSx3Q0FBQTtFQUNBLGdCQUFBO0VBQ0Esb0JBQUE7QUQrRUo7QUM1RUE7RUFDSSx5QkZPTztBQ3dFWCIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2FmZmlsaWF0aW9uLXJlcXVlc3RzL2FmZmlsaWF0aW9uLXJlcXVlc3RzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogWW91IGNhbiBhZGQgZ2xvYmFsIHN0eWxlcyB0byB0aGlzIGZpbGUsIGFuZCBhbHNvIGltcG9ydCBvdGhlciBzdHlsZSBmaWxlcyAqL1xyXG5odG1sLFxyXG5ib2R5IHtcclxuICAgIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuYm9keSB7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBmb250LWZhbWlseTogUm9ib3RvLCBcIkhlbHZldGljYSBOZXVlXCIsIHNhbnMtc2VyaWY7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjhmOWZhO1xyXG59XHJcblxyXG5cclxuLyogLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0gZ2xvYmFsIGNvbG9ycyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSAqL1xyXG5cclxuJHRoLWNvbG9yOiAjZmY4YjIzO1xyXG4kdGgtY29sb3ItZGFyazogI2ZmMzYwMDtcclxuOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgICB3aWR0aDogNXB4O1xyXG59XHJcblxyXG46Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrIHtcclxuICAgIGJhY2tncm91bmQ6ICNmMWYxZjE7XHJcbn1cclxuXHJcbiA6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHtcclxuICAgIGJhY2tncm91bmQ6ICM4ODg7XHJcbn1cclxuXHJcbiA6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iOmhvdmVyIHtcclxuICAgIGJhY2tncm91bmQ6ICNmZjhiMjM7XHJcbn1cclxuXHJcblxyXG4vKiBUaGVtZS1Db2xvcnMgKi9cclxuXHJcbi5iZy1vZmZ3aGl0ZSB7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZWRmM2Y1O1xyXG59XHJcblxyXG4uc2xpbmctYnRuIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZjhiMjM7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxufVxyXG5cclxuXHJcbi8qIExvZ28tVGV4dCAqL1xyXG5cclxuLm1haW4tdGl0bGUge1xyXG4gICAgZm9udC1mYW1pbHk6ICdSaWdodGVvdXMnLCBjdXJzaXZlO1xyXG4gICAgZm9udC1zaXplOiAzMHB4O1xyXG4gICAgbGV0dGVyLXNwYWNpbmc6IDJweDtcclxuICAgIGNvbG9yOiByZ2JhKDI1NSwgNTQsIDAsIDEpO1xyXG59XHJcblxyXG4uc3ViLXRpdGxlIHtcclxuICAgIGZvbnQtZmFtaWx5OiAnRGlkYWN0IEdvdGhpYycsIHNhbnMtc2VyaWY7XHJcbiAgICBsZXR0ZXItc3BhY2luZzogMnB4O1xyXG4gICAgZm9udC1zaXplOiAxMXB4O1xyXG4gICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIHBhZGRpbmctbGVmdDogMnB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbmh0bWwsXHJcbmJvZHkge1xyXG4gICAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcblxyXG5ib2R5IHtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIGZvbnQtZmFtaWx5OiBSb2JvdG8sIFwiSGVsdmV0aWNhIE5ldWVcIiwgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuLy8gR2xvYmFsIGRpYWxvZyBjc3NcclxuLmNkay1vdmVybGF5LWRhcmstYmFja2Ryb3Age1xyXG4gICAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjY5KSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uY2RrLW92ZXJsYXktY29udGFpbmVyIHtcclxuICAgIHotaW5kZXg6IDIwMDAgIWltcG9ydGFudDtcclxufVxyXG5cclxuLmRhdGEtdGFibGUge1xyXG4gICAgLm1hdC1oZWFkZXItY2VsbCB7XHJcbiAgICAgICAgZm9udC1zaXplOiAxNXB4ICFpbXBvcnRhbnQ7XHJcbiAgICB9XHJcbn0iLCIvKiBZb3UgY2FuIGFkZCBnbG9iYWwgc3R5bGVzIHRvIHRoaXMgZmlsZSwgYW5kIGFsc28gaW1wb3J0IG90aGVyIHN0eWxlIGZpbGVzICovXG5odG1sLFxuYm9keSB7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuYm9keSB7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1mYW1pbHk6IFJvYm90bywgXCJIZWx2ZXRpY2EgTmV1ZVwiLCBzYW5zLXNlcmlmO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjhmOWZhO1xufVxuXG4vKiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSBnbG9iYWwgY29sb3JzIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tICovXG46Oi13ZWJraXQtc2Nyb2xsYmFyIHtcbiAgd2lkdGg6IDVweDtcbn1cblxuOjotd2Via2l0LXNjcm9sbGJhci10cmFjayB7XG4gIGJhY2tncm91bmQ6ICNmMWYxZjE7XG59XG5cbjo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIge1xuICBiYWNrZ3JvdW5kOiAjODg4O1xufVxuXG46Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iOmhvdmVyIHtcbiAgYmFja2dyb3VuZDogI2ZmOGIyMztcbn1cblxuLyogVGhlbWUtQ29sb3JzICovXG4uYmctb2Zmd2hpdGUge1xuICBiYWNrZ3JvdW5kOiAjZWRmM2Y1O1xufVxuXG4uc2xpbmctYnRuIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmOGIyMztcbiAgY29sb3I6ICNmZmY7XG59XG5cbi8qIExvZ28tVGV4dCAqL1xuLm1haW4tdGl0bGUge1xuICBmb250LWZhbWlseTogXCJSaWdodGVvdXNcIiwgY3Vyc2l2ZTtcbiAgZm9udC1zaXplOiAzMHB4O1xuICBsZXR0ZXItc3BhY2luZzogMnB4O1xuICBjb2xvcjogI2ZmMzYwMDtcbn1cblxuLnN1Yi10aXRsZSB7XG4gIGZvbnQtZmFtaWx5OiBcIkRpZGFjdCBHb3RoaWNcIiwgc2Fucy1zZXJpZjtcbiAgbGV0dGVyLXNwYWNpbmc6IDJweDtcbiAgZm9udC1zaXplOiAxMXB4O1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHBhZGRpbmctbGVmdDogMnB4O1xuICBmb250LXdlaWdodDogYm9sZDtcbn1cblxuaHRtbCxcbmJvZHkge1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbmJvZHkge1xuICBtYXJnaW46IDA7XG4gIGZvbnQtZmFtaWx5OiBSb2JvdG8sIFwiSGVsdmV0aWNhIE5ldWVcIiwgc2Fucy1zZXJpZjtcbn1cblxuLmNkay1vdmVybGF5LWRhcmstYmFja2Ryb3Age1xuICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuNjkpICFpbXBvcnRhbnQ7XG59XG5cbi5jZGstb3ZlcmxheS1jb250YWluZXIge1xuICB6LWluZGV4OiAyMDAwICFpbXBvcnRhbnQ7XG59XG5cbi5kYXRhLXRhYmxlIC5tYXQtaGVhZGVyLWNlbGwge1xuICBmb250LXNpemU6IDE1cHggIWltcG9ydGFudDtcbn1cblxuI2FwcHJvdmFsIHtcbiAgZm9udC1mYW1pbHk6IFwiRGlkYWN0IEdvdGhpY1wiLCBzYW5zLXNlcmlmO1xuICBtYXJnaW4tdG9wOiA4MHB4O1xuICBtYXJnaW4tYm90dG9tOiAxMDBweDtcbn1cblxuLmJhZGdlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmOGIyMztcbn0iLCJAaW1wb3J0IFwiLi4vLi4vLi4vc3R5bGVzLnNjc3NcIjtcclxuI2FwcHJvdmFsIHtcclxuICAgIGZvbnQtZmFtaWx5OiBcIkRpZGFjdCBHb3RoaWNcIiwgc2Fucy1zZXJpZjtcclxuICAgIG1hcmdpbi10b3A6IDgwcHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxMDBweDtcclxufVxyXG5cclxuLmJhZGdlIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICR0aC1jb2xvcjtcclxufSJdfQ== */";
     /***/
   },
 
@@ -1236,7 +1276,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     !*** ./src/app/admin/affiliation-requests/affiliation-requests.component.ts ***!
     \******************************************************************************/
 
-  /*! exports provided: AffiliationRequestsComponent, DistrictApprovalDialog */
+  /*! exports provided: AffiliationRequestsComponent, DistrictApprovalDialog, ApprovedDistrictComponent, RejectedAffiliationComponent */
 
   /***/
   function srcAppAdminAffiliationRequestsAffiliationRequestsComponentTs(module, __webpack_exports__, __webpack_require__) {
@@ -1254,6 +1294,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     __webpack_require__.d(__webpack_exports__, "DistrictApprovalDialog", function () {
       return DistrictApprovalDialog;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ApprovedDistrictComponent", function () {
+      return ApprovedDistrictComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "RejectedAffiliationComponent", function () {
+      return RejectedAffiliationComponent;
     });
     /* harmony import */
 
@@ -1346,14 +1398,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this._toastr = _toastr;
         this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
         this.displayedColumns = ['index', 'districtName', 'name', 'mobile', 'status', 'actions'];
-        this.dataSource2 = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
-        this.displayedColumns2 = ['index', 'districtName', 'member', 'approvedOn', 'status', 'actions'];
-        this.dataSource3 = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
-        this.displayedColumns3 = ['index', 'districtName', 'member', 'approvedOn', 'status'];
         this.affiliatinRequests = [];
-        this.approvedDistricts = [];
-        this.oldAffiliations = [];
-        this.totalCount = 0;
         this.showSpinner = false;
       }
 
@@ -1361,15 +1406,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "ngOnInit",
         value: function ngOnInit() {
           this.getAffiliationRequestData();
-          this.getApprovedDistrictInfo();
-          this.getOldAffiliations();
         }
       }, {
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
           this.dataSource.paginator = this.paginator;
-          this.dataSource2.paginator = this.paginator2;
-          this.dataSource3.paginator = this.paginator3;
         }
       }, {
         key: "getAffiliationRequestData",
@@ -1379,9 +1420,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.show_spinner();
 
           this._service.getAffiliationRequests().subscribe(function (data) {
-            _this.affiliatinRequests = data.map(function (item) {
+            _this.affiliatinRequests = data.map(function (item, index) {
               return Object.assign({
-                id: item.payload.doc.id
+                id: item.payload.doc.id,
+                index: index + 1
               }, item.payload.doc.data());
             });
             _this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this.affiliatinRequests);
@@ -1389,46 +1431,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this.dataSource.paginator = _this.paginator;
 
             _this.hide_spinner();
-          });
-        }
-      }, {
-        key: "getApprovedDistrictInfo",
-        value: function getApprovedDistrictInfo() {
-          var _this2 = this;
-
-          this.show_spinner();
-
-          this._service.getApprovedDistrictInfo().subscribe(function (data) {
-            _this2.approvedDistricts = data.map(function (item) {
-              return Object.assign({
-                id: item.payload.doc.id
-              }, item.payload.doc.data());
-            });
-            _this2.dataSource2 = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this2.approvedDistricts);
-            _this2.dataSource2.sort = _this2.sort2;
-            _this2.dataSource2.paginator = _this2.paginator2;
-
-            _this2.hide_spinner();
-          });
-        }
-      }, {
-        key: "getOldAffiliations",
-        value: function getOldAffiliations() {
-          var _this3 = this;
-
-          this.show_spinner();
-
-          this._service.getOldAffiliations().subscribe(function (data) {
-            _this3.oldAffiliations = data.map(function (item) {
-              return Object.assign({
-                id: item.payload.doc.id
-              }, item.payload.doc.data());
-            });
-            _this3.dataSource3 = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this3.oldAffiliations);
-            _this3.dataSource3.sort = _this3.sort3;
-            _this3.dataSource3.paginator = _this3.paginator3;
-
-            _this3.hide_spinner();
           });
         }
       }, {
@@ -1463,7 +1465,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteRequest",
         value: function deleteRequest(id) {
-          var _this4 = this;
+          var _this2 = this;
 
           var dialogRef = this._dialog.open(src_app_shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogComponent"], {
             data: {
@@ -1475,9 +1477,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              _this4._service.deleteRequestById(id);
+              _this2._service.deleteRequestById(id);
 
-              _this4._toastr.info("Request Deleted Successfully.");
+              _this2._toastr.info("Request Deleted Successfully.");
             }
           });
         }
@@ -1518,18 +1520,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_sort__WEBPACK_IMPORTED_MODULE_3__["MatSort"], {
       static: false
     })], AffiliationRequestsComponent.prototype, "sort", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"], {
-      static: false
-    })], AffiliationRequestsComponent.prototype, "paginator2", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_sort__WEBPACK_IMPORTED_MODULE_3__["MatSort"], {
-      static: false
-    })], AffiliationRequestsComponent.prototype, "sort2", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"], {
-      static: false
-    })], AffiliationRequestsComponent.prototype, "paginator3", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_sort__WEBPACK_IMPORTED_MODULE_3__["MatSort"], {
-      static: false
-    })], AffiliationRequestsComponent.prototype, "sort3", void 0);
     AffiliationRequestsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-affiliation-requests',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -1578,7 +1568,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "approveDistrict",
         value: function approveDistrict(districtData) {
-          var _this5 = this;
+          var _this3 = this;
 
           var dialogRef = this._dialog.open(src_app_shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogComponent"], {
             data: {
@@ -1590,27 +1580,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              districtData.approvedOn = _this5.utility.convertDateToEPOC(new Date());
+              districtData.approvedOn = _this3.utility.convertDateToEPOC(new Date());
               districtData.approvedBy = 'username';
               districtData.status = 'approved';
 
-              _this5._service.approveDistrict(districtData).pipe(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["take"](1)).subscribe(function (data) {
+              _this3._service.approveDistrict(districtData).pipe(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["take"](1)).subscribe(function (data) {
                 if (!data.payload.exists) {
-                  _this5.firestore.collection('ApprovedDistricts').doc(districtData.requestedDistrict.id).set(Object.assign({}, districtData, {
+                  _this3.firestore.collection('ApprovedDistricts').doc(districtData.requestedDistrict.id).set(Object.assign({}, districtData, {
                     id: districtData.requestedDistrict.id
                   }));
 
-                  _this5.firestore.collection('DistrictList').doc(districtData.requestedDistrict.id).update({
+                  _this3.firestore.collection('DistrictList').doc(districtData.requestedDistrict.id).update({
                     isRegistered: true
                   });
 
-                  _this5.firestore.collection('AffiliationRequests').doc(districtData.id).delete();
+                  _this3.firestore.collection('AffiliationRequests').doc(districtData.id).delete();
 
-                  _this5._toastr.success('Approved Successfully');
+                  _this3._toastr.success('Approved Successfully');
 
-                  _this5.close();
+                  _this3.close();
                 } else {
-                  _this5._toastr.error('District is already allocated');
+                  _this3._toastr.error('District is already allocated');
                 }
               });
             }
@@ -1619,7 +1609,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deleteAffiliation",
         value: function deleteAffiliation() {
-          var _this6 = this;
+          var _this4 = this;
 
           var dialogRef = this._dialog.open(src_app_shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogComponent"], {
             data: {
@@ -1631,11 +1621,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           dialogRef.afterClosed().subscribe(function (result) {
             if (result) {
-              _this6._service.deleteDistrictAffiliation(_this6.personData);
+              _this4._service.deleteDistrictAffiliation(_this4.personData);
 
-              _this6._toastr.error('Affiliation Canceled Successfully');
+              _this4._toastr.error('Affiliation Canceled Successfully');
 
-              _this6.close();
+              _this4.close();
             }
           });
         }
@@ -1675,6 +1665,208 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/affiliation-requests/dialogs/district-approval.html")).default,
       styles: ["* {\n    font-family: \"Didact Gothic\", sans-serif;\n  }\n  .mat-dialog-container {\n    margin-top: 100px !important;\n  }\n  "]
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](7, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MAT_DIALOG_DATA"]))], DistrictApprovalDialog);
+
+    var ApprovedDistrictComponent =
+    /*#__PURE__*/
+    function () {
+      function ApprovedDistrictComponent(_service, _spinner, _dialog, _toastr) {
+        _classCallCheck(this, ApprovedDistrictComponent);
+
+        this._service = _service;
+        this._spinner = _spinner;
+        this._dialog = _dialog;
+        this._toastr = _toastr;
+        this.dataSource2 = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
+        this.displayedColumns2 = ['index', 'districtName', 'member', 'approvedOn', 'status', 'actions'];
+        this.approvedDistricts = [];
+        this.showSpinner = false;
+      }
+
+      _createClass(ApprovedDistrictComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.getApprovedDistrictInfo();
+        }
+      }, {
+        key: "getApprovedDistrictInfo",
+        value: function getApprovedDistrictInfo() {
+          var _this5 = this;
+
+          this.show_spinner();
+
+          this._service.getApprovedDistrictInfo().subscribe(function (data) {
+            _this5.approvedDistricts = data.map(function (item, index) {
+              return Object.assign({
+                id: item.payload.doc.id,
+                index: index + 1
+              }, item.payload.doc.data());
+            });
+            _this5.dataSource2 = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this5.approvedDistricts);
+            _this5.dataSource2.sort = _this5.sort2;
+            _this5.dataSource2.paginator = _this5.paginator2;
+
+            _this5.hide_spinner();
+          });
+        }
+      }, {
+        key: "getRegisteredDistrctInfo",
+        value: function getRegisteredDistrctInfo(personData) {
+          this._dialog.open(DistrictApprovalDialog, {
+            data: {
+              distInfo: personData,
+              flag: true
+            },
+            autoFocus: false,
+            width: '99%'
+          });
+        }
+      }, {
+        key: "show_spinner",
+        value: function show_spinner() {
+          this.showSpinner = true;
+
+          this._spinner.show();
+        }
+      }, {
+        key: "hide_spinner",
+        value: function hide_spinner() {
+          this._spinner.hide();
+
+          this.showSpinner = false;
+        }
+      }]);
+
+      return ApprovedDistrictComponent;
+    }();
+
+    ApprovedDistrictComponent.ctorParameters = function () {
+      return [{
+        type: src_app_shared_services_slingshot_service__WEBPACK_IMPORTED_MODULE_5__["SlingshotService"]
+      }, {
+        type: ngx_spinner__WEBPACK_IMPORTED_MODULE_7__["NgxSpinnerService"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
+      }, {
+        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_8__["ToastrService"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"], {
+      static: false
+    })], ApprovedDistrictComponent.prototype, "paginator2", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_sort__WEBPACK_IMPORTED_MODULE_3__["MatSort"], {
+      static: false
+    })], ApprovedDistrictComponent.prototype, "sort2", void 0);
+    ApprovedDistrictComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-approved-districts',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./views/approved-districts.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/affiliation-requests/views/approved-districts.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./affiliation-requests.component.scss */
+      "./src/app/admin/affiliation-requests/affiliation-requests.component.scss")).default]
+    })], ApprovedDistrictComponent);
+
+    var RejectedAffiliationComponent =
+    /*#__PURE__*/
+    function () {
+      function RejectedAffiliationComponent(_service, _spinner, _dialog, _toastr) {
+        _classCallCheck(this, RejectedAffiliationComponent);
+
+        this._service = _service;
+        this._spinner = _spinner;
+        this._dialog = _dialog;
+        this._toastr = _toastr;
+        this.dataSource3 = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
+        this.displayedColumns3 = ['index', 'districtName', 'member', 'approvedOn', 'status'];
+        this.oldAffiliations = [];
+        this.showSpinner = false;
+      }
+
+      _createClass(RejectedAffiliationComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.getOldAffiliations();
+        }
+      }, {
+        key: "getOldAffiliations",
+        value: function getOldAffiliations() {
+          var _this6 = this;
+
+          this.show_spinner();
+
+          this._service.getOldAffiliations().subscribe(function (data) {
+            _this6.oldAffiliations = data.map(function (item, index) {
+              return Object.assign({
+                id: item.payload.doc.id,
+                index: index + 1
+              }, item.payload.doc.data());
+            });
+            _this6.dataSource3 = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this6.oldAffiliations);
+            _this6.dataSource3.sort = _this6.sort3;
+            _this6.dataSource3.paginator = _this6.paginator3;
+
+            _this6.hide_spinner();
+          });
+        }
+      }, {
+        key: "getRegisteredDistrctInfo",
+        value: function getRegisteredDistrctInfo(personData) {
+          this._dialog.open(DistrictApprovalDialog, {
+            data: {
+              distInfo: personData,
+              flag: true
+            },
+            autoFocus: false,
+            width: '99%'
+          });
+        }
+      }, {
+        key: "show_spinner",
+        value: function show_spinner() {
+          this.showSpinner = true;
+
+          this._spinner.show();
+        }
+      }, {
+        key: "hide_spinner",
+        value: function hide_spinner() {
+          this._spinner.hide();
+
+          this.showSpinner = false;
+        }
+      }]);
+
+      return RejectedAffiliationComponent;
+    }();
+
+    RejectedAffiliationComponent.ctorParameters = function () {
+      return [{
+        type: src_app_shared_services_slingshot_service__WEBPACK_IMPORTED_MODULE_5__["SlingshotService"]
+      }, {
+        type: ngx_spinner__WEBPACK_IMPORTED_MODULE_7__["NgxSpinnerService"]
+      }, {
+        type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
+      }, {
+        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_8__["ToastrService"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"], {
+      static: false
+    })], RejectedAffiliationComponent.prototype, "paginator3", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_sort__WEBPACK_IMPORTED_MODULE_3__["MatSort"], {
+      static: false
+    })], RejectedAffiliationComponent.prototype, "sort3", void 0);
+    RejectedAffiliationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-rejected-affiliation',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./views/rejected-affiliation.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/admin/affiliation-requests/views/rejected-affiliation.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./affiliation-requests.component.scss */
+      "./src/app/admin/affiliation-requests/affiliation-requests.component.scss")).default]
+    })], RejectedAffiliationComponent);
     /***/
   },
 
@@ -1804,9 +1996,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this._spinner.show();
 
           this._service.getEnquiries().subscribe(function (data) {
-            _this7.enquiries = data.map(function (item) {
+            _this7.enquiries = data.map(function (item, index) {
               return Object.assign({
-                id: item.payload.doc.id
+                id: item.payload.doc.id,
+                index: index + 1
               }, item.payload.doc.data());
             });
             _this7.dataSource.data = _this7.enquiries;
@@ -2023,9 +2216,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this._spinner.show();
 
           this._service.getAllEvents().subscribe(function (data) {
-            _this9.eventData = data.map(function (item) {
+            _this9.eventData = data.map(function (item, index) {
               return Object.assign({
-                id: item.payload.doc.id
+                id: item.payload.doc.id,
+                index: index + 1
               }, item.payload.doc.data());
             });
             _this9.dataSource.data = _this9.validateDelete(_this9.eventData);
@@ -2396,9 +2590,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this11 = this;
 
           this._service.getAllMatchResults().subscribe(function (data) {
-            _this11.results = data.map(function (item) {
+            _this11.results = data.map(function (item, index) {
               return Object.assign({
-                id: item.payload.doc.id
+                id: item.payload.doc.id,
+                index: index + 1
               }, item.payload.doc.data());
             });
             _this11.dataSource.data = _this11.results;
@@ -2796,9 +2991,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this._showSpinner();
 
           this._service.getAllRefrees().subscribe(function (data) {
-            _this16.refreeData = data.map(function (item) {
+            _this16.refreeData = data.map(function (item, index) {
               return Object.assign({
                 id: item.payload.doc.id,
+                index: index + 1,
                 name: item.payload.doc.data().firstName + ' ' + item.payload.doc.data().middleName + ' ' + item.payload.doc.data().lastName
               }, item.payload.doc.data());
             });
@@ -3766,7 +3962,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*! ./support/support.component */
     "./src/app/support/support.component.ts");
 
-    var APP_DIALOGS = [_admin_affiliation_requests_affiliation_requests_component__WEBPACK_IMPORTED_MODULE_25__["DistrictApprovalDialog"], _shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_38__["ConfirmDialogComponent"], _admin_events_events_component__WEBPACK_IMPORTED_MODULE_26__["CreateEventDialog"], _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_39__["AddRefreeDialog"], _admin_match_event_results_match_event_results_component__WEBPACK_IMPORTED_MODULE_28__["MatchResultsDialog"]];
+    var APP_DIALOGS = [//dialogs
+    _admin_affiliation_requests_affiliation_requests_component__WEBPACK_IMPORTED_MODULE_25__["DistrictApprovalDialog"], _shared_dialogs_confirm_dialog_confirm_dialog_component__WEBPACK_IMPORTED_MODULE_38__["ConfirmDialogComponent"], _admin_events_events_component__WEBPACK_IMPORTED_MODULE_26__["CreateEventDialog"], _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_39__["AddRefreeDialog"], _admin_match_event_results_match_event_results_component__WEBPACK_IMPORTED_MODULE_28__["MatchResultsDialog"], //child components
+    _admin_affiliation_requests_affiliation_requests_component__WEBPACK_IMPORTED_MODULE_25__["ApprovedDistrictComponent"], _admin_affiliation_requests_affiliation_requests_component__WEBPACK_IMPORTED_MODULE_25__["RejectedAffiliationComponent"]];
     var MATERIAL_MODULES = [_angular_material_tooltip__WEBPACK_IMPORTED_MODULE_14__["MatTooltipModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_19__["MatInputModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_22__["MatCheckboxModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_23__["MatDialogModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_31__["MatTableModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_32__["MatPaginatorModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_33__["MatSortModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_34__["MatIconModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_36__["MatButtonModule"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_37__["MatDatepickerModule"]];
 
     var AppModule = function AppModule() {
@@ -4050,7 +4248,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }],
             approvedOn: '',
             approvedBy: '',
-            modifiedOn: this.utility.convertDateToEPOC(new Date()),
+            createdDate: this.utility.convertDateToEPOC(new Date()),
             modifiedBy: '',
             status: 'Pending'
           };
