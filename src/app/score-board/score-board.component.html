@@ -19,9 +19,10 @@
                 <div class="col-sm-4 text-center justify-content-end event-sec">
                     <h5 class="font-weight-bold">event</h5>
                     <div>"{{item.eventInfo.eventTitle}}"</div>
-                    <div>{{item.eventInfo.eventDate}}</div>
+                    <div><i class="fa fa-calendar" aria-hidden="true"></i> {{item.eventInfo.eventDate | date: 'dd'}}-{{item.eventInfo.eventDate | date: 'MMM'}}-{{item.eventInfo.eventDate | date: 'yyyy'}}</div>
                     <div class="row text-center justify-content-center">
-                        <p class="text-capitalize"><i class="fa fa-map-marker"></i> 
+                        <p class="text-capitalize">
+                            <i class="fa fa-map-marker"></i> 
                             {{item.eventInfo.eventAddress}}
                         </p>
                     </div>
