@@ -10,7 +10,6 @@ body {
     background-color: #f8f9fa;
 }
 
-
 /* -------------------------- global colors ----------------------------- */
 
 $th-color: #ff8b23;
@@ -23,14 +22,13 @@ $th-color-dark: #ff3600;
     background: #f1f1f1;
 }
 
- ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #888;
 }
 
- ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: #ff8b23;
 }
-
 
 /* Theme-Colors */
 
@@ -43,18 +41,22 @@ $th-color-dark: #ff3600;
     color: #fff;
 }
 
+.red-snackbar {
+    background-color: rgb(153, 50, 50);
+    color: lightgoldenrodyellow;
+}
 
 /* Logo-Text */
 
 .main-title {
-    font-family: 'Righteous', cursive;
+    font-family: "Righteous", cursive;
     font-size: 30px;
     letter-spacing: 2px;
     color: rgba(255, 54, 0, 1);
 }
 
 .sub-title {
-    font-family: 'Didact Gothic', sans-serif;
+    font-family: "Didact Gothic", sans-serif;
     letter-spacing: 2px;
     font-size: 11px;
     text-transform: uppercase;

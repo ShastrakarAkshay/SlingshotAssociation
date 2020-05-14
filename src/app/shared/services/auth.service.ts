@@ -8,6 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ConfirmDialogComponent } from '../dialogs/confirm-dialog/confirm-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,8 @@ export class AuthService {
     private ngZone: NgZone,
     private firestore: AngularFirestore,
     private dialog: MatDialog,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private snackbar: MatSnackBar
   ) { }
 
   signUp(data): any {
@@ -64,5 +66,26 @@ export class AuthService {
       localStorage.removeItem('user-id');
     }
     return user;
+  }
+
+  resetPassword(email: any) {
+    this.afAuth.auth.sendPasswordResetEmail(email).then(
+      () => {
+        this.snackbar.open('Password reset link set to your email !!', '', {
+          duration: 3000,
+          panelClass: ['red-snackbar'],
+          verticalPosition: 'top'
+        });
+      },
+      err => {
+        if (err.code === 'auth/user-not-found') {
+          this.snackbar.open('Invalid user', '', {
+            duration: 3000,
+            panelClass: ['red-snackbar'],
+            verticalPosition: 'top'
+          });
+        }
+      }
+    );
   }
 }

@@ -9,16 +9,17 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('loginPage',{static:false}) loginPage: ElementRef;
-  @ViewChild('forgetPassPage',{static:false}) forgetPassPage: ElementRef;
+  @ViewChild('loginPage', { static: false }) loginPage: ElementRef;
+  @ViewChild('forgetPassPage', { static: false }) forgetPassPage: ElementRef;
 
   private loginForm: FormGroup;
+  private resetForm: FormGroup;
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private formBuilder: FormBuilder,
-    private auth: AuthService   
-    ) {}
+    private auth: AuthService
+  ) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -26,20 +27,27 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
-  }
-  
-  forgotPassword() {
-    this.loginPage.nativeElement.hidden =  !this.loginPage.nativeElement.hidden;
-    this.forgetPassPage.nativeElement.hidden =  !this.forgetPassPage.nativeElement.hidden;
+    this.resetForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]]
+    });
   }
 
-  login(){
-    if(this.loginForm.invalid) {
+  forgotPassword() {
+    this.loginPage.nativeElement.hidden = !this.loginPage.nativeElement.hidden;
+    this.forgetPassPage.nativeElement.hidden = !this.forgetPassPage.nativeElement.hidden;
+  }
+
+  login() {
+    if (this.loginForm.invalid) {
       return;
     }
-
     const formData = this.loginForm.value;
     this.auth.signIn(formData.email, formData.password);
+  }
+
+  reserPassword() {
+    const email = this.resetForm.controls['email'].value;
+    this.auth.resetPassword(email);
   }
 
 }

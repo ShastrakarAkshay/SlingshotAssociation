@@ -43,6 +43,7 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
 import { CommitteeComponent } from './committee/committee.component';
 import { ScoreBoardComponent } from './score-board/score-board.component';
 import { SupportComponent } from './support/support.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const APP_DIALOGS = [
   //dialogs
@@ -66,7 +67,8 @@ const MATERIAL_MODULES = [
   MatSortModule,
   MatIconModule,
   MatButtonModule,
-  MatDatepickerModule
+  MatDatepickerModule,
+  MatSnackBarModule
 ];
 @NgModule({
   declarations: [
