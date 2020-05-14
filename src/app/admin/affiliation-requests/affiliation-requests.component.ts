@@ -114,6 +114,7 @@ export class DistrictApprovalDialog implements OnInit {
   private personData: any;
   public flag: boolean = false;
   public title: string = '';
+  public isReadOnly: boolean = false;
   constructor(
     public _dialogRef: MatDialogRef<DistrictApprovalDialog>,
     private _service: SlingshotService,
@@ -127,6 +128,7 @@ export class DistrictApprovalDialog implements OnInit {
     _dialogRef.disableClose = true;
     this.personData = data.distInfo;
     this.flag = data.flag;
+    this.isReadOnly = data.readOnly;
     if (this.flag) {
       this.title = this.personData.requestedDistrict.name;
     } else {
@@ -248,7 +250,7 @@ export class RejectedAffiliationComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator3: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort3: MatSort;
   dataSource3 = new MatTableDataSource();
-  displayedColumns3: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status'];
+  displayedColumns3: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'action'];
 
   private oldAffiliations: any[] = [];
   private showSpinner: boolean = false;
@@ -278,7 +280,7 @@ export class RejectedAffiliationComponent implements OnInit {
 
   getRegisteredDistrctInfo(personData: any) {
     this._dialog.open(DistrictApprovalDialog, {
-      data: { distInfo: personData, flag: true },
+      data: { distInfo: personData, flag: true, readOnly: true },
       autoFocus: false,
       width: '99%'
     });

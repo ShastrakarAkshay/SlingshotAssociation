@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +17,15 @@ export class LoginComponent implements OnInit {
 
   private loginForm: FormGroup;
   private resetForm: FormGroup;
+  private showSpinner: boolean = false;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private auth: AuthService
+    private auth: AuthService,
+    private afAuth: AngularFireAuth,
+    private toastr: ToastrService,
+    private _spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -28,7 +35,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
     this.resetForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]]
+      emailaddress: ['', [Validators.required, Validators.email]]
     });
   }
 
@@ -42,12 +49,36 @@ export class LoginComponent implements OnInit {
       return;
     }
     const formData = this.loginForm.value;
-    this.auth.signIn(formData.email, formData.password);
+    this.show_spinner();
+    this.afAuth.auth.signInWithEmailAndPassword(formData.email, formData.password)
+      .then((result) => {
+        this.router.navigate(['/admin']);
+        localStorage.setItem('login-token', result.user.uid);
+        localStorage.setItem('user-id', result.user.uid);
+        this.auth.isLoggedIn();
+        this.hide_spinner();
+      }).catch((error) => {
+        switch (error.code) {
+          case 'auth/user-not-found': this.toastr.error('User Not Found'); break;
+          case 'auth/wrong-password': this.toastr.error('Wrong Password'); break;
+        }
+        this.hide_spinner();
+      })
   }
 
   reserPassword() {
-    const email = this.resetForm.controls['email'].value;
+    const email = this.resetForm.controls['emailaddress'].value;
     this.auth.resetPassword(email);
+  }
+
+  show_spinner() {
+    this.showSpinner = true;
+    this._spinner.show();
+  }
+
+  hide_spinner() {
+    this._spinner.hide();
+    this.showSpinner = false;
   }
 
 }
