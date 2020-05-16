@@ -23,3 +23,20 @@
     font-size: 1.2rem !important;
   }
 }
+
+#dialog {
+  font-family: "Didact Gothic", sans-serif;
+  .img-area {
+    width: 150px;
+    margin: auto;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+  .mat-dialog-container {
+    margin-top: 100px !important;
+  }
+}

@@ -40,7 +40,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { RefreePanelComponent, AddRefreeDialog } from './admin/refree-panel/refree-panel.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
-import { CommitteeComponent } from './committee/committee.component';
+import { CommitteeComponent, RefereeDialog } from './committee/committee.component';
 import { ScoreBoardComponent } from './score-board/score-board.component';
 import { SupportComponent } from './support/support.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -52,6 +52,7 @@ const APP_DIALOGS = [
   CreateEventDialog,
   AddRefreeDialog,
   MatchResultsDialog,
+  RefereeDialog,
   //child components
   ApprovedDistrictComponent,
   RejectedAffiliationComponent

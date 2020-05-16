@@ -50,14 +50,18 @@
             <table class="table table-bordered mt-3 referee-table">
                 <tr *ngFor="let referee of referees; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%" class="referee-name text-capitalize pointer">
+                    <td width="50%" class="referee-name text-capitalize pointer" (click)="getRefereeInfo(referee)">
                         <i class="fa fa-user-circle"></i>
                         {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}
                     </td>
                     <td width="25%" class="text-center">{{referee.mobile}}</td>
-                    <td width="15%" class="text-center text-info pointer">view</td>
+                    <td width="15%" class="text-center text-info pointer" (click)="getRefereeInfo(referee)">view</td>
                 </tr>
             </table>
         </div>
     </div>
 </section>
+
+<div *ngIf="showSpinner">
+    <app-spinner></app-spinner>
+</div>
