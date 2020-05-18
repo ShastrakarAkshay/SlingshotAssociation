@@ -74,7 +74,7 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  deleteRequest(id: any) {
+  deleteRequest(id: any, data: any) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to delete?', type: 'confirm' },
       autoFocus: false
@@ -82,7 +82,7 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this._service.deleteRequestById(id);
+        this._service.deleteRequestById(id, data.members[0].documents);
         this._toastr.info("Request Deleted Successfully.");
       }
     });
@@ -180,6 +180,12 @@ export class DistrictApprovalDialog implements OnInit {
         this.close();
       }
     });
+  }
+
+  preview(url) {
+    if(url){
+      window.open(url)
+    }
   }
 }
 

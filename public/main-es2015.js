@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h3 class=\"text-center bg-dark text-white p-3 text-capitalize\">{{title}}</h3>\r\n<mat-dialog-content>\r\n    <table class=\"table table-bordered mt-3\" width=\"100%\">\r\n        <tbody>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Name</strong></td>\r\n                <td width=\"70%\" class=\"text-capitalize\">{{personData.members[0].firstName}} {{personData.members[0].middleName}} {{personData.members[0].lastName}}</td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Address</strong></td>\r\n                <td width=\"70%\" class=\"text-capitalize\">{{personData.members[0].addressLine1}}, {{personData.members[0].addressLine2}}, {{personData.members[0].city}}, {{personData.members[0].district}}, Pin Code - {{personData.members[0].pin}}.</td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Email</strong></td>\r\n                <td width=\"70%\">{{personData.members[0].email}}</td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Mobile</strong></td>\r\n                <td width=\"70%\">{{personData.members[0].mobile}}</td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Date of Birth</strong></td>\r\n                <td width=\"70%\">\r\n                    {{personData.members[0].dateOfBirth | date: 'dd'}}-{{personData.members[0].dateOfBirth | date: 'MMM'}}-{{personData.members[0].dateOfBirth | date: 'yyy'}}\r\n                </td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>PAN No.</strong></td>\r\n                <td width=\"70%\" class=\"text-uppercase\">{{personData.members[0].panNo}}</td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Aadhaar No.</strong></td>\r\n                <td width=\"70%\">{{personData.members[0].aadhaarNo}}</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</mat-dialog-content>\r\n\r\n<div mat-dialog-actions class=\"pb-4 row justify-content-center\">\r\n    <div *ngIf=\"!isReadOnly\">\r\n        <button mat-button class=\"btn sling-btn\" (click)=\"approveDistrict(personData)\" *ngIf=\"!flag\">Approve</button>\r\n        <button mat-button class=\"btn btn-danger\" (click)=\"deleteAffiliation(personData)\" *ngIf=\"flag\">Delete Affiliatioin</button>\r\n    </div>\r\n    <button mat-button class=\"btn sling-btn ml-2\" (click)=\"close()\">Close</button>\r\n</div>\r\n\r\n<div *ngIf=\"showSpinner\">\r\n    <ngx-spinner bdOpacity=\"0.3\" bdColor=\"#00000030\" size=\"default\" color=\"#581f87\" type=\"ball-pulse-sync\" [fullScreen]=\"true\">\r\n    </ngx-spinner>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<h3 class=\"text-center bg-dark text-white p-3 text-capitalize\">{{title}}</h3>\r\n<mat-dialog-content>\r\n    <table class=\"table table-bordered mt-3\" width=\"100%\">\r\n        <tbody>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Name</strong></td>\r\n                <td width=\"70%\" class=\"text-capitalize\">{{personData.members[0].firstName}} {{personData.members[0].middleName}} {{personData.members[0].lastName}}</td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Address</strong></td>\r\n                <td width=\"70%\" class=\"text-capitalize\">{{personData.members[0].addressLine1}}, {{personData.members[0].addressLine2}}, {{personData.members[0].city}}, {{personData.members[0].district}}, Pin Code - {{personData.members[0].pin}}.</td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Email</strong></td>\r\n                <td width=\"70%\">{{personData.members[0].email}}</td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Mobile</strong></td>\r\n                <td width=\"70%\">{{personData.members[0].mobile}}</td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Date of Birth</strong></td>\r\n                <td width=\"70%\">\r\n                    {{personData.members[0].dateOfBirth | date: 'dd'}}-{{personData.members[0].dateOfBirth | date: 'MMM'}}-{{personData.members[0].dateOfBirth | date: 'yyy'}}\r\n                </td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>PAN No.</strong></td>\r\n                <td width=\"70%\" class=\"text-uppercase\">{{personData.members[0].panNo}}</td>\r\n            </tr>\r\n            <tr>\r\n                <td width=\"30%\" class=\"\"><strong>Aadhaar No.</strong></td>\r\n                <td width=\"70%\">{{personData.members[0].aadhaarNo}}</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</mat-dialog-content>\r\n\r\n<div mat-dialog-actions class=\"pb-4 row justify-content-center\">\r\n    <div *ngIf=\"!isReadOnly\">\r\n        <button mat-button class=\"btn sling-btn\" (click)=\"approveDistrict(personData)\" *ngIf=\"!flag\">Approve</button>\r\n        <button mat-button class=\"btn btn-danger\" (click)=\"deleteAffiliation(personData)\" *ngIf=\"flag\">Delete Affiliatioin</button>\r\n    </div>\r\n    <button mat-button class=\"btn sling-btn ml-2\" (click)=\"close()\">Close</button>\r\n</div>\r\n\r\n<div *ngIf=\"showSpinner\">\r\n   <app-spinner></app-spinner>\r\n</div>");
 
 /***/ }),
 
@@ -227,7 +227,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"committee\">\n    <div class=\"jumbotron text-center\">\n        <h2 class=\"page-title\">Slingshot Sports Association Members of Maharashtra</h2>\n    </div>\n    <div class=\"container mb-5\">\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Affiliation Members</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.AFFILIATION_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"text-capitalize\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Tournament Technical\n                commmitee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.TOURNAMENT_TECHNICAL_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"text-capitalize\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Tournament Organizer\n                committee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.TOURNAMENT_ORGANIZER_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"text-capitalize\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Selection Committee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.SELECTION_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"text-capitalize\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Official Referee</h5>\n            <table class=\"table table-bordered mt-3 referee-table\">\n                <tr *ngFor=\"let referee of referees; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"referee-name text-capitalize pointer\">\n                        <i class=\"fa fa-user-circle\"></i>\n                        {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}\n                    </td>\n                    <td width=\"25%\" class=\"text-center\">{{referee.mobile}}</td>\n                    <td width=\"15%\" class=\"text-center text-info pointer\">view</td>\n                </tr>\n            </table>\n        </div>\n    </div>\n</section>");
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"committee\">\n    <div class=\"jumbotron text-center\">\n        <h2 class=\"page-title\">Slingshot Sports Association Members of Maharashtra</h2>\n    </div>\n    <div class=\"container mb-5\">\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Affiliation Members</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.AFFILIATION_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"text-capitalize\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Tournament Technical\n                commmitee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.TOURNAMENT_TECHNICAL_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"text-capitalize\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Tournament Organizer\n                committee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.TOURNAMENT_ORGANIZER_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"text-capitalize\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Selection Committee</h5>\n            <table class=\"table table-bordered mt-3\">\n                <tr *ngFor=\"let member of committee.SELECTION_COMMITTEE; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"text-capitalize\">{{member.name}}</td>\n                    <td width=\"40%\" class=\"text-center\">{{member.mobile}}</td>\n                </tr>\n            </table>\n        </div>\n        <div class=\"mt-5\">\n            <h5 class=\"font-weight-bold\"><i class=\"fa fa-gg-circle mr-2\" aria-hidden=\"true\"></i>Official Referee</h5>\n            <table class=\"table table-bordered mt-3 referee-table\">\n                <tr *ngFor=\"let referee of referees; let i = index;\" class=\"bg-white\">\n                    <td width=\"10%\">{{ i+1 }}</td>\n                    <td width=\"50%\" class=\"referee-name text-capitalize pointer\" (click)=\"getRefereeInfo(referee)\">\n                        <i class=\"fa fa-user-circle\"></i>\n                        {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}\n                    </td>\n                    <td width=\"25%\" class=\"text-center\">{{referee.mobile}}</td>\n                    <td width=\"15%\" class=\"text-center text-info pointer\" (click)=\"getRefereeInfo(referee)\">view</td>\n                </tr>\n            </table>\n        </div>\n    </div>\n</section>\n\n<div *ngIf=\"showSpinner\">\n    <app-spinner></app-spinner>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/committee/dialogs/committee-member.html":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/committee/dialogs/committee-member.html ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"dialog\">\r\n    <h3 class=\"text-center bg-dark text-white p-3 text-capitalize\">Referee Info</h3>\r\n    <mat-dialog-content>\r\n        <div class=\"row justify-content-center\">\r\n            <div class=\"col-sm-12\">\r\n                <div class=\"card card-cascade\">\r\n                    <div class=\"view view-cascade overlay\">\r\n                        <div class=\"img-area mt-5\">\r\n                            <img src=\"./assets/images/user-pic-default.png\" alt=\"\">\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"card-body card-body-cascade text-center\">\r\n                        <h4 class=\"mt-3 member-name text-capitalize\"><strong>{{referee.firstName}}\r\n                                {{referee.middleName}} {{referee.lastName}}</strong></h4>\r\n                        <span class=\"text-info font-weight-bold\">({{referee.mobile}})</span>\r\n                        <br>\r\n                        <span>{{referee.email}}</span>\r\n                        <div class=\"info mt-3 ml-3 mr-3\">\r\n                            <p class=\"text-capitalize\">\r\n                                <i class=\"fa fa-map-marker mr-2\"></i>\r\n                                <span class=\"font-weight-bold\">Address :</span>\r\n                                {{referee.address}}, {{referee.city}}, {{referee.district}}, Pin Code - {{referee.pin}}\r\n                            </p>\r\n                            <p>\r\n                                <span class=\"font-weight-bold\">Date Of Birth :</span>\r\n                                {{referee.dateOfBirth | date: 'dd'}} \r\n                                {{referee.dateOfBirth | date: 'MMM'}}\r\n                                {{referee.dateOfBirth | date: 'yyyy'}}\r\n                            </p>\r\n                            <p>\r\n                                <span class=\"font-weight-bold\">Aadhaar No :</span> \r\n                                {{referee.aadhaarNo}}\r\n                            </p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </mat-dialog-content>\r\n    <div mat-dialog-actions class=\"pb-4 row justify-content-center\">\r\n        <button mat-button class=\"btn sling-btn ml-2\" (click)=\"close()\">Close</button>\r\n    </div>\r\n</section>");
 
 /***/ }),
 
@@ -2170,6 +2183,7 @@ const APP_DIALOGS = [
     _admin_events_events_component__WEBPACK_IMPORTED_MODULE_26__["CreateEventDialog"],
     _admin_refree_panel_refree_panel_component__WEBPACK_IMPORTED_MODULE_39__["AddRefreeDialog"],
     _admin_match_event_results_match_event_results_component__WEBPACK_IMPORTED_MODULE_28__["MatchResultsDialog"],
+    _committee_committee_component__WEBPACK_IMPORTED_MODULE_41__["RefereeDialog"],
     //child components
     _admin_affiliation_requests_affiliation_requests_component__WEBPACK_IMPORTED_MODULE_25__["ApprovedDistrictComponent"],
     _admin_affiliation_requests_affiliation_requests_component__WEBPACK_IMPORTED_MODULE_25__["RejectedAffiliationComponent"]
@@ -2455,7 +2469,7 @@ AssociationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#committee {\n  font-family: \"Didact Gothic\", sans-serif;\n  margin-top: 80px;\n}\n#committee .jumbotron {\n  background-color: #212325 !important;\n  color: #fff;\n  border-radius: 0em;\n}\n#committee .referee-table > tr:hover .referee-name {\n  color: #17a2b8;\n}\n#committee .pointer {\n  cursor: pointer;\n}\n@media only screen and (max-width: 768px) {\n  .page-title {\n    font-size: 1.2rem !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tbWl0dGVlL0M6XFxXb3Jrc3BhY2VcXE90aGVyXFxTbGluZ3Nob3RBc3NvY2lhdGlvbi9zcmNcXGFwcFxcY29tbWl0dGVlXFxjb21taXR0ZWUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbW1pdHRlZS9jb21taXR0ZWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx3Q0FBQTtFQUNBLGdCQUFBO0FDQ0Y7QURBRTtFQUNFLG9DQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0FDRUo7QURDSTtFQUNFLGNBQUE7QUNDTjtBREdFO0VBQ0UsZUFBQTtBQ0RKO0FES0E7RUFFRTtJQUNFLDRCQUFBO0VDSEY7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2NvbW1pdHRlZS9jb21taXR0ZWUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjY29tbWl0dGVlIHtcclxuICBmb250LWZhbWlseTogXCJEaWRhY3QgR290aGljXCIsIHNhbnMtc2VyaWY7XHJcbiAgbWFyZ2luLXRvcDogODBweDtcclxuICAuanVtYm90cm9uIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICMyMTIzMjUgIWltcG9ydGFudDtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMGVtO1xyXG4gIH1cclxuICAucmVmZXJlZS10YWJsZSA+IHRyOmhvdmVyIHtcclxuICAgIC5yZWZlcmVlLW5hbWUge1xyXG4gICAgICBjb2xvcjogIzE3YTJiODtcclxuICAgIH1cclxuICB9XHJcblxyXG4gIC5wb2ludGVyIHtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpIHtcclxuICAvL21vYmlsZSBkZXZpY2VcclxuICAucGFnZS10aXRsZSB7XHJcbiAgICBmb250LXNpemU6IDEuMnJlbSAhaW1wb3J0YW50O1xyXG4gIH1cclxufVxyXG4iLCIjY29tbWl0dGVlIHtcbiAgZm9udC1mYW1pbHk6IFwiRGlkYWN0IEdvdGhpY1wiLCBzYW5zLXNlcmlmO1xuICBtYXJnaW4tdG9wOiA4MHB4O1xufVxuI2NvbW1pdHRlZSAuanVtYm90cm9uIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzIxMjMyNSAhaW1wb3J0YW50O1xuICBjb2xvcjogI2ZmZjtcbiAgYm9yZGVyLXJhZGl1czogMGVtO1xufVxuI2NvbW1pdHRlZSAucmVmZXJlZS10YWJsZSA+IHRyOmhvdmVyIC5yZWZlcmVlLW5hbWUge1xuICBjb2xvcjogIzE3YTJiODtcbn1cbiNjb21taXR0ZWUgLnBvaW50ZXIge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpIHtcbiAgLnBhZ2UtdGl0bGUge1xuICAgIGZvbnQtc2l6ZTogMS4ycmVtICFpbXBvcnRhbnQ7XG4gIH1cbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("#committee {\n  font-family: \"Didact Gothic\", sans-serif;\n  margin-top: 80px;\n}\n#committee .jumbotron {\n  background-color: #212325 !important;\n  color: #fff;\n  border-radius: 0em;\n}\n#committee .referee-table > tr:hover .referee-name {\n  color: #17a2b8;\n}\n#committee .pointer {\n  cursor: pointer;\n}\n@media only screen and (max-width: 768px) {\n  .page-title {\n    font-size: 1.2rem !important;\n  }\n}\n#dialog {\n  font-family: \"Didact Gothic\", sans-serif;\n}\n#dialog .img-area {\n  width: 150px;\n  margin: auto;\n  border: 2px solid #fff;\n  border-radius: 50%;\n  overflow: hidden;\n}\n#dialog .img-area img {\n  width: 100%;\n}\n#dialog .mat-dialog-container {\n  margin-top: 100px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tbWl0dGVlL0M6XFxXb3Jrc3BhY2VcXE90aGVyXFxTbGluZ3Nob3RBc3NvY2lhdGlvbi9zcmNcXGFwcFxcY29tbWl0dGVlXFxjb21taXR0ZWUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NvbW1pdHRlZS9jb21taXR0ZWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSx3Q0FBQTtFQUNBLGdCQUFBO0FDQ0Y7QURBRTtFQUNFLG9DQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0FDRUo7QURDSTtFQUNFLGNBQUE7QUNDTjtBREdFO0VBQ0UsZUFBQTtBQ0RKO0FES0E7RUFFRTtJQUNFLDRCQUFBO0VDSEY7QUFDRjtBRE1BO0VBQ0Usd0NBQUE7QUNKRjtBREtFO0VBQ0UsWUFBQTtFQUNBLFlBQUE7RUFDQSxzQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7QUNISjtBRElJO0VBQ0UsV0FBQTtBQ0ZOO0FES0U7RUFDRSw0QkFBQTtBQ0hKIiwiZmlsZSI6InNyYy9hcHAvY29tbWl0dGVlL2NvbW1pdHRlZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjb21taXR0ZWUge1xyXG4gIGZvbnQtZmFtaWx5OiBcIkRpZGFjdCBHb3RoaWNcIiwgc2Fucy1zZXJpZjtcclxuICBtYXJnaW4tdG9wOiA4MHB4O1xyXG4gIC5qdW1ib3Ryb24ge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzIxMjMyNSAhaW1wb3J0YW50O1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbiAgICBib3JkZXItcmFkaXVzOiAwZW07XHJcbiAgfVxyXG4gIC5yZWZlcmVlLXRhYmxlID4gdHI6aG92ZXIge1xyXG4gICAgLnJlZmVyZWUtbmFtZSB7XHJcbiAgICAgIGNvbG9yOiAjMTdhMmI4O1xyXG4gICAgfVxyXG4gIH1cclxuXHJcbiAgLnBvaW50ZXIge1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjhweCkge1xyXG4gIC8vbW9iaWxlIGRldmljZVxyXG4gIC5wYWdlLXRpdGxlIHtcclxuICAgIGZvbnQtc2l6ZTogMS4ycmVtICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG59XHJcblxyXG4jZGlhbG9nIHtcclxuICBmb250LWZhbWlseTogXCJEaWRhY3QgR290aGljXCIsIHNhbnMtc2VyaWY7XHJcbiAgLmltZy1hcmVhIHtcclxuICAgIHdpZHRoOiAxNTBweDtcclxuICAgIG1hcmdpbjogYXV0bztcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkICNmZmY7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gICAgaW1nIHtcclxuICAgICAgd2lkdGg6IDEwMCU7XHJcbiAgICB9XHJcbiAgfVxyXG4gIC5tYXQtZGlhbG9nLWNvbnRhaW5lciB7XHJcbiAgICBtYXJnaW4tdG9wOiAxMDBweCAhaW1wb3J0YW50O1xyXG4gIH1cclxufVxyXG4iLCIjY29tbWl0dGVlIHtcbiAgZm9udC1mYW1pbHk6IFwiRGlkYWN0IEdvdGhpY1wiLCBzYW5zLXNlcmlmO1xuICBtYXJnaW4tdG9wOiA4MHB4O1xufVxuI2NvbW1pdHRlZSAuanVtYm90cm9uIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzIxMjMyNSAhaW1wb3J0YW50O1xuICBjb2xvcjogI2ZmZjtcbiAgYm9yZGVyLXJhZGl1czogMGVtO1xufVxuI2NvbW1pdHRlZSAucmVmZXJlZS10YWJsZSA+IHRyOmhvdmVyIC5yZWZlcmVlLW5hbWUge1xuICBjb2xvcjogIzE3YTJiODtcbn1cbiNjb21taXR0ZWUgLnBvaW50ZXIge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzY4cHgpIHtcbiAgLnBhZ2UtdGl0bGUge1xuICAgIGZvbnQtc2l6ZTogMS4ycmVtICFpbXBvcnRhbnQ7XG4gIH1cbn1cbiNkaWFsb2cge1xuICBmb250LWZhbWlseTogXCJEaWRhY3QgR290aGljXCIsIHNhbnMtc2VyaWY7XG59XG4jZGlhbG9nIC5pbWctYXJlYSB7XG4gIHdpZHRoOiAxNTBweDtcbiAgbWFyZ2luOiBhdXRvO1xuICBib3JkZXI6IDJweCBzb2xpZCAjZmZmO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG4jZGlhbG9nIC5pbWctYXJlYSBpbWcge1xuICB3aWR0aDogMTAwJTtcbn1cbiNkaWFsb2cgLm1hdC1kaWFsb2ctY29udGFpbmVyIHtcbiAgbWFyZ2luLXRvcDogMTAwcHggIWltcG9ydGFudDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -2463,43 +2477,68 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************!*\
   !*** ./src/app/committee/committee.component.ts ***!
   \**************************************************/
-/*! exports provided: CommitteeComponent */
+/*! exports provided: CommitteeComponent, RefereeDialog */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommitteeComponent", function() { return CommitteeComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RefereeDialog", function() { return RefereeDialog; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _shared_services_modal_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/services/modal-data.service */ "./src/app/shared/services/modal-data.service.ts");
 /* harmony import */ var _shared_services_slingshot_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/services/slingshot.service */ "./src/app/shared/services/slingshot.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm2015/ngx-spinner.js");
+
+
 
 
 
 
 let CommitteeComponent = class CommitteeComponent {
-    constructor(dataModal, _service) {
+    constructor(dataModal, _service, _dialog, _spinner) {
         this.dataModal = dataModal;
         this._service = _service;
+        this._dialog = _dialog;
+        this._spinner = _spinner;
         this.members = [];
         this.referees = [];
         this.committee = [];
+        this.showSpinner = false;
     }
     ngOnInit() {
         window.scrollTo(0, 0);
+        this.show_spinner();
         this.members = this.dataModal.getAssociationMembers();
         this.committee = this.dataModal.getAllCommitte();
-        console.log(this.committee);
         this._service.getAllRefrees().subscribe(data => {
             this.referees = data.map(item => {
                 return Object.assign({ id: item.payload.doc.id }, item.payload.doc.data());
             });
+            this.hide_spinner();
+        });
+    }
+    show_spinner() {
+        this.showSpinner = true;
+        this._spinner.show();
+    }
+    hide_spinner() {
+        this._spinner.hide();
+        this.showSpinner = false;
+    }
+    getRefereeInfo(referee) {
+        this._dialog.open(RefereeDialog, {
+            autoFocus: false,
+            data: referee
         });
     }
 };
 CommitteeComponent.ctorParameters = () => [
     { type: _shared_services_modal_data_service__WEBPACK_IMPORTED_MODULE_2__["ModalDataService"] },
-    { type: _shared_services_slingshot_service__WEBPACK_IMPORTED_MODULE_3__["SlingshotService"] }
+    { type: _shared_services_slingshot_service__WEBPACK_IMPORTED_MODULE_3__["SlingshotService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
+    { type: ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"] }
 ];
 CommitteeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2508,6 +2547,33 @@ CommitteeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./committee.component.scss */ "./src/app/committee/committee.component.scss")).default]
     })
 ], CommitteeComponent);
+
+let RefereeDialog = class RefereeDialog {
+    constructor(_dialogRef, _spinner, data) {
+        this._dialogRef = _dialogRef;
+        this._spinner = _spinner;
+        this.data = data;
+        // this._dialogRef.disableClose = true;
+        this.referee = data;
+    }
+    ngOnInit() { }
+    close() {
+        this._dialogRef.close();
+    }
+};
+RefereeDialog.ctorParameters = () => [
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogRef"] },
+    { type: ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MAT_DIALOG_DATA"],] }] }
+];
+RefereeDialog = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'commitee-member-dialog',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./dialogs/committee-member.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/committee/dialogs/committee-member.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./committee.component.scss */ "./src/app/committee/committee.component.scss")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MAT_DIALOG_DATA"]))
+], RefereeDialog);
 
 
 

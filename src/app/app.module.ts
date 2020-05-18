@@ -44,6 +44,7 @@ import { CommitteeComponent, RefereeDialog } from './committee/committee.compone
 import { ScoreBoardComponent } from './score-board/score-board.component';
 import { SupportComponent } from './support/support.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 const APP_DIALOGS = [
   //dialogs
@@ -107,6 +108,7 @@ const MATERIAL_MODULES = [
     NgxSpinnerModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
     ...MATERIAL_MODULES
   ],
   entryComponents: APP_DIALOGS,

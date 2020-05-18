@@ -145,40 +145,40 @@ export class ModalDataService {
 
   public COMMITTEE = {
     AFFILIATION_COMMITTEE: [
-      {name:'Mr. Bipin Anil Chaudhari', mobile:''},
-      {name:'Mr. Vikas Vinod Shelke', mobile:''},
-      {name:'Mr. Manikraj Landage', mobile:''},
-      {name:'Mr. Shyam Digambar Khemaskar', mobile:''},
-      {name:'Mr. Sunil Bhagwan Shinde', mobile:''},
-      {name:'Miss. Snehal Yogiraj Khantade', mobile:''}
+      {name:'Mr. Bipin Anil Chaudhari', mobile:'-'},
+      {name:'Mr. Vikas Vinod Shelke', mobile:'-'},
+      {name:'Mr. Manikraj Landage', mobile:'-'},
+      {name:'Mr. Shyam Digambar Khemaskar', mobile:'-'},
+      {name:'Mr. Sunil Bhagwan Shinde', mobile:'-'},
+      {name:'Miss. Snehal Yogiraj Khantade', mobile:'-'}
     ],
     TOURNAMENT_TECHNICAL_COMMITTEE: [
-      {name:'Mr. Manikraj Landage', mobile:''},
-      {name:'Mr. Suraj Prakashrao Kadukar', mobile:''},
-      {name:'Mr. Giriraj Ganesh Gupta', mobile:''},
-      {name:'Mr. Tanshu Sanjiv Jhasi', mobile:''},
-      {name:'Miss. Preksha Balkrushna Shetti', mobile:''},
-      {name:'Miss. Srushti Vinod Gupta', mobile:''},
-      {name:'Mr. Suraj Kanojiya', mobile:''}
+      {name:'Mr. Manikraj Landage', mobile:'-'},
+      {name:'Mr. Suraj Prakashrao Kadukar', mobile:'-'},
+      {name:'Mr. Giriraj Ganesh Gupta', mobile:'-'},
+      {name:'Mr. Tanshu Sanjiv Jhasi', mobile:'-'},
+      {name:'Miss. Preksha Balkrushna Shetti', mobile:'-'},
+      {name:'Miss. Srushti Vinod Gupta', mobile:'-'},
+      {name:'Mr. Suraj Kanojiya', mobile:'-'}
     ],
     TOURNAMENT_ORGANIZER_COMMITTEE: [
-      {name:'Mr. Sunil Bhagwan Shinde', mobile:''},
-      {name:'Mr. Padmakar Kamble', mobile:''},
-      {name:'Mr. Akash Upadhe', mobile:''},
-      {name:'Mr. Mayur Santosh Meshram', mobile:''},
-      {name:'Miss. Sayali Sunil Shinde', mobile:''},
-      {name:'Mr. Sunil Kalabante', mobile:''},
-      {name:'Mr. Rushikesh Uttamrao Bansod', mobile:''}
+      {name:'Mr. Sunil Bhagwan Shinde', mobile:'-'},
+      {name:'Mr. Padmakar Kamble', mobile:'-'},
+      {name:'Mr. Akash Upadhe', mobile:'-'},
+      {name:'Mr. Mayur Santosh Meshram', mobile:'-'},
+      {name:'Miss. Sayali Sunil Shinde', mobile:'-'},
+      {name:'Mr. Sunil Kalabante', mobile:'-'},
+      {name:'Mr. Rushikesh Uttamrao Bansod', mobile:'-'}
     ],
     SELECTION_COMMITTEE: [
-      {name:'Mr. Shyam Digambar Khemaskar', mobile:''},
+      {name:'Mr. Shyam Digambar Khemaskar', mobile:'-'},
       {name:'Mr. Lalit Dhoke', mobile:''},
-      {name:'Miss. Snehal Yogiraj Khantade', mobile:''},
-      {name:'Miss. Samiksha Raju Patil', mobile:''},
-      {name:'Mr. Tushar tanaji Durge', mobile:''},
-      {name:'Mr. Rakesh Dattuji Chapattiwar', mobile:''},
-      {name:'Mr. Ashvin Siddham Shettiwar', mobile:''},
-      {name:'Mr. Saurabh Ramteke', mobile:''},
+      {name:'Miss. Snehal Yogiraj Khantade', mobile:'-'},
+      {name:'Miss. Samiksha Raju Patil', mobile:'-'},
+      {name:'Mr. Tushar tanaji Durge', mobile:'-'},
+      {name:'Mr. Rakesh Dattuji Chapattiwar', mobile:'-'},
+      {name:'Mr. Ashvin Siddham Shettiwar', mobile:'-'},
+      {name:'Mr. Saurabh Ramteke', mobile:'-'},
     ],
     OFFICIAL_REFEREE: [
       {name:'Miss. Akansha Raju Patil', mobile:''},

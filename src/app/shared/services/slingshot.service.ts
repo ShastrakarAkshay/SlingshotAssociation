@@ -3,13 +3,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { of } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SlingshotService {
 
-  constructor(private firestore: AngularFirestore, private _toastr: ToastrService) { }
+  constructor(private firestore: AngularFirestore, private _toastr: ToastrService, private storage: AngularFireStorage) { }
   districtList = [
     { id: 'SLINGSHOTMH0001', name: 'Ahmednagar', isRegistered: false },
     { id: 'SLINGSHOTMH0002', name: 'Akola', isRegistered: false },
@@ -79,8 +80,14 @@ export class SlingshotService {
     return this.firestore.collection("AffiliationRequests").snapshotChanges();
   }
 
-  deleteRequestById(id: any): any {
+  deleteRequestById(id: any, doc: any): any {
     this.firestore.collection('AffiliationRequests').doc(id).delete();
+    // delete images from storage
+    if(doc){
+      this.storage.storage.ref().child(`Affiliations/${doc.adhaar.id}`).delete();
+      this.storage.storage.ref().child(`Affiliations/${doc.pan.id}`).delete();
+      this.storage.storage.ref().child(`Affiliations/${doc.photo.id}`).delete();
+    }
   }
 
   getUserById(id: string): any {

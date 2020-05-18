@@ -9,6 +9,10 @@ import { AuthService } from '../shared/services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { UtilityService } from '../shared/services/utility.service';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { finalize, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-association',
@@ -28,11 +32,19 @@ export class AssociationComponent implements OnInit {
   private isChecked: boolean = false;
   private selectedDistrict: DistrictConfig;
   private showSpinner: boolean = false;
+  private documents = {};
+
+  aadhharEvent: Event;
+  panEvent: Event;
+  photoEvent: Event;
+  downloadURL: Observable<string>;
 
   constructor(
     private slingshotService: SlingshotService,
     private formBuilder: FormBuilder,
     private auth: AuthService,
+    @Inject(AngularFireStorage) private afStorage: AngularFireStorage,
+    private firebase: AngularFirestore,
     private dialog: MatDialog,
     private router: Router,
     private utility: UtilityService,
@@ -42,8 +54,7 @@ export class AssociationComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0, 0);
-    this._spinner.show();
-    this.showSpinner = true;
+    this.show_spinner();
     this.getAvailableDistrictList();
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
@@ -76,14 +87,23 @@ export class AssociationComponent implements OnInit {
   async getAvailableDistrictList() {
     await this.slingshotService.getAvailabelDistricts().subscribe(data => {
       data.map(item => { this.availableDistricts.push(item.payload.doc.data()) });
-      this._spinner.hide();
-      this.showSpinner = false;
+      this.hide_spinner();
     });
 
     this.slingshotService.getAllDistricts().subscribe(data => {
       data.map(item => { this.allDistricts.push(item.payload.doc.data()) });
     });
 
+  }
+
+  show_spinner() {
+    this.showSpinner = true;
+    this._spinner.show();
+  }
+
+  hide_spinner() {
+    this._spinner.hide();
+    this.showSpinner = false;
   }
 
   onDistrictChange(id) {
@@ -101,9 +121,14 @@ export class AssociationComponent implements OnInit {
     if (this.registerForm.invalid || !this.isFileValid1 || !this.isFileValid2 || !this.isFileValid3 || !this.isChecked) {
       return;
     }
+    this.show_spinner();
+    this.uploadAdhaar(this.aadhharEvent);
+  }
 
+  saveFormData() {
     let formData = this.prepareFormData(this.registerForm.value);
     this.slingshotService.registerAffiliationRequest(formData);
+    this.hide_spinner();
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to approve user?', type: 'register' },
       autoFocus: false,
@@ -140,7 +165,7 @@ export class AssociationComponent implements OnInit {
           pin: data.pin,
           aadhaarNo: data.aadhaarNo,
           panNo: data.panNo,
-          documents: {}
+          documents: this.documents
         }
       ],
       approvedOn: '',
@@ -157,12 +182,18 @@ export class AssociationComponent implements OnInit {
 
   validateFileUpload(e, doc) {
     const file = e.target.files[0];
-    if (doc == 'doc1')
+    if (doc == 'doc1') {
       this.isFileValid1 = false;
-    else if (doc == 'doc2')
+      this.aadhharEvent = e;
+    }
+    else if (doc == 'doc2') {
       this.isFileValid2 = false;
-    else if (doc == 'doc3')
+      this.panEvent = e;
+    }
+    else if (doc == 'doc3') {
       this.isFileValid3 = false;
+      this.photoEvent = e;
+    }
     if (file && file.type == 'image/png' || file.type == 'image/jpg' || file.type == 'image/jpeg') {
       if (file.size <= 1000000)
         if (doc == 'doc1')
@@ -173,4 +204,64 @@ export class AssociationComponent implements OnInit {
           this.isFileValid3 = true;
     }
   }
+
+ 
+  uploadAdhaar(event): any {
+    var id = Date.now();
+    const file = event.target.files[0];
+    const filePath = `Affiliations/${id}`;
+    const fileRef = this.afStorage.ref(filePath);
+    const task = this.afStorage.upload(filePath, file);
+
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadURL = fileRef.getDownloadURL();
+        this.downloadURL.subscribe(url => {
+          if (url) {
+            this.documents['adhaar'] = { id: id, documentURL: url }
+            this.uploadPan(this.panEvent);
+          }
+        });
+      })).subscribe();
+  }
+
+
+  uploadPan(event): any {
+    var id = Date.now();
+    const file = event.target.files[0];
+    const filePath = `Affiliations/${id}`;
+    const fileRef = this.afStorage.ref(filePath);
+    const task = this.afStorage.upload(filePath, file);
+
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadURL = fileRef.getDownloadURL();
+        this.downloadURL.subscribe(url => {
+          if (url) {
+            this.documents['pan'] = { id: id, documentURL: url }
+            this.uploadPhoto(this.photoEvent)
+          }
+        });
+      })).subscribe();
+  }
+
+  uploadPhoto(event): any {
+    var id = Date.now();
+    const file = event.target.files[0];
+    const filePath = `Affiliations/${id}`;
+    const fileRef = this.afStorage.ref(filePath);
+    const task = this.afStorage.upload(filePath, file);
+
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadURL = fileRef.getDownloadURL();
+        this.downloadURL.subscribe(url => {
+          if (url) {
+            this.documents['photo'] = { id: id, documentURL: url }
+            this.saveFormData();
+          }
+        });
+      })).subscribe();
+  }
 }
+
