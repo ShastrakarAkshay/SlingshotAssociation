@@ -121,14 +121,8 @@ export class AssociationComponent implements OnInit {
     if (this.registerForm.invalid || !this.isFileValid1 || !this.isFileValid2 || !this.isFileValid3 || !this.isChecked) {
       return;
     }
-    this.show_spinner();
+    // this.show_spinner();
     this.uploadAdhaar(this.aadhharEvent);
-  }
-
-  saveFormData() {
-    let formData = this.prepareFormData(this.registerForm.value);
-    this.slingshotService.registerAffiliationRequest(formData);
-    this.hide_spinner();
     let dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to approve user?', type: 'register' },
       autoFocus: false,
@@ -139,6 +133,22 @@ export class AssociationComponent implements OnInit {
         this.router.navigateByUrl('/home');
       }
     });
+  }
+
+  saveFormData() {
+    let formData = this.prepareFormData(this.registerForm.value);
+    this.slingshotService.registerAffiliationRequest(formData);
+    // this.hide_spinner();
+    // let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    //   data: { message: 'Do you want to approve user?', type: 'register' },
+    //   autoFocus: false,
+    //   width: '80%'
+    // });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   if (result) {
+    //     this.router.navigateByUrl('/home');
+    //   }
+    // });
   }
 
   prepareFormData(data: any): any {
