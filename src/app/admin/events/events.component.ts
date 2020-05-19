@@ -103,13 +103,7 @@ export class EventsComponent implements OnInit {
 @Component({
   selector: 'create-event-dialog',
   templateUrl: 'dialogs/create-event.html',
-  styles: [`* {
-    font-family: "Didact Gothic", sans-serif;
-  }
-  .mat-dialog-container {
-    margin-top: 100px !important;
-  }
-  `]
+  styleUrls: ['./events.component.scss']
 })
 export class CreateEventDialog implements OnInit {
   private eventForm: FormGroup;

@@ -89,17 +89,7 @@ export class MatchEventResultsComponent implements OnInit {
 @Component({
   selector: 'results-dialog',
   templateUrl: 'dialogs/results-dialog.html',
-  styles: [`* {
-    font-family: "Didact Gothic", sans-serif;
-  }
-  .mat-dialog-container {
-    margin-top: 100px !important;
-  }
-  .w-box {
-    width: 50px;
-    height: 50px;
-  }
-  `]
+  styleUrls: ['./match-event-results.component.scss']
 })
 export class MatchResultsDialog implements OnInit {
   private resultForm: FormGroup;

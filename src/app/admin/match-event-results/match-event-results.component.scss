@@ -7,3 +7,14 @@
         background-color: $th-color;
     }
 }
+
+#dialog {
+    font-family: "Didact Gothic", sans-serif;
+    .mat-dialog-container {
+        margin-top: 100px !important;
+    }
+    .w-box {
+        width: 50px;
+        height: 50px;
+      }
+}
