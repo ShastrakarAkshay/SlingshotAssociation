@@ -5,7 +5,8 @@
             <p class="text-muted">Some districts are not affiliated yet, for affiliation please contact.</p>
             <div class="d-flex justify-content-center search-sec h-100" *ngIf="false">
                 <div class="searchbar">
-                    <input class="search_input" type="text" name="" placeholder="Search..." #search (keyup)="searchDistrict(search.value)">
+                    <input class="search_input" type="text" name="" placeholder="Search..." #search
+                        (keyup)="searchDistrict(search.value)">
                     <a class="search_icon"><i class="fa fa-search"></i></a>
                 </div>
             </div>
@@ -26,11 +27,15 @@
 
         <div class="dist-info jumbotron">
             <div>
-                <h2 class="text-center"><i class="fa fa-bullseye mr-2"></i>{{selectedDistrictInfo.requestedDistrict.name}}</h2>
+                <h2 class="text-center"><i
+                        class="fa fa-bullseye mr-2"></i>{{selectedDistrictInfo.requestedDistrict.name}}</h2>
                 <div class="row raw-info justify-content-center mt-4">
                     <div class="col-sm-8">
-                        <p class="text-justify">This district is registered under "Slingshot Sports Association of Maharashtra, India" affilated to - "Indian Slingshot Sport Federation", "Asian Slingshot Sport Federation", "World organizes Slingshot Sport Federation. Affiliated
-                            on Date - {{selectedDistrictInfo.approvedOn | date: 'dd'}}/{{selectedDistrictInfo.approvedOn | date:'MMM'}}/{{selectedDistrictInfo.approvedOn | date: 'yyyy'}}"
+                        <p class="text-justify">This district is registered under "Slingshot Sports Association of
+                            Maharashtra, India" affilated to - "Indian Slingshot Sport Federation", "Asian Slingshot
+                            Sport Federation", "World organizes Slingshot Sport Federation. Affiliated
+                            on Date -
+                            {{selectedDistrictInfo.approvedOn | date: 'dd'}}/{{selectedDistrictInfo.approvedOn | date:'MMM'}}/{{selectedDistrictInfo.approvedOn | date: 'yyyy'}}"
                         </p>
                     </div>
                 </div>
@@ -46,13 +51,21 @@
                                 </div>
                             </div>
                             <div class="card-body card-body-cascade text-center">
-                                <h4 class="card-title text-capitalize"><strong>Mr. {{member.firstName}} {{member.lastName}}</strong></h4>
+                                <h4 class="card-title text-capitalize">
+                                    <strong>
+                                        <span *ngIf="member.gender === 'Male'">Mr.</span>
+                                        <span *ngIf="member.gender === 'Female'">Miss.</span>
+                                        {{member.firstName}}
+                                        {{member.lastName}}
+                                    </strong>
+                                </h4>
                                 <span class="font-weight-bold text-capitalize text-info">({{member.role}})</span><br>
                                 <span class="font-weight-bold">{{member.email}}</span><br>
                                 <span class="font-weight-bold">{{member.mobile}}</span>
                                 <div class="social-icons mt-3">
                                     <i class="fa fa-phone" [matTooltip]="member.mobile" matTooltipPosition="above"></i>
-                                    <i class="fa fa-envelope" [matTooltip]="member.email" matTooltipPosition="above"></i>
+                                    <i class="fa fa-envelope" [matTooltip]="member.email"
+                                        matTooltipPosition="above"></i>
                                     <i class="fa fa-facebook" matTooltip="facebook" matTooltipPosition="above"></i>
                                 </div>
                             </div>
