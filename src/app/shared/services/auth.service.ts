@@ -71,7 +71,7 @@ export class AuthService {
   resetPassword(email: any) {
     this.afAuth.auth.sendPasswordResetEmail(email).then(
       () => {
-        this.snackbar.open('Password reset link set to your email !!', '', {
+        this.snackbar.open('Password reset link sent to your email !!', '', {
           duration: 3000,
           panelClass: ['red-snackbar'],
           verticalPosition: 'top'

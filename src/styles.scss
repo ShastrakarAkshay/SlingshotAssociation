@@ -93,3 +93,10 @@ body {
         font-size: 15px !important;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    //mobile device
+    .d-hide {
+        display: none;
+    }
+}

@@ -114,7 +114,7 @@ export class AddRefreeDialog implements OnInit {
     private _toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
-    _dialogRef.disableClose = true;
+    // _dialogRef.disableClose = true;
     this.refreeData = data;
   }
 

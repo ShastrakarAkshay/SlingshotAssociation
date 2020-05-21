@@ -125,7 +125,7 @@ export class DistrictApprovalDialog implements OnInit {
     private utility: UtilityService,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
-    _dialogRef.disableClose = true;
+    // _dialogRef.disableClose = true;
     this.personData = data.distInfo;
     this.flag = data.flag;
     this.isReadOnly = data.readOnly;

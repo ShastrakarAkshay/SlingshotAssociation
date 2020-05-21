@@ -111,7 +111,7 @@ export class MatchResultsDialog implements OnInit {
     private _mdIconRegistry: MatIconRegistry,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
-    this._dialogRef.disableClose = true;
+    // this._dialogRef.disableClose = true;
     this.resultData = data;
     this._mdIconRegistry.registerFontClassAlias('fontawesome', 'fa');
   }
