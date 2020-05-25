@@ -59,6 +59,7 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   }
 
   getPersonInfo(personData: any) {
+    personData.members.push(personData.members[0])
     this._dialog.open(DistrictApprovalDialog, {
       data: { distInfo: personData, flag: false },
       autoFocus: false,
