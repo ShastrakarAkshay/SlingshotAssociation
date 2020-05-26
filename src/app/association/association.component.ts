@@ -123,22 +123,6 @@ export class AssociationComponent implements OnInit {
     }
     // this.show_spinner();
     this.uploadAdhaar(this.aadhharEvent);
-    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Do you want to approve user?', type: 'register' },
-      autoFocus: false,
-      width: '80%'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.router.navigateByUrl('/home');
-      }
-    });
-  }
-
-  saveFormData() {
-    let formData = this.prepareFormData(this.registerForm.value);
-    this.slingshotService.registerAffiliationRequest(formData);
-    // this.hide_spinner();
     // let dialogRef = this.dialog.open(ConfirmDialogComponent, {
     //   data: { message: 'Do you want to approve user?', type: 'register' },
     //   autoFocus: false,
@@ -149,6 +133,22 @@ export class AssociationComponent implements OnInit {
     //     this.router.navigateByUrl('/home');
     //   }
     // });
+  }
+
+  saveFormData() {
+    let formData = this.prepareFormData(this.registerForm.value);
+    this.slingshotService.registerAffiliationRequest(formData);
+    this.hide_spinner();
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to approve user?', type: 'register' },
+      autoFocus: false,
+      width: '80%'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.router.navigateByUrl('/home');
+      }
+    });
   }
 
   prepareFormData(data: any): any {
