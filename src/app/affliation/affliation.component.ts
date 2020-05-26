@@ -29,7 +29,7 @@ export class AffliationComponent implements OnInit {
     this.spinnerShow();
     this._service.getRegisteredDistricts().subscribe(data => {
       data.map((item, index) => {
-        this.registeredDistrictsList.push(item.payload.doc.data());
+        this.registeredDistrictsList.push({...item.payload.doc.data(), isActive: false});
         if (index === 0) {
           this.getDistrictInfo(this.registeredDistrictsList[0].id);
         }
@@ -40,6 +40,12 @@ export class AffliationComponent implements OnInit {
 
   getDistrictInfo(id) {
     this.spinnerShow();
+    this.registeredDistrictsList.forEach(district => {
+      district.isActive = false;
+      if(district.id === id) {
+        district.isActive = true;
+      }
+    });
     this._service.getRegisteredDistrictInfoById(id).subscribe(config => {
       this.selectedDistrictInfo = config.payload.data();
       this.spinnerHide();

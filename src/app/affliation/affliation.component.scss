@@ -3,6 +3,10 @@
     width: 3px;
 }
 
+.active {
+    color: $th-color;
+}
+
 .action-button {
     display: inline-block;
     padding: 8px 30px;
@@ -34,11 +38,11 @@
 }
 
 #affiliation-sec {
-    font-family: 'Didact Gothic', sans-serif;
+    font-family: "Didact Gothic", sans-serif;
     margin-top: 130px;
     .head-sec h2,
     .dist-info h2 {
-        font-family: "Righteous"
+        font-family: "Righteous";
     }
     .head-sec .text-muted {
         font-size: 20px;
@@ -78,7 +82,7 @@
     }
     .card:hover {
         cursor: pointer;
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
         .card-title {
             color: $th-color;
         }
@@ -102,13 +106,13 @@
             line-height: 40px;
             transition: width 0.4s linear;
         }
-        .searchbar:hover>.search_input {
+        .searchbar:hover > .search_input {
             padding: 0 10px;
             width: 300px;
             caret-color: red;
             transition: width 0.4s linear;
         }
-        .searchbar:hover>.search_icon {
+        .searchbar:hover > .search_icon {
             background: white;
             color: $th-color;
         }
@@ -150,13 +154,13 @@
     //mobile device
     #affiliation-sec {
         .search-sec {
-            .searchbar:hover>.search_input {
+            .searchbar:hover > .search_input {
                 width: 250px;
             }
         }
         .dist-info {
             .card {
-                margin-top: 30px
+                margin-top: 30px;
             }
             &.jumbotron {
                 margin: 30px 0px 70px 0px;
