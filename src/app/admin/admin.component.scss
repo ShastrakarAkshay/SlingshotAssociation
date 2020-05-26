@@ -36,13 +36,19 @@
         }
         .card:hover {
             cursor: pointer;
-            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15)!important;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
             .card-title {
                 color: $th-color;
             }
         }
         .badge {
             background-color: $th-color;
+        }
+    }
+
+    .active {
+        .card-title {
+            color: $th-color;
         }
     }
 }

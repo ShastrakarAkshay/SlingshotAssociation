@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SlingshotService } from '../shared/services/slingshot.service';
 import { UserConfig } from '../shared/interfaces/slingshot.interface';
+import { Router, NavigationStart } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-admin',
@@ -10,8 +12,40 @@ import { UserConfig } from '../shared/interfaces/slingshot.interface';
 export class AdminComponent implements OnInit {
 
   private userID: string;
- 
-  constructor(private _service: SlingshotService) {
+  private menu = [
+    {
+      name: 'Affiliations',
+      link: './requests',
+      isActive: false
+    },
+    {
+      name: 'Events',
+      link: './events',
+      isActive: false
+    },
+    {
+      name: 'Match Results',
+      link: './match',
+      isActive: false
+    },
+    {
+      name: 'Referee',
+      link: './refree',
+      isActive: false
+    },
+    {
+      name: 'Enquiries',
+      link: './enquiries',
+      isActive: false
+    },
+    {
+      name: 'Support',
+      link: './support',
+      isActive: false
+    }
+  ]
+
+  constructor(private _service: SlingshotService, private router: Router) {
     this.userID = localStorage.getItem('user-id');
   }
 
@@ -19,5 +53,28 @@ export class AdminComponent implements OnInit {
     // TO DO....
     // check first use is logged in or not
     // if not logged in then remove all localstorage and redirect to login page
-  } 
+    this.setActiveClassFromURL(this.router.url);
+    this.router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {
+      this.setActiveClassFromURL(this.router.url);
+    });
+  }
+
+  setActiveClassFromURL(url: any) {
+    const currentPath = url.substr(7);
+    this.menu.forEach(item => {
+      item.isActive = false;
+      if (item.link === './' + currentPath) {
+        item.isActive = true;
+      }
+    })
+  }
+
+  setActiveClass(menuItem: any) {
+    this.menu.forEach(item => {
+      item.isActive = false;
+      if (item.name === menuItem.name) {
+        item.isActive = true;
+      }
+    })
+  }
 }

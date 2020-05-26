@@ -4,45 +4,10 @@
             <h2><strong>Welcome To Association</strong></h2>
         </div>
         <div class="row actions justify-content-center mt-3 p-3">
-            <div class="col-sm-2">
-                <div class="card mt-3 text-white bg-dark" routerLink="./requests">
+            <div class="col-sm-2" *ngFor="let item of menu" [ngClass]="{'active':item.isActive}" (click)="setActiveClass(item)">
+                <div class="card mt-3 text-white bg-dark" [routerLink]="item.link">
                     <div class="card-body text-center">
-                        <h4 class="card-title">Affiliation</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="card mt-3 text-white bg-dark" routerLink="./events">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Events</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="card mt-3 text-white bg-dark" routerLink="./match">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Match Results</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="card mt-3 text-white bg-dark" routerLink="./refree">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Referee</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="card mt-3 text-white bg-dark" routerLink="./enquiries">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Enquiries</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="card mt-3 text-white bg-dark" routerLink="./support">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">Support</h4>
+                        <h4 class="card-title">{{item.name}}</h4>
                     </div>
                 </div>
             </div>
