@@ -121,7 +121,7 @@ export class AssociationComponent implements OnInit {
     if (this.registerForm.invalid || !this.isFileValid1 || !this.isFileValid2 || !this.isFileValid3 || !this.isChecked) {
       return;
     }
-    // this.show_spinner();
+    this.show_spinner();
     this.uploadAdhaar(this.aadhharEvent);
     // let dialogRef = this.dialog.open(ConfirmDialogComponent, {
     //   data: { message: 'Do you want to approve user?', type: 'register' },
