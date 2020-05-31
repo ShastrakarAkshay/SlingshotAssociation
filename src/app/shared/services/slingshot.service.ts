@@ -83,7 +83,7 @@ export class SlingshotService {
   deleteRequestById(id: any, doc: any): any {
     this.firestore.collection('AffiliationRequests').doc(id).delete();
     // delete images from storage
-    if(doc){
+    if(doc && doc.length){
       this.storage.storage.ref().child(`Affiliations/${doc.adhaar.id}`).delete();
       this.storage.storage.ref().child(`Affiliations/${doc.pan.id}`).delete();
       this.storage.storage.ref().child(`Affiliations/${doc.photo.id}`).delete();
@@ -95,7 +95,7 @@ export class SlingshotService {
   }
 
   registerAffiliationRequest(data: any) {
-    this.firestore.collection("AffiliationRequests").add(data);
+    return this.firestore.collection("AffiliationRequests").add(data);
   }
 
   approveDistrict(districtData: any): any {

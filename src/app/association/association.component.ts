@@ -12,7 +12,8 @@ import { UtilityService } from '../shared/services/utility.service';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { finalize, take } from 'rxjs/operators';
+import { finalize, take, last, switchMap } from 'rxjs/operators';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-association',
@@ -39,8 +40,11 @@ export class AssociationComponent implements OnInit {
   photoEvent: Event;
   downloadURL: Observable<string>;
 
+  private registeredDistrictId: any;
+
   constructor(
     private slingshotService: SlingshotService,
+    private firestore: AngularFirestore,
     private formBuilder: FormBuilder,
     private auth: AuthService,
     @Inject(AngularFireStorage) private afStorage: AngularFireStorage,
@@ -90,9 +94,9 @@ export class AssociationComponent implements OnInit {
       this.hide_spinner();
     });
 
-   this.slingshotService.getAllDistricts().subscribe(data => {
+    this.slingshotService.getAllDistricts().subscribe(data => {
       data.map(item => { this.allDistricts.push(item.payload.doc.data()) });
-    }); 
+    });
 
   }
 
@@ -121,33 +125,27 @@ export class AssociationComponent implements OnInit {
     if (this.registerForm.invalid || !this.isFileValid1 || !this.isFileValid2 || !this.isFileValid3 || !this.isChecked) {
       return;
     }
-    this.show_spinner();
-    this.uploadAdhaar(this.aadhharEvent);
-    // let dialogRef = this.dialog.open(ConfirmDialogComponent, {
-    //   data: { message: 'Do you want to approve user?', type: 'register' },
-    //   autoFocus: false,
-    //   width: '80%'
-    // });
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) {
-    //     this.router.navigateByUrl('/home');
-    //   }
-    // });
+    this.saveFormData();
   }
 
   saveFormData() {
+    this.show_spinner();
     let formData = this.prepareFormData(this.registerForm.value);
-    this.slingshotService.registerAffiliationRequest(formData);
-    this.hide_spinner();
-    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Do you want to approve user?', type: 'register' },
-      autoFocus: false,
-      width: '80%'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.router.navigateByUrl('/home');
-      }
+    this.slingshotService.registerAffiliationRequest(formData).then(res => {
+      console.log('data saved successfully');
+      this.registeredDistrictId = res.id;
+      this.uploadAdhaar(this.aadhharEvent);
+      this.hide_spinner();
+      let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        data: { message: 'Do you want to approve user?', type: 'register' },
+        autoFocus: false,
+        width: '80%'
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.router.navigateByUrl('/home');
+        }
+      });
     });
   }
 
@@ -178,6 +176,7 @@ export class AssociationComponent implements OnInit {
           documents: this.documents
         }
       ],
+      docs: {},
       approvedOn: '',
       approvedBy: '',
       createdDate: this.utility.convertDateToEPOC(new Date()),
@@ -215,63 +214,60 @@ export class AssociationComponent implements OnInit {
     }
   }
 
- 
-  uploadAdhaar(event): any {
-    var id = Date.now();
+
+  uploadAdhaar(event) {
+    var uniqueId = Date.now();
+    let id = uniqueId + '_' + event.target.files[0].name;
     const file = event.target.files[0];
     const filePath = `Affiliations/${id}`;
     const fileRef = this.afStorage.ref(filePath);
+    console.log('Addhaar uploaded successfully...')
     const task = this.afStorage.upload(filePath, file);
-
     task.snapshotChanges().pipe(
-      finalize(() => {
-        this.downloadURL = fileRef.getDownloadURL();
-        this.downloadURL.subscribe(url => {
-          if (url) {
-            this.documents['adhaar'] = { id: id, documentURL: url }
-            this.uploadPan(this.panEvent);
-          }
-        });
-      })).subscribe();
+      last(),  
+      switchMap(() => fileRef.getDownloadURL())
+    ).subscribe(url => {
+      this.documents['adhaar'] = { id: id, documentURL: url };
+      this.uploadPan(this.panEvent);
+    })
+
   }
 
 
-  uploadPan(event): any {
-    var id = Date.now();
+  uploadPan(event) {
+    var uniqueId = Date.now();
+    let id = uniqueId + '_' + event.target.files[0].name;
     const file = event.target.files[0];
     const filePath = `Affiliations/${id}`;
     const fileRef = this.afStorage.ref(filePath);
+    console.log('Pan uploaded successfully...')
     const task = this.afStorage.upload(filePath, file);
-
     task.snapshotChanges().pipe(
-      finalize(() => {
-        this.downloadURL = fileRef.getDownloadURL();
-        this.downloadURL.subscribe(url => {
-          if (url) {
-            this.documents['pan'] = { id: id, documentURL: url }
-            this.uploadPhoto(this.photoEvent)
-          }
-        });
-      })).subscribe();
+      last(),  
+      switchMap(() => fileRef.getDownloadURL())
+    ).subscribe(url => {
+      this.documents['pan'] = { id: id, documentURL: url };
+      this.uploadPhoto(this.photoEvent);
+    })
   }
 
-  uploadPhoto(event): any {
-    var id = Date.now();
+  uploadPhoto(event) {
+    var uniqueId = Date.now();
+    let id = uniqueId + '_' + event.target.files[0].name;
     const file = event.target.files[0];
     const filePath = `Affiliations/${id}`;
     const fileRef = this.afStorage.ref(filePath);
+    console.log('Photo uploaded successfully...')
     const task = this.afStorage.upload(filePath, file);
-
     task.snapshotChanges().pipe(
-      finalize(() => {
-        this.downloadURL = fileRef.getDownloadURL();
-        this.downloadURL.subscribe(url => {
-          if (url) {
-            this.documents['photo'] = { id: id, documentURL: url }
-            this.saveFormData();
-          }
-        });
-      })).subscribe();
+      last(),  
+      switchMap(() => fileRef.getDownloadURL())
+    ).subscribe(url => {
+      this.documents['photo'] = { id: id, documentURL: url };
+      this.firestore.collection('AffiliationRequests').doc(this.registeredDistrictId).update({docs: this.documents}).then(res => {
+        console.log('DOC URL saved successfully');
+      });
+    })
   }
 }
 
