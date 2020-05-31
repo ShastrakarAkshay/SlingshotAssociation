@@ -134,8 +134,8 @@ export class AssociationComponent implements OnInit {
     this.slingshotService.registerAffiliationRequest(formData).then(res => {
       console.log('data saved successfully');
       this.registeredDistrictId = res.id;
-      this.uploadAdhaar(this.aadhharEvent);
       this.hide_spinner();
+      this.uploadAdhaar(this.aadhharEvent);
       let dialogRef = this.dialog.open(ConfirmDialogComponent, {
         data: { message: 'Do you want to approve user?', type: 'register' },
         autoFocus: false,
