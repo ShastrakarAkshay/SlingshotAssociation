@@ -11,6 +11,7 @@ import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/co
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as rxjs from 'rxjs/operators'
 import { UtilityService } from 'src/app/shared/services/utility.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-affiliation-requests',
@@ -183,10 +184,19 @@ export class DistrictApprovalDialog implements OnInit {
   }
 
   preview(url) {
-    if(url){
+    if (url) {
       window.open(url)
     }
   }
+
+  addMember(personData) {
+    this._dialog.open(AddMemberDialog, {
+      data: personData,
+      autoFocus: false,
+      width: '99%'
+    });
+  }
+
 }
 
 @Component({
@@ -301,4 +311,94 @@ export class RejectedAffiliationComponent implements OnInit {
     this._spinner.hide();
     this.showSpinner = false;
   }
+}
+
+@Component({
+  selector: 'add-member-dialog',
+  templateUrl: 'dialogs/add-member.html',
+  styles: [`* {
+    font-family: "Didact Gothic", sans-serif;
+  }
+  .mat-dialog-container {
+    margin-top: 100px !important;
+  }
+  `]
+})
+export class AddMemberDialog implements OnInit {
+
+  personData: any;
+  registerForm: FormGroup;
+  allDistricts: any[] = [];
+
+  constructor(
+    public _dialogRef: MatDialogRef<DistrictApprovalDialog>,
+    private _service: SlingshotService,
+    private _toastr: ToastrService,
+    private formBuilder: FormBuilder,
+    private utility: UtilityService,
+    @Inject(MAT_DIALOG_DATA) public data
+  ) {
+    this.personData = data;
+  }
+
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      middleName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      mobile: ['', [Validators.required, Validators.pattern(/\d{10}/)]],
+      addressLine1: ['', Validators.required],
+      addressLine2: ['', Validators.required],
+      city: ['', Validators.required],
+      district: ['', Validators.required],
+      pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
+      aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
+      panNo: ['', [Validators.required, Validators.pattern(/[0-9 a-z A-Z]{10}/)]],
+      email: ['', [Validators.required, Validators.email]],
+      gender: ['', Validators.required]
+    });
+    this._service.getAllDistricts().subscribe(data => {
+      data.map(item => { this.allDistricts.push(item.payload.doc.data()) });
+    });
+  }
+
+  close() {
+    this._dialogRef.close();
+  }
+
+  addMemberData() {
+    if (this.registerForm.invalid) {
+      return;
+    }
+    let formData = this.getFormData(this.registerForm.value);
+    let members: any[] = this.personData.members;
+    members.push(formData);
+    this._service.addAffiliationMember(this.personData.requestedDistrict.id, members);
+    this._toastr.success('Member Added Successfully.');
+    this.close();
+  }
+
+  getFormData(data): any {
+    return {
+      id: this.personData.requestedDistrict.id + 'Member02',
+      role: 'Joint Secretory',
+      firstName: data.firstName,
+      middleName: data.middleName,
+      lastName: data.lastName,
+      dateOfBirth: this.utility.convertDateToEPOC(data.dateOfBirth),
+      gender: data.gender,
+      email: data.email,
+      mobile: data.mobile,
+      addressLine1: data.addressLine1,
+      addressLine2: data.addressLine2,
+      city: data.city,
+      district: data.district,
+      pin: data.pin,
+      aadhaarNo: data.aadhaarNo,
+      panNo: data.panNo,
+      documents: {}
+    }
+  }
+
 }

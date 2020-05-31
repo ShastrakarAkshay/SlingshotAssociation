@@ -90,9 +90,9 @@ export class AssociationComponent implements OnInit {
       this.hide_spinner();
     });
 
-    this.slingshotService.getAllDistricts().subscribe(data => {
+   this.slingshotService.getAllDistricts().subscribe(data => {
       data.map(item => { this.allDistricts.push(item.payload.doc.data()) });
-    });
+    }); 
 
   }
 
@@ -160,7 +160,7 @@ export class AssociationComponent implements OnInit {
       members: [
         {
           id: this.selectedDistrict.id + 'Member01',
-          role: 'President',
+          role: 'Secretory',
           firstName: data.firstName,
           middleName: data.middleName,
           lastName: data.lastName,

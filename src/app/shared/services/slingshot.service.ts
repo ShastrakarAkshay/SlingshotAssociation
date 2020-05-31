@@ -116,6 +116,10 @@ export class SlingshotService {
     return this.firestore.collection('OLD_AFFILIATIONS').snapshotChanges();
   }
 
+  addAffiliationMember(districtId, membersData) {
+    this.firestore.collection('ApprovedDistricts').doc(districtId).update({ members: membersData });
+  }
+
   // ----------------- ENQUIRIES ---------------
 
   sendEnquiry(data: any) {

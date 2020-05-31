@@ -7,8 +7,12 @@
     transition: height 0.6s;
 }
 
+.active {
+    color: $th-color;
+}
+
 .navbar-light .navbar-nav .nav-link {
-    color: rgba(0, 0, 0, .7);
+    color: rgba(0, 0, 0, 0.7);
 }
 
 .navbar-title:hover {

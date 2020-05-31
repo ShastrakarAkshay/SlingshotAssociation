@@ -13,6 +13,44 @@ export class NavbarComponent implements OnInit {
 
   private isLoggedIn: boolean = false;
 
+  public menu: any[] = [
+    {
+      name: 'Home',
+      link: '/',
+      isActive: false
+    },
+    {
+      name: 'Sports',
+      link: '/sports',
+      isActive: false
+    },
+    {
+      name: 'Affiliation',
+      link: ';affiliation',
+      isActive: false
+    },
+    {
+      name: 'Committee',
+      link: '/committee',
+      isActive: false
+    },
+    {
+      name: 'Dashboard',
+      link: '/admin',
+      isActive: false
+    },
+    {
+      name: 'Gallery',
+      link: '',
+      isActive: false
+    },
+    {
+      name: 'Contact us',
+      link: '/contact',
+      isActive: false
+    }
+  ];
+
   constructor(
     private auth: AuthService,
     private _dialog: MatDialog
