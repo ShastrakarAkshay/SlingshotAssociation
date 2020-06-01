@@ -44,8 +44,8 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
       this.affiliatinRequests = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
-          index: index + 1,
-          ...item.payload.doc.data()
+          ...item.payload.doc.data(),
+          index: index + 1
         }
       });
       this.dataSource = new MatTableDataSource(this.affiliatinRequests);
@@ -102,14 +102,7 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
 }
 @Component({
   selector: 'district-approval-dialog',
-  templateUrl: 'dialogs/district-approval.html',
-  styles: [`* {
-    font-family: "Didact Gothic", sans-serif;
-  }
-  .mat-dialog-container {
-    margin-top: 100px !important;
-  }
-  `]
+  templateUrl: 'dialogs/district-approval.html'
 })
 export class DistrictApprovalDialog implements OnInit {
   private personData: any;
@@ -226,8 +219,8 @@ export class ApprovedDistrictComponent implements OnInit {
       this.approvedDistricts = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
-          index: index + 1,
-          ...item.payload.doc.data()
+          ...item.payload.doc.data(),
+          index: index + 1
         }
       });
       this.dataSource2 = new MatTableDataSource(this.approvedDistricts);
@@ -283,8 +276,8 @@ export class RejectedAffiliationComponent implements OnInit {
       this.oldAffiliations = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
-          index: index + 1,
-          ...item.payload.doc.data()
+          ...item.payload.doc.data(),
+          index: index + 1
         }
       });
       this.dataSource3 = new MatTableDataSource(this.oldAffiliations);
@@ -315,14 +308,7 @@ export class RejectedAffiliationComponent implements OnInit {
 
 @Component({
   selector: 'add-member-dialog',
-  templateUrl: 'dialogs/add-member.html',
-  styles: [`* {
-    font-family: "Didact Gothic", sans-serif;
-  }
-  .mat-dialog-container {
-    margin-top: 100px !important;
-  }
-  `]
+  templateUrl: 'dialogs/add-member.html'
 })
 export class AddMemberDialog implements OnInit {
 

@@ -34,9 +34,9 @@ export class RefreePanelComponent implements OnInit {
       this.refreeData = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
-          index: index + 1,
           name: item.payload.doc.data().firstName + ' ' + item.payload.doc.data().middleName + ' ' + item.payload.doc.data().lastName,
-          ...item.payload.doc.data()
+          ...item.payload.doc.data(),
+          index: index + 1
         }
       });
       this.dataSource.data = this.refreeData;
@@ -91,14 +91,7 @@ export class RefreePanelComponent implements OnInit {
 
 @Component({
   selector: 'add-refree-dialog',
-  templateUrl: 'dialogs/add-refree-dialog.html',
-  styles: [`* {
-    font-family: "Didact Gothic", sans-serif;
-  }
-  .mat-dialog-container {
-    margin-top: 100px !important;
-  }
-  `]
+  templateUrl: 'dialogs/add-refree-dialog.html'
 })
 export class AddRefreeDialog implements OnInit {
   private refreeForm: FormGroup;

@@ -1,90 +1,93 @@
-<h3 class="text-center bg-dark text-white p-3 text-capitalize">{{title}}</h3>
-<mat-dialog-content>
-    <div class="row text-right" *ngIf="personData.status === 'approved' && personData.members.length == 1">
-        <div class="col">
-            <button class="btn btn-info" (click)="addMember(personData)">Add Member</button>
+<section class="dialog">
+    <h3 class="text-center bg-dark text-white p-3 text-capitalize">{{title}}</h3>
+    <mat-dialog-content>
+        <div class="row text-right" *ngIf="personData.status === 'approved' && personData.members.length == 1">
+            <div class="col">
+                <button class="btn btn-info" (click)="addMember(personData)">Add Member</button>
+            </div>
         </div>
-    </div>
-    <div class="member-data" *ngFor="let member of personData.members, let i = index;">
-        <table class="table table-bordered mt-3" width="100%">
-            <tbody>
-                <tr>
-                    <td width="30%" class=""><strong>Name</strong></td>
-                    <td width="70%" class="text-capitalize">{{member.firstName}}
-                        {{member.middleName}} {{member.lastName}}</td>
-                </tr>
-                <tr>
-                    <td width="30%" class=""><strong>Role</strong></td>
-                    <td width="70%" class="text-capitalize text-info">{{member.role}}</td>
-                </tr>
-                <tr>
-                    <td width="30%" class=""><strong>Address</strong></td>
-                    <td width="70%" class="text-capitalize">{{member.addressLine1}},
-                        {{member.addressLine2}}, {{member.city}},
-                        {{member.district}}, Pin Code - {{member.pin}}.</td>
-                </tr>
-                <tr>
-                    <td width="30%" class=""><strong>Email</strong></td>
-                    <td width="70%">{{member.email}}</td>
-                </tr>
-                <tr>
-                    <td width="30%" class=""><strong>Mobile</strong></td>
-                    <td width="70%">{{member.mobile}}</td>
-                </tr>
-                <tr>
-                    <td width="30%" class=""><strong>Date of Birth</strong></td>
-                    <td width="70%">
-                        {{member.dateOfBirth | date: 'dd'}}-{{member.dateOfBirth | date: 'MMM'}}-{{member.dateOfBirth | date: 'yyy'}}
-                    </td>
-                </tr>
-                <tr>
-                    <td width="30%" class=""><strong>PAN No.</strong></td>
-                    <td width="70%" class="text-uppercase">{{member.panNo}}</td>
-                </tr>
-                <tr>
-                    <td width="30%" class=""><strong>Aadhaar No.</strong></td>
-                    <td width="70%">{{member.aadhaarNo}}</td>
-                </tr>
-                <tr  class="bg-light" *ngIf="i == 0">
-                    <td width="30%"><strong>Documents</strong></td>
-                    <td width="70%">
-                        <div class="row mt-5 mb-5 justify-content-center">
-                            <div class="col-sm-3 text-center">
-                                <img class="img pointer" src="./assets/images/document.png" width="40%"
-                                    (click)="preview(personData.docs.adhaar.documentURL)">
-                                <br>
-                                <p>(Aadhaar Card)</p>
+        <div class="member-data" *ngFor="let member of personData.members, let i = index;">
+            <table class="table table-bordered mt-3" width="100%">
+                <tbody>
+                    <tr>
+                        <td width="30%" class=""><strong>Name</strong></td>
+                        <td width="70%" class="text-capitalize">{{member.firstName}}
+                            {{member.middleName}} {{member.lastName}}</td>
+                    </tr>
+                    <tr>
+                        <td width="30%" class=""><strong>Role</strong></td>
+                        <td width="70%" class="text-capitalize text-info">{{member.role}}</td>
+                    </tr>
+                    <tr>
+                        <td width="30%" class=""><strong>Address</strong></td>
+                        <td width="70%" class="text-capitalize">{{member.addressLine1}},
+                            {{member.addressLine2}}, {{member.city}},
+                            {{member.district}}, Pin Code - {{member.pin}}.</td>
+                    </tr>
+                    <tr>
+                        <td width="30%" class=""><strong>Email</strong></td>
+                        <td width="70%">{{member.email}}</td>
+                    </tr>
+                    <tr>
+                        <td width="30%" class=""><strong>Mobile</strong></td>
+                        <td width="70%">{{member.mobile}}</td>
+                    </tr>
+                    <tr>
+                        <td width="30%" class=""><strong>Date of Birth</strong></td>
+                        <td width="70%">
+                            {{member.dateOfBirth | date: 'dd'}}-{{member.dateOfBirth | date: 'MMM'}}-{{member.dateOfBirth | date: 'yyy'}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%" class=""><strong>PAN No.</strong></td>
+                        <td width="70%" class="text-uppercase">{{member.panNo}}</td>
+                    </tr>
+                    <tr>
+                        <td width="30%" class=""><strong>Aadhaar No.</strong></td>
+                        <td width="70%">{{member.aadhaarNo}}</td>
+                    </tr>
+                    <tr class="bg-light" *ngIf="i == 0">
+                        <td width="30%"><strong>Documents</strong></td>
+                        <td width="70%">
+                            <div class="row mt-5 mb-5 justify-content-center">
+                                <div class="col-sm-3 text-center">
+                                    <img class="img pointer" src="./assets/images/document.png" width="40%"
+                                        (click)="preview(personData.docs.adhaar.documentURL)">
+                                    <br>
+                                    <p>(Aadhaar Card)</p>
+                                </div>
+                                <div class="col-sm-3 text-center">
+                                    <img class="img pointer" src="./assets/images/document.png" width="40%"
+                                        (click)="preview(personData.docs.pan.documentURL)">
+                                    <br>
+                                    <p>(PAN Card)</p>
+                                </div>
+                                <div class="col-sm-3 text-center">
+                                    <img class="img pointer" src="./assets/images/document.png" width="40%"
+                                        (click)="preview(personData.docs.photo.documentURL)">
+                                    <br>
+                                    <p>(Photo)</p>
+                                </div>
                             </div>
-                            <div class="col-sm-3 text-center">
-                                <img class="img pointer" src="./assets/images/document.png" width="40%"
-                                    (click)="preview(personData.docs.pan.documentURL)">
-                                <br>
-                                <p>(PAN Card)</p>
-                            </div>
-                            <div class="col-sm-3 text-center">
-                                <img class="img pointer" src="./assets/images/document.png" width="40%"
-                                    (click)="preview(personData.docs.photo.documentURL)">
-                                <br>
-                                <p>(Photo)</p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        
-    </div>
-</mat-dialog-content>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-<div mat-dialog-actions class="pb-4 row justify-content-center">
-    <div *ngIf="!isReadOnly">
-        <button mat-button class="btn sling-btn" (click)="approveDistrict(personData)" *ngIf="!flag">Approve</button>
-        <button mat-button class="btn btn-danger" (click)="deleteAffiliation(personData)" *ngIf="flag">Delete
-            Affiliatioin</button>
-    </div>
-    <button mat-button class="btn sling-btn ml-2" (click)="close()">Close</button>
-</div>
+        </div>
+    </mat-dialog-content>
 
-<div *ngIf="showSpinner">
-    <app-spinner></app-spinner>
-</div>
+    <div mat-dialog-actions class="pb-4 row justify-content-center">
+        <div *ngIf="!isReadOnly">
+            <button mat-button class="btn sling-btn" (click)="approveDistrict(personData)"
+                *ngIf="!flag">Approve</button>
+            <button mat-button class="btn btn-danger" (click)="deleteAffiliation(personData)" *ngIf="flag">Delete
+                Affiliatioin</button>
+        </div>
+        <button mat-button class="btn sling-btn ml-2" (click)="close()">Close</button>
+    </div>
+
+    <div *ngIf="showSpinner">
+        <app-spinner></app-spinner>
+    </div>
+</section>

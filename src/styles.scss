@@ -94,6 +94,13 @@ body {
     }
 }
 
+.dialog {
+    font-family: "Didact Gothic", sans-serif;
+    .mat-dialog-container {
+        margin-top: 100px !important;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     //mobile device
     .d-hide {

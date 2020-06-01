@@ -173,7 +173,7 @@ export class AssociationComponent implements OnInit {
           pin: data.pin,
           aadhaarNo: data.aadhaarNo,
           panNo: data.panNo,
-          documents: this.documents
+          documents: {}
         }
       ],
       docs: {},

@@ -31,8 +31,8 @@ export class EnquiriesComponent implements OnInit {
       this.enquiries = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
-          index: index + 1,
-          ...item.payload.doc.data()
+          ...item.payload.doc.data(),
+          index: index + 1
         }
       });
       this.dataSource.data = this.enquiries;

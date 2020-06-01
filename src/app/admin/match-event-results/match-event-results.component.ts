@@ -44,8 +44,8 @@ export class MatchEventResultsComponent implements OnInit {
       this.results = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
-          index: index + 1,
-          ...item.payload.doc.data()
+          ...item.payload.doc.data(),
+          index: index + 1
         }
       });
       this.dataSource.data = this.results;
