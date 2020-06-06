@@ -216,57 +216,63 @@ export class AssociationComponent implements OnInit {
 
 
   uploadAdhaar(event) {
-    var uniqueId = Date.now();
-    let id = uniqueId + '_' + event.target.files[0].name;
-    const file = event.target.files[0];
-    const filePath = `Affiliations/${id}`;
-    const fileRef = this.afStorage.ref(filePath);
-    console.log('Addhaar uploaded successfully...')
-    const task = this.afStorage.upload(filePath, file);
-    task.snapshotChanges().pipe(
-      last(),  
-      switchMap(() => fileRef.getDownloadURL())
-    ).subscribe(url => {
-      this.documents['adhaar'] = { id: id, documentURL: url };
-      this.uploadPan(this.panEvent);
+    return new Promise<any>((resolve, reject) => {
+      var uniqueId = Date.now();
+      let id = uniqueId + '_' + event.target.files[0].name;
+      const file = event.target.files[0];
+      const filePath = `Affiliations/${id}`;
+      const fileRef = this.afStorage.ref(filePath);
+      console.log('Addhaar uploaded successfully...')
+      const task = this.afStorage.upload(filePath, file);
+      task.snapshotChanges().pipe(
+        last(),
+        switchMap(() => fileRef.getDownloadURL())
+      ).subscribe(url => {
+        this.documents['adhaar'] = { id: id, documentURL: url };
+        this.uploadPan(this.panEvent);
+      })
     })
 
   }
 
 
   uploadPan(event) {
-    var uniqueId = Date.now();
-    let id = uniqueId + '_' + event.target.files[0].name;
-    const file = event.target.files[0];
-    const filePath = `Affiliations/${id}`;
-    const fileRef = this.afStorage.ref(filePath);
-    console.log('Pan uploaded successfully...')
-    const task = this.afStorage.upload(filePath, file);
-    task.snapshotChanges().pipe(
-      last(),  
-      switchMap(() => fileRef.getDownloadURL())
-    ).subscribe(url => {
-      this.documents['pan'] = { id: id, documentURL: url };
-      this.uploadPhoto(this.photoEvent);
+    return new Promise<any>((resolve, reject) => {
+      var uniqueId = Date.now();
+      let id = uniqueId + '_' + event.target.files[0].name;
+      const file = event.target.files[0];
+      const filePath = `Affiliations/${id}`;
+      const fileRef = this.afStorage.ref(filePath);
+      console.log('Pan uploaded successfully...')
+      const task = this.afStorage.upload(filePath, file);
+      task.snapshotChanges().pipe(
+        last(),
+        switchMap(() => fileRef.getDownloadURL())
+      ).subscribe(url => {
+        this.documents['pan'] = { id: id, documentURL: url };
+        this.uploadPhoto(this.photoEvent);
+      })
     })
   }
 
   uploadPhoto(event) {
-    var uniqueId = Date.now();
-    let id = uniqueId + '_' + event.target.files[0].name;
-    const file = event.target.files[0];
-    const filePath = `Affiliations/${id}`;
-    const fileRef = this.afStorage.ref(filePath);
-    console.log('Photo uploaded successfully...')
-    const task = this.afStorage.upload(filePath, file);
-    task.snapshotChanges().pipe(
-      last(),  
-      switchMap(() => fileRef.getDownloadURL())
-    ).subscribe(url => {
-      this.documents['photo'] = { id: id, documentURL: url };
-      this.firestore.collection('AffiliationRequests').doc(this.registeredDistrictId).update({docs: this.documents}).then(res => {
-        console.log('DOC URL saved successfully');
-      });
+    return new Promise<any>((resolve, reject) => {
+      var uniqueId = Date.now();
+      let id = uniqueId + '_' + event.target.files[0].name;
+      const file = event.target.files[0];
+      const filePath = `Affiliations/${id}`;
+      const fileRef = this.afStorage.ref(filePath);
+      console.log('Photo uploaded successfully...')
+      const task = this.afStorage.upload(filePath, file);
+      task.snapshotChanges().pipe(
+        last(),
+        switchMap(() => fileRef.getDownloadURL())
+      ).subscribe(url => {
+        this.documents['photo'] = { id: id, documentURL: url };
+        this.firestore.collection('AffiliationRequests').doc(this.registeredDistrictId).update({ docs: this.documents }).then(res => {
+          console.log('DOC URL saved successfully');
+        });
+      })
     })
   }
 }
