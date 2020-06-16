@@ -1,9 +1,12 @@
 <div *ngIf="oldAffiliations.length > 0">
-
-    <div class="row">
-        <div class="col-sm-12">
+    <div class="row justify-content-between">
+        <div class="col-10">
             <h2><strong><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Old Affiliations <span
                         class="badge badge-primary">{{oldAffiliations.length}}</span></strong></h2>
+        </div>
+        <div class="col-2">
+            <input type="text" class="form-control" placeholder="Search..." #searchKey
+                (keyup)="filterResult(searchKey.value)">
         </div>
     </div>
     <div class="data-table mb-5 mt-3 table-responsive" style="border:1px solid #00000017;">

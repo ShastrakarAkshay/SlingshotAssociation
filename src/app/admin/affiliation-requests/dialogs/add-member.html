@@ -70,7 +70,7 @@
                     <div class="form-group">
                         <select class="form-control" formControlName="gender"
                             [ngClass]="{'is-invalid':registerForm.get('gender').touched && registerForm.get('gender').invalid}">
-                            <option selected disabled>Select Gender</option>
+                            <option selected disabled value="">Select Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
@@ -139,7 +139,7 @@
                     <div class="form-group">
                         <select class="form-control" formControlName="district"
                             [ngClass]="{'is-invalid':registerForm.get('district').touched && registerForm.get('district').invalid}">
-                            <option selected disabled value="">select district</option>
+                            <option selected disabled value="">Select District</option>
                             <option *ngFor="let dist of allDistricts" value="{{dist.name}}">{{dist.name}}</option>
                         </select>
                         <span class="invalid-feedback alert alert-danger">

@@ -51,12 +51,18 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
       this.dataSource = new MatTableDataSource(this.affiliatinRequests);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
+      this.dataSource.filterPredicate = (data:any, filter) => {
+        let dataSource = data.requestedDistrict.name + data.members[0].firstName + ' ' +  data.members[0].middleName + ' ' +  data.members[0].lastName; 
+        dataSource = dataSource.toLowerCase();
+        return dataSource.includes(filter);
+      };
       this.hide_spinner();
     })
   }
 
-  filterResult(serachKey: string) {
-    this.dataSource.filter = serachKey.trim().toLowerCase();
+  filterResult(searchKey: string) {
+    searchKey = searchKey.replace(/  +/g, ' ');
+    this.dataSource.filter = searchKey.trim().toLowerCase();
   }
 
   getPersonInfo(personData: any) {
@@ -83,7 +89,7 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this._service.deleteRequestById(id, data.members[0].documents);
+        this._service.deleteRequestById(id, data.docs);
         this._toastr.info("Request Deleted Successfully.");
       }
     });
@@ -190,6 +196,21 @@ export class DistrictApprovalDialog implements OnInit {
     });
   }
 
+  deleteUser(id) {
+    let dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to delete?', type: 'confirm' },
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.personData.members = this.personData.members.filter(res => res.id !== id);
+        this._service.addAffiliationMember(this.personData.requestedDistrict.id, this.personData.members);
+        this._toastr.info('Member Deleted Successfully.');
+      }
+    });
+  }
+
 }
 
 @Component({
@@ -226,8 +247,18 @@ export class ApprovedDistrictComponent implements OnInit {
       this.dataSource2 = new MatTableDataSource(this.approvedDistricts);
       this.dataSource2.sort = this.sort2;
       this.dataSource2.paginator = this.paginator2;
+      this.dataSource2.filterPredicate = (data:any, filter) => {
+        let dataSource = data.requestedDistrict.name + data.members[0].firstName + ' ' +  data.members[0].middleName + ' ' +  data.members[0].lastName; 
+        dataSource = dataSource.toLowerCase();
+        return dataSource.includes(filter);
+      };
       this.hide_spinner();
     })
+  }
+
+  filterResult(searchKey: string) {
+    searchKey = searchKey.replace(/  +/g, ' ');
+    this.dataSource2.filter = searchKey.trim().toLowerCase();
   }
 
   getRegisteredDistrctInfo(personData: any) {
@@ -283,8 +314,18 @@ export class RejectedAffiliationComponent implements OnInit {
       this.dataSource3 = new MatTableDataSource(this.oldAffiliations);
       this.dataSource3.sort = this.sort3;
       this.dataSource3.paginator = this.paginator3;
+      this.dataSource3.filterPredicate = (data:any, filter) => {
+        let dataSource = data.requestedDistrict.name + data.members[0].firstName + ' ' +  data.members[0].middleName + ' ' +  data.members[0].lastName; 
+        dataSource = dataSource.toLowerCase();
+        return dataSource.includes(filter);
+      };
       this.hide_spinner();
     })
+  }
+
+  filterResult(searchKey: string) {
+    searchKey = searchKey.replace(/  +/g, ' ');
+    this.dataSource3.filter = searchKey.trim().toLowerCase();
   }
 
   getRegisteredDistrctInfo(personData: any) {
@@ -367,7 +408,7 @@ export class AddMemberDialog implements OnInit {
 
   getFormData(data): any {
     return {
-      id: this.personData.requestedDistrict.id + 'Member02',
+      id: Date.now(),
       role: 'Joint Secretory',
       firstName: data.firstName,
       middleName: data.middleName,

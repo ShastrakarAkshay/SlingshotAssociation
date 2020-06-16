@@ -157,7 +157,7 @@ export class AssociationComponent implements OnInit {
       },
       members: [
         {
-          id: this.selectedDistrict.id + 'Member01',
+          id: Date.now(),
           role: 'Secretory',
           firstName: data.firstName,
           middleName: data.middleName,
@@ -176,7 +176,7 @@ export class AssociationComponent implements OnInit {
           documents: {}
         }
       ],
-      docs: {},
+      docs: null,
       approvedOn: '',
       approvedBy: '',
       createdDate: this.utility.convertDateToEPOC(new Date()),

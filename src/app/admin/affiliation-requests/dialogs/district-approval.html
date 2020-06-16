@@ -13,8 +13,8 @@
                         <td width="30%" class=""><strong>Name</strong></td>
                         <td width="70%" class="text-capitalize"><i class="fa fa-user-circle mr-1"></i> {{member.firstName}}
                             {{member.middleName}} {{member.lastName}}
-                            <div class="pull-right" *ngIf="i === 1">
-                                <a class="btn text-danger pointer" (click)="deleteUser(id)" matTooltip="Delete Member"
+                            <div class="pull-right" *ngIf="i === 1 && personData.status !== 'rejected'">
+                                <a class="btn text-danger pointer" (click)="deleteUser(member.id)" matTooltip="Delete Member"
                                 matTooltipPosition="above"><i class="fa fa-trash text-danger"></i></a>
                             </div>
                         </td>

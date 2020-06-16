@@ -77,13 +77,13 @@ export class SlingshotService {
   }
 
   getAffiliationRequests(): any {
-    return this.firestore.collection("AffiliationRequests").snapshotChanges();
+    return this.firestore.collection("AffiliationRequests", ref => ref.orderBy('createdDate', 'desc')).snapshotChanges();
   }
 
   deleteRequestById(id: any, doc: any): any {
     this.firestore.collection('AffiliationRequests').doc(id).delete();
     // delete images from storage
-    if(doc && doc.length){
+    if(doc){
       this.storage.storage.ref().child(`Affiliations/${doc.adhaar.id}`).delete();
       this.storage.storage.ref().child(`Affiliations/${doc.pan.id}`).delete();
       this.storage.storage.ref().child(`Affiliations/${doc.photo.id}`).delete();
@@ -103,7 +103,7 @@ export class SlingshotService {
   }
 
   getApprovedDistrictInfo(): any {
-    return this.firestore.collection('ApprovedDistricts').snapshotChanges();
+    return this.firestore.collection('ApprovedDistricts', ref => ref.orderBy('approvedOn', 'desc')).snapshotChanges();
   }
 
   deleteDistrictAffiliation(data: any): any {
