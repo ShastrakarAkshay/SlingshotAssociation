@@ -52,8 +52,7 @@
                 <div class="col-sm-6">
                     <label>Mobile No.</label>
                     <div class="form-group">
-                        <input type="text" matTooltip="Mobile Number use for notifications!" matTooltipPosition="above"
-                            class="form-control" formControlName="mobile" maxlength="10"
+                        <input type="text" class="form-control" formControlName="mobile" maxlength="10"
                             [ngClass]="{'is-invalid':registerForm.get('mobile').touched && registerForm.get('mobile').invalid}">
                         <span class="invalid-feedback alert alert-danger">
                             <span *ngIf="registerForm.get('mobile').errors?.required">Field is required</span>
