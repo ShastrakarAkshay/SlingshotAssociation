@@ -82,13 +82,12 @@ export class AdminComponent implements OnInit {
   }
 
   openNav() {
-    // document.getElementById("mySidepanel").style.width = "270px";
-    this.mySidepanel.nativeElement.style.width = "270px";
+    // this.mySidepanel.nativeElement.style.width = "270px";
+    this.mySidepanel.nativeElement.style.display = "block";
   }
   
   closeNav() {
-    // document.getElementById("mySidepanel").style.width = "0";
-    this.mySidepanel.nativeElement.style.width = "0";
+    this.mySidepanel.nativeElement.style.display = "none";
 
   }
 }
