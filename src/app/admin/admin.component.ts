@@ -88,6 +88,5 @@ export class AdminComponent implements OnInit {
   
   closeNav() {
     this.mySidepanel.nativeElement.style.display = "none";
-
   }
 }

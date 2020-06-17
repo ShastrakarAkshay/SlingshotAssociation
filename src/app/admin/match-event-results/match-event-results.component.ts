@@ -36,6 +36,7 @@ export class MatchEventResultsComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getAllResultRecords();
   }
 

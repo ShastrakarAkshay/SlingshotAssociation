@@ -28,6 +28,7 @@ export class EventsComponent implements OnInit {
   constructor(private _dialog: MatDialog, private _service: SlingshotService, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getAllEvents();
   }
 

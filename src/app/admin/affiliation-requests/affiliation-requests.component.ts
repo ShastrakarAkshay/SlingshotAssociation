@@ -31,6 +31,7 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   constructor(private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getAffiliationRequestData();
   }
 

@@ -13,6 +13,7 @@ export class SupportComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.enquiryForm = this.formBuilder.group({
       message: ['', Validators.required],
     });

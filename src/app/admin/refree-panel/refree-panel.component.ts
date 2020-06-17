@@ -28,7 +28,7 @@ export class RefreePanelComponent implements OnInit {
   constructor(private _dialog: MatDialog, private _service: SlingshotService, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
   ngOnInit() {
-
+    window.scrollTo(0, 0);
     this._showSpinner();
     this._service.getAllRefrees().subscribe(data => {
       this.refreeData = data.map((item, index) => {

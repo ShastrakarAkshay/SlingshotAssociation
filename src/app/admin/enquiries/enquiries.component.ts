@@ -25,6 +25,7 @@ export class EnquiriesComponent implements OnInit {
   constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService, private _dialog: MatDialog, private _toastr: ToastrService) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.showSpinner = true;
     this._spinner.show();
     this._service.getEnquiries().subscribe(data => {
