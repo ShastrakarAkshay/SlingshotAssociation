@@ -1,5 +1,5 @@
 <section id="admin" class="bg-offwhite pb-5">
-    <div id="mySidepanel" class="sidepanel m-hide">
+    <div #mySidepanel class="sidepanel m-hide">
         <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
         <a *ngFor="let item of menu" [ngClass]="{'active':item.isActive}" (click)="setActiveClass(item)" [routerLink]="item.link">
             <i class="fa fa-gg-circle mr-2"></i>{{item.name}}

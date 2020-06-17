@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SlingshotService } from '../shared/services/slingshot.service';
 import { UserConfig } from '../shared/interfaces/slingshot.interface';
 import { Router, NavigationStart } from '@angular/router';
@@ -10,6 +10,8 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+
+  @ViewChild('mySidepanel', {static: false}) mySidepanel: ElementRef;
 
   private userID: string;
   private menu = [
@@ -80,10 +82,13 @@ export class AdminComponent implements OnInit {
   }
 
   openNav() {
-    document.getElementById("mySidepanel").style.width = "270px";
+    // document.getElementById("mySidepanel").style.width = "270px";
+    this.mySidepanel.nativeElement.style.width = "270px";
   }
   
   closeNav() {
-    document.getElementById("mySidepanel").style.width = "0";
+    // document.getElementById("mySidepanel").style.width = "0";
+    this.mySidepanel.nativeElement.style.width = "0";
+
   }
 }

@@ -54,6 +54,11 @@
     }
 }
 
+.admin-panel {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
 @media only screen and (max-width: 768px) {
     //mobile device
     #admin {
@@ -61,6 +66,10 @@
             margin-left: 20px;
             margin-right: 20px;
         }
+    }
+    
+    .admin-panel {
+        margin-top: 0 !important;
     }
 }
 
