@@ -1,6 +1,7 @@
 <section id="admin" class="bg-offwhite pb-5">
     <div #mySidepanel class="sidepanel m-hide">
         <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+        <hr>
         <a *ngFor="let item of menu" [ngClass]="{'active':item.isActive}" (click)="setActiveClass(item)" [routerLink]="item.link">
             <i class="fa fa-gg-circle mr-2"></i>{{item.name}}
         </a>
