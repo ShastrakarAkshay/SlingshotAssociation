@@ -76,5 +76,14 @@ export class AdminComponent implements OnInit {
         item.isActive = true;
       }
     })
+    this.closeNav();
+  }
+
+  openNav() {
+    document.getElementById("mySidepanel").style.width = "270px";
+  }
+  
+  closeNav() {
+    document.getElementById("mySidepanel").style.width = "0";
   }
 }
