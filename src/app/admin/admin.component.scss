@@ -67,7 +67,7 @@
             margin-right: 20px;
         }
     }
-    
+
     .admin-panel {
         margin-top: 0 !important;
     }
@@ -83,9 +83,10 @@
     left: 0;
     background-color: #fff;
     overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-y: auto; /* Disable horizontal scroll */
     padding-top: 80px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
-    margin-top: 80px;
+    margin-top: 20px;
 }
 
 /* The sidepanel links */
@@ -102,8 +103,19 @@
 /* Position and style the close button (top right corner) */
 .sidepanel .closebtn {
     position: absolute;
-    top: 0;
-    right: 25px;
+    top: 45px;
+    right: 15px;
     font-size: 50px;
     margin-top: 0 !important;
+}
+
+.img-area {
+    border-radius: 50%;
+    .img-thumb {
+        padding: 0.35rem;
+        background-color: #fff;
+        border-radius: 50%;
+        max-width: 80%;
+        height: auto;
+    }
 }
