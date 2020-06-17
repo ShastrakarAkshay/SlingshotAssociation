@@ -82,7 +82,7 @@ export class AdminComponent implements OnInit {
   }
 
   openNav() {
-    // this.mySidepanel.nativeElement.style.width = "270px";
+    this.mySidepanel.nativeElement.style.width = "270px";
     this.mySidepanel.nativeElement.style.display = "block";
   }
   
