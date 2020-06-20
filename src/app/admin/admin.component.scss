@@ -75,7 +75,7 @@
 
 /* The sidepanel menu */
 .sidepanel {
-    height: 100%;
+    height: auto;
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
@@ -110,7 +110,6 @@
 }
 
 .img-area {
-    border-radius: 50%;
     .img-thumb {
         padding: 0.35rem;
         background-color: #fff;

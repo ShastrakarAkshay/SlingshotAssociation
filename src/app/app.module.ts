@@ -46,6 +46,9 @@ import { SupportComponent } from './support/support.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
+import * as firebase from 'firebase/app';
+firebase.initializeApp(environment.firebaseConfig);
+
 const APP_DIALOGS = [
   //dialogs
   DistrictApprovalDialog,
