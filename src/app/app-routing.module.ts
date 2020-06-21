@@ -18,6 +18,7 @@ import { LoginGuard } from './shared/guards/login.guard';
 import { RefreePanelComponent } from './admin/refree-panel/refree-panel.component';
 import { CommitteeComponent } from './committee/committee.component';
 import { SupportComponent } from './support/support.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -75,8 +76,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
-    component: HomeComponent
+    component: PageNotFoundComponent
   }
 ];
 

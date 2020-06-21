@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
 
 @Component({
@@ -8,13 +8,7 @@ import * as firebase from 'firebase/app';
 })
 export class AppComponent implements AfterViewInit {
   title = 'SlingshotAssociation';
-
-  constructor() {
-    firebase.analytics().logEvent('start_app_constructor', {
-      username: 'akshay'
-    })
-  }
-
+  
   ngAfterViewInit() {
     firebase.analytics().logEvent('start_app', {
       username: 'akshay'

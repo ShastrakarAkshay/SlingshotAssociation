@@ -47,6 +47,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import * as firebase from 'firebase/app';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 firebase.initializeApp(environment.firebaseConfig);
 
 const APP_DIALOGS = [
@@ -99,7 +100,8 @@ const MATERIAL_MODULES = [
     SpinnerComponent,
     CommitteeComponent,
     ScoreBoardComponent,
-    SupportComponent
+    SupportComponent,
+    PageNotFoundComponent
   ],
   imports: [
     FormsModule,
