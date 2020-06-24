@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
       .then((result) => {
         this.router.navigate(['/admin']);
         localStorage.setItem('login-token', result.user.uid);
-        localStorage.setItem('user-id', result.user.uid);
+        localStorage.setItem('uid', result.user.uid);
         this.auth.isLoggedIn();
         this.hide_spinner();
       }).catch((error) => {

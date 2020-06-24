@@ -3,6 +3,9 @@ import { SlingshotService } from '../shared/services/slingshot.service';
 import { UserConfig } from '../shared/interfaces/slingshot.interface';
 import { Router, NavigationStart } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +16,7 @@ export class AdminComponent implements OnInit {
 
   @ViewChild('mySidepanel', {static: false}) mySidepanel: ElementRef;
 
-  private userID: string;
+  private uid: string;
   private menu = [
     {
       name: 'Affiliations',
@@ -47,8 +50,15 @@ export class AdminComponent implements OnInit {
     }
   ]
 
-  constructor(private _service: SlingshotService, private router: Router) {
-    this.userID = localStorage.getItem('user-id');
+  constructor(private _service: SlingshotService, private router: Router, private afAuth: AngularFireAuth, private authService: AuthService) {
+    this.uid = localStorage.getItem('uid');
+    this.afAuth.user.subscribe(user => {
+      if(!user){
+        this.authService.signOut();
+      }
+    }, error => {
+      this.authService.signOut();
+    });
   }
 
   ngOnInit() {
