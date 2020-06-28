@@ -1,5 +1,5 @@
 <section id="result-area">
-    <ul class="list-group mt-4">
+    <ul class="list-group mt-4" *ngIf="result.length > 0">
         <li class="list-group-item mt-1" *ngFor="let item of result; let i=index;">
             <span class="index font-weight-bold">{{i+1}}</span>
             <div class="event-panel row pt-3 pb-3">
@@ -14,15 +14,18 @@
                 <div class="col-sm-4 text-center">
                     <div class="result" style="font-size: 30px;font-weight: bold;">score : {{item.score}}</div>
                     <span class="font-weight-bold">Category : {{item.ageCategory}}</span> <br>
-                    <span class="text-rank font-weight-bold mt-2"><i class="fa fa-star mr-1" aria-hidden="true"></i>{{item.rank}}</span>
+                    <span class="text-rank font-weight-bold mt-2"><i class="fa fa-star mr-1"
+                            aria-hidden="true"></i>{{item.rank}}</span>
                 </div>
                 <div class="col-sm-4 text-center justify-content-end event-sec">
                     <h5 class="font-weight-bold">event</h5>
                     <div>"{{item.eventInfo.eventTitle}}"</div>
-                    <div><i class="fa fa-calendar" aria-hidden="true"></i> {{item.eventInfo.eventDate | date: 'dd'}}-{{item.eventInfo.eventDate | date: 'MMM'}}-{{item.eventInfo.eventDate | date: 'yyyy'}}</div>
+                    <div><i class="fa fa-calendar" aria-hidden="true"></i>
+                        {{item.eventInfo.eventDate | date: 'dd'}}-{{item.eventInfo.eventDate | date: 'MMM'}}-{{item.eventInfo.eventDate | date: 'yyyy'}}
+                    </div>
                     <div class="row text-center justify-content-center">
                         <p class="text-capitalize">
-                            <i class="fa fa-map-marker"></i> 
+                            <i class="fa fa-map-marker"></i>
                             {{item.eventInfo.eventAddress}}
                         </p>
                     </div>
@@ -30,4 +33,7 @@
             </div>
         </li>
     </ul>
+    <div class="jumbotron bg-white text-center mt-5" *ngIf="result.length === 0">
+        No match result found !
+    </div>
 </section>
