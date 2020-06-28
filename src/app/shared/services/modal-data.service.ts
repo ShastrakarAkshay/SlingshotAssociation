@@ -179,6 +179,7 @@ export class ModalDataService {
       {name:'Mr. Rakesh Dattuji Chapattiwar', mobile:'-'},
       {name:'Mr. Ashvin Siddham Shettiwar', mobile:'-'},
       {name:'Mr. Saurabh Ramteke', mobile:'-'},
+      {name:'Miss. Poonam R. Digambar', mobile:'-'}
     ],
     OFFICIAL_REFEREE: [
       {name:'Miss. Akansha Raju Patil', mobile:''},
