@@ -1,20 +1,26 @@
-/* slingshot.association.mh@gmail.com */
+< slingshot.association.mh@gmail.com >
 
-1. npm install bootstrap --save
-2. npm install jquery --save
-3. npm install popper.js --save
-4. npm install font-awesome --save
-5. ng add @angular/material --save
-6. npm install -g firebase firebase-tools --save
-7. npm install @angular/fire --save
-8. npm i @fortawesome/angular-fontawesome --save
-9. npm i ngx-toastr@10.0.4 --save
-10. npm i ngx-spinner --save
+# Packages
+    1. npm install bootstrap --save
+    2. npm install jquery --save
+    3. npm install popper.js --save
+    4. npm install font-awesome --save
+    5. ng add @angular/material --save
+    6. npm install -g firebase firebase-tools --save
+    7. npm install @angular/fire --save
+    8. npm i @fortawesome/angular-fontawesome --save
+    9. npm i ngx-toastr@10.0.4 --save
+    10. npm i ngx-spinner --save
 
 
-#team
-https://demo.themeftc.com/ornaldo/home14/
-https://codepen.io/vulchivijay/pen/yyxyvB    - border effects
-https://mdbootstrap.com/plugins/jquery/extended-cards/  -cards
-https://mobirise.com/bootstrap-template/about-us-page-template/ - papges templates
-//Deploye Version 0.0.2
+# team
+    https://demo.themeftc.com/ornaldo/home14/
+    https://codepen.io/vulchivijay/pen/yyxyvB    - border effects
+    https://mdbootstrap.com/plugins/jquery/extended-cards/  - cards
+    https://mobirise.com/bootstrap-template/about-us-page-template/ - papges templates
+
+
+# Features in version - 2
+    1. search filter in match-result page
+    2. sms sending on affiliation request, approval, cancel
+    3. reports of affiliations
