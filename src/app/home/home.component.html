@@ -206,7 +206,10 @@
             <div class="text-center">
                 <h2><strong>Upcomming Events</strong></h2>
             </div>
-            <div id="eventsCourousel" class="carousel slide mt-5" data-ride="carousel">
+            <div class="jumbotron bg-white text-center mt-5" *ngIf="eventData.length === 0">
+                No events found. Events are comming soon !
+            </div>
+            <div id="eventsCourousel" class="carousel slide mt-5" data-ride="carousel" *ngIf="eventData.length > 0">
                 <ol class="carousel-indicators user-indicators" hidden>
                     <li data-target="#eventsCourousel" data-slide-to="0" class="active"></li>
                 </ol>
@@ -234,7 +237,8 @@
                                         <div class="info text-left">
                                             <span><strong><i class="fa fa-map-marker pr-1"></i>Address</strong></span>
                                             <p class="text-capitalize">{{event.eventAddress}}</p>
-                                            <span><strong><i class="fa fa-user pr-1"></i>Contact Persons</strong></span>
+                                            <span><strong><i class="fa fa-user pr-1"></i>Contact
+                                                    Persons</strong></span>
                                             <p class="text-capitalize">{{event.contactPersons}}</p>
                                             <span><strong><i class="fa fa-phone pr-1"></i>Phone</strong></span>
                                             <p>{{event.contactNumbers}}</p>
