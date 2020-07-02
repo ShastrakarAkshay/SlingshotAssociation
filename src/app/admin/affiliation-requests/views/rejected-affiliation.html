@@ -20,13 +20,13 @@
 
             <ng-container matColumnDef="districtName">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> District Name </th>
-                <td mat-cell *matCellDef="let element" width="25%" class="empNameLink pointer text-capitalize">
+                <td mat-cell *matCellDef="let element" width="20%" class="empNameLink pointer text-capitalize">
                     {{element.requestedDistrict.name}} </td>
             </ng-container>
 
             <ng-container matColumnDef="member">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Member Name </th>
-                <td mat-cell *matCellDef="let element" width="30%" class="empNameLink pointer text-capitalize">
+                <td mat-cell *matCellDef="let element" width="25%" class="empNameLink pointer text-capitalize">
                     {{element.members[0].firstName}} {{element.members[0].middleName}} {{element.members[0].lastName}}
                 </td>
             </ng-container>
@@ -46,10 +46,12 @@
 
             <ng-container matColumnDef="action" class="pull-right">
                 <th mat-header-cell *matHeaderCellDef class="bg-dark text-white">Action</th>
-                <td mat-cell *matCellDef="let element" width="10%">
-                    <div class="row p-2">
+                <td mat-cell *matCellDef="let element" width="15%">
+                    <div class="row">
                         <a class="btn text-info pointer" (click)="getRegisteredDistrctInfo(element)" matTooltip="View"
                             matTooltipPosition="above"><i class="fa fa-pencil"></i></a>
+                        <a class="btn text-danger pointer" (click)="deleteAffiliation(element.id)"
+                            matTooltip="Delete" matTooltipPosition="above"><i class="fa fa-trash text-danger"></i></a>
                     </div>
                 </td>
             </ng-container>

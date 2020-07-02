@@ -90,6 +90,10 @@ export class SlingshotService {
     }
   }
 
+  deleteAffiliationForever(id) {
+    this.firestore.collection('OLD_AFFILIATIONS').doc(id).delete();
+  }
+
   getUserById(id: string): any {
     return this.firestore.collection('AffiliationRequests').doc(id).get();
   }

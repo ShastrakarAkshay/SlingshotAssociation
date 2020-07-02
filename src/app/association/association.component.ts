@@ -143,7 +143,7 @@ export class AssociationComponent implements OnInit {
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/');
         }
       });
     });

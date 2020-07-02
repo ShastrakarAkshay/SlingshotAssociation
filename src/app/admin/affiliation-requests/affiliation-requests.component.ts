@@ -307,8 +307,8 @@ export class RejectedAffiliationComponent implements OnInit {
     this._service.getOldAffiliations().subscribe(data => {
       this.oldAffiliations = data.map((item, index) => {
         return {
-          id: item.payload.doc.id,
           ...item.payload.doc.data(),
+          id: item.payload.doc.id,
           index: index + 1
         }
       });
@@ -345,6 +345,20 @@ export class RejectedAffiliationComponent implements OnInit {
   hide_spinner() {
     this._spinner.hide();
     this.showSpinner = false;
+  }
+
+  deleteAffiliation(id) {
+    let dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Do you want to delete forever?', type: 'confirm' },
+      autoFocus: false
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._service.deleteAffiliationForever(id);
+        this._toastr.info('Affiliation data deleted.');
+      }
+    });
   }
 }
 
