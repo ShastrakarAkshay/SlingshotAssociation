@@ -129,19 +129,12 @@
                 <div class="col-sm-6">
                     <label class="font-weight-bold">Date of Birth</label>
                     <div class="form-group">
-                        <div class="input-group">
-                            <input type="date" class="form-control" formControlName="dateOfBirth"
-                                [ngClass]="{'is-invalid':refreeForm.get('dateOfBirth').touched && refreeForm.get('dateOfBirth').invalid}"
-                                max="Date.now()">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                            <span class="invalid-feedback alert alert-danger">
-                                Field is required
-                            </span>
-                        </div>
+                        <input type="date" class="form-control" formControlName="dateOfBirth"
+                            [ngClass]="{'is-invalid':refreeForm.get('dateOfBirth').touched && refreeForm.get('dateOfBirth').invalid}"
+                            max="Date.now()">
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
                     </div>
                 </div>
             </div>
