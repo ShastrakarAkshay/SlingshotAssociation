@@ -5,3 +5,18 @@
         background-color: $th-color;
     }
 }
+
+.dialog {
+    .img-area {
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        border-color: #f0f0f0 !important;
+        img {
+          width: 100%;
+        }
+      }
+}

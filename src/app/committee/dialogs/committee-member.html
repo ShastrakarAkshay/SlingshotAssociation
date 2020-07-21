@@ -6,12 +6,14 @@
                 <div class="card card-cascade">
                     <div class="view view-cascade overlay">
                         <div class="img-area mt-5">
-                            <img src="./assets/images/user-pic-default.png" alt="">
+                            <img [src]="documentUrl" alt="">
                         </div>
                     </div>
                     <div class="card-body card-body-cascade text-center">
-                        <h4 class="mt-3 member-name text-capitalize"><strong>{{referee.firstName}}
-                                {{referee.middleName}} {{referee.lastName}}</strong></h4>
+                        <h4 class="mt-3 member-name text-capitalize"><strong>
+                            <span *ngIf="referee.gender === 'Male'">Mr.</span>
+                            <span *ngIf="referee.gender === 'Female'">Miss.</span>
+                            {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}</strong></h4>
                         <span class="text-info font-weight-bold">({{referee.mobile}})</span>
                         <br>
                         <span class="text-lowercase">{{referee.email}}</span>

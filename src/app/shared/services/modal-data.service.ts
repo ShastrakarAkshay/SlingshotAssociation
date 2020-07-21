@@ -20,7 +20,7 @@ export class ModalDataService {
       email: 'xyz@gmail.com',
       mobile: '9588430982',
       class: '',
-      pic: './assets/images/members/lalit-dhoke.jpg'
+      pic: './assets/images/user-pic-default.png'
     },
     {
       name: 'Mr. Manikraj Landge',
@@ -60,7 +60,7 @@ export class ModalDataService {
       email: 'xyz@gmail.com',
       mobile: '9370155501',
       class: '',
-      pic: './assets/images/members/suraj-kadukar.jpg'
+      pic: './assets/images/user-pic-default.png'
     },
     {
       name: 'Mr. Sunil Shinde',

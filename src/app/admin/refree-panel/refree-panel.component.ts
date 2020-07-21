@@ -9,6 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { UtilityService } from 'src/app/shared/services/utility.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { last, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-refree-panel',
@@ -61,7 +63,7 @@ export class RefreePanelComponent implements OnInit {
     });
   }
 
-  deleteRefree(id:any){
+  deleteRefree(id: any) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to delete?', type: 'confirm' },
       autoFocus: false
@@ -91,13 +93,17 @@ export class RefreePanelComponent implements OnInit {
 
 @Component({
   selector: 'add-refree-dialog',
-  templateUrl: 'dialogs/add-refree-dialog.html'
+  templateUrl: 'dialogs/add-refree-dialog.html',
+  styleUrls: ['./refree-panel.component.scss']
 })
 export class AddRefreeDialog implements OnInit {
   private refreeForm: FormGroup;
   private refreeData: any;
   private isEdit: boolean = false;
   private allDistricts: any[] = [];
+  private event: any;
+  private showSpinner: boolean = false;
+  private documentUrl: string = '././assets/images/user-pic-default.png';
 
   constructor(
     public _dialogRef: MatDialogRef<AddRefreeDialog>,
@@ -105,10 +111,15 @@ export class AddRefreeDialog implements OnInit {
     private formBuilder: FormBuilder,
     private utility: UtilityService,
     private _toastr: ToastrService,
+    private _spinner: NgxSpinnerService,
+    @Inject(AngularFireStorage) private afStorage: AngularFireStorage,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     // _dialogRef.disableClose = true;
     this.refreeData = data;
+    if (this.refreeData && this.refreeData.documents) {
+      this.documentUrl = this.refreeData.documents.documentURL;
+    }
   }
 
   ngOnInit() {
@@ -123,7 +134,8 @@ export class AddRefreeDialog implements OnInit {
       city: ['', Validators.required],
       district: ['', Validators.required],
       pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
-      aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]]
+      aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
+      gender: ['', [Validators.required]]
     });
 
     if (this.refreeData) {
@@ -138,7 +150,8 @@ export class AddRefreeDialog implements OnInit {
         district: this.refreeData.district,
         pin: this.refreeData.pin,
         aadhaarNo: this.refreeData.aadhaarNo,
-        dateOfBirth: this.refreeData.dateOfBirth
+        dateOfBirth: this.refreeData.dateOfBirth,
+        gender: this.refreeData.gender
       });
       this.isEdit = true;
     }
@@ -152,26 +165,96 @@ export class AddRefreeDialog implements OnInit {
     this._dialogRef.close();
   }
 
-  addRefree() {
+  addRefree(docs) {
     if (this.refreeForm.invalid) {
       return;
     }
     let formData = this.refreeForm.value;
     formData['createdDate'] = this.utility.convertDateToEPOC(new Date());
+    formData['documents'] = docs;
     this._service.addRefree(formData);
     this._toastr.success("Refree Added Successfully.");
     this.close();
+    this.hide_spinner();
   }
 
-  updateRefree() {
+  updateRefree(docs) {
     if (this.refreeForm.invalid) {
       return;
     }
-
-    this._service.updateRefreeById(this.refreeData.id, this.refreeForm.value);
+    let formData = this.refreeForm.value;
+    formData['documents'] = docs;
+    this._service.updateRefreeById(this.refreeData.id, formData);
     this._toastr.success("Refree Updated Successfully.");
     this.close();
+    this.hide_spinner();
+  }
+
+  validatefile(event) {
+    this.event = event;
+  }
+
+  saveForm() {
+    this.show_spinner();
+    if (this.event) {
+      return new Promise<any>((resolve, reject) => {
+        var uniqueId = Date.now();
+        let id = uniqueId + '_' + this.event.target.files[0].name;
+        const file = this.event.target.files[0];
+        const filePath = `Referee/${id}`;
+        const fileRef = this.afStorage.ref(filePath);
+        const task = this.afStorage.upload(filePath, file);
+        task.snapshotChanges().pipe(
+          last(),
+          switchMap(() => fileRef.getDownloadURL())
+        ).subscribe(url => {
+          let docs = { id: id, documentURL: url };
+          this.addRefree(docs);
+        })
+      })
+    } else {
+      let docs = null;
+      this.addRefree(docs);
+    }
+  }
+
+  updateForm() {
+    this.show_spinner();
+    if (this.event) {
+      return new Promise<any>((resolve, reject) => {
+        var uniqueId = Date.now();
+        let id = uniqueId + '_' + this.event.target.files[0].name;
+        const file = this.event.target.files[0];
+        const filePath = `Referee/${id}`;
+        const fileRef = this.afStorage.ref(filePath);
+        const task = this.afStorage.upload(filePath, file);
+        task.snapshotChanges().pipe(
+          last(),
+          switchMap(() => fileRef.getDownloadURL())
+        ).subscribe(url => {
+          //Delete old document
+          let OldId = this.refreeData.documents ? this.refreeData.documents.id : null;
+          if (OldId) {
+            this.afStorage.storage.ref().child(`Referee/${OldId}`).delete();
+          }
+          let docs = { id: id, documentURL: url };
+          this.updateRefree(docs);
+        })
+      })
+    } else {
+      let docs = this.refreeData.documents ? this.refreeData.documents : null;
+      this.updateRefree(docs);
+    }
+  }
+
+  show_spinner() {
+    this.showSpinner = true;
+    this._spinner.show();
+  }
+
+  hide_spinner() {
+    this._spinner.hide();
+    this.showSpinner = false;
   }
 }
-
 

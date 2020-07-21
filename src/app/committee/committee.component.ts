@@ -61,6 +61,7 @@ export class CommitteeComponent implements OnInit {
 export class RefereeDialog implements OnInit {
 
   referee: any;
+  documentUrl: string = './assets/images/user-pic-default.png';
 
   constructor(
     public _dialogRef: MatDialogRef<RefereeDialog>,
@@ -69,6 +70,10 @@ export class RefereeDialog implements OnInit {
   ) {
     // this._dialogRef.disableClose = true;
     this.referee = data;
+    if (this.referee.documents) {
+      this.documentUrl = this.referee.documents.documentURL;
+    }
+
   }
 
   ngOnInit() { }

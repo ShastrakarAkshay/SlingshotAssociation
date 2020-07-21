@@ -3,6 +3,13 @@
     <mat-dialog-content>
         <form id="regForm" class="mt-4" [formGroup]="refreeForm">
             <div class="row">
+                <div class="col-sm-12">
+                    <div class="img-area mt-2 mb-5">
+                        <img [src]="documentUrl" alt="" class="img">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-sm-4">
                     <label class="font-weight-bold">First Name</label>
                     <div class="form-group">
@@ -36,7 +43,22 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
+                    <label class="font-weight-bold">Gender</label>
+                    <div class="form-group">
+                        <select class="form-control" formControlName="gender"
+                            [ngClass]="{'is-invalid':refreeForm.get('gender').touched && refreeForm.get('gender').invalid}">
+                            <option selected disabled value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="invalid-feedback alert alert-danger">
+                            Field is required
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
                     <label class="font-weight-bold">Email</label>
                     <div class="form-group">
                         <input type="email" class="form-control text-lowercase" formControlName="email"
@@ -49,7 +71,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label class="font-weight-bold">Mobile No.</label>
                     <div class="form-group">
                         <input type="text" class="form-control" formControlName="mobile" maxlength="10"
@@ -138,22 +160,18 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="row">
-            <div class="col-sm-4 mt-3">
-                <label class="font-weight-bold"><strong>Passport Photo</strong></label>
-                <input type="file" id="files3" name="files" formControlName="file"
-                    [ngClass]="{'is-invalid':refreeForm.get('file').touched && refreeForm.get('file').invalid}">
-                <span class="invalid-feedback alert alert-danger">
-                    <span *ngIf="refreeForm.get('file').errors?.required">Field is required</span>
-                </span>
+            <div class="row mb-5">
+                <div class="col-sm-4">
+                    <label class="font-weight-bold"><strong>Passport Photo</strong></label>
+                    <input type="file" id="files3" name="files" (input)="validatefile($event)">
+                </div>
             </div>
-        </div> -->
         </form>
     </mat-dialog-content>
     <div mat-dialog-actions class="pb-4 pt-4 row justify-content-center">
-        <button mat-button class="btn sling-btn" (click)="addRefree()" [disabled]="!refreeForm.valid"
+        <button mat-button class="btn sling-btn" (click)="saveForm()" [disabled]="!refreeForm.valid"
             *ngIf="!isEdit">Create</button>
-        <button mat-button class="btn sling-btn" (click)="updateRefree()" [disabled]="!refreeForm.valid"
+        <button mat-button class="btn sling-btn" (click)="updateForm()" [disabled]="!refreeForm.valid"
             *ngIf="isEdit">Update</button>
         <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>Close</button>
     </div>

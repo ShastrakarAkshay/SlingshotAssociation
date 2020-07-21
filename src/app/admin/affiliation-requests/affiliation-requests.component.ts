@@ -424,7 +424,7 @@ export class AddMemberDialog implements OnInit {
   getFormData(data): any {
     return {
       id: Date.now(),
-      role: 'Joint Secretory',
+      role: 'Secretory',
       firstName: data.firstName,
       middleName: data.middleName,
       lastName: data.lastName,

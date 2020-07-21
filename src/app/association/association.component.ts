@@ -158,7 +158,7 @@ export class AssociationComponent implements OnInit {
       members: [
         {
           id: Date.now(),
-          role: 'Secretory',
+          role: 'President',
           firstName: data.firstName,
           middleName: data.middleName,
           lastName: data.lastName,

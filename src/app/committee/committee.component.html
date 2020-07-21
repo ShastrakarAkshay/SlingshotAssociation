@@ -8,7 +8,10 @@
             <table class="table table-bordered mt-3">
                 <tr *ngFor="let member of committee.AFFILIATION_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%" class="text-capitalize">{{member.name}}</td>
+                    <td width="50%" class="text-capitalize">
+                        <i class="fa fa-user-circle"></i>
+                        {{member.name}}
+                    </td>
                     <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
@@ -19,7 +22,10 @@
             <table class="table table-bordered mt-3">
                 <tr *ngFor="let member of committee.TOURNAMENT_TECHNICAL_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%" class="text-capitalize">{{member.name}}</td>
+                    <td width="50%" class="text-capitalize">
+                        <i class="fa fa-user-circle"></i>
+                        {{member.name}}
+                    </td>
                     <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
@@ -30,7 +36,10 @@
             <table class="table table-bordered mt-3">
                 <tr *ngFor="let member of committee.TOURNAMENT_ORGANIZER_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%" class="text-capitalize">{{member.name}}</td>
+                    <td width="50%" class="text-capitalize">
+                        <i class="fa fa-user-circle"></i>
+                        {{member.name}}
+                    </td>
                     <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
@@ -40,7 +49,10 @@
             <table class="table table-bordered mt-3">
                 <tr *ngFor="let member of committee.SELECTION_COMMITTEE; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
-                    <td width="50%" class="text-capitalize">{{member.name}}</td>
+                    <td width="50%" class="text-capitalize">
+                        <i class="fa fa-user-circle"></i>
+                        {{member.name}}
+                    </td>
                     <td width="40%" class="text-center">{{member.mobile}}</td>
                 </tr>
             </table>
@@ -51,7 +63,9 @@
                 <tr *ngFor="let referee of referees; let i = index;" class="bg-white">
                     <td width="10%">{{ i+1 }}</td>
                     <td width="50%" class="referee-name text-capitalize pointer" (click)="getRefereeInfo(referee)">
-                        <i class="fa fa-user-circle"></i>
+                        <i class="fa fa-user-circle mr-2"></i>
+                        <span *ngIf="referee.gender === 'Male'">Mr.</span>
+                        <span *ngIf="referee.gender === 'Female'">Miss.</span>
                         {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}
                     </td>
                     <td width="25%" class="text-center">{{referee.mobile}}</td>
