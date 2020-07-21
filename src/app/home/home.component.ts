@@ -27,17 +27,17 @@ export class HomeComponent implements OnInit {
   }
 
   getAllEvents() {
-    this.show_spinner();
+    // this.show_spinner();
     this._service.getActiveEvents().subscribe(data => {
       data.map(item => {
         this.eventData.push({ id: item.payload.doc.id, ...item.payload.doc.data() })
       });
-      this.hide_spinner();
+      // this.hide_spinner();
     })
   }
 
   getAllResultRecords() {
-    this.show_spinner();
+    // this.show_spinner();
     this._service.getFiveMatchResults().subscribe(data => {
       this.matchResults = data.map(item => {
         return {
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
           ...item.payload.doc.data()
         }
       });
-      this.hide_spinner();
+      // this.hide_spinner();
     })
   }
 
