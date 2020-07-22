@@ -19,7 +19,7 @@ export class AffliationComponent implements OnInit {
     this.selectedDistrictInfo = {
       approvedOn: '',
       requestedDistrict: { id: '', name: '' },
-      members: [{ firstName: '', middleName: '', lastName: '', email: '', mobile: '', role: ' ' }]
+      members: [{ firstName: '', middleName: '', lastName: '', email: '', mobile: '', role: ' ', documents: { photo: { documentURL: '' } } }]
     }
     this.getRegisteredDistrictList();
     window.scrollTo(0, 0);
@@ -29,7 +29,7 @@ export class AffliationComponent implements OnInit {
     this.spinnerShow();
     this._service.getRegisteredDistricts().subscribe(data => {
       data.map((item, index) => {
-        this.registeredDistrictsList.push({...item.payload.doc.data(), isActive: false});
+        this.registeredDistrictsList.push({ ...item.payload.doc.data(), isActive: false });
         if (index === 0) {
           this.getDistrictInfo(this.registeredDistrictsList[0].id);
         }
@@ -42,7 +42,7 @@ export class AffliationComponent implements OnInit {
     this.spinnerShow();
     this.registeredDistrictsList.forEach(district => {
       district.isActive = false;
-      if(district.id === id) {
+      if (district.id === id) {
         district.isActive = true;
       }
     });

@@ -12,6 +12,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import * as rxjs from 'rxjs/operators'
 import { UtilityService } from 'src/app/shared/services/utility.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-affiliation-requests',
@@ -52,8 +53,8 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
       this.dataSource = new MatTableDataSource(this.affiliatinRequests);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      this.dataSource.filterPredicate = (data:any, filter) => {
-        let dataSource = data.requestedDistrict.name + data.members[0].firstName + ' ' +  data.members[0].middleName + ' ' +  data.members[0].lastName; 
+      this.dataSource.filterPredicate = (data: any, filter) => {
+        let dataSource = data.requestedDistrict.name + data.members[0].firstName + ' ' + data.members[0].middleName + ' ' + data.members[0].lastName;
         dataSource = dataSource.toLowerCase();
         return dataSource.includes(filter);
       };
@@ -124,6 +125,7 @@ export class DistrictApprovalDialog implements OnInit {
     private _toastr: ToastrService,
     private firestore: AngularFirestore,
     private utility: UtilityService,
+    private afStorage: AngularFireStorage,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     // _dialogRef.disableClose = true;
@@ -152,8 +154,10 @@ export class DistrictApprovalDialog implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         districtData.approvedOn = this.utility.convertDateToEPOC(new Date());
-        districtData.approvedBy = 'username';
+        districtData.members[0].documents = districtData.docs;
         districtData.status = 'approved';
+        districtData.approvedBy = 'username';
+        delete districtData.docs;
         this._service.approveDistrict(districtData).pipe(rxjs.take(1)).subscribe(data => {
           if (!data.payload.exists) {
             this.firestore.collection('ApprovedDistricts').doc(districtData.requestedDistrict.id).set({ ...districtData, id: districtData.requestedDistrict.id });
@@ -205,7 +209,11 @@ export class DistrictApprovalDialog implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        let deletedMember = this.personData.members.filter(res => res.id === id);
         this.personData.members = this.personData.members.filter(res => res.id !== id);
+        if (deletedMember[0].documents) {
+          this.afStorage.storage.ref().child(`Affiliations/${deletedMember[0].documents.photo.id}`).delete();
+        }
         this._service.addAffiliationMember(this.personData.requestedDistrict.id, this.personData.members);
         this._toastr.info('Member Deleted Successfully.');
       }
@@ -248,8 +256,8 @@ export class ApprovedDistrictComponent implements OnInit {
       this.dataSource2 = new MatTableDataSource(this.approvedDistricts);
       this.dataSource2.sort = this.sort2;
       this.dataSource2.paginator = this.paginator2;
-      this.dataSource2.filterPredicate = (data:any, filter) => {
-        let dataSource = data.requestedDistrict.name + data.members[0].firstName + ' ' +  data.members[0].middleName + ' ' +  data.members[0].lastName; 
+      this.dataSource2.filterPredicate = (data: any, filter) => {
+        let dataSource = data.requestedDistrict.name + data.members[0].firstName + ' ' + data.members[0].middleName + ' ' + data.members[0].lastName;
         dataSource = dataSource.toLowerCase();
         return dataSource.includes(filter);
       };
@@ -315,8 +323,8 @@ export class RejectedAffiliationComponent implements OnInit {
       this.dataSource3 = new MatTableDataSource(this.oldAffiliations);
       this.dataSource3.sort = this.sort3;
       this.dataSource3.paginator = this.paginator3;
-      this.dataSource3.filterPredicate = (data:any, filter) => {
-        let dataSource = data.requestedDistrict.name + data.members[0].firstName + ' ' +  data.members[0].middleName + ' ' +  data.members[0].lastName; 
+      this.dataSource3.filterPredicate = (data: any, filter) => {
+        let dataSource = data.requestedDistrict.name + data.members[0].firstName + ' ' + data.members[0].middleName + ' ' + data.members[0].lastName;
         dataSource = dataSource.toLowerCase();
         return dataSource.includes(filter);
       };
@@ -347,7 +355,7 @@ export class RejectedAffiliationComponent implements OnInit {
     this.showSpinner = false;
   }
 
-  deleteAffiliation(id) {
+  deleteAffiliation(districtData) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to delete forever?', type: 'confirm' },
       autoFocus: false
@@ -355,7 +363,7 @@ export class RejectedAffiliationComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this._service.deleteAffiliationForever(id);
+        this._service.deleteAffiliationForever(districtData);
         this._toastr.info('Affiliation data deleted.');
       }
     });
@@ -371,6 +379,8 @@ export class AddMemberDialog implements OnInit {
   personData: any;
   registerForm: FormGroup;
   allDistricts: any[] = [];
+  event: any;
+  showSpinner: boolean = false;
 
   constructor(
     public _dialogRef: MatDialogRef<DistrictApprovalDialog>,
@@ -378,6 +388,8 @@ export class AddMemberDialog implements OnInit {
     private _toastr: ToastrService,
     private formBuilder: FormBuilder,
     private utility: UtilityService,
+    private afStorage: AngularFireStorage,
+    private _spinner: NgxSpinnerService,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     this.personData = data;
@@ -409,19 +421,20 @@ export class AddMemberDialog implements OnInit {
     this._dialogRef.close();
   }
 
-  addMemberData() {
+  addMemberData(docs) {
     if (this.registerForm.invalid) {
       return;
     }
-    let formData = this.getFormData(this.registerForm.value);
+    let formData = this.getFormData(this.registerForm.value, docs);
     let members: any[] = this.personData.members;
     members.push(formData);
     this._service.addAffiliationMember(this.personData.requestedDistrict.id, members);
     this._toastr.success('Member Added Successfully.');
     this.close();
+    this.hide_spinner();
   }
 
-  getFormData(data): any {
+  getFormData(data, docs): any {
     return {
       id: Date.now(),
       role: 'Secretory',
@@ -439,8 +452,46 @@ export class AddMemberDialog implements OnInit {
       pin: data.pin,
       aadhaarNo: data.aadhaarNo,
       panNo: data.panNo,
-      documents: {}
+      documents: docs
     }
+  }
+
+  validatefile(event) {
+    this.event = event;
+  }
+
+  uploadPhoto() {
+    this.show_spinner();
+    if (this.event) {
+      return new Promise<any>((resolve, reject) => {
+        var uniqueId = Date.now();
+        let id = uniqueId;
+        const file = this.event.target.files[0];
+        const filePath = `Affiliations/${id}`;
+        const fileRef = this.afStorage.ref(filePath);
+        const task = this.afStorage.upload(filePath, file);
+        task.snapshotChanges().pipe(
+          rxjs.last(),
+          rxjs.switchMap(() => fileRef.getDownloadURL())
+        ).subscribe(url => {
+          let docs = { photo: { id: id, documentURL: url } };
+          this.addMemberData(docs);
+        })
+      })
+    } else {
+      let docs = null;
+      this.addMemberData(docs);
+    }
+  }
+
+  show_spinner() {
+    this.showSpinner = true;
+    this._spinner.show();
+  }
+
+  hide_spinner() {
+    this._spinner.hide();
+    this.showSpinner = false;
   }
 
 }

@@ -90,8 +90,18 @@ export class SlingshotService {
     }
   }
 
-  deleteAffiliationForever(id) {
-    this.firestore.collection('OLD_AFFILIATIONS').doc(id).delete();
+  deleteAffiliationForever(districtData) {
+    let members = districtData.members;
+    members.forEach(member => {
+      if(member.documents){
+        this.storage.storage.ref().child(`Affiliations/${member.documents.photo.id}`).delete();
+        if(member.role === 'President'){
+          this.storage.storage.ref().child(`Affiliations/${member.documents.adhaar.id}`).delete();
+          this.storage.storage.ref().child(`Affiliations/${member.documents.pan.id}`).delete();
+        }
+      }
+    });
+    this.firestore.collection('OLD_AFFILIATIONS').doc(districtData.id).delete();
   }
 
   getUserById(id: string): any {
