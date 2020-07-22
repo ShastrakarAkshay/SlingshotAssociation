@@ -162,7 +162,8 @@
             </div>
             <div class="row mb-5">
                 <div class="col-sm-4">
-                    <label class="font-weight-bold"><strong>Passport Photo</strong></label>
+                    <label class="font-weight-bold" *ngIf="!isEdit"><strong>Passport Photo</strong></label>
+                    <label class="font-weight-bold" *ngIf="isEdit"><strong>Change Photo</strong></label>
                     <input type="file" id="files3" name="files" (input)="validatefile($event)">
                 </div>
             </div>
@@ -175,4 +176,9 @@
             *ngIf="isEdit">Update</button>
         <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>Close</button>
     </div>
+
+    <div *ngIf="showSpinner">
+        <app-spinner></app-spinner>
+    </div>
+
 </section>

@@ -103,7 +103,7 @@ export class AddRefreeDialog implements OnInit {
   private allDistricts: any[] = [];
   private event: any;
   private showSpinner: boolean = false;
-  private documentUrl: string = '././assets/images/user-pic-default.png';
+  private documentUrl: any = '././assets/images/user-pic-default.png';
 
   constructor(
     public _dialogRef: MatDialogRef<AddRefreeDialog>,
@@ -192,6 +192,12 @@ export class AddRefreeDialog implements OnInit {
 
   validatefile(event) {
     this.event = event;
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = e => this.documentUrl = reader.result;
+      reader.readAsDataURL(file);
+    }
   }
 
   saveForm() {
@@ -199,7 +205,7 @@ export class AddRefreeDialog implements OnInit {
     if (this.event) {
       return new Promise<any>((resolve, reject) => {
         var uniqueId = Date.now();
-        let id = uniqueId + '_' + this.event.target.files[0].name;
+        let id = uniqueId;
         const file = this.event.target.files[0];
         const filePath = `Referee/${id}`;
         const fileRef = this.afStorage.ref(filePath);
@@ -223,7 +229,7 @@ export class AddRefreeDialog implements OnInit {
     if (this.event) {
       return new Promise<any>((resolve, reject) => {
         var uniqueId = Date.now();
-        let id = uniqueId + '_' + this.event.target.files[0].name;
+        let id = uniqueId;
         const file = this.event.target.files[0];
         const filePath = `Referee/${id}`;
         const fileRef = this.afStorage.ref(filePath);
