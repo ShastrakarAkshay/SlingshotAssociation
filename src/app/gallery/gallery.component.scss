@@ -1,11 +1,6 @@
 .gallery {
     font-family: "Didact Gothic", sans-serif;
     margin-top: 80px;
-    .jumbotron {
-        background-color: #212325 !important;
-        color: #fff;
-        border-radius: 0em;
-    }
 
     .row {
         display: flex;
@@ -24,14 +19,15 @@
         margin-top: 8px;
         vertical-align: middle;
         width: 100%;
-        filter: grayscale(1) brightness(0.5);
+        filter: grayscale(0) brightness(1);
         border-radius: 5px;
         cursor: pointer;
         transition: 0.3s linear;
     }
     
     .column img:hover {
-        filter: grayscale(0);
+        // filter: grayscale(0);
+        filter: grayscale(1) brightness(0.5);
     }
 
     @media screen and (max-width: 800px) {
@@ -50,5 +46,9 @@
         .column img {
             filter: grayscale(0) brightness(1);
         }
+    }
+
+    .empty-sate-div {
+        margin: 10% 15% 15%;
     }
 }
