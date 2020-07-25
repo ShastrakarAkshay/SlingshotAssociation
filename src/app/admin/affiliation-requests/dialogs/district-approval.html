@@ -55,43 +55,43 @@
                         <td width="30%"><strong>Documents</strong></td>
                         <td width="70%">
                             <div class="row mt-5 mb-5" ngClass="{'justify-content-center' : i === 0}" *ngIf="personData.status === 'Pending'">
-                                <div class="col-sm-3 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="40%"
+                                <div class="col-sm-4 text-center">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
                                         (click)="preview(personData.docs.adhaar.documentURL)">
                                     <br>
-                                    <p>(Aadhaar Card)</p>
+                                    <p class="mt-2">(Aadhaar Card)</p>
                                 </div>
-                                <div class="col-sm-3 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="40%"
+                                <div class="col-sm-4 text-center">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
                                         (click)="preview(personData.docs.pan.documentURL)">
                                     <br>
-                                    <p>(PAN Card)</p>
+                                    <p class="mt-2">(PAN Card)</p>
                                 </div>
-                                <div class="col-sm-3 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="40%"
+                                <div class="col-sm-4 text-center">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
                                         (click)="preview(personData.docs.photo.documentURL)">
                                     <br>
-                                    <p>(Photo)</p>
+                                    <p class="mt-2">(Photo)</p>
                                 </div>
                             </div>
                             <div class="row mt-5 mb-5" ngClass="{'justify-content-center' : i === 0}" *ngIf="personData.status !== 'Pending'">
-                                <div class="col-sm-3 text-center" *ngIf="i === 0">
-                                    <img class="img pointer" src="./assets/images/document.png" width="40%"
+                                <div class="col-sm-4 text-center" *ngIf="i === 0">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
                                         (click)="preview(member.documents.adhaar.documentURL)">
                                     <br>
-                                    <p>(Aadhaar Card)</p>
+                                    <p class="mt-2">(Aadhaar Card)</p>
                                 </div>
-                                <div class="col-sm-3 text-center" *ngIf="i === 0">
-                                    <img class="img pointer" src="./assets/images/document.png" width="40%"
+                                <div class="col-sm-4 text-center" *ngIf="i === 0">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
                                         (click)="preview(member.documents.pan.documentURL)">
                                     <br>
-                                    <p>(PAN Card)</p>
+                                    <p class="mt-2">(PAN Card)</p>
                                 </div>
-                                <div class="col-sm-3 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="40%"
+                                <div class="col-sm-4 text-center">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
                                         (click)="preview(member.documents.photo.documentURL)">
                                     <br>
-                                    <p>(Photo)</p>
+                                    <p class="mt-2">(Photo)</p>
                                 </div>
                             </div>
                         </td>
