@@ -3,6 +3,7 @@ import { ModalDataService } from '../shared/services/modal-data.service';
 import { SlingshotService } from '../shared/services/slingshot.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-committee',
@@ -23,7 +24,7 @@ export class CommitteeComponent implements OnInit {
     this.show_spinner();
     this.members = this.dataModal.getAssociationMembers();
     this.committee = this.dataModal.getAllCommitte();
-    this._service.getAllRefrees().subscribe(data => {
+    this._service.getAllRefrees().pipe(take(1)).subscribe(data => {
       this.referees = data.map(item => {
         return {
           id: item.payload.doc.id,

@@ -6,8 +6,6 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { ConfirmDialogComponent } from '../dialogs/confirm-dialog/confirm-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
@@ -64,6 +62,7 @@ export class AuthService {
       this.loginResource.next(false);
       localStorage.removeItem('login-token');
       localStorage.removeItem('user-id');
+      localStorage.removeItem('login-time');
     }
     return user;
   }
@@ -88,4 +87,22 @@ export class AuthService {
       }
     );
   }
+
+  manageSession() {
+    if (localStorage.getItem('login-time')) {
+      let timeStamp = Number(new Date().getTime());
+      let loginTime = Number(localStorage.getItem('login-time'));
+      const difference = ((timeStamp - loginTime) / 1000) / 60;
+      if (difference > 120) {
+        // expire session after 2 hour
+        this.signOut();
+        this.router.navigate(['/login']);
+        this.snackbar.open('Session expired!', '', {
+          duration: 3000,
+          verticalPosition: 'top'
+        });
+      }
+    }
+  }
+  
 }

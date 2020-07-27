@@ -16,6 +16,7 @@ export class GalleryComponent implements OnInit {
   constructor(private afStorage: AngularFireStorage, private _spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getAllImages();
   }
 

@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/admin']);
         localStorage.setItem('login-token', result.user.uid);
         localStorage.setItem('uid', result.user.uid);
+        localStorage.setItem('login-time', new Date().getTime().toString());
         this.auth.isLoggedIn();
         this.hide_spinner();
       }).catch((error) => {
@@ -72,6 +73,7 @@ export class LoginComponent implements OnInit {
   reserPassword() {
     const email = this.resetForm.controls['emailaddress'].value;
     this.auth.resetPassword(email);
+    this.forgotPassword();
   }
 
   show_spinner() {
