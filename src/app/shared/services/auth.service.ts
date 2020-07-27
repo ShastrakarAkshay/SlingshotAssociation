@@ -4,7 +4,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -68,24 +68,30 @@ export class AuthService {
   }
 
   resetPassword(email: any) {
-    this.afAuth.auth.sendPasswordResetEmail(email).then(
-      () => {
-        this.snackbar.open('Password reset link sent to your email !!', '', {
-          duration: 3000,
-          panelClass: ['red-snackbar'],
-          verticalPosition: 'top'
-        });
-      },
-      err => {
-        if (err.code === 'auth/user-not-found') {
-          this.snackbar.open('Invalid user', '', {
+    return new Observable<any>(subsciber => {
+      this.afAuth.auth.sendPasswordResetEmail(email).then(
+        () => {
+          this.snackbar.open('Password reset link sent to your email !!', '', {
             duration: 3000,
             panelClass: ['red-snackbar'],
             verticalPosition: 'top'
           });
+          subsciber.next(true);
+          subsciber.complete();
+        },
+        err => {
+          if (err.code === 'auth/user-not-found') {
+            this.snackbar.open('Invalid user', '', {
+              duration: 3000,
+              panelClass: ['red-snackbar'],
+              verticalPosition: 'top'
+            });
+          }
+          subsciber.next(false);
+          subsciber.complete();
         }
-      }
-    );
+      );
+    });
   }
 
   manageSession() {
@@ -104,5 +110,5 @@ export class AuthService {
       }
     }
   }
-  
+
 }

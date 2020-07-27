@@ -72,8 +72,11 @@ export class LoginComponent implements OnInit {
 
   reserPassword() {
     const email = this.resetForm.controls['emailaddress'].value;
-    this.auth.resetPassword(email);
-    this.forgotPassword();
+    this.auth.resetPassword(email).subscribe(data => {
+      if (data) {
+        this.forgotPassword();
+      }
+    });
   }
 
   show_spinner() {
