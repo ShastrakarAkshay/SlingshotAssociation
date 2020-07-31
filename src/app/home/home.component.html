@@ -1,6 +1,6 @@
 <section class="home">
     <section id="banner-area">
-        <div id="banner-carousel" class="carousel slide" data-ride="carousel">
+        <div id="banner-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="2500">
             <ol class="carousel-indicators">
                 <li data-target="#banner-carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#banner-carousel" data-slide-to="1"></li>
@@ -171,7 +171,7 @@
                 <div class="text-center">
                     <h2><strong>Our Members</strong></h2>
                 </div>
-                <div id="contactCourousel" class="carousel slide mt-5" data-ride="carousel">
+                <div id="contactCourousel" class="carousel slide mt-5" data-ride="carousel" data-interval="2000">
                     <ol class="carousel-indicators user-indicators">
                         <li data-target="#contactCourousel" *ngFor="let member of members; let i = index"
                             [ngClass]="member.class"></li>
