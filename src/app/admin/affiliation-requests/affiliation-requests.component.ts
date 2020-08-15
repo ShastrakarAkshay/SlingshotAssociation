@@ -381,6 +381,7 @@ export class AddMemberDialog implements OnInit {
   allDistricts: any[] = [];
   event: any;
   showSpinner: boolean = false;
+  isFileValid: boolean = true;
 
   constructor(
     public _dialogRef: MatDialogRef<DistrictApprovalDialog>,
@@ -457,7 +458,13 @@ export class AddMemberDialog implements OnInit {
   }
 
   validatefile(event) {
-    this.event = event;
+    this.isFileValid = true;
+    const file = event.target.files[0];
+    if (file && file.type == 'image/png' || file.type == 'image/jpg' || file.type == 'image/jpeg' && file.size <= 1000000) {
+      this.event = event;
+    }else{
+      this.isFileValid = false;
+    }
   }
 
   uploadPhoto() {

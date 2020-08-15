@@ -104,6 +104,7 @@ export class AddRefreeDialog implements OnInit {
   private event: any;
   private showSpinner: boolean = false;
   private documentUrl: any = '././assets/images/user-pic-default.png';
+  isFileValid: boolean = true;
 
   constructor(
     public _dialogRef: MatDialogRef<AddRefreeDialog>,
@@ -191,12 +192,18 @@ export class AddRefreeDialog implements OnInit {
   }
 
   validatefile(event) {
-    this.event = event;
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = e => this.documentUrl = reader.result;
-      reader.readAsDataURL(file);
+    this.isFileValid = true;
+    const file = event.target.files[0];
+    if (file && file.type == 'image/png' || file.type == 'image/jpg' || file.type == 'image/jpeg' && file.size <= 1000000) {
+      this.event = event;
+      if (event.target.files && event.target.files[0]) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = e => this.documentUrl = reader.result;
+        reader.readAsDataURL(file);
+      }
+    } else {
+      this.isFileValid = false;
     }
   }
 

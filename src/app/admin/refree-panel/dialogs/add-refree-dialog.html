@@ -162,9 +162,16 @@
             </div>
             <div class="row mb-5">
                 <div class="col-sm-4">
-                    <label class="font-weight-bold" *ngIf="!isEdit"><strong>Passport Photo</strong></label>
-                    <label class="font-weight-bold" *ngIf="isEdit"><strong>Change Photo</strong></label>
+                    <label class="font-weight-bold" *ngIf="!isEdit"><strong>Passport Photo</strong>
+                        <i class="fa fa-info-circle ml-2" aria-hidden="true" matTooltipPosition="right"
+                            matTooltip="should be image file and less than 1MB"></i></label>
+                    <label class="font-weight-bold" *ngIf="isEdit"><strong>Change Photo</strong>
+                        <i class="fa fa-info-circle ml-2" aria-hidden="true" matTooltipPosition="right"
+                            matTooltip="should be image file and less than 1MB"></i></label>
                     <input type="file" id="files3" name="files" (input)="validatefile($event)">
+                    <div class="alert alert-danger mt-2" *ngIf="!isFileValid">
+                        Invalid File
+                    </div>
                 </div>
             </div>
         </form>

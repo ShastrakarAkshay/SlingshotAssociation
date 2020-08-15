@@ -52,12 +52,12 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  show_spinner() {
+  _showSpinner() {
     this.showSpinner = true;
     this._spinner.show();
   }
 
-  hide_spinner() {
+  _hideSpinner() {
     this._spinner.hide();
     this.showSpinner = false;
   }
