@@ -9,7 +9,7 @@ export class ModalDataService {
     {
       name: 'Mr. Bipin Chaudhari',
       role: 'President',
-      email: 'xyz@gmail.com',
+      email: 'bipin.chaudhari@gmail.com',
       mobile: '9404141861',
       class: 'active',
       pic: './assets/images/members/bipin-chaudhari.jpg'
@@ -17,7 +17,7 @@ export class ModalDataService {
     {
       name: 'Mr. Lalit Dhoke',
       role: 'Vice President',
-      email: 'xyz@gmail.com',
+      email: 'lalit.dhoke@gmail.com',
       mobile: '9588430982',
       class: '',
       pic: './assets/images/user-pic-default.png'
@@ -25,7 +25,7 @@ export class ModalDataService {
     {
       name: 'Mr. Manikraj Landge',
       role: 'Vice President',
-      email: 'xyz@gmail.com',
+      email: 'manikraj.landge@gmail.com',
       mobile: '9004409664',
       class: '',
       pic: './assets/images/user-pic-default.png'
@@ -41,7 +41,7 @@ export class ModalDataService {
     {
       name: 'Mr. Sham Khemaskar',
       role: 'Treasurer',
-      email: 'xyz@gmail.com',
+      email: 'sham.khemaskar@gmail.com',
       mobile: '9823545618',
       class: '',
       pic: './assets/images/user-pic-default.png'
@@ -49,7 +49,7 @@ export class ModalDataService {
     {
       name: 'Mr. Pravin Dighade',
       role: 'Join Secretory',
-      email: 'xyz@gmail.com',
+      email: 'pravin.dighade@gmail.com',
       mobile: '8830993120',
       class: '',
       pic: './assets/images/members/pravin-dighade.jpg'
@@ -57,7 +57,7 @@ export class ModalDataService {
     {
       name: 'Mr. Suraj Kadukar',
       role: 'Representative',
-      email: 'xyz@gmail.com',
+      email: 'suraj.kadukar@gmail.com',
       mobile: '9370155501',
       class: '',
       pic: './assets/images/user-pic-default.png'
@@ -65,7 +65,7 @@ export class ModalDataService {
     {
       name: 'Mr. Sunil Shinde',
       role: 'Representative',
-      email: 'xyz@gmail.com',
+      email: 'sunil.shinde@gmail.com',
       mobile: '8888424233',
       class: '',
       pic: './assets/images/members/sunil-shinde.jpg'
@@ -73,7 +73,7 @@ export class ModalDataService {
     {
       name: 'Mr. Giriraj Gupta',
       role: 'Representative',
-      email: 'xyz@gmail.com',
+      email: 'giriraj.gupta@gmail.com',
       mobile: '9049228777',
       class: '',
       pic: './assets/images/members/giriraj-gupta.jpg'
@@ -81,7 +81,7 @@ export class ModalDataService {
     {
       name: 'Miss. Snehal Khantade',
       role: 'Member',
-      email: 'xyz@gmail.com',
+      email: 'snehal.khantade@gmail.com',
       mobile: '9552822470',
       class: '',
       pic: './assets/images/members/snehal-khantade.jpg'
@@ -89,7 +89,7 @@ export class ModalDataService {
     {
       name: 'Mr. Praful Kodape',
       role: 'Member',
-      email: 'xyz@gmail.com',
+      email: 'praful.kodape@gmail.com',
       mobile: '9673398819',
       class: '',
       pic: './assets/images/user-pic-default.png'

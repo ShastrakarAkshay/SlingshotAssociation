@@ -14,6 +14,12 @@ body {
     cursor: pointer;
 }
 
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 /* -------------------------- global colors ----------------------------- */
 
 $th-color: #ff8b23;

@@ -1,22 +1,27 @@
 @import "../../../styles.scss";
 #refree-panel {
-    font-family: "Didact Gothic", sans-serif;
-    .badge {
-        background-color: $th-color;
+  font-family: "Didact Gothic", sans-serif;
+  .badge {
+    background-color: $th-color;
+  }
+  .mat-row:hover {
+    .empNameLink {
+      color: #17a2b8;
     }
+  }
 }
 
 .dialog {
-    .img-area {
-        width: 150px;
-        height: 150px;
-        margin: auto;
-        border: 2px solid #fff;
-        border-radius: 50%;
-        overflow: hidden;
-        border-color: #f0f0f0 !important;
-        img {
-          width: 100%;
-        }
-      }
+  .img-area {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    border-color: #f0f0f0 !important;
+    img {
+      width: 100%;
+    }
+  }
 }

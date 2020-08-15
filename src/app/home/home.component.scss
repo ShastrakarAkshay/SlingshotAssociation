@@ -64,8 +64,6 @@
     padding-left: 85px;
     padding-right: 85px;
     .reg-panel {
-        border-top: solid 1px #ffffff;
-        border-bottom: solid 1px #ffffff;
         padding-top: 64px;
         padding-bottom: 56px;
     }
@@ -313,6 +311,9 @@
 }
 
 #gallery-area {
+    img {
+        border: 1px solid #c8c7c7;
+    }
     .img-right .row {
         padding: 17px;
         &:first-child {
@@ -399,5 +400,11 @@
             padding-right: 50px;
             padding-left: 50px;
         }
+    }
+}
+
+#flash-event {
+    img {
+        width: 100%;
     }
 }
