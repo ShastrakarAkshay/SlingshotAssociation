@@ -40,9 +40,9 @@
         </div>
     </section>
 
-    <section id="flash-event">
+    <section id="flash-event" *ngIf="flashEventURL">
         <div class="container">
-            <img src="../../assets/images/flash-event.jpg" alt="" class="mt-4 rounded">
+            <img [src]="flashEventURL" alt="" class="mt-4 rounded">
         </div>
     </section>
 

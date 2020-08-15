@@ -3,6 +3,7 @@ import { SlingshotService } from '../shared/services/slingshot.service';
 import { ModalDataService } from '../shared/services/modal-data.service';
 import { UtilityService } from '../shared/services/utility.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-home',
@@ -12,15 +13,17 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class HomeComponent implements OnInit {
 
   districtList: any[] = [];
-  private members: any[] = [];
-  private eventData: any[] = [];
-  private matchResults: any[] = [];
-  private showSpinner: boolean = false;
+  members: any[] = [];
+  eventData: any[] = [];
+  matchResults: any[] = [];
+  showSpinner: boolean = false;
+  flashEventURL: string;
 
-  constructor(private _service: SlingshotService, private _dataService: ModalDataService, private _utility: UtilityService, private _spinner: NgxSpinnerService) {
+  constructor(private _service: SlingshotService, private _dataService: ModalDataService, private _utility: UtilityService, private _spinner: NgxSpinnerService, private _afStorage: AngularFireStorage) {
   }
 
   ngOnInit() {
+    this.getFlashEvent();
     this.getAllResultRecords();
     this.getAllEvents();
     this.members = this._dataService.getAssociationMembers();
@@ -57,6 +60,15 @@ export class HomeComponent implements OnInit {
   hide_spinner() {
     this._spinner.hide();
     this.showSpinner = false;
+  }
+
+  getFlashEvent(){
+    this._afStorage.storage.ref('FlashEvents/').listAll().then((result) => {
+      result.items.forEach(item => {
+        const ref = this._afStorage.storage.ref().child('FlashEvents/' + item.name);
+        ref.getDownloadURL().then(url => { this.flashEventURL = url });
+      })
+    });
   }
 
 }
