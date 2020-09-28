@@ -124,3 +124,12 @@ body {
         display: none;
     }
 }
+
+
+button:focus,
+button:active,
+button,
+input:focus,
+:focus {
+    outline: none !important;
+}
