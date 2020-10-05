@@ -1,44 +1,46 @@
 #committee {
-  font-family: "Didact Gothic", sans-serif;
-  margin-top: 80px;
-  .jumbotron {
-    background-color: #212325 !important;
-    color: #fff;
-    border-radius: 0em;
-  }
-  .referee-table > tr:hover {
-    .referee-name {
-      color: #17a2b8;
+    font-family: "Didact Gothic", sans-serif;
+    margin-top: 80px;
+    .jumbotron {
+        background-color: #212325 !important;
+        color: #fff;
+        border-radius: 0em;
     }
-  }
-
-  .pointer {
-    cursor: pointer;
-  }
+    .referee-table>tr:hover {
+        .referee-name {
+            color: #17a2b8;
+        }
+    }
+    .pointer {
+        cursor: pointer;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-  //mobile device
-  .page-title {
-    font-size: 1.2rem !important;
-  }
+    //mobile device
+    .page-title {
+        font-size: 1.2rem !important;
+    }
 }
 
 #dialog {
-  font-family: "Didact Gothic", sans-serif;
-  .img-area {
-    width: 150px;
-    height: 150px;
-    margin: auto;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    overflow: hidden;
-    border-color: #f0f0f0 !important;
-    img {
-      width: 100%;
+    font-family: "Didact Gothic", sans-serif;
+    .img-area {
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        border-color: #f0f0f0 !important;
+        img {
+            width: 100%;
+        }
     }
-  }
-  .mat-dialog-container {
-    margin-top: 100px !important;
-  }
+    .dialog-info {
+        max-width: 400px;
+    }
+    .mat-dialog-container {
+        margin-top: 100px !important;
+    }
 }
