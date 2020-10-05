@@ -1,21 +1,15 @@
 <section class="dialog">
     <h3 class="text-center bg-dark text-white p-3 text-capitalize dialog-header">{{title}}</h3>
     <mat-dialog-content>
-        <div class="row text-right" *ngIf="personData.status === 'approved' && personData.members.length == 1">
-            <div class="col">
-                <button class="btn btn-info" (click)="addMember(personData)">Add Member</button>
-            </div>
-        </div>
         <div class="member-data" *ngFor="let member of personData.members, let i = index;">
             <table class="table table-bordered mt-3" width="100%">
                 <tbody>
                     <tr>
                         <td width="30%" class=""><strong>Name</strong></td>
-                        <td width="70%" class="text-capitalize"><i class="fa fa-user-circle mr-1"></i> {{member.firstName}}
-                            {{member.middleName}} {{member.lastName}}
+                        <td width="70%" class="text-capitalize">
+                            <i class="fa fa-user-circle mr-1"></i> {{member.firstName}} {{member.middleName}} {{member.lastName}}
                             <div class="pull-right" *ngIf="i === 1 && personData.status !== 'rejected'">
-                                <a class="btn text-danger pointer" (click)="deleteUser(member.id)" matTooltip="Delete Member"
-                                matTooltipPosition="above"><i class="fa fa-trash text-danger"></i></a>
+                                <a class="btn text-danger pointer" (click)="deleteUser(member.id)" matTooltip="Delete Member" matTooltipPosition="above"><i class="fa fa-trash text-danger"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -25,9 +19,7 @@
                     </tr>
                     <tr>
                         <td width="30%" class=""><strong>Address</strong></td>
-                        <td width="70%" class="text-capitalize">{{member.addressLine1}},
-                            {{member.addressLine2}}, {{member.city}},
-                            {{member.district}}, Pin Code - {{member.pin}}.</td>
+                        <td width="70%" class="text-capitalize">{{member.addressLine1}}, {{member.addressLine2}}, {{member.city}}, {{member.district}}, Pin Code - {{member.pin}}.</td>
                     </tr>
                     <tr>
                         <td width="30%" class=""><strong>Email</strong></td>
@@ -56,56 +48,58 @@
                         <td width="70%">
                             <div class="row mt-5 mb-5" ngClass="{'justify-content-center' : i === 0}" *ngIf="personData.status === 'Pending'">
                                 <div class="col-sm-4 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
-                                        (click)="preview(personData.docs.adhaar.documentURL)">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(personData.docs.adhaar.documentURL)">
                                     <br>
                                     <p class="mt-2">(Aadhaar Card)</p>
                                 </div>
                                 <div class="col-sm-4 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
-                                        (click)="preview(personData.docs.pan.documentURL)">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(personData.docs.pan.documentURL)">
                                     <br>
                                     <p class="mt-2">(PAN Card)</p>
                                 </div>
                                 <div class="col-sm-4 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
-                                        (click)="preview(personData.docs.photo.documentURL)">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(personData.docs.photo.documentURL)">
                                     <br>
                                     <p class="mt-2">(Photo)</p>
                                 </div>
                             </div>
                             <div class="row mt-5 mb-5" ngClass="{'justify-content-center' : i === 0}" *ngIf="personData.status !== 'Pending'">
                                 <div class="col-sm-4 text-center" *ngIf="i === 0">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
-                                        (click)="preview(member.documents.adhaar.documentURL)">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(member.documents.adhaar.documentURL)">
                                     <br>
                                     <p class="mt-2">(Aadhaar Card)</p>
                                 </div>
                                 <div class="col-sm-4 text-center" *ngIf="i === 0">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
-                                        (click)="preview(member.documents.pan.documentURL)">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(member.documents.pan.documentURL)">
                                     <br>
                                     <p class="mt-2">(PAN Card)</p>
                                 </div>
                                 <div class="col-sm-4 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%"
-                                        (click)="preview(member.documents.photo.documentURL)">
+                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(member.documents.photo.documentURL)">
                                     <br>
                                     <p class="mt-2">(Photo)</p>
                                 </div>
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <td width="30%"><strong>Action</strong></td>
+                        <td width="70%">
+                            <div class="row" *ngIf="personData.status === 'approved' && personData.members.length == 1">
+                                <div class="col">
+                                    <button mat-button color="primary" (click)="addMember(personData)">Add Member</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
-
         </div>
     </mat-dialog-content>
 
     <div mat-dialog-actions class="row justify-content-center">
         <div *ngIf="!isReadOnly">
-            <button mat-button class="btn sling-btn" (click)="approveDistrict(personData)"
-                *ngIf="!flag">Approve</button>
+            <button mat-button class="btn sling-btn" (click)="approveDistrict(personData)" *ngIf="!flag">Approve</button>
             <button mat-button class="btn btn-danger" (click)="deleteAffiliation(personData)" *ngIf="flag">Delete
                 Affiliation</button>
         </div>

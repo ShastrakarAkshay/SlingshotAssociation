@@ -20,18 +20,13 @@
                         <div class="info mt-3 ml-3 mr-3">
                             <p class="text-capitalize">
                                 <i class="fa fa-map-marker mr-2"></i>
-                                <span class="font-weight-bold">Address :</span>
-                                {{referee.address}}, {{referee.city}}, {{referee.district}}, Pin Code - {{referee.pin}}
+                                <span class="font-weight-bold">Address :</span> {{referee.address}}, {{referee.city}}, {{referee.district}}, Pin Code - {{referee.pin}}
                             </p>
                             <p>
-                                <span class="font-weight-bold">Date Of Birth :</span>
-                                {{referee.dateOfBirth | date: 'dd'}}
-                                {{referee.dateOfBirth | date: 'MMM'}}
-                                {{referee.dateOfBirth | date: 'yyyy'}}
+                                <span class="font-weight-bold">Date Of Birth :</span> {{referee.dateOfBirth | date: 'dd'}} {{referee.dateOfBirth | date: 'MMM'}} {{referee.dateOfBirth | date: 'yyyy'}}
                             </p>
                             <p>
-                                <span class="font-weight-bold">Aadhaar No :</span>
-                                {{referee.aadhaarNo}}
+                                <span class="font-weight-bold">Aadhaar No :</span> {{referee.aadhaarNo}}
                             </p>
                         </div>
                     </div>
@@ -40,6 +35,6 @@
         </div>
     </mat-dialog-content>
     <div mat-dialog-actions class="row justify-content-center">
-        <button mat-button class="btn sling-btn ml-2" (click)="close()">Close</button>
+        <button mat-stroked-button (click)="close()">Close</button>
     </div>
 </section>
