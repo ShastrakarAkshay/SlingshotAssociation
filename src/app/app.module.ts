@@ -48,6 +48,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import * as firebase from 'firebase/app';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchPipe } from './affliation/affiliation.pipe';
 firebase.initializeApp(environment.firebaseConfig);
 
 const APP_DIALOGS = [
@@ -101,7 +102,8 @@ const MATERIAL_MODULES = [
     CommitteeComponent,
     ScoreBoardComponent,
     SupportComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchPipe
   ],
   imports: [
     FormsModule,
