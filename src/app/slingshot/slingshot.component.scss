@@ -1,97 +1,95 @@
 @import "../../styles.scss";
-
 #game {
-  font-family: "Didact Gothic", sans-serif;
-  overflow-x: hidden;
-  margin-top: 80px;
-  .jumbotron {
-    background-color: #212325 !important;
-    color: #fff;
-    border-radius: 0em;
-  }
-  .card:hover,
-  .list-group-item:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    .category-title {
-      color: $th-color-dark;
+    font-family: "Didact Gothic", sans-serif;
+    overflow-x: hidden;
+    margin-top: 80px;
+    .jumbotron {
+        background-color: #212325 !important;
+        color: #fff;
+        border-radius: 0em;
     }
-  }
-  .sling-img {
-    width: 80%;
-  }
-  .img {
-    width: 100%;
-  }
-  .category {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .circle {
-    border-radius: 50%;
-    padding: 5px 10px 5px 10px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #000;
-  }
-  .circle-10 {
-    border-radius: 50%;
-    padding: 5px 7px 5px 7px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #000;
-  }
-  .list-group-item {
-    font-size: 18px !important;
-  }
-
-  .tool:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-  }
+    .card:hover,
+    .list-group-item:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border-left: 3px solid $th-color;
+        .category-title {
+            color: $th-color-dark;
+        }
+    }
+    .sling-img {
+        width: 80%;
+    }
+    .img {
+        width: 100%;
+    }
+    .category {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .circle {
+        border-radius: 50%;
+        padding: 5px 10px 5px 10px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #000;
+    }
+    .circle-10 {
+        border-radius: 50%;
+        padding: 5px 7px 5px 7px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #000;
+    }
+    .list-group-item {
+        font-size: 18px !important;
+    }
+    .tool:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-  //mobile device
-  .wrapper {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  .sling-img {
-    width: 100% !important;
-  }
-  .game-info {
-    margin-top: 20px;
-    padding-top: 0px !important;
-  }
-  .cat-cards {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  .page-title {
-    font-size: 1.2rem !important;
-  }
-  .list-group-item {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
-
-  .tool {
-    margin-top: 10px !important;
-    width: 130px !important;
-    height: 130px !important;
-  }
-  .row-bottom {
-    margin-top: 0px !important;
-  }
-  .col {
-    padding-top: 15px !important;
-    flex-grow: 0 !important;
-  }
-  .tools-container {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
-  .equipment {
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-  }
+    //mobile device
+    .wrapper {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .sling-img {
+        width: 100% !important;
+    }
+    .game-info {
+        margin-top: 20px;
+        padding-top: 0px !important;
+    }
+    .cat-cards {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .page-title {
+        font-size: 1.2rem !important;
+    }
+    .list-group-item {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    .tool {
+        margin-top: 10px !important;
+        width: 130px !important;
+        height: 130px !important;
+    }
+    .row-bottom {
+        margin-top: 0px !important;
+    }
+    .col {
+        padding-top: 15px !important;
+        flex-grow: 0 !important;
+    }
+    .tools-container {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .equipment {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
 }
