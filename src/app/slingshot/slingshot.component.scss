@@ -11,9 +11,11 @@
     .card:hover,
     .list-group-item:hover {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-        border-left: 3px solid $th-color;
         .category-title {
             color: $th-color-dark;
+        }
+        &.rule {
+            border-left: 3px solid $th-color;
         }
     }
     .sling-img {
