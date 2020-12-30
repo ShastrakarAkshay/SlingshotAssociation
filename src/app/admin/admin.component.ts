@@ -6,7 +6,7 @@ import { filter } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../shared/services/auth.service';
-
+declare var $: any;
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -14,7 +14,7 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class AdminComponent implements OnInit {
 
-  @ViewChild('mySidepanel', {static: false}) mySidepanel: ElementRef;
+  @ViewChild('mySidepanel', { static: false }) mySidepanel: ElementRef;
 
   private uid: string;
   private menu = [
@@ -53,7 +53,7 @@ export class AdminComponent implements OnInit {
   constructor(private _service: SlingshotService, private router: Router, private afAuth: AngularFireAuth, private authService: AuthService) {
     this.uid = localStorage.getItem('uid');
     this.afAuth.user.subscribe(user => {
-      if(!user){
+      if (!user) {
         this.authService.signOut();
       }
     }, error => {
@@ -93,10 +93,11 @@ export class AdminComponent implements OnInit {
 
   openNav() {
     this.mySidepanel.nativeElement.style.width = "270px";
-    this.mySidepanel.nativeElement.style.display = "block";
+    $(".sidepanel").animate({ width: 'show' }, { easing: "easein" });
   }
-  
+
   closeNav() {
-    this.mySidepanel.nativeElement.style.display = "none";
+    this.mySidepanel.nativeElement.style.width = "0px";
+    $(".sidepanel").animate({ width: 'hide' }, { easing: "easeout" });
   }
 }

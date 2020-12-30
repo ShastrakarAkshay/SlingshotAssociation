@@ -5,8 +5,7 @@
         </div>
         <span href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</span>
         <hr>
-        <a *ngFor="let item of menu" [ngClass]="{'active':item.isActive}" (click)="setActiveClass(item)"
-            [routerLink]="item.link">
+        <a *ngFor="let item of menu" [ngClass]="{'active':item.isActive}" (click)="setActiveClass(item)" [routerLink]="item.link">
             <i class="fa fa-gg-circle mr-2"></i>{{item.name}}
         </a>
     </div>
@@ -16,8 +15,7 @@
             <h2><strong>Welcome To Association</strong></h2>
         </div>
         <div class="row actions justify-content-center mt-3 p-3 d-hide">
-            <div class="col-sm-2" *ngFor="let item of menu" [ngClass]="{'active':item.isActive}"
-                (click)="setActiveClass(item)">
+            <div class="col-sm-2" *ngFor="let item of menu" [ngClass]="{'active':item.isActive}" (click)="setActiveClass(item)">
                 <div class="card mt-3 text-white bg-dark" [routerLink]="item.link">
                     <div class="card-body text-center">
                         <h4 class="card-title">{{item.name}}</h4>

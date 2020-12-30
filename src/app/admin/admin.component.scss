@@ -45,7 +45,6 @@
             background-color: $th-color;
         }
     }
-
     .active {
         color: $th-color;
         .card-title {
@@ -67,40 +66,52 @@
             margin-right: 20px;
         }
     }
-
     .admin-panel {
         margin-top: 0 !important;
     }
 }
 
+
 /* The sidepanel menu */
+
 .sidepanel {
+    width: 270px;
     height: 100%;
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
     top: 0;
     left: 0;
     background-color: #fff;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    overflow-y: auto; /* Disable horizontal scroll */
-    padding-top: 80px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    overflow-y: auto;
+    /* Disable horizontal scroll */
+    padding-top: 80px;
+    /* Place content 60px from the top */
+    transition: 1s;
+    /* 0.5 second transition effect to slide in the sidepanel */
     margin-top: 20px;
 }
 
+
 /* The sidepanel links */
+
 .sidepanel a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 20px;
     display: block;
-    transition: 0.3s;
     color: #000;
     margin-top: 15px;
 }
 
+
 /* Position and style the close button (top right corner) */
+
 .sidepanel .closebtn {
     position: absolute;
     top: 45px;
