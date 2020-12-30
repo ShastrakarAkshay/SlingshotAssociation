@@ -84,13 +84,13 @@
         border-radius: 50%;
         overflow: hidden;
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        transition: transform 0.5s ease;
         img {
             width: 100%;
         }
-    }
-    .img-area:hover {
-        transform: scale(1.1);
-        transition: transform 0.5s ease;
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
 
@@ -313,6 +313,13 @@
 #gallery-area {
     img {
         border: 1px solid #c8c7c7;
+        height: 80%;
+        cursor: pointer;
+        transition: 0.8s;
+        &:hover {
+            filter: grayscale(100%);
+            transform: scale(1.05);
+        }
     }
     .img-right .row {
         padding: 17px;
@@ -385,6 +392,9 @@
             &:first-child {
                 padding-top: 34px !important;
             }
+        }
+        img {
+            height: auto;
         }
     }
     #results-area {

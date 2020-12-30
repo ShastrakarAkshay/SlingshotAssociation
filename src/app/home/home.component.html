@@ -51,14 +51,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div
-                            class="cta_content d-flex  flex-column align-items-md-center align-items-start text-center justify-content-start">
+                        <div class="cta_content d-flex  flex-column align-items-md-center align-items-start text-center justify-content-start">
                             <div class="img-area">
                                 <img src="./assets/images/brand-logo.jpg" alt="">
                             </div>
                             <div class="reg_text pt-3">Affiliation Open For All District (Maharashtra)</div>
-                            <div class="mx-auto"> <a class="action-button reg-btn mt-3"
-                                    routerLink="/association">Register</a></div>
+                            <div class="mx-auto"> <a class="action-button reg-btn mt-3" routerLink="/association">Register</a></div>
                         </div>
                     </div>
                 </div>
@@ -88,11 +86,8 @@
                             <h2 class="entry-title welcome-title text-center">Welcome to Association</h2>
                         </header>
                         <div class="entry-content mt-4">
-                            <p class="text-justify">We provide affiliation of slingshot game for the districts in
-                                Maharashtra. This is comes under Slingshot Sports Association of Maharashtra. To avail
-                                the affiliation please register. For the registered members of district we
-                                provide management of the participants and game information through this website. Get
-                                latest updates of matches and events. So Hurry Up to get Affiliation. </p>
+                            <p class="text-justify">We provide affiliation of slingshot game for the districts in Maharashtra. This is comes under Slingshot Sports Association of Maharashtra. To avail the affiliation please register. For the registered members of district we
+                                provide management of the participants and game information through this website. Get latest updates of matches and events. So Hurry Up to get Affiliation. </p>
                         </div>
                         <!-- <div class="entry-footer mt-2">
                             <a routerLink="association" class="action-button">read more</a>
@@ -112,12 +107,8 @@
                             <h2 class="entry-title text-center">About Game</h2>
                         </header>
                         <div class="entry-content mt-4">
-                            <p class="text-justify">In INDIA, We are playing this game from our childhood. We have
-                                enjoyed lots of moment with this game to hit the target. Now lets make this game as our
-                                sports. We provide the opportunity to compete the people with this game,
-                                and achieve some position in this game under the <strong>"</strong>Slingshot Sports
-                                Association of Maharashtra, India<strong>"</strong>. Please read the rules for this game
-                                before you start. </p>
+                            <p class="text-justify">In INDIA, We are playing this game from our childhood. We have enjoyed lots of moment with this game to hit the target. Now lets make this game as our sports. We provide the opportunity to compete the people with this game,
+                                and achieve some position in this game under the <strong>"</strong>Slingshot Sports Association of Maharashtra, India<strong>"</strong>. Please read the rules for this game before you start. </p>
                         </div>
                         <div class="entry-footer mt-2 sport-footer">
                             <a routerLink="sports" class="action-button">read more</a>
@@ -179,8 +170,7 @@
                 </div>
                 <div id="contactCourousel" class="carousel slide mt-5" data-ride="carousel" data-interval="2000">
                     <ol class="carousel-indicators user-indicators">
-                        <li data-target="#contactCourousel" *ngFor="let member of members; let i = index"
-                            [ngClass]="member.class"></li>
+                        <li data-target="#contactCourousel" *ngFor="let member of members; let i = index" [ngClass]="member.class"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item pb-5" *ngFor="let member of members" [ngClass]="member.class">
@@ -223,8 +213,7 @@
                     <li data-target="#eventsCourousel" data-slide-to="0" class="active"></li>
                 </ol>
                 <div class="carousel-inner">
-                    <div class="carousel-item" *ngFor="let event of eventData; let i = index"
-                        [ngClass]="{'active': i === 0}">
+                    <div class="carousel-item" *ngFor="let event of eventData; let i = index" [ngClass]="{'active': i === 0}">
                         <div class="carousel-caption">
                             <div class="jumbotron bg-white">
                                 <h5 class="text-uppercase"><strong><i class="fa fa-bullseye mr-2"
@@ -275,7 +264,7 @@
             <div class="text-center">
                 <h2><strong>Gallery</strong></h2>
             </div>
-            <div class="row mt-2">
+            <!-- <div class="row mt-2">
                 <div class="col-sm-6">
                     <img class="rounded mt-4" src="./assets/images/img2.png" alt="" width="100%">
                     <img class="rounded mt-4 shadow" src="./assets/images/img3.jpg" alt="" width="100%">
@@ -284,6 +273,12 @@
                     <img class="rounded mt-4" src="./assets/images/img4.jpg" alt="" width="100%">
                     <img class="rounded mt-4 shadow" src="./assets/images/img1.jpg" alt="" width="100%">
                 </div>
+            </div> -->
+            <div class="row">
+                <div class="col-sm-3"><img class="rounded mt-4" src="./assets/images/img2.png" alt="" width="100%"></div>
+                <div class="col-sm-3"><img class="rounded mt-4 shadow" src="./assets/images/img3.jpg" alt="" width="100%"></div>
+                <div class="col-sm-3"><img class="rounded mt-4" src="./assets/images/img4.jpg" alt="" width="100%"></div>
+                <div class="col-sm-3"><img class="rounded mt-4 shadow" src="./assets/images/img1.jpg" alt="" width="100%"></div>
             </div>
         </div>
     </section>
