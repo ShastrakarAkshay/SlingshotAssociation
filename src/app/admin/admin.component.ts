@@ -74,7 +74,7 @@ export class AdminComponent implements OnInit {
 
     setTimeout(() => {
       // this.notifyUser();
-    }, 5000);
+    }, 3000);
   }
 
   setActiveClassFromURL(url: any) {
