@@ -6,6 +6,8 @@ import { filter } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../shared/services/auth.service';
+import { MatDialog } from '@angular/material';
+import { AlertNotificationComponent } from '../shared/notifications/alert-notification/alert-notification.component';
 declare var $: any;
 @Component({
   selector: 'app-admin',
@@ -50,7 +52,7 @@ export class AdminComponent implements OnInit {
     }
   ]
 
-  constructor(private _service: SlingshotService, private router: Router, private afAuth: AngularFireAuth, private authService: AuthService) {
+  constructor(private _service: SlingshotService, private router: Router, private afAuth: AngularFireAuth, private authService: AuthService, private _dialog: MatDialog) {
     this.uid = localStorage.getItem('uid');
     this.afAuth.user.subscribe(user => {
       if (!user) {
@@ -69,6 +71,10 @@ export class AdminComponent implements OnInit {
     this.router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {
       this.setActiveClassFromURL(this.router.url);
     });
+
+    setTimeout(() => {
+      // this.notifyUser();
+    }, 5000);
   }
 
   setActiveClassFromURL(url: any) {
@@ -99,5 +105,12 @@ export class AdminComponent implements OnInit {
   closeNav() {
     this.mySidepanel.nativeElement.style.width = "0px";
     $(".sidepanel").animate({ width: 'hide' }, { easing: "easeout" });
+  }
+
+  notifyUser() {
+    let dialogRef = this._dialog.open(AlertNotificationComponent, {
+      data: { message: 'Do you want to logout?', type: 'confirm' },
+      autoFocus: false
+    });
   }
 }

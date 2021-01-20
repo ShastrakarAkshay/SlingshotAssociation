@@ -1,0 +1,18 @@
+.alert-notification {
+    font-family: "Didact Gothic", sans-serif;
+    i {
+        font-size: 80px;
+        color: red;
+    }
+}
+
+::ng-deep.mat-dialog-container {
+    background-color: black;
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    .messege {
+        font-size: 1rem;
+    }
+}

@@ -49,6 +49,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import * as firebase from 'firebase/app';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchPipe } from './affliation/affiliation.pipe';
+import { AlertNotificationComponent } from './shared/notifications/alert-notification/alert-notification.component';
 firebase.initializeApp(environment.firebaseConfig);
 
 const APP_DIALOGS = [
@@ -62,7 +63,8 @@ const APP_DIALOGS = [
   AddMemberDialog,
   //child components
   ApprovedDistrictComponent,
-  RejectedAffiliationComponent
+  RejectedAffiliationComponent,
+  AlertNotificationComponent
 ];
 
 const MATERIAL_MODULES = [
@@ -103,7 +105,8 @@ const MATERIAL_MODULES = [
     ScoreBoardComponent,
     SupportComponent,
     PageNotFoundComponent,
-    SearchPipe
+    SearchPipe,
+    AlertNotificationComponent
   ],
   imports: [
     FormsModule,
