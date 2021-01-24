@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
 import { AuthService } from './shared/services/auth.service';
+import { SlingshotService } from './shared/services/slingshot.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   isAppActivated: boolean = false;
   isLoading: boolean = false;
 
-  constructor(private _auth: AuthService, private _firestore: AngularFirestore) { }
+  constructor(private _auth: AuthService, private _slingshotService: SlingshotService) { }
 
   ngOnInit() {
     this._auth.manageSession();
@@ -28,8 +28,8 @@ export class AppComponent implements AfterViewInit, OnInit {
   
   getAppSettings() {
     this.isLoading = true;
-    this._firestore.collection('AppSettings').doc('sa-settings-00001').get().subscribe(res => {
-      this.isAppActivated =  res.get('isAppActivated');
+    this._slingshotService.getAppSettings().subscribe(res => {
+      this.isAppActivated = res.payload.get('isAppActivated');
       this.isLoading = false;
     })
   }

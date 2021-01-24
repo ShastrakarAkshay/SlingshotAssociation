@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Action, AngularFirestore, DocumentSnapshot } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
 
@@ -55,6 +55,10 @@ export class SlingshotService {
   //     this.firestore.collection('DistrictList').doc(item.id).set(item);
   //   });
   // }
+
+  getAppSettings(): Observable<Action<DocumentSnapshot<unknown>>> {
+    return this.firestore.collection('AppSettings').doc('sa-settings-00001').snapshotChanges();
+  }
 
   getAllDistricts(): any {
     return this.firestore.collection('DistrictList', ref => ref.orderBy('name', 'asc')).snapshotChanges();

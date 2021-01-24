@@ -106,13 +106,15 @@ export class AdminComponent implements OnInit {
   }
 
   notifyUser() {
-    if (new Date().getMonth() === 2) { // notify renew messege in march month
-      setTimeout(() => {
-        this._dialog.open(AlertNotificationComponent, {
-          data: { message: 'Do you want to logout?', type: 'confirm' },
-          autoFocus: false
-        });
-      }, 3000);
-    }
+    this._service.getAppSettings().subscribe(res => {
+      if (res.payload.get('isExpired')) {
+        setTimeout(() => {
+          this._dialog.open(AlertNotificationComponent, {
+            data: { message: 'Do you want to logout?', type: 'confirm' },
+            autoFocus: false
+          });
+        }, 3000);
+      }
+    })
   }
 }
