@@ -23,6 +23,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const routes: Routes = [
   {
+    path: '**',
+    component: PageNotFoundComponent
+  },
+  {
     path: '',
     component: HomeComponent
   },
@@ -72,10 +76,6 @@ const routes: Routes = [
       { path: 'refree', component: RefreePanelComponent }
 
     ]
-  },
-  {
-    path: '**',
-    component: PageNotFoundComponent
   }
 ];
 

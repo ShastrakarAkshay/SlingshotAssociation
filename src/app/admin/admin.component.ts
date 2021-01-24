@@ -65,16 +65,14 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     // TO DO....
-    // check first use is logged in or not
+    // check first user is logged in or not
     // if not logged in then remove all localstorage and redirect to login page
     this.setActiveClassFromURL(this.router.url);
     this.router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {
       this.setActiveClassFromURL(this.router.url);
     });
 
-    setTimeout(() => {
-      // this.notifyUser();
-    }, 3000);
+    this.notifyUser();
   }
 
   setActiveClassFromURL(url: any) {
@@ -108,9 +106,13 @@ export class AdminComponent implements OnInit {
   }
 
   notifyUser() {
-    let dialogRef = this._dialog.open(AlertNotificationComponent, {
-      data: { message: 'Do you want to logout?', type: 'confirm' },
-      autoFocus: false
-    });
+    if (new Date().getMonth() === 2) { // notify renew messege in march month
+      setTimeout(() => {
+        this._dialog.open(AlertNotificationComponent, {
+          data: { message: 'Do you want to logout?', type: 'confirm' },
+          autoFocus: false
+        });
+      }, 3000);
+    }
   }
 }
