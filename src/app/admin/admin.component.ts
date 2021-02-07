@@ -18,8 +18,8 @@ export class AdminComponent implements OnInit {
 
   @ViewChild('mySidepanel', { static: false }) mySidepanel: ElementRef;
 
-  private uid: string;
-  private menu = [
+  uid: string;
+  menu = [
     {
       name: 'Affiliations',
       link: './requests',

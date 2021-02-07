@@ -25,8 +25,8 @@ export class MatchEventResultsComponent implements OnInit {
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'eventName', 'candidateName', 'district', 'score', 'rank', 'action'];
 
-  private results: any[] = [];
-  private showSpinner: boolean = false;
+  results: any[] = [];
+  showSpinner: boolean = false;
 
   constructor(private _dialog: MatDialog,
     private _service: SlingshotService,
@@ -93,13 +93,13 @@ export class MatchEventResultsComponent implements OnInit {
   styleUrls: ['./match-event-results.component.scss']
 })
 export class MatchResultsDialog implements OnInit {
-  private resultForm: FormGroup;
-  private allDistricts: any[] = [];
-  private allEvents: any[] = [];
-  private isEdit: boolean = false;
-  private selectedEvent: any;
-  private resultData: any;
-  private ageCategory: any[] = [];
+  resultForm: FormGroup;
+  allDistricts: any[] = [];
+  allEvents: any[] = [];
+  isEdit: boolean = false;
+  selectedEvent: any;
+  resultData: any;
+  ageCategory: any[] = [];
   @ViewChild('event', { static: false }) event: ElementRef;
 
   constructor(
@@ -175,7 +175,7 @@ export class MatchResultsDialog implements OnInit {
     })
   }
 
-  onEventChange() {
+  onEventChange(event) {
     this.allEvents.forEach(item => {
       if (item.id === this.event.nativeElement.value) {
         this.selectedEvent = item;

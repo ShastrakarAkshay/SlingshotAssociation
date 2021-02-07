@@ -11,8 +11,8 @@ import { UtilityService } from '../shared/services/utility.service';
 })
 export class ContactUsComponent implements OnInit {
 
-  private members: any[] = [];
-  private contactForm: FormGroup;
+  members: any[] = [];
+  contactForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private _service: SlingshotService, private dataService: ModalDataService, private _utility: UtilityService) { }
 

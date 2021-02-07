@@ -8,8 +8,8 @@ import { ModalDataService } from '../shared/services/modal-data.service';
 })
 export class SlingshotComponent implements OnInit {
 
-  private categories: any[] = [];
-  private rules: any[] = [];
+  categories: any[] = [];
+  rules: any[] = [];
 
   constructor(private dataService: ModalDataService) { }
 

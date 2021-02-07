@@ -9,9 +9,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AffliationComponent implements OnInit {
 
-  private selectedDistrictInfo: any;
-  private registeredDistrictsList: any[] = [];
-  private showSpinner: boolean = false;
+  selectedDistrictInfo: any;
+  registeredDistrictsList: any[] = [];
+  showSpinner: boolean = false;
 
   constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService) { }
 

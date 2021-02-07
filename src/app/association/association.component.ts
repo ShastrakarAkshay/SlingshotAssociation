@@ -24,23 +24,23 @@ export class AssociationComponent implements OnInit {
   showForm: boolean = false;
   disabledRegBtn: boolean = true;
 
-  private isFileValid1: boolean;
-  private isFileValid2: boolean;
-  private isFileValid3: boolean;
-  private availableDistricts: Array<any> = [];
-  private registerForm: FormGroup;
-  private allDistricts: Array<any> = [];
-  private isChecked: boolean = false;
-  private selectedDistrict: DistrictConfig;
-  private showSpinner: boolean = false;
-  private documents = {};
+  isFileValid1: boolean;
+  isFileValid2: boolean;
+  isFileValid3: boolean;
+  availableDistricts: Array<any> = [];
+  registerForm: FormGroup;
+  allDistricts: Array<any> = [];
+  isChecked: boolean = false;
+  selectedDistrict: DistrictConfig;
+  showSpinner: boolean = false;
+  documents = {};
 
   aadhharEvent: Event;
   panEvent: Event;
   photoEvent: Event;
   downloadURL: Observable<string>;
 
-  private registeredDistrictId: any;
+  registeredDistrictId: any;
 
   constructor(
     private slingshotService: SlingshotService,

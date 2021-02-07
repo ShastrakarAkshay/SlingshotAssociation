@@ -9,7 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class GalleryComponent implements OnInit {
 
-  private gallery: any[] = [];
+  gallery: any[] = [];
   showSpinner: boolean = false;
   imageList: any[] = [[], [], []];
 

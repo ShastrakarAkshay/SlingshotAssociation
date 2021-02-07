@@ -26,8 +26,8 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'districtName', 'name', 'mobile', 'status', 'actions'];
 
-  private affiliatinRequests: any[] = [];
-  private showSpinner: boolean = false;
+  affiliatinRequests: any[] = [];
+  showSpinner: boolean = false;
 
   constructor(private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
@@ -113,7 +113,7 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   templateUrl: 'dialogs/district-approval.html'
 })
 export class DistrictApprovalDialog implements OnInit {
-  private personData: any;
+  personData: any;
   public flag: boolean = false;
   public title: string = '';
   public isReadOnly: boolean = false;
@@ -234,8 +234,8 @@ export class ApprovedDistrictComponent implements OnInit {
   dataSource2 = new MatTableDataSource();
   displayedColumns2: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'actions'];
 
-  private approvedDistricts: any[] = [];
-  private showSpinner: boolean = false;
+  approvedDistricts: any[] = [];
+  showSpinner: boolean = false;
 
   constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService, private _dialog: MatDialog, private _toastr: ToastrService) { }
 
@@ -301,8 +301,8 @@ export class RejectedAffiliationComponent implements OnInit {
   dataSource3 = new MatTableDataSource();
   displayedColumns3: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'action'];
 
-  private oldAffiliations: any[] = [];
-  private showSpinner: boolean = false;
+  oldAffiliations: any[] = [];
+  showSpinner: boolean = false;
 
   constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService, private _dialog: MatDialog, private _toastr: ToastrService) { }
 

@@ -11,7 +11,7 @@ declare var $: any;
 })
 export class NavbarComponent implements OnInit {
 
-  private isLoggedIn: boolean = false;
+  isLoggedIn: boolean = false;
 
   public menu: any[] = [
     {

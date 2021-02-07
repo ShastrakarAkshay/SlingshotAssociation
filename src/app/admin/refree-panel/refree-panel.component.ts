@@ -24,8 +24,8 @@ export class RefreePanelComponent implements OnInit {
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'name', 'email', 'mobile', 'district', 'actions'];
 
-  private refreeData: any[] = [];
-  private showSpinner: boolean = false;
+  refreeData: any[] = [];
+  showSpinner: boolean = false;
 
   constructor(private _dialog: MatDialog, private _service: SlingshotService, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
@@ -97,13 +97,13 @@ export class RefreePanelComponent implements OnInit {
   styleUrls: ['./refree-panel.component.scss']
 })
 export class AddRefreeDialog implements OnInit {
-  private refreeForm: FormGroup;
-  private refreeData: any;
-  private isEdit: boolean = false;
-  private allDistricts: any[] = [];
-  private event: any;
-  private showSpinner: boolean = false;
-  private documentUrl: any = '././assets/images/user-pic-default.png';
+  refreeForm: FormGroup;
+  refreeData: any;
+  isEdit: boolean = false;
+  allDistricts: any[] = [];
+  event: any;
+  showSpinner: boolean = false;
+  documentUrl: any = '././assets/images/user-pic-default.png';
   isFileValid: boolean = true;
 
   constructor(

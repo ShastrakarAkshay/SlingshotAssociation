@@ -9,8 +9,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class MatchResultsComponent implements OnInit {
 
-  private matchResults: any[] = [];
-  private showSpinner:boolean = false;
+  matchResults: any[] = [];
+  showSpinner:boolean = false;
   
   constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService) { }
 

@@ -15,9 +15,9 @@ export class LoginComponent implements OnInit {
   @ViewChild('loginPage', { static: false }) loginPage: ElementRef;
   @ViewChild('forgetPassPage', { static: false }) forgetPassPage: ElementRef;
 
-  private loginForm: FormGroup;
-  private resetForm: FormGroup;
-  private showSpinner: boolean = false;
+  loginForm: FormGroup;
+  resetForm: FormGroup;
+  showSpinner: boolean = false;
 
   constructor(
     private router: Router,

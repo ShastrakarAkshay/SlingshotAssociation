@@ -14,7 +14,7 @@ export class CommitteeComponent implements OnInit {
 
   members: any[] = [];
   referees: any[] = [];
-  committee: any[] = [];
+  committee: any;
   showSpinner: boolean = false;
 
   constructor(private dataModal: ModalDataService, private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService) { }

@@ -22,8 +22,8 @@ export class EventsComponent implements OnInit {
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'eventTitle', 'eventDate', 'status', 'actions'];
 
-  private eventData: any[] = [];
-  private showSpinner: boolean = false;
+  eventData: any[] = [];
+  showSpinner: boolean = false;
 
   constructor(private _dialog: MatDialog, private _service: SlingshotService, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
 
@@ -107,9 +107,9 @@ export class EventsComponent implements OnInit {
   styleUrls: ['./events.component.scss']
 })
 export class CreateEventDialog implements OnInit {
-  private eventForm: FormGroup;
-  private eventData: any;
-  private isEdit: boolean = false;
+  eventForm: FormGroup;
+  eventData: any;
+  isEdit: boolean = false;
 
   constructor(
     public _dialogRef: MatDialogRef<CreateEventDialog>,

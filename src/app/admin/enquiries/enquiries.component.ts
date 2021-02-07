@@ -19,8 +19,8 @@ export class EnquiriesComponent implements OnInit {
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'name', 'email', 'mobile', 'message', 'action'];
-  private enquiries: any[] = [];
-  private showSpinner: boolean = false;
+  enquiries: any[] = [];
+  showSpinner: boolean = false;
   
   constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService, private _dialog: MatDialog, private _toastr: ToastrService) { }
 
