@@ -14,6 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AuthService {
 
   private loginResource = new BehaviorSubject<any>('');
+  private masterResource = new BehaviorSubject<any>('');
   public isUserLoggedIn = this.loginResource.asObservable();
 
   constructor(
@@ -56,7 +57,7 @@ export class AuthService {
 
   async isLoggedIn(): Promise<any> {
     const user = await this.afAuth.authState.pipe(first()).toPromise();
-    if (user) {
+    if (user && localStorage.getItem('master-token') !== '${slingshot}') {
       this.loginResource.next(true);
     } else {
       this.loginResource.next(false);
