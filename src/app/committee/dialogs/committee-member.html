@@ -9,24 +9,30 @@
                             <img [src]="documentUrl" alt="">
                         </div>
                     </div>
-                    <div class="card-body card-body-cascade text-center">
-                        <h4 class="mt-3 member-name text-capitalize"><strong>
+                    <div class="card-body card-body-cascade">
+                        <div class="text-center">
+                            <h4 class="mt-3 member-name text-capitalize"><strong>
                                 <span *ngIf="referee.gender === 'Male'">Mr.</span>
                                 <span *ngIf="referee.gender === 'Female'">Miss.</span>
                                 {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}</strong></h4>
-                        <span class="text-info font-weight-bold">({{referee.mobile}})</span>
-                        <br>
-                        <span class="text-lowercase"><i class="fa fa-envelope mr-2"></i> {{referee.email}}</span>
-                        <div class="info dialog-info mt-3 ml-3 mr-3">
+                            <span class="text-info font-weight-bold">({{referee.mobile}})</span>
+                            <br>
+                            <span class="text-lowercase"><i class="fa fa-envelope mr-2"></i> {{referee.email}}</span>
+                        </div>
+                        <hr>
+                        <div class="info dialog-info mt-3 ml-3 mr-3 text-center">
                             <p class="text-capitalize">
                                 <i class="fa fa-map-marker mr-2"></i>
-                                <span class="font-weight-bold">Address :</span> {{referee.address}}, {{referee.city}}, {{referee.district}}, Pin Code - {{referee.pin}}
+                                <span class="font-weight-bold">Address</span>
+                                <br> {{referee.address}}, {{referee.city}}, {{referee.district}}, Pin Code - {{referee.pin}}
                             </p>
                             <p>
-                                <span class="font-weight-bold">Date Of Birth :</span> {{referee.dateOfBirth | date: 'dd'}} {{referee.dateOfBirth | date: 'MMM'}} {{referee.dateOfBirth | date: 'yyyy'}}
+                                <span class="font-weight-bold">Date Of Birth</span>
+                                <br> {{referee.dateOfBirth | date: 'dd'}} {{referee.dateOfBirth | date: 'MMM'}} {{referee.dateOfBirth | date: 'yyyy'}}
                             </p>
                             <p>
-                                <span class="font-weight-bold">Aadhaar No :</span> {{referee.aadhaarNo}}
+                                <span class="font-weight-bold">Aadhaar No</span>
+                                <br>{{referee.aadhaarNo}}
                             </p>
                         </div>
                     </div>
