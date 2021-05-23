@@ -9,6 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { UtilityService } from 'src/app/shared/services/utility.service';
+import { distinctUntilChanged, map, take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-events',
@@ -121,6 +122,7 @@ export class CreateEventDialog implements OnInit {
   ) {
     // _dialogRef.disableClose = true;
     this.eventData = data;
+    this._service.getAllRefrees().pipe(map(res => res), tap(item=> item),              take(1), distinctUntilChanged()).subscribe(res => console.log(res));
   }
 
   ngOnInit() {
