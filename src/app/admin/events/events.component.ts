@@ -123,6 +123,7 @@ export class CreateEventDialog implements OnInit {
     // _dialogRef.disableClose = true;
     this.eventData = data;
     this._service.getAllRefrees().pipe(map(res => res), tap(item=> item),              take(1), distinctUntilChanged()).subscribe(res => console.log(res));
+    this._service.getAllRefrees().pipe(map(res => res), tap(item=> item),              take(1), distinctUntilChanged()).subscribe(res => console.log(res));
   }
 
   ngOnInit() {
