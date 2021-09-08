@@ -1,80 +1,80 @@
-@import "../../../styles.scss";
+@import '../../../styles.scss';
 
 #footer {
-    padding: 70px 70px 20px 70px;
-    background: #000;
+  padding: 70px 70px 20px 70px;
+  background: #000;
+  color: #fff;
+  font-family: 'Didact Gothic', sans-serif;
+  .hr {
+    background-color: #fff;
+  }
+  .action-button {
+    display: inline-block;
+    padding: 10px 45px;
+    background-color: $th-color;
+    font-size: 17px;
     color: #fff;
-    font-family: 'Didact Gothic', sans-serif;
-    .hr {
-        background-color: #fff;
-    }
-    .action-button {
-        display: inline-block;
-        padding: 10px 45px;
-        background-color: $th-color;
-        font-size: 17px;
+    text-transform: uppercase;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    margin-top: 10px;
+    text-decoration: none;
+  }
+  .contact,
+  .subscribe {
+    h3 {
+      color: rgba(255, 54, 0, 1);
+      span {
         color: #fff;
-        text-transform: uppercase;
-        -webkit-transition: 0.5s;
-        transition: 0.5s;
-        margin-top: 10px;
-        text-decoration: none;
+      }
     }
-    .contact,
-    .subscribe {
-        h3 {
-            color: rgba(255, 54, 0, 1);
-            span {
-                color: #fff;
-            }
-        }
+  }
+  .social-icons {
+    i {
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 20px;
+      text-align: center;
+      background: red;
+      margin-right: 15px;
+      width: 40px;
+      color: #fff;
     }
-    .social-icons {
-        i {
-            padding: 10px;
-            border-radius: 50%;
-            font-size: 20px;
-            text-align: center;
-            background: red;
-            margin-right: 15px;
-            width: 40px;
-            color: #fff;
-        }
-        .fa-twitter {
-            background: #55ACEE;
-        }
-        .fa-linkedin {
-            background: #007bb5;
-        }
-        .fa-facebook {
-            background: #3B5998;
-        }
-        .fa-youtube {
-            background: #bb0000;
-        }
+    .fa-twitter {
+      background: #55acee;
     }
+    .fa-linkedin {
+      background: #007bb5;
+    }
+    .fa-facebook {
+      background: #3b5998;
+    }
+    .fa-youtube {
+      background: #bb0000;
+    }
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    #footer {
-        padding-left: 40px;
-        padding-right: 40px;
-        .contact,
-        .subscribe {
-            margin-top: 50px;
-        }
-        .info,
-        .sub {
-            margin-top: 1rem;
-        }
+  #footer {
+    padding-left: 40px;
+    padding-right: 40px;
+    .contact,
+    .subscribe {
+      margin-top: 50px;
     }
+    .info,
+    .sub {
+      margin-top: 1rem;
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    #footer {
-        .info,
-        .sub {
-            margin-top: 1.5rem;
-        }
+  #footer {
+    .info,
+    .sub {
+      margin-top: 1.5rem;
     }
+  }
 }

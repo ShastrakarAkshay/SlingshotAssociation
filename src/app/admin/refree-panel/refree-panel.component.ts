@@ -15,10 +15,9 @@ import { last, switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-refree-panel',
   templateUrl: './refree-panel.component.html',
-  styleUrls: ['./refree-panel.component.scss']
+  styleUrls: ['./refree-panel.component.scss'],
 })
 export class RefreePanelComponent implements OnInit {
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
@@ -27,31 +26,41 @@ export class RefreePanelComponent implements OnInit {
   refreeData: any[] = [];
   showSpinner: boolean = false;
 
-  constructor(private _dialog: MatDialog, private _service: SlingshotService, private _spinner: NgxSpinnerService, private _toastr: ToastrService) { }
+  constructor(
+    private _dialog: MatDialog,
+    private _service: SlingshotService,
+    private _spinner: NgxSpinnerService,
+    private _toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     window.scrollTo(0, 0);
     this._showSpinner();
-    this._service.getAllRefrees().subscribe(data => {
+    this._service.getAllRefrees().subscribe((data) => {
       this.refreeData = data.map((item, index) => {
         return {
           id: item.payload.doc.id,
-          name: item.payload.doc.data().firstName + ' ' + item.payload.doc.data().middleName + ' ' + item.payload.doc.data().lastName,
+          name:
+            item.payload.doc.data().firstName +
+            ' ' +
+            item.payload.doc.data().middleName +
+            ' ' +
+            item.payload.doc.data().lastName,
           ...item.payload.doc.data(),
-          index: index + 1
-        }
+          index: index + 1,
+        };
       });
       this.dataSource.data = this.refreeData;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this._hideSpinner();
-    })
+    });
   }
 
   addRefree() {
     this._dialog.open(AddRefreeDialog, {
       autoFocus: false,
-      width: '99%'
+      width: '99%',
     });
   }
 
@@ -59,20 +68,20 @@ export class RefreePanelComponent implements OnInit {
     this._dialog.open(AddRefreeDialog, {
       autoFocus: false,
       width: '99%',
-      data: refreeData
+      data: refreeData,
     });
   }
 
   deleteRefree(id: any) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to delete?', type: 'confirm' },
-      autoFocus: false
+      autoFocus: false,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this._service.deleteRefreeById(id);
-        this._toastr.info("Refree Deleted Successfully.");
+        this._toastr.info('Refree Deleted Successfully.');
       }
     });
   }
@@ -86,15 +95,12 @@ export class RefreePanelComponent implements OnInit {
     this.showSpinner = false;
     this._spinner.hide();
   }
-
 }
-
-
 
 @Component({
   selector: 'add-refree-dialog',
   templateUrl: 'dialogs/add-refree-dialog.html',
-  styleUrls: ['./refree-panel.component.scss']
+  styleUrls: ['./refree-panel.component.scss'],
 })
 export class AddRefreeDialog implements OnInit {
   refreeForm: FormGroup;
@@ -136,7 +142,7 @@ export class AddRefreeDialog implements OnInit {
       district: ['', Validators.required],
       pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
       aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
-      gender: ['', [Validators.required]]
+      gender: ['', [Validators.required]],
     });
 
     if (this.refreeData) {
@@ -152,13 +158,15 @@ export class AddRefreeDialog implements OnInit {
         pin: this.refreeData.pin,
         aadhaarNo: this.refreeData.aadhaarNo,
         dateOfBirth: this.refreeData.dateOfBirth,
-        gender: this.refreeData.gender
+        gender: this.refreeData.gender,
       });
       this.isEdit = true;
     }
 
-    this._service.getAllDistricts().subscribe(data => {
-      data.map(item => { this.allDistricts.push(item.payload.doc.data()) });
+    this._service.getAllDistricts().subscribe((data) => {
+      data.map((item) => {
+        this.allDistricts.push(item.payload.doc.data());
+      });
     });
   }
 
@@ -174,7 +182,7 @@ export class AddRefreeDialog implements OnInit {
     formData['createdDate'] = this.utility.convertDateToEPOC(new Date());
     formData['documents'] = docs;
     this._service.addRefree(formData);
-    this._toastr.success("Refree Added Successfully.");
+    this._toastr.success('Refree Added Successfully.');
     this.close();
     this.hide_spinner();
   }
@@ -186,7 +194,7 @@ export class AddRefreeDialog implements OnInit {
     let formData = this.refreeForm.value;
     formData['documents'] = docs;
     this._service.updateRefreeById(this.refreeData.id, formData);
-    this._toastr.success("Refree Updated Successfully.");
+    this._toastr.success('Refree Updated Successfully.');
     this.close();
     this.hide_spinner();
   }
@@ -194,12 +202,16 @@ export class AddRefreeDialog implements OnInit {
   validatefile(event) {
     this.isFileValid = true;
     const file = event.target.files[0];
-    if (file && file.type == 'image/png' || file.type == 'image/jpg' || file.type == 'image/jpeg' && file.size <= 1000000) {
+    if (
+      (file && file.type == 'image/png') ||
+      file.type == 'image/jpg' ||
+      (file.type == 'image/jpeg' && file.size <= 1000000)
+    ) {
       this.event = event;
       if (event.target.files && event.target.files[0]) {
         const file = event.target.files[0];
         const reader = new FileReader();
-        reader.onload = e => this.documentUrl = reader.result;
+        reader.onload = (e) => (this.documentUrl = reader.result);
         reader.readAsDataURL(file);
       }
     } else {
@@ -217,14 +229,17 @@ export class AddRefreeDialog implements OnInit {
         const filePath = `Referee/${id}`;
         const fileRef = this.afStorage.ref(filePath);
         const task = this.afStorage.upload(filePath, file);
-        task.snapshotChanges().pipe(
-          last(),
-          switchMap(() => fileRef.getDownloadURL())
-        ).subscribe(url => {
-          let docs = { id: id, documentURL: url };
-          this.addRefree(docs);
-        })
-      })
+        task
+          .snapshotChanges()
+          .pipe(
+            last(),
+            switchMap(() => fileRef.getDownloadURL())
+          )
+          .subscribe((url) => {
+            let docs = { id: id, documentURL: url };
+            this.addRefree(docs);
+          });
+      });
     } else {
       let docs = null;
       this.addRefree(docs);
@@ -241,19 +256,22 @@ export class AddRefreeDialog implements OnInit {
         const filePath = `Referee/${id}`;
         const fileRef = this.afStorage.ref(filePath);
         const task = this.afStorage.upload(filePath, file);
-        task.snapshotChanges().pipe(
-          last(),
-          switchMap(() => fileRef.getDownloadURL())
-        ).subscribe(url => {
-          //Delete old document
-          let OldId = this.refreeData.documents ? this.refreeData.documents.id : null;
-          if (OldId) {
-            this.afStorage.storage.ref().child(`Referee/${OldId}`).delete();
-          }
-          let docs = { id: id, documentURL: url };
-          this.updateRefree(docs);
-        })
-      })
+        task
+          .snapshotChanges()
+          .pipe(
+            last(),
+            switchMap(() => fileRef.getDownloadURL())
+          )
+          .subscribe((url) => {
+            //Delete old document
+            let OldId = this.refreeData.documents ? this.refreeData.documents.id : null;
+            if (OldId) {
+              this.afStorage.storage.ref().child(`Referee/${OldId}`).delete();
+            }
+            let docs = { id: id, documentURL: url };
+            this.updateRefree(docs);
+          });
+      });
     } else {
       let docs = this.refreeData.documents ? this.refreeData.documents : null;
       this.updateRefree(docs);
@@ -270,4 +288,3 @@ export class AddRefreeDialog implements OnInit {
     this.showSpinner = false;
   }
 }
-

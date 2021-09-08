@@ -7,68 +7,64 @@ declare var $: any;
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-
   isLoggedIn: boolean = false;
 
   public menu: any[] = [
     {
       name: 'Home',
       link: '/',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Sports',
       link: '/sports',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Affiliation',
       link: ';affiliation',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Committee',
       link: '/committee',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Dashboard',
       link: '/admin',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Gallery',
       link: '',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Contact us',
       link: '/contact',
-      isActive: false
-    }
+      isActive: false,
+    },
   ];
 
-  constructor(
-    private auth: AuthService,
-    private _dialog: MatDialog
-  ) { }
+  constructor(private auth: AuthService, private _dialog: MatDialog) {}
 
   ngOnInit() {
     this.auth.isLoggedIn();
-    this.auth.isUserLoggedIn.subscribe(data => this.isLoggedIn = data);
+    this.auth.isUserLoggedIn.subscribe((data) => (this.isLoggedIn = data));
     this.navbarCollapseHide();
   }
 
   signOut() {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to logout?', type: 'confirm' },
-      autoFocus: false
+      autoFocus: false,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.auth.signOut();
       }

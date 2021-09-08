@@ -1,52 +1,53 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 #association {
-    font-family: "Didact Gothic", sans-serif;
-    margin-top: 80px;
-    .jumbotron {
-        margin-bottom: 0 !important;
-        padding-bottom: 150px !important;
-    }
-    .dist-area {
-        border-radius: 0rem;
-    }
-    .title {
-        font-family: "Righteous", cursive;
-    }
-    .form-area {
-        padding-bottom: 100px;
-        padding-top: 0px !important;
-    }
-    #regForm {
-        border: 1px solid #dadada;
-        padding: 50px;
-    }
-    .reg-button,
-    .act-btn {
-        background-color: $th-color;
-        color: #fff;
-    }
-    .spinner-area {
-        background-color: #e9ecef;
-    }
-    input, select {
-        height: 50px;
-    }
+  font-family: 'Didact Gothic', sans-serif;
+  margin-top: 80px;
+  .jumbotron {
+    margin-bottom: 0 !important;
+    padding-bottom: 150px !important;
+  }
+  .dist-area {
+    border-radius: 0rem;
+  }
+  .title {
+    font-family: 'Righteous', cursive;
+  }
+  .form-area {
+    padding-bottom: 100px;
+    padding-top: 0px !important;
+  }
+  #regForm {
+    border: 1px solid #dadada;
+    padding: 50px;
+  }
+  .reg-button,
+  .act-btn {
+    background-color: $th-color;
+    color: #fff;
+  }
+  .spinner-area {
+    background-color: #e9ecef;
+  }
+  input,
+  select {
+    height: 50px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    //mobile devices
-    #association {
-        .form-area {
-            padding: 10px;
-        }
-        #regForm {
-            padding: 20px;
-        }
-        .reg-title {
-            font-size: 1.2rem !important;
-        }
-        .reg-button {
-            width: 50% !important;
-        }
+  //mobile devices
+  #association {
+    .form-area {
+      padding: 10px;
     }
+    #regForm {
+      padding: 20px;
+    }
+    .reg-title {
+      font-size: 1.2rem !important;
+    }
+    .reg-button {
+      width: 50% !important;
+    }
+  }
 }

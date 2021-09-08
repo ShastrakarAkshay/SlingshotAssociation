@@ -1,94 +1,108 @@
 <section id="game">
-    <div class="jumbotron text-center">
-        <h2 class="page-title">Slingshot Sports Association of Maharashtra</h2>
-    </div>
+  <div class="jumbotron text-center">
+    <h2 class="page-title">Slingshot Sports Association of Maharashtra</h2>
+  </div>
 
-    <div class="container wrapper">
-        <div class="row mt-5">
-            <div class="col-sm-6 text-center">
-                <img class="sling-img shadow rounded" src="./assets/images/slingshot2.jpg" alt="">
-            </div>
-            <div class="col-sm-6 game-info pt-5">
-                <h4><i class="fa fa-bullseye mr-2"></i>Slingshot</h4>
-                <p class="text-justify mt-4">In INDIA, We are playing this game from our childhood. We have enjoyed lots of moment with this game to hit the target. Now lets make this game as our sports. We provide the opportunity to compete the people with this game, and achieve
-                    some position in this game under the <strong>"</strong>Slingshot Sports Association of Maharashtra, India
-                    <strong>"</strong>. Please read the rules for this game before you start.</p>
-            </div>
-        </div>
+  <div class="container wrapper">
+    <div class="row mt-5">
+      <div class="col-sm-6 text-center">
+        <img class="sling-img shadow rounded" src="./assets/images/slingshot2.jpg" alt="" />
+      </div>
+      <div class="col-sm-6 game-info pt-5">
+        <h4><i class="fa fa-bullseye mr-2"></i>Slingshot</h4>
+        <p class="text-justify mt-4">
+          In INDIA, We are playing this game from our childhood. We have enjoyed lots of moment with this game to hit
+          the target. Now lets make this game as our sports. We provide the opportunity to compete the people with this
+          game, and achieve some position in this game under the
+          <strong>"</strong>Slingshot Sports Association of Maharashtra, India <strong>"</strong>. Please read the rules
+          for this game before you start.
+        </p>
+      </div>
     </div>
+  </div>
 
-    <div class="category mt-5 wrapper bg-offwhite">
-        <h4 class="text-center"><strong>Categories of Slingshot</strong> </h4>
-        <div class="row mt-4 cat-cards justify-content-center">
-            <div class="col-sm-2 col-xs-3 mt-2" *ngFor="let cat of categories">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">{{cat.categoryName}}</h5>
-                        <h5 class="card-title category-title"><strong>{{cat.categoryTitle}}</strong></h5>
-                        <div>
-                            <span>{{cat.distance}}</span>
-                            <p>{{cat.age}}</p>
-                        </div>
-                    </div>
-                </div>
+  <div class="category mt-5 wrapper bg-offwhite">
+    <h4 class="text-center"><strong>Categories of Slingshot</strong></h4>
+    <div class="row mt-4 cat-cards justify-content-center">
+      <div class="col-sm-2 col-xs-3 mt-2" *ngFor="let cat of categories">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">{{ cat.categoryName }}</h5>
+            <h5 class="card-title category-title">
+              <strong>{{ cat.categoryTitle }}</strong>
+            </h5>
+            <div>
+              <span>{{ cat.distance }}</span>
+              <p>{{ cat.age }}</p>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="container">
-        <div class="rules mt-5">
-            <h4 class="text-center"><strong>Rules of Game</strong> </h4>
-            <div class="row mt-4 justify-content-center">
-                <div class="col-sm-12">
-                    <ul class="list-group mt-4">
-                        <li class="list-group-item rule p-5" *ngFor="let rule of rules; let i = index;" [ngClass]="{'mt-1': i > 0}">
-                            <table>
-                                <tr>
-                                    <td><span class="circle mr-3"> {{ i+1 }} </span></td>
-                                    <td class="text-justify">{{rule}}</td>
-                                </tr>
-                            </table>
-                        </li>
-                        <li class="list-group-item rule p-5 text-justify  mt-1">
-                            <span class="text-danger">स्पष्टीकरण : </span> समजा एखाद्या स्पर्धकाने 5 मिनिटांमध्ये 15 लक्ष्यवेध केलेत, या 15 लक्ष्यवेधांमध्ये 3 गुणांच्या वर्तुळात 3, 4 गुणांच्या वर्तुळात 3, 5 गुणांच्या वर्तुळात 1 व 8,9,10 गुणांच्या वर्तुळात
-                            प्रत्येकी 2 लक्ष्यवेध केले असेल तर अशा प्रसंगात अंतिम गुण मोजताना 3,4,5,6 या गुणांच्या वर्तुळातील वेध व 8 गुणांच्या वर्तुळातील कुठलाही एक वेध मोजले जातील आणि त्यानुसार स्पर्धकांचे गुण ठरविल्या जातील.
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
+  </div>
+  <div class="container">
+    <div class="rules mt-5">
+      <h4 class="text-center"><strong>Rules of Game</strong></h4>
+      <div class="row mt-4 justify-content-center">
+        <div class="col-sm-12">
+          <ul class="list-group mt-4">
+            <li
+              class="list-group-item rule p-5"
+              *ngFor="let rule of rules; let i = index"
+              [ngClass]="{ 'mt-1': i > 0 }"
+            >
+              <table>
+                <tr>
+                  <td>
+                    <span class="circle mr-3"> {{ i + 1 }} </span>
+                  </td>
+                  <td class="text-justify">{{ rule }}</td>
+                </tr>
+              </table>
+            </li>
+            <li class="list-group-item rule p-5 text-justify mt-1">
+              <span class="text-danger">स्पष्टीकरण : </span> समजा एखाद्या स्पर्धकाने 5 मिनिटांमध्ये 15 लक्ष्यवेध केलेत,
+              या 15 लक्ष्यवेधांमध्ये 3 गुणांच्या वर्तुळात 3, 4 गुणांच्या वर्तुळात 3, 5 गुणांच्या वर्तुळात 1 व 8,9,10
+              गुणांच्या वर्तुळात प्रत्येकी 2 लक्ष्यवेध केले असेल तर अशा प्रसंगात अंतिम गुण मोजताना 3,4,5,6 या गुणांच्या
+              वर्तुळातील वेध व 8 गुणांच्या वर्तुळातील कुठलाही एक वेध मोजले जातील आणि त्यानुसार स्पर्धकांचे गुण ठरविल्या
+              जातील.
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
-    <div class="p-5 mt-5 bg-offwhite equipment">
-        <h4 class="text-center"><strong>Equipments of Slingshot</strong> </h4>
-        <div class="container tools-container">
-            <div class="row mt-4 justify-content-center">
-                <div class="col text-center">
-                    <img src="./assets/images/tool1.jpg" width="100%" class="rounded tool">
-                </div>
-                <div class="col text-center">
-                    <img src="./assets/images/tool2.jpg" width="100%" class="rounded tool">
-                </div>
-                <div class="col text-center">
-                    <img src="./assets/images/tool3.jpg" width="100%" class="rounded tool">
-                </div>
-                <div class="col text-center">
-                    <img src="./assets/images/tool4.jpg" width="100%" class="rounded tool">
-                </div>
-            </div>
-            <div class="row mt-4 justify-content-center row-bottom">
-                <div class="col text-center">
-                    <img src="./assets/images/tool5.jpg" width="100%" class="rounded tool">
-                </div>
-                <div class="col text-center">
-                    <img src="./assets/images/tool6.jpg" width="100%" class="rounded tool">
-                </div>
-                <div class="col text-center">
-                    <img src="./assets/images/tool7.jpg" width="100%" class="rounded tool">
-                </div>
-                <div class="col text-center">
-                    <img src="./assets/images/tool8.jpg" width="100%" class="rounded tool">
-                </div>
-            </div>
+  </div>
+  <div class="p-5 mt-5 bg-offwhite equipment">
+    <h4 class="text-center"><strong>Equipments of Slingshot</strong></h4>
+    <div class="container tools-container">
+      <div class="row mt-4 justify-content-center">
+        <div class="col text-center">
+          <img src="./assets/images/tool1.jpg" width="100%" class="rounded tool" />
         </div>
+        <div class="col text-center">
+          <img src="./assets/images/tool2.jpg" width="100%" class="rounded tool" />
+        </div>
+        <div class="col text-center">
+          <img src="./assets/images/tool3.jpg" width="100%" class="rounded tool" />
+        </div>
+        <div class="col text-center">
+          <img src="./assets/images/tool4.jpg" width="100%" class="rounded tool" />
+        </div>
+      </div>
+      <div class="row mt-4 justify-content-center row-bottom">
+        <div class="col text-center">
+          <img src="./assets/images/tool5.jpg" width="100%" class="rounded tool" />
+        </div>
+        <div class="col text-center">
+          <img src="./assets/images/tool6.jpg" width="100%" class="rounded tool" />
+        </div>
+        <div class="col text-center">
+          <img src="./assets/images/tool7.jpg" width="100%" class="rounded tool" />
+        </div>
+        <div class="col text-center">
+          <img src="./assets/images/tool8.jpg" width="100%" class="rounded tool" />
+        </div>
+      </div>
     </div>
+  </div>
 </section>

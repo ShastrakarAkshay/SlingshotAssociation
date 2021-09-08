@@ -1,36 +1,36 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 #result-area {
-    .img-area {
-        width: 80px;
-        margin: auto;
-        border: 2px solid #fff;
-        border-radius: 50%;
-        overflow: hidden;
-        img {
-            width: 100%;
-        }
+  .img-area {
+    width: 80px;
+    margin: auto;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
     }
-    .list-group-item {
-        &:hover {
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
-            .result {
-                color: $th-color-dark;
-            }
-        }
-    }
-    .text-rank {
+  }
+  .list-group-item {
+    &:hover {
+      box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+      .result {
         color: $th-color-dark;
+      }
     }
+  }
+  .text-rank {
+    color: $th-color-dark;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    //mobile device
-    #result-area {
-        .list-group-item {
-            margin-top: 0.6rem !important;
-        }
-        .event-sec {
-            margin-top: 10px;
-        }
+  //mobile device
+  #result-area {
+    .list-group-item {
+      margin-top: 0.6rem !important;
     }
+    .event-sec {
+      margin-top: 10px;
+    }
+  }
 }

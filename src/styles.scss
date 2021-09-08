@@ -1,23 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: #f8f9fa;
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background-color: #f8f9fa;
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* -------------------------- global colors ----------------------------- */
@@ -25,111 +25,110 @@ body {
 $th-color: #ff8b23;
 $th-color-dark: #ff3600;
 ::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
+  background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #ff8b23;
+  background: #ff8b23;
 }
 
 /* Theme-Colors */
 
 .bg-offwhite {
-    background: #edf3f5;
+  background: #edf3f5;
 }
 
 .sling-btn {
-    background-color: #ff8b23;
-    color: #fff;
+  background-color: #ff8b23;
+  color: #fff;
 }
 
 .red-snackbar {
-    background-color: rgb(153, 50, 50);
-    color: lightgoldenrodyellow;
+  background-color: rgb(153, 50, 50);
+  color: lightgoldenrodyellow;
 }
 
 /* Logo-Text */
 
 .main-title {
-    font-family: "Righteous", cursive;
-    font-size: 30px;
-    letter-spacing: 2px;
-    color: rgba(255, 54, 0, 1);
+  font-family: 'Righteous', cursive;
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: rgba(255, 54, 0, 1);
 }
 
 .sub-title {
-    font-family: "Didact Gothic", sans-serif;
-    letter-spacing: 2px;
-    font-size: 11px;
-    text-transform: uppercase;
-    position: relative;
-    padding-left: 2px;
-    font-weight: bold;
+  font-family: 'Didact Gothic', sans-serif;
+  letter-spacing: 2px;
+  font-size: 11px;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 2px;
+  font-weight: bold;
 }
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 // Global dialog css
 .cdk-overlay-dark-backdrop {
-    background: rgba(0, 0, 0, 0.69) !important;
+  background: rgba(0, 0, 0, 0.69) !important;
 }
 
 .cdk-overlay-container {
-    z-index: 2000 !important;
+  z-index: 2000 !important;
 }
 
 .data-table {
-    .mat-header-cell {
-        font-size: 15px !important;
-    }
+  .mat-header-cell {
+    font-size: 15px !important;
+  }
 }
 
 .dialog {
-    font-family: "Didact Gothic", sans-serif;
-    .mat-dialog-container {
-        margin-top: 100px !important;
-    }
+  font-family: 'Didact Gothic', sans-serif;
+  .mat-dialog-container {
+    margin-top: 100px !important;
+  }
 }
 
 .dialog-header {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 768px) {
-    //mobile device
-    .d-hide {
-        display: none;
-    }
+  //mobile device
+  .d-hide {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    //mobile device
-    .m-hide {
-        display: none;
-    }
+  //mobile device
+  .m-hide {
+    display: none;
+  }
 }
-
 
 button:focus,
 button:active,
 button,
 input:focus,
 :focus {
-    outline: none !important;
+  outline: none !important;
 }

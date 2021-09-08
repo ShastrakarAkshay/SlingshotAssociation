@@ -8,31 +8,38 @@ import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-committee',
   templateUrl: './committee.component.html',
-  styleUrls: ['./committee.component.scss']
+  styleUrls: ['./committee.component.scss'],
 })
 export class CommitteeComponent implements OnInit {
-
   members: any[] = [];
   referees: any[] = [];
   committee: any;
   showSpinner: boolean = false;
 
-  constructor(private dataModal: ModalDataService, private _service: SlingshotService, private _dialog: MatDialog, private _spinner: NgxSpinnerService) { }
+  constructor(
+    private dataModal: ModalDataService,
+    private _service: SlingshotService,
+    private _dialog: MatDialog,
+    private _spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit() {
     window.scrollTo(0, 0);
     this.show_spinner();
     this.members = this.dataModal.getAssociationMembers();
     this.committee = this.dataModal.getAllCommitte();
-    this._service.getAllRefrees().pipe(take(1)).subscribe(data => {
-      this.referees = data.map(item => {
-        return {
-          id: item.payload.doc.id,
-          ...item.payload.doc.data()
-        }
+    this._service
+      .getAllRefrees()
+      .pipe(take(1))
+      .subscribe((data) => {
+        this.referees = data.map((item) => {
+          return {
+            id: item.payload.doc.id,
+            ...item.payload.doc.data(),
+          };
+        });
+        this.hide_spinner();
       });
-      this.hide_spinner();
-    })
   }
 
   show_spinner() {
@@ -48,19 +55,17 @@ export class CommitteeComponent implements OnInit {
   getRefereeInfo(referee: any) {
     this._dialog.open(RefereeDialog, {
       autoFocus: false,
-      data: referee
-    })
+      data: referee,
+    });
   }
-
 }
 
 @Component({
   selector: 'commitee-member-dialog',
   templateUrl: 'dialogs/committee-member.html',
-  styleUrls: ['./committee.component.scss']
+  styleUrls: ['./committee.component.scss'],
 })
 export class RefereeDialog implements OnInit {
-
   referee: any;
   documentUrl: string = './assets/images/user-pic-default.png';
 
@@ -74,10 +79,9 @@ export class RefereeDialog implements OnInit {
     if (this.referee.documents) {
       this.documentUrl = this.referee.documents.documentURL;
     }
-
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   close() {
     this._dialogRef.close();

@@ -1,112 +1,159 @@
 <section class="dialog">
-    <h3 class="text-center bg-dark text-white p-3 text-capitalize dialog-header">{{title}}</h3>
-    <mat-dialog-content>
-        <div class="member-data" *ngFor="let member of personData.members, let i = index;">
-            <table class="table table-bordered mt-3" width="100%">
-                <tbody>
-                    <tr>
-                        <td width="30%" class=""><strong>Name</strong></td>
-                        <td width="70%" class="text-capitalize">
-                            <i class="fa fa-user-circle mr-1"></i> {{member.firstName}} {{member.middleName}} {{member.lastName}}
-                            <div class="pull-right" *ngIf="i === 1 && personData.status !== 'rejected'">
-                                <a class="btn text-danger pointer" (click)="deleteUser(member.id)" matTooltip="Delete Member" matTooltipPosition="above"><i class="fa fa-trash text-danger"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="30%" class=""><strong>Role</strong></td>
-                        <td width="70%" class="text-capitalize text-info">{{member.role}}</td>
-                    </tr>
-                    <tr>
-                        <td width="30%" class=""><strong>Address</strong></td>
-                        <td width="70%" class="text-capitalize">{{member.addressLine1}}, {{member.addressLine2}}, {{member.city}}, {{member.district}}, Pin Code - {{member.pin}}.</td>
-                    </tr>
-                    <tr>
-                        <td width="30%" class=""><strong>Email</strong></td>
-                        <td width="70%">{{member.email}}</td>
-                    </tr>
-                    <tr>
-                        <td width="30%" class=""><strong>Mobile</strong></td>
-                        <td width="70%">{{member.mobile}}</td>
-                    </tr>
-                    <tr>
-                        <td width="30%" class=""><strong>Date of Birth</strong></td>
-                        <td width="70%">
-                            {{member.dateOfBirth | date: 'dd'}}-{{member.dateOfBirth | date: 'MMM'}}-{{member.dateOfBirth | date: 'yyy'}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="30%" class=""><strong>PAN No.</strong></td>
-                        <td width="70%" class="text-uppercase">{{member.panNo}}</td>
-                    </tr>
-                    <tr>
-                        <td width="30%" class=""><strong>Aadhaar No.</strong></td>
-                        <td width="70%">{{member.aadhaarNo}}</td>
-                    </tr>
-                    <tr class="bg-light">
-                        <td width="30%"><strong>Documents</strong></td>
-                        <td width="70%">
-                            <div class="row mt-5 mb-5" ngClass="{'justify-content-center' : i === 0}" *ngIf="personData.status === 'Pending'">
-                                <div class="col-sm-4 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(personData.docs.adhaar.documentURL)">
-                                    <br>
-                                    <p class="mt-2">(Aadhaar Card)</p>
-                                </div>
-                                <div class="col-sm-4 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(personData.docs.pan.documentURL)">
-                                    <br>
-                                    <p class="mt-2">(PAN Card)</p>
-                                </div>
-                                <div class="col-sm-4 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(personData.docs.photo.documentURL)">
-                                    <br>
-                                    <p class="mt-2">(Photo)</p>
-                                </div>
-                            </div>
-                            <div class="row mt-5 mb-5" ngClass="{'justify-content-center' : i === 0}" *ngIf="personData.status !== 'Pending'">
-                                <div class="col-sm-4 text-center" *ngIf="i === 0">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(member.documents.adhaar.documentURL)">
-                                    <br>
-                                    <p class="mt-2">(Aadhaar Card)</p>
-                                </div>
-                                <div class="col-sm-4 text-center" *ngIf="i === 0">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(member.documents.pan.documentURL)">
-                                    <br>
-                                    <p class="mt-2">(PAN Card)</p>
-                                </div>
-                                <div class="col-sm-4 text-center">
-                                    <img class="img pointer" src="./assets/images/document.png" width="30%" (click)="preview(member.documents.photo.documentURL)">
-                                    <br>
-                                    <p class="mt-2">(Photo)</p>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="30%"><strong>Action</strong></td>
-                        <td width="70%">
-                            <div class="row" *ngIf="personData.status === 'approved' && personData.members.length == 1">
-                                <div class="col">
-                                    <button mat-button color="primary" (click)="addMember(personData)">Add Member</button>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </mat-dialog-content>
-
-    <div mat-dialog-actions class="row justify-content-center">
-        <div *ngIf="!isReadOnly">
-            <button mat-button class="btn sling-btn" (click)="approveDistrict(personData)" *ngIf="!flag">Approve</button>
-            <button mat-button class="btn btn-danger" (click)="deleteAffiliation()" *ngIf="flag">Delete
-                Affiliation</button>
-        </div>
-        <button mat-button class="btn sling-btn ml-2" (click)="close()">Close</button>
+  <h3 class="text-center bg-dark text-white p-3 text-capitalize dialog-header">{{title}}</h3>
+  <mat-dialog-content>
+    <div class="member-data" *ngFor="let member of personData.members, let i = index;">
+      <table class="table table-bordered mt-3" width="100%">
+        <tbody>
+          <tr>
+            <td width="30%" class=""><strong>Name</strong></td>
+            <td width="70%" class="text-capitalize">
+              <i class="fa fa-user-circle mr-1"></i> {{member.firstName}} {{member.middleName}} {{member.lastName}}
+              <div class="pull-right" *ngIf="i === 1 && personData.status !== 'rejected'">
+                <a
+                  class="btn text-danger pointer"
+                  (click)="deleteUser(member.id)"
+                  matTooltip="Delete Member"
+                  matTooltipPosition="above"
+                  ><i class="fa fa-trash text-danger"></i
+                ></a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="30%" class=""><strong>Role</strong></td>
+            <td width="70%" class="text-capitalize text-info">{{member.role}}</td>
+          </tr>
+          <tr>
+            <td width="30%" class=""><strong>Address</strong></td>
+            <td width="70%" class="text-capitalize">
+              {{member.addressLine1}}, {{member.addressLine2}}, {{member.city}}, {{member.district}}, Pin Code -
+              {{member.pin}}.
+            </td>
+          </tr>
+          <tr>
+            <td width="30%" class=""><strong>Email</strong></td>
+            <td width="70%">{{member.email}}</td>
+          </tr>
+          <tr>
+            <td width="30%" class=""><strong>Mobile</strong></td>
+            <td width="70%">{{member.mobile}}</td>
+          </tr>
+          <tr>
+            <td width="30%" class=""><strong>Date of Birth</strong></td>
+            <td width="70%">
+              {{member.dateOfBirth | date: 'dd'}}-{{member.dateOfBirth | date: 'MMM'}}-{{member.dateOfBirth | date:
+              'yyy'}}
+            </td>
+          </tr>
+          <tr>
+            <td width="30%" class=""><strong>PAN No.</strong></td>
+            <td width="70%" class="text-uppercase">{{member.panNo}}</td>
+          </tr>
+          <tr>
+            <td width="30%" class=""><strong>Aadhaar No.</strong></td>
+            <td width="70%">{{member.aadhaarNo}}</td>
+          </tr>
+          <tr class="bg-light">
+            <td width="30%"><strong>Documents</strong></td>
+            <td width="70%">
+              <div
+                class="row mt-5 mb-5"
+                ngClass="{'justify-content-center' : i === 0}"
+                *ngIf="personData.status === 'Pending'"
+              >
+                <div class="col-sm-4 text-center">
+                  <img
+                    class="img pointer"
+                    src="./assets/images/document.png"
+                    width="30%"
+                    (click)="preview(personData.docs.adhaar.documentURL)"
+                  />
+                  <br />
+                  <p class="mt-2">(Aadhaar Card)</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                  <img
+                    class="img pointer"
+                    src="./assets/images/document.png"
+                    width="30%"
+                    (click)="preview(personData.docs.pan.documentURL)"
+                  />
+                  <br />
+                  <p class="mt-2">(PAN Card)</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                  <img
+                    class="img pointer"
+                    src="./assets/images/document.png"
+                    width="30%"
+                    (click)="preview(personData.docs.photo.documentURL)"
+                  />
+                  <br />
+                  <p class="mt-2">(Photo)</p>
+                </div>
+              </div>
+              <div
+                class="row mt-5 mb-5"
+                ngClass="{'justify-content-center' : i === 0}"
+                *ngIf="personData.status !== 'Pending'"
+              >
+                <div class="col-sm-4 text-center" *ngIf="i === 0">
+                  <img
+                    class="img pointer"
+                    src="./assets/images/document.png"
+                    width="30%"
+                    (click)="preview(member.documents.adhaar.documentURL)"
+                  />
+                  <br />
+                  <p class="mt-2">(Aadhaar Card)</p>
+                </div>
+                <div class="col-sm-4 text-center" *ngIf="i === 0">
+                  <img
+                    class="img pointer"
+                    src="./assets/images/document.png"
+                    width="30%"
+                    (click)="preview(member.documents.pan.documentURL)"
+                  />
+                  <br />
+                  <p class="mt-2">(PAN Card)</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                  <img
+                    class="img pointer"
+                    src="./assets/images/document.png"
+                    width="30%"
+                    (click)="preview(member.documents.photo.documentURL)"
+                  />
+                  <br />
+                  <p class="mt-2">(Photo)</p>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="30%"><strong>Action</strong></td>
+            <td width="70%">
+              <div class="row" *ngIf="personData.status === 'approved' && personData.members.length == 1">
+                <div class="col">
+                  <button mat-button color="primary" (click)="addMember(personData)">Add Member</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </mat-dialog-content>
 
-    <!-- <div *ngIf="showSpinner">
+  <div mat-dialog-actions class="row justify-content-center">
+    <div *ngIf="!isReadOnly">
+      <button mat-button class="btn sling-btn" (click)="approveDistrict(personData)" *ngIf="!flag">Approve</button>
+      <button mat-button class="btn btn-danger" (click)="deleteAffiliation()" *ngIf="flag">Delete Affiliation</button>
+    </div>
+    <button mat-button class="btn sling-btn ml-2" (click)="close()">Close</button>
+  </div>
+
+  <!-- <div *ngIf="showSpinner">
         <app-spinner></app-spinner>
     </div> -->
 </section>

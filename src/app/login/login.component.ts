@@ -9,7 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   @ViewChild('loginPage') loginPage: ElementRef;
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     private afAuth: AngularFireAuth,
     private toastr: ToastrService,
     private _spinner: NgxSpinnerService
-  ) { }
+  ) {}
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
     this.resetForm = this.formBuilder.group({
-      emailaddress: ['', [Validators.required, Validators.email]]
+      emailaddress: ['', [Validators.required, Validators.email]],
     });
   }
 
@@ -43,8 +43,8 @@ export class LoginComponent implements OnInit {
     this.loginPage.nativeElement.hidden = !this.loginPage.nativeElement.hidden;
     this.forgetPassPage.nativeElement.hidden = !this.forgetPassPage.nativeElement.hidden;
     this.resetForm.setValue({
-      emailaddress: this.loginForm.get('email').value
-    })
+      emailaddress: this.loginForm.get('email').value,
+    });
   }
 
   login() {
@@ -53,7 +53,8 @@ export class LoginComponent implements OnInit {
     }
     const formData = this.loginForm.value;
     this.show_spinner();
-    this.afAuth.auth.signInWithEmailAndPassword(formData.email, formData.password)
+    this.afAuth.auth
+      .signInWithEmailAndPassword(formData.email, formData.password)
       .then((result) => {
         this.router.navigate(['/admin']);
         localStorage.setItem('login-token', result.user.uid);
@@ -62,18 +63,23 @@ export class LoginComponent implements OnInit {
         localStorage.removeItem('master-token');
         this.auth.isLoggedIn();
         this.hide_spinner();
-      }).catch((error) => {
+      })
+      .catch((error) => {
         switch (error.code) {
-          case 'auth/user-not-found': this.toastr.error('User Not Found'); break;
-          case 'auth/wrong-password': this.toastr.error('Wrong Password'); break;
+          case 'auth/user-not-found':
+            this.toastr.error('User Not Found');
+            break;
+          case 'auth/wrong-password':
+            this.toastr.error('Wrong Password');
+            break;
         }
         this.hide_spinner();
-      })
+      });
   }
 
   reserPassword() {
     const email = this.resetForm.controls['emailaddress'].value;
-    this.auth.resetPassword(email).subscribe(data => {
+    this.auth.resetPassword(email).subscribe((data) => {
       if (data) {
         this.forgotPassword();
       }
@@ -89,5 +95,4 @@ export class LoginComponent implements OnInit {
     this._spinner.hide();
     this.showSpinner = false;
   }
-
 }

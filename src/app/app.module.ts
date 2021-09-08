@@ -24,17 +24,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AdminComponent } from './admin/admin.component';
-import { AffiliationRequestsComponent, DistrictApprovalDialog, ApprovedDistrictComponent, RejectedAffiliationComponent, AddMemberDialog } from './admin/affiliation-requests/affiliation-requests.component';
+import {
+  AffiliationRequestsComponent,
+  DistrictApprovalDialog,
+  ApprovedDistrictComponent,
+  RejectedAffiliationComponent,
+  AddMemberDialog,
+} from './admin/affiliation-requests/affiliation-requests.component';
 import { EventsComponent, CreateEventDialog } from './admin/events/events.component';
 import { EnquiriesComponent } from './admin/enquiries/enquiries.component';
-import { MatchEventResultsComponent, MatchResultsDialog } from './admin/match-event-results/match-event-results.component';
+import {
+  MatchEventResultsComponent,
+  MatchResultsDialog,
+} from './admin/match-event-results/match-event-results.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ToastrModule } from 'ngx-toastr';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
-import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
@@ -64,7 +73,7 @@ const APP_DIALOGS = [
   //child components
   ApprovedDistrictComponent,
   RejectedAffiliationComponent,
-  AlertNotificationComponent
+  AlertNotificationComponent,
 ];
 
 const MATERIAL_MODULES = [
@@ -78,7 +87,7 @@ const MATERIAL_MODULES = [
   MatIconModule,
   MatButtonModule,
   MatDatepickerModule,
-  MatSnackBarModule
+  MatSnackBarModule,
 ];
 @NgModule({
   declarations: [
@@ -106,7 +115,7 @@ const MATERIAL_MODULES = [
     SupportComponent,
     PageNotFoundComponent,
     SearchPipe,
-    AlertNotificationComponent
+    AlertNotificationComponent,
   ],
   imports: [
     FormsModule,
@@ -120,10 +129,10 @@ const MATERIAL_MODULES = [
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    ...MATERIAL_MODULES
+    ...MATERIAL_MODULES,
   ],
   entryComponents: APP_DIALOGS,
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

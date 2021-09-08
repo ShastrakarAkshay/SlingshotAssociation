@@ -1,25 +1,25 @@
-@import "../../../styles.scss";
+@import '../../../styles.scss';
 #match {
-    font-family: "Didact Gothic", sans-serif;
-    .badge {
-        background-color: $th-color;
-    }
+  font-family: 'Didact Gothic', sans-serif;
+  .badge {
+    background-color: $th-color;
+  }
 }
 
 #dialog {
-    font-family: "Didact Gothic", sans-serif;
-    .mat-dialog-container {
-        margin-top: 100px !important;
-    }
-    .w-box {
-        width: 50px;
-        height: 50px;
-    }
+  font-family: 'Didact Gothic', sans-serif;
+  .mat-dialog-container {
+    margin-top: 100px !important;
+  }
+  .w-box {
+    width: 50px;
+    height: 50px;
+  }
 
-    @media only screen and (max-width: 768px) {
-        //mobile device
-        .inner-form {
-            padding: 2rem !important;
-        }
+  @media only screen and (max-width: 768px) {
+    //mobile device
+    .inner-form {
+      padding: 2rem !important;
     }
+  }
 }

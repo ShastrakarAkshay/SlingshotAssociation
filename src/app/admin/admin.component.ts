@@ -12,10 +12,9 @@ declare var $: any;
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-
   @ViewChild('mySidepanel') mySidepanel: ElementRef;
 
   uid: string;
@@ -23,44 +22,53 @@ export class AdminComponent implements OnInit {
     {
       name: 'Affiliations',
       link: './requests',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Events',
       link: './events',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Match Results',
       link: './match',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Referee',
       link: './refree',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Enquiries',
       link: './enquiries',
-      isActive: false
+      isActive: false,
     },
     {
       name: 'Support',
       link: './support',
-      isActive: false
-    }
-  ]
+      isActive: false,
+    },
+  ];
 
-  constructor(private _service: SlingshotService, private router: Router, private afAuth: AngularFireAuth, private authService: AuthService, private _dialog: MatDialog) {
+  constructor(
+    private _service: SlingshotService,
+    private router: Router,
+    private afAuth: AngularFireAuth,
+    private authService: AuthService,
+    private _dialog: MatDialog
+  ) {
     this.uid = localStorage.getItem('uid');
-    this.afAuth.user.subscribe(user => {
-      if (!user) {
+    this.afAuth.user.subscribe(
+      (user) => {
+        if (!user) {
+          this.authService.signOut();
+        }
+      },
+      (error) => {
         this.authService.signOut();
       }
-    }, error => {
-      this.authService.signOut();
-    });
+    );
   }
 
   ngOnInit() {
@@ -68,7 +76,7 @@ export class AdminComponent implements OnInit {
     // check first user is logged in or not
     // if not logged in then remove all localstorage and redirect to login page
     this.setActiveClassFromURL(this.router.url);
-    this.router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {
+    this.router.events.pipe(filter((e) => e instanceof NavigationStart)).subscribe((e) => {
       this.setActiveClassFromURL(this.router.url);
     });
 
@@ -77,44 +85,44 @@ export class AdminComponent implements OnInit {
 
   setActiveClassFromURL(url: any) {
     const currentPath = url.substr(7);
-    this.menu.forEach(item => {
+    this.menu.forEach((item) => {
       item.isActive = false;
       if (item.link === './' + currentPath) {
         item.isActive = true;
       }
-    })
+    });
   }
 
   setActiveClass(menuItem: any) {
-    this.menu.forEach(item => {
+    this.menu.forEach((item) => {
       item.isActive = false;
       if (item.name === menuItem.name) {
         item.isActive = true;
       }
-    })
+    });
     this.closeNav();
   }
 
   openNav() {
-    this.mySidepanel.nativeElement.style.width = "270px";
-    $(".sidepanel").animate({ width: 'show' }, { easing: "easein" });
+    this.mySidepanel.nativeElement.style.width = '270px';
+    $('.sidepanel').animate({ width: 'show' }, { easing: 'easein' });
   }
 
   closeNav() {
-    this.mySidepanel.nativeElement.style.width = "0px";
-    $(".sidepanel").animate({ width: 'hide' }, { easing: "easeout" });
+    this.mySidepanel.nativeElement.style.width = '0px';
+    $('.sidepanel').animate({ width: 'hide' }, { easing: 'easeout' });
   }
 
   notifyUser() {
-    this._service.getAppSettings().subscribe(res => {
+    this._service.getAppSettings().subscribe((res) => {
       if (res.payload.get('isExpired')) {
         setTimeout(() => {
           this._dialog.open(AlertNotificationComponent, {
             data: { message: 'Do you want to logout?', type: 'confirm' },
-            autoFocus: false
+            autoFocus: false,
           });
         }, 3000);
       }
-    })
+    });
   }
 }

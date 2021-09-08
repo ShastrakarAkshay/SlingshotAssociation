@@ -7,14 +7,18 @@ import { UtilityService } from '../shared/services/utility.service';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.scss']
+  styleUrls: ['./contact-us.component.scss'],
 })
 export class ContactUsComponent implements OnInit {
-
   members: any[] = [];
   contactForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private _service: SlingshotService, private dataService: ModalDataService, private _utility: UtilityService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private _service: SlingshotService,
+    private dataService: ModalDataService,
+    private _utility: UtilityService
+  ) {}
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -24,7 +28,7 @@ export class ContactUsComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       mobile: ['', [Validators.required, Validators.pattern(/\d{10}/)]],
-      message: ['', Validators.required]
+      message: ['', Validators.required],
     });
   }
 
@@ -38,5 +42,4 @@ export class ContactUsComponent implements OnInit {
     this._service.sendEnquiry(formData);
     this.clearForm();
   }
-
 }

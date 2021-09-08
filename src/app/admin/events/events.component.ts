@@ -1,19 +1,15 @@
-import { Component, OnInit, Inject, ViewChild } from '@angular/core'
-import {
-  MatDialogRef,
-  MatDialog,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog'
-import { SlingshotService } from 'src/app/shared/services/slingshot.service'
-import { NgxSpinnerService } from 'ngx-spinner'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { MatPaginator } from '@angular/material/paginator'
-import { MatSort } from '@angular/material/sort'
-import { MatTableDataSource } from '@angular/material/table'
-import { ToastrService } from 'ngx-toastr'
-import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component'
-import { UtilityService } from 'src/app/shared/services/utility.service'
-import { distinctUntilChanged, map, take, tap } from 'rxjs/operators'
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SlingshotService } from 'src/app/shared/services/slingshot.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
+import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { UtilityService } from 'src/app/shared/services/utility.service';
+import { distinctUntilChanged, map, take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-events',
@@ -21,19 +17,13 @@ import { distinctUntilChanged, map, take, tap } from 'rxjs/operators'
   styleUrls: ['./events.component.scss'],
 })
 export class EventsComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator
-  @ViewChild(MatSort) sort: MatSort
-  dataSource = new MatTableDataSource()
-  displayedColumns: string[] = [
-    'index',
-    'eventTitle',
-    'eventDate',
-    'status',
-    'actions',
-  ]
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  dataSource = new MatTableDataSource();
+  displayedColumns: string[] = ['index', 'eventTitle', 'eventDate', 'status', 'actions'];
 
-  eventData: any[] = []
-  showSpinner: boolean = false
+  eventData: any[] = [];
+  showSpinner: boolean = false;
 
   constructor(
     private _dialog: MatDialog,
@@ -43,13 +33,13 @@ export class EventsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    window.scrollTo(0, 0)
-    this.getAllEvents()
+    window.scrollTo(0, 0);
+    this.getAllEvents();
   }
 
   getAllEvents() {
-    this.showSpinner = true
-    this._spinner.show()
+    this.showSpinner = true;
+    this._spinner.show();
 
     this._service.getAllEvents().subscribe((data) => {
       this.eventData = data.map((item, index) => {
@@ -57,52 +47,52 @@ export class EventsComponent implements OnInit {
           id: item.payload.doc.id,
           ...item.payload.doc.data(),
           index: index + 1,
-        }
-      })
-      this.dataSource.data = this.validateDelete(this.eventData)
-      this.dataSource.sort = this.sort
-      this.dataSource.paginator = this.paginator
+        };
+      });
+      this.dataSource.data = this.validateDelete(this.eventData);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
 
-      this.showSpinner = false
-      this._spinner.hide()
-    })
+      this.showSpinner = false;
+      this._spinner.hide();
+    });
   }
 
   validateDelete(eventData) {
     eventData.forEach((item) => {
-      item.isDelete = true
-      let eventDate = new Date(item.eventDate)
-      let currentDate = new Date()
+      item.isDelete = true;
+      let eventDate = new Date(item.eventDate);
+      let currentDate = new Date();
       if (eventDate < currentDate) {
-        item.isDelete = false
+        item.isDelete = false;
       }
-    })
-    return eventData
+    });
+    return eventData;
   }
 
   createEvent() {
     this._dialog.open(CreateEventDialog, {
       autoFocus: false,
       width: '60%',
-    })
+    });
   }
 
   deleteEventById(id, isDelete) {
     if (!isDelete) {
-      return
+      return;
     }
 
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: { message: 'Do you want to delete?', type: 'confirm' },
       autoFocus: false,
-    })
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this._service.deleteEventById(id)
-        this._toastr.info('Event Deleted Successfully.')
+        this._service.deleteEventById(id);
+        this._toastr.info('Event Deleted Successfully.');
       }
-    })
+    });
   }
 
   editEvent(event: any) {
@@ -110,7 +100,7 @@ export class EventsComponent implements OnInit {
       autoFocus: false,
       width: '99%',
       data: event,
-    })
+    });
   }
 }
 
@@ -120,9 +110,9 @@ export class EventsComponent implements OnInit {
   styleUrls: ['./events.component.scss'],
 })
 export class CreateEventDialog implements OnInit {
-  eventForm: FormGroup
-  eventData: any
-  isEdit: boolean = false
+  eventForm: FormGroup;
+  eventData: any;
+  isEdit: boolean = false;
 
   constructor(
     public _dialogRef: MatDialogRef<CreateEventDialog>,
@@ -133,7 +123,7 @@ export class CreateEventDialog implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     // _dialogRef.disableClose = true;
-    this.eventData = data
+    this.eventData = data;
   }
 
   ngOnInit() {
@@ -144,7 +134,7 @@ export class CreateEventDialog implements OnInit {
       contactPersons: ['', Validators.required],
       contactNumbers: ['', Validators.required],
       status: ['', Validators.required],
-    })
+    });
 
     if (this.eventData) {
       this.eventForm.setValue({
@@ -154,39 +144,36 @@ export class CreateEventDialog implements OnInit {
         contactPersons: this.eventData.contactPersons,
         contactNumbers: this.eventData.contactNumbers,
         status: this.eventData.status,
-      })
-      this.isEdit = true
+      });
+      this.isEdit = true;
     }
   }
 
   close() {
-    this._dialogRef.close()
+    this._dialogRef.close();
   }
 
   createEvent() {
     if (this.eventForm.invalid) {
-      return
+      return;
     }
-    let formData = this.eventForm.value
-    formData['createdDate'] = this.utility.convertDateToEPOC(new Date())
-    this._service.createEvent(formData)
-    this._toastr.success('Event Created Successfully.')
-    this.close()
+    let formData = this.eventForm.value;
+    formData['createdDate'] = this.utility.convertDateToEPOC(new Date());
+    this._service.createEvent(formData);
+    this._toastr.success('Event Created Successfully.');
+    this.close();
   }
 
   updateEvent() {
     if (this.eventForm.invalid) {
-      return
+      return;
     }
     if (this.eventData.isDelete) {
-      this._service.updateEventById(this.eventData.id, this.eventForm.value)
+      this._service.updateEventById(this.eventData.id, this.eventForm.value);
     } else {
-      this._service.updateEventStatusById(
-        this.eventData.id,
-        this.eventForm.get('status').value
-      )
+      this._service.updateEventStatusById(this.eventData.id, this.eventForm.get('status').value);
     }
-    this._toastr.success('Event Updated Successfully.')
-    this.close()
+    this._toastr.success('Event Updated Successfully.');
+    this.close();
   }
 }

@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ModalDataService {
-
   public MEMBERS: any[] = [
     {
       name: 'Mr. Bipin Chaudhari',
@@ -12,7 +11,7 @@ export class ModalDataService {
       email: 'bipin.chaudhari@gmail.com',
       mobile: '9404141861',
       class: 'active',
-      pic: './assets/images/members/bipin-chaudhari.jpg'
+      pic: './assets/images/members/bipin-chaudhari.jpg',
     },
     {
       name: 'Mr. Lalit Dhoke',
@@ -20,7 +19,7 @@ export class ModalDataService {
       email: 'lalit.dhoke@gmail.com',
       mobile: '9588430982',
       class: '',
-      pic: './assets/images/user-pic-default.png'
+      pic: './assets/images/user-pic-default.png',
     },
     {
       name: 'Mr. Manikraj Landge',
@@ -28,7 +27,7 @@ export class ModalDataService {
       email: 'manikraj.landge@gmail.com',
       mobile: '9004409664',
       class: '',
-      pic: './assets/images/user-pic-default.png'
+      pic: './assets/images/user-pic-default.png',
     },
     {
       name: 'Mr. Vikas Shelke',
@@ -36,7 +35,7 @@ export class ModalDataService {
       email: 'vikasshelke313918@gmail.com',
       mobile: '8432146555',
       class: '',
-      pic: './assets/images/members/vikas-shelke.jpg'
+      pic: './assets/images/members/vikas-shelke.jpg',
     },
     {
       name: 'Mr. Sham Khemaskar',
@@ -44,7 +43,7 @@ export class ModalDataService {
       email: 'sham.khemaskar@gmail.com',
       mobile: '9823545618',
       class: '',
-      pic: './assets/images/user-pic-default.png'
+      pic: './assets/images/user-pic-default.png',
     },
     {
       name: 'Mr. Pravin Dighade',
@@ -52,7 +51,7 @@ export class ModalDataService {
       email: 'pravin.dighade@gmail.com',
       mobile: '8830993120',
       class: '',
-      pic: './assets/images/members/pravin-dighade.jpg'
+      pic: './assets/images/members/pravin-dighade.jpg',
     },
     {
       name: 'Mr. Suraj Kadukar',
@@ -60,7 +59,7 @@ export class ModalDataService {
       email: 'suraj.kadukar@gmail.com',
       mobile: '9370155501',
       class: '',
-      pic: './assets/images/user-pic-default.png'
+      pic: './assets/images/user-pic-default.png',
     },
     {
       name: 'Mr. Sunil Shinde',
@@ -68,7 +67,7 @@ export class ModalDataService {
       email: 'sunil.shinde@gmail.com',
       mobile: '8888424233',
       class: '',
-      pic: './assets/images/members/sunil-shinde.jpg'
+      pic: './assets/images/members/sunil-shinde.jpg',
     },
     {
       name: 'Mr. Giriraj Gupta',
@@ -76,7 +75,7 @@ export class ModalDataService {
       email: 'giriraj.gupta@gmail.com',
       mobile: '9049228777',
       class: '',
-      pic: './assets/images/members/giriraj-gupta.jpg'
+      pic: './assets/images/members/giriraj-gupta.jpg',
     },
     {
       name: 'Miss. Snehal Khantade',
@@ -84,7 +83,7 @@ export class ModalDataService {
       email: 'snehal.khantade@gmail.com',
       mobile: '9552822470',
       class: '',
-      pic: './assets/images/members/snehal-khantade.jpg'
+      pic: './assets/images/members/snehal-khantade.jpg',
     },
     {
       name: 'Mr. Praful Kodape',
@@ -92,8 +91,8 @@ export class ModalDataService {
       email: 'praful.kodape@gmail.com',
       mobile: '9673398819',
       class: '',
-      pic: './assets/images/user-pic-default.png'
-    }
+      pic: './assets/images/user-pic-default.png',
+    },
   ];
 
   public CATEGORIES: any[] = [
@@ -101,32 +100,32 @@ export class ModalDataService {
       categoryName: 'Category 1',
       categoryTitle: 'Sub-Junior',
       distance: '10 Feet',
-      age: '(Under 10Yr Age)'
+      age: '(Under 10Yr Age)',
     },
     {
       categoryName: 'Category 2',
       categoryTitle: 'Teenager',
       distance: '15 Feet',
-      age: '(11Yr - 14Yr Age)'
+      age: '(11Yr - 14Yr Age)',
     },
     {
       categoryName: 'Category 3',
       categoryTitle: 'Junior',
       distance: '20 Feet',
-      age: '(15Yr - 18Yr Age)'
+      age: '(15Yr - 18Yr Age)',
     },
     {
       categoryName: 'Category 4',
       categoryTitle: 'Senior',
       distance: '30 Feet',
-      age: '(18Yr+ Age)'
+      age: '(18Yr+ Age)',
     },
     {
       categoryName: 'Category 5',
       categoryTitle: 'Master',
       distance: '30 Feet',
-      age: '(35Yr+ Age)'
-    }
+      age: '(35Yr+ Age)',
+    },
   ];
 
   public RULES: any[] = [
@@ -145,57 +144,57 @@ export class ModalDataService {
 
   public COMMITTEE = {
     AFFILIATION_COMMITTEE: [
-      {name:'Mr. Bipin Anil Chaudhari', mobile:'-'},
-      {name:'Mr. Vikas Vinod Shelke', mobile:'-'},
-      {name:'Mr. Manikraj Landage', mobile:'-'},
-      {name:'Mr. Shyam Digambar Khemaskar', mobile:'-'},
-      {name:'Mr. Sunil Bhagwan Shinde', mobile:'-'},
-      {name:'Miss. Snehal Yogiraj Khantade', mobile:'-'}
+      { name: 'Mr. Bipin Anil Chaudhari', mobile: '-' },
+      { name: 'Mr. Vikas Vinod Shelke', mobile: '-' },
+      { name: 'Mr. Manikraj Landage', mobile: '-' },
+      { name: 'Mr. Shyam Digambar Khemaskar', mobile: '-' },
+      { name: 'Mr. Sunil Bhagwan Shinde', mobile: '-' },
+      { name: 'Miss. Snehal Yogiraj Khantade', mobile: '-' },
     ],
     TOURNAMENT_TECHNICAL_COMMITTEE: [
-      {name:'Mr. Manikraj Landage', mobile:'-'},
-      {name:'Mr. Suraj Prakashrao Kadukar', mobile:'-'},
-      {name:'Mr. Giriraj Ganesh Gupta', mobile:'-'},
-      {name:'Mr. Tanshu Sanjiv Jhasi', mobile:'-'},
-      {name:'Miss. Preksha Balkrushna Shetti', mobile:'-'},
-      {name:'Miss. Srushti Vinod Gupta', mobile:'-'},
-      {name:'Mr. Suraj Kanojiya', mobile:'-'}
+      { name: 'Mr. Manikraj Landage', mobile: '-' },
+      { name: 'Mr. Suraj Prakashrao Kadukar', mobile: '-' },
+      { name: 'Mr. Giriraj Ganesh Gupta', mobile: '-' },
+      { name: 'Mr. Tanshu Sanjiv Jhasi', mobile: '-' },
+      { name: 'Miss. Preksha Balkrushna Shetti', mobile: '-' },
+      { name: 'Miss. Srushti Vinod Gupta', mobile: '-' },
+      { name: 'Mr. Suraj Kanojiya', mobile: '-' },
     ],
     TOURNAMENT_ORGANIZER_COMMITTEE: [
-      {name:'Mr. Sunil Bhagwan Shinde', mobile:'-'},
-      {name:'Mr. Padmakar Kamble', mobile:'-'},
-      {name:'Mr. Akash Upadhe', mobile:'-'},
-      {name:'Mr. Mayur Santosh Meshram', mobile:'-'},
-      {name:'Miss. Sayali Sunil Shinde', mobile:'-'},
-      {name:'Mr. Sunil Kalabante', mobile:'-'},
-      {name:'Mr. Rushikesh Uttamrao Bansod', mobile:'-'}
+      { name: 'Mr. Sunil Bhagwan Shinde', mobile: '-' },
+      { name: 'Mr. Padmakar Kamble', mobile: '-' },
+      { name: 'Mr. Akash Upadhe', mobile: '-' },
+      { name: 'Mr. Mayur Santosh Meshram', mobile: '-' },
+      { name: 'Miss. Sayali Sunil Shinde', mobile: '-' },
+      { name: 'Mr. Sunil Kalabante', mobile: '-' },
+      { name: 'Mr. Rushikesh Uttamrao Bansod', mobile: '-' },
     ],
     SELECTION_COMMITTEE: [
-      {name:'Mr. Shyam Digambar Khemaskar', mobile:'-'},
-      {name:'Mr. Lalit Dhoke', mobile:''},
-      {name:'Miss. Snehal Yogiraj Khantade', mobile:'-'},
-      {name:'Miss. Samiksha Raju Patil', mobile:'-'},
-      {name:'Mr. Tushar tanaji Durge', mobile:'-'},
-      {name:'Mr. Rakesh Dattuji Chapattiwar', mobile:'-'},
-      {name:'Mr. Ashvin Siddham Shettiwar', mobile:'-'},
-      {name:'Mr. Saurabh Ramteke', mobile:'-'},
-      {name:'Miss. Poonam R. Digambar', mobile:'-'}
+      { name: 'Mr. Shyam Digambar Khemaskar', mobile: '-' },
+      { name: 'Mr. Lalit Dhoke', mobile: '' },
+      { name: 'Miss. Snehal Yogiraj Khantade', mobile: '-' },
+      { name: 'Miss. Samiksha Raju Patil', mobile: '-' },
+      { name: 'Mr. Tushar tanaji Durge', mobile: '-' },
+      { name: 'Mr. Rakesh Dattuji Chapattiwar', mobile: '-' },
+      { name: 'Mr. Ashvin Siddham Shettiwar', mobile: '-' },
+      { name: 'Mr. Saurabh Ramteke', mobile: '-' },
+      { name: 'Miss. Poonam R. Digambar', mobile: '-' },
     ],
     OFFICIAL_REFEREE: [
-      {name:'Miss. Akansha Raju Patil', mobile:''},
-      {name:'Miss. Minal Gajan Nagrale', mobile:''},
-      {name:'Mr. Mayur Santosh Meshram', mobile:''},
-      {name:'Mr. Prajwal Lalit Dhoke', mobile:''},
-      {name:'Miss. Sayali Sanjay Savadh', mobile:''},
-      {name:'Miss. Riya manoj Godale', mobile:''},
-      {name:'Mr. Abhishek Joshi', mobile:''},
-      {name:'Miss. Kiran Kabdi', mobile:''},
-      {name:'Mr. Dinesh Soyade', mobile:''},
-      {name:'Mr. Ishu Shittewar', mobile:''},
-    ]
-  }
+      { name: 'Miss. Akansha Raju Patil', mobile: '' },
+      { name: 'Miss. Minal Gajan Nagrale', mobile: '' },
+      { name: 'Mr. Mayur Santosh Meshram', mobile: '' },
+      { name: 'Mr. Prajwal Lalit Dhoke', mobile: '' },
+      { name: 'Miss. Sayali Sanjay Savadh', mobile: '' },
+      { name: 'Miss. Riya manoj Godale', mobile: '' },
+      { name: 'Mr. Abhishek Joshi', mobile: '' },
+      { name: 'Miss. Kiran Kabdi', mobile: '' },
+      { name: 'Mr. Dinesh Soyade', mobile: '' },
+      { name: 'Mr. Ishu Shittewar', mobile: '' },
+    ],
+  };
 
-  constructor() { }
+  constructor() {}
 
   getAssociationMembers(): any {
     return this.MEMBERS;

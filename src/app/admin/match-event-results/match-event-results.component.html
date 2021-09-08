@@ -1,67 +1,99 @@
 <section id="match" class="admin-panel">
-    <div class="row justify-content-between">
-        <div class="col-8">
-            <h2><strong><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Results <span
-                        class="badge badge-primary">{{results.length}}</span></strong></h2>
-        </div>
-        <div class="col-4">
-            <button (click)="addMatchRecord()" class="btn sling-btn pull-right"><i class="fa fa-plus" aria-hidden="true"></i><span class="ml-2 d-hide">Add Record</span></button>
-        </div>
+  <div class="row justify-content-between">
+    <div class="col-8">
+      <h2>
+        <strong
+          ><i class="fa fa-gg-circle mr-2" aria-hidden="true"></i>Results
+          <span class="badge badge-primary">{{ results.length }}</span></strong
+        >
+      </h2>
     </div>
-    <div class="data-table mt-4 mb-5 table-responsive" style="border:1px solid #00000017;">
-        <table mat-table [dataSource]="dataSource" matSort class="table-hover data-table" width="100%" style="min-width: 1000px;">
-
-            <ng-container matColumnDef="index">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> # </th>
-                <td mat-cell *matCellDef="let element; let i = index" width="5%"> {{element.index}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="eventName">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Event Name </th>
-                <td mat-cell *matCellDef="let element" width="25%" class="empNameLink pointer text-capitalize">
-                    {{element.eventInfo.eventTitle}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="candidateName">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> CandidateName </th>
-                <td mat-cell *matCellDef="let element" width="20%" class="text-capitalize"> {{element.name}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="district">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> District </th>
-                <td mat-cell *matCellDef="let element" width="13%" class="text-capitalize"> {{element.district}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="score">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Score </th>
-                <td mat-cell *matCellDef="let element" width="8%" class="text-capitalize"> {{element.score}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="rank">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white"> Rank </th>
-                <td mat-cell *matCellDef="let element" width="20%" class="text-capitalize"> {{element.rank}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="action" class="pull-right">
-                <th mat-header-cell *matHeaderCellDef class="bg-dark text-white">Action</th>
-                <td mat-cell *matCellDef="let element" width="10%">
-                    <div class="row p-2">
-                        <a class="btn text-info pointer" (click)="editMatchResult(element)" matTooltip="Edit"
-                            matTooltipPosition="above"><i class="fa fa-pencil"></i></a>
-                        <a class="btn text-danger pointer" (click)="deleteResultById(element.id)" matTooltip="Delete"
-                            matTooltipPosition="above"><i class="fa fa-trash text-danger"></i></a>
-                    </div>
-                </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index"></tr>
-        </table>
-        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]">
-        </mat-paginator>
+    <div class="col-4">
+      <button (click)="addMatchRecord()" class="btn sling-btn pull-right">
+        <i class="fa fa-plus" aria-hidden="true"></i><span class="ml-2 d-hide">Add Record</span>
+      </button>
     </div>
+  </div>
+  <div class="data-table mt-4 mb-5 table-responsive" style="border: 1px solid #00000017">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      class="table-hover data-table"
+      width="100%"
+      style="min-width: 1000px"
+    >
+      <ng-container matColumnDef="index">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white">#</th>
+        <td mat-cell *matCellDef="let element; let i = index" width="5%">
+          {{ element.index }}
+        </td>
+      </ng-container>
 
-    <div *ngIf="showSpinner">
-        <app-spinner></app-spinner>
-    </div>
+      <ng-container matColumnDef="eventName">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white">Event Name</th>
+        <td mat-cell *matCellDef="let element" width="25%" class="empNameLink pointer text-capitalize">
+          {{ element.eventInfo.eventTitle }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="candidateName">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white">CandidateName</th>
+        <td mat-cell *matCellDef="let element" width="20%" class="text-capitalize">
+          {{ element.name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="district">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white">District</th>
+        <td mat-cell *matCellDef="let element" width="13%" class="text-capitalize">
+          {{ element.district }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="score">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white">Score</th>
+        <td mat-cell *matCellDef="let element" width="8%" class="text-capitalize">
+          {{ element.score }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="rank">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef class="bg-dark text-white">Rank</th>
+        <td mat-cell *matCellDef="let element" width="20%" class="text-capitalize">
+          {{ element.rank }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action" class="pull-right">
+        <th mat-header-cell *matHeaderCellDef class="bg-dark text-white">Action</th>
+        <td mat-cell *matCellDef="let element" width="10%">
+          <div class="row p-2">
+            <a
+              class="btn text-info pointer"
+              (click)="editMatchResult(element)"
+              matTooltip="Edit"
+              matTooltipPosition="above"
+              ><i class="fa fa-pencil"></i
+            ></a>
+            <a
+              class="btn text-danger pointer"
+              (click)="deleteResultById(element.id)"
+              matTooltip="Delete"
+              matTooltipPosition="above"
+              ><i class="fa fa-trash text-danger"></i
+            ></a>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index"></tr>
+    </table>
+    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]"> </mat-paginator>
+  </div>
+
+  <div *ngIf="showSpinner">
+    <app-spinner></app-spinner>
+  </div>
 </section>

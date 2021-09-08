@@ -20,43 +20,42 @@ import { CommitteeComponent } from './committee/committee.component';
 import { SupportComponent } from './support/support.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'affiliation',
-    component: AffliationComponent
+    component: AffliationComponent,
   },
   {
     path: 'contact',
-    component: ContactUsComponent
+    component: ContactUsComponent,
   },
   {
     path: 'sports',
-    component: SlingshotComponent
+    component: SlingshotComponent,
   },
   {
     path: 'gallery',
-    component: GalleryComponent
+    component: GalleryComponent,
   },
   {
     path: 'association',
-    component: AssociationComponent
+    component: AssociationComponent,
   },
   {
     path: 'results',
-    component: MatchResultsComponent
+    component: MatchResultsComponent,
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
-    path: 'committee', 
-    component: CommitteeComponent
+    path: 'committee',
+    component: CommitteeComponent,
   },
   {
     path: 'admin',
@@ -69,18 +68,17 @@ const routes: Routes = [
       { path: 'match', component: MatchEventResultsComponent },
       { path: 'enquiries', component: EnquiriesComponent },
       { path: 'support', component: SupportComponent },
-      { path: 'refree', component: RefreePanelComponent }
-
-    ]
+      { path: 'refree', component: RefreePanelComponent },
+    ],
   },
   {
     path: '**',
-    component: PageNotFoundComponent
-  }
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

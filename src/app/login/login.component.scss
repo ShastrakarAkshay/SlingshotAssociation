@@ -1,35 +1,35 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 #login-sec {
-    font-family: 'Didact Gothic', sans-serif;
-    margin-top: 80px;
-    background-color: #fff;
-    .container {
-        padding-top: 40px;
-        padding-bottom: 50px;
+  font-family: 'Didact Gothic', sans-serif;
+  margin-top: 80px;
+  background-color: #fff;
+  .container {
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+  input {
+    height: 50px;
+  }
+  .btn {
+    background-color: $th-color;
+    color: #fff;
+  }
+  .forgotPass {
+    &:hover {
+      color: #000 !important;
+      cursor: pointer;
     }
-    input {
-        height: 50px;
-    }
-    .btn {
-        background-color: $th-color;
-        color: #fff;
-    }
-    .forgotPass {
-        &:hover {
-            color: #000 !important;
-            cursor: pointer;
-        }
-    }
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    //mobile device
-    #login-sec {
-        .container {
-            padding: 15px 30px 20px 30px !important;
-            .p-5 {
-                padding: 3rem 0.5rem 3rem 0.5rem !important;
-            }
-        }
+  //mobile device
+  #login-sec {
+    .container {
+      padding: 15px 30px 20px 30px !important;
+      .p-5 {
+        padding: 3rem 0.5rem 3rem 0.5rem !important;
+      }
     }
+  }
 }

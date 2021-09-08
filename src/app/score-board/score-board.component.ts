@@ -4,15 +4,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-score-board',
   templateUrl: './score-board.component.html',
-  styleUrls: ['./score-board.component.scss']
+  styleUrls: ['./score-board.component.scss'],
 })
 export class ScoreBoardComponent implements OnInit {
-
   @Input() result: any[] = [];
 
-  constructor(private _spinner: NgxSpinnerService) { }
+  constructor(private _spinner: NgxSpinnerService) {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
