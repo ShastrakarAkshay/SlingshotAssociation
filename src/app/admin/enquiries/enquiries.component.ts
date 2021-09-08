@@ -15,8 +15,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EnquiriesComponent implements OnInit {
 
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'name', 'email', 'mobile', 'message', 'action'];
   enquiries: any[] = [];

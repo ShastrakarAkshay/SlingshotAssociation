@@ -16,7 +16,7 @@ declare var $: any;
 })
 export class AdminComponent implements OnInit {
 
-  @ViewChild('mySidepanel', { static: false }) mySidepanel: ElementRef;
+  @ViewChild('mySidepanel') mySidepanel: ElementRef;
 
   uid: string;
   menu = [

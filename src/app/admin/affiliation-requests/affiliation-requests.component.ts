@@ -21,8 +21,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
 
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'districtName', 'name', 'mobile', 'status', 'actions'];
 
@@ -229,8 +229,8 @@ export class DistrictApprovalDialog implements OnInit {
 })
 export class ApprovedDistrictComponent implements OnInit {
 
-  @ViewChild(MatPaginator, { static: false }) paginator2: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort2: MatSort;
+  @ViewChild(MatPaginator) paginator2: MatPaginator;
+  @ViewChild(MatSort) sort2: MatSort;
   dataSource2 = new MatTableDataSource();
   displayedColumns2: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'actions'];
 
@@ -296,8 +296,8 @@ export class ApprovedDistrictComponent implements OnInit {
 })
 export class RejectedAffiliationComponent implements OnInit {
 
-  @ViewChild(MatPaginator, { static: false }) paginator3: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort3: MatSort;
+  @ViewChild(MatPaginator) paginator3: MatPaginator;
+  @ViewChild(MatSort) sort3: MatSort;
   dataSource3 = new MatTableDataSource();
   displayedColumns3: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'action'];
 

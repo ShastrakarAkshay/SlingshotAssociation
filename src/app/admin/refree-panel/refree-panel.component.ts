@@ -19,8 +19,8 @@ import { last, switchMap } from 'rxjs/operators';
 })
 export class RefreePanelComponent implements OnInit {
 
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'name', 'email', 'mobile', 'district', 'actions'];
 

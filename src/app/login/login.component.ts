@@ -12,8 +12,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('loginPage', { static: false }) loginPage: ElementRef;
-  @ViewChild('forgetPassPage', { static: false }) forgetPassPage: ElementRef;
+  @ViewChild('loginPage') loginPage: ElementRef;
+  @ViewChild('forgetPassPage') forgetPassPage: ElementRef;
 
   loginForm: FormGroup;
   resetForm: FormGroup;

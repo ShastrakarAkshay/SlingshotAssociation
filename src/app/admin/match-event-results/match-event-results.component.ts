@@ -20,8 +20,8 @@ import { MatIconRegistry } from '@angular/material/icon';
 })
 export class MatchEventResultsComponent implements OnInit {
 
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = ['index', 'eventName', 'candidateName', 'district', 'score', 'rank', 'action'];
 
@@ -100,7 +100,7 @@ export class MatchResultsDialog implements OnInit {
   selectedEvent: any;
   resultData: any;
   ageCategory: any[] = [];
-  @ViewChild('event', { static: false }) event: ElementRef;
+  @ViewChild('event') event: ElementRef;
 
   constructor(
     public _dialogRef: MatDialogRef<MatchResultsDialog>,

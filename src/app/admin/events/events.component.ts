@@ -21,8 +21,8 @@ import { distinctUntilChanged, map, take, tap } from 'rxjs/operators'
   styleUrls: ['./events.component.scss'],
 })
 export class EventsComponent implements OnInit {
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator
-  @ViewChild(MatSort, { static: false }) sort: MatSort
+  @ViewChild(MatPaginator) paginator: MatPaginator
+  @ViewChild(MatSort) sort: MatSort
   dataSource = new MatTableDataSource()
   displayedColumns: string[] = [
     'index',
