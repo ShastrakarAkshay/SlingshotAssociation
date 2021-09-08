@@ -496,9 +496,9 @@ export class AddMemberDialog implements OnInit {
     this._spinner.show();
   }
 
-  hide_spinner() {
+              hide_spinner() {
     this._spinner.hide();
-    this.showSpinner = false;
+                this.showSpinner =           false;
   }
 
 }
