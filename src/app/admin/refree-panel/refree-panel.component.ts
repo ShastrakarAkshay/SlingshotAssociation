@@ -1,37 +1,37 @@
-import { Component, OnInit, ViewChild, Inject } from "@angular/core";
-import { MatPaginator } from "@angular/material/paginator";
-import { MatSort } from "@angular/material/sort";
-import { MatTableDataSource } from "@angular/material/table";
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import {
   MatDialog,
   MatDialogRef,
   MAT_DIALOG_DATA,
-} from "@angular/material/dialog";
-import { SlingshotService } from "src/app/shared/services/slingshot.service";
-import { NgxSpinnerService } from "ngx-spinner";
-import { ToastrService } from "ngx-toastr";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { ConfirmDialogComponent } from "src/app/shared/dialogs/confirm-dialog/confirm-dialog.component";
-import { UtilityService } from "src/app/shared/services/utility.service";
-import { AngularFireStorage } from "@angular/fire/storage";
-import { last, switchMap } from "rxjs/operators";
+} from '@angular/material/dialog';
+import { SlingshotService } from 'src/app/shared/services/slingshot.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { UtilityService } from 'src/app/shared/services/utility.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { last, switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: "app-refree-panel",
-  templateUrl: "./refree-panel.component.html",
-  styleUrls: ["./refree-panel.component.scss"],
+  selector: 'app-refree-panel',
+  templateUrl: './refree-panel.component.html',
+  styleUrls: ['./refree-panel.component.scss'],
 })
 export class RefreePanelComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = [
-    "index",
-    "name",
-    "email",
-    "mobile",
-    "district",
-    "actions",
+    'index',
+    'name',
+    'email',
+    'mobile',
+    'district',
+    'actions',
   ];
 
   refreeData: any[] = [];
@@ -53,9 +53,9 @@ export class RefreePanelComponent implements OnInit {
           id: item.payload.doc.id,
           name:
             item.payload.doc.data().firstName +
-            " " +
+            ' ' +
             item.payload.doc.data().middleName +
-            " " +
+            ' ' +
             item.payload.doc.data().lastName,
           ...item.payload.doc.data(),
           index: index + 1,
@@ -71,28 +71,28 @@ export class RefreePanelComponent implements OnInit {
   addRefree() {
     this._dialog.open(AddRefreeDialog, {
       autoFocus: false,
-      width: "99%",
+      width: '99%',
     });
   }
 
   editRefree(refreeData) {
     this._dialog.open(AddRefreeDialog, {
       autoFocus: false,
-      width: "99%",
+      width: '99%',
       data: refreeData,
     });
   }
 
   deleteRefree(id: any) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: "Do you want to delete?", type: "confirm" },
+      data: { message: 'Do you want to delete?', type: 'confirm' },
       autoFocus: false,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this._service.deleteRefreeById(id);
-        this._toastr.info("Refree Deleted Successfully.");
+        this._toastr.info('Refree Deleted Successfully.');
       }
     });
   }
@@ -109,9 +109,9 @@ export class RefreePanelComponent implements OnInit {
 }
 
 @Component({
-  selector: "add-refree-dialog",
-  templateUrl: "dialogs/add-refree-dialog.html",
-  styleUrls: ["./refree-panel.component.scss"],
+  selector: 'add-refree-dialog',
+  templateUrl: 'dialogs/add-refree-dialog.html',
+  styleUrls: ['./refree-panel.component.scss'],
 })
 export class AddRefreeDialog implements OnInit {
   refreeForm: FormGroup;
@@ -120,7 +120,7 @@ export class AddRefreeDialog implements OnInit {
   allDistricts: any[] = [];
   event: any;
   showSpinner: boolean = false;
-  documentUrl: any = "././assets/images/user-pic-default.png";
+  documentUrl: any = '././assets/images/user-pic-default.png';
   isFileValid: boolean = true;
 
   constructor(
@@ -142,18 +142,18 @@ export class AddRefreeDialog implements OnInit {
 
   ngOnInit() {
     this.refreeForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      middleName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      dateOfBirth: ["", Validators.required],
-      email: ["", [Validators.required, Validators.email]],
-      mobile: ["", [Validators.required, Validators.pattern(/\d{10}/)]],
-      address: ["", Validators.required],
-      city: ["", Validators.required],
-      district: ["", Validators.required],
-      pin: ["", [Validators.required, Validators.pattern(/\d{6}/)]],
-      aadhaarNo: ["", [Validators.required, Validators.pattern(/\d{12}/)]],
-      gender: ["", [Validators.required]],
+      firstName: ['', Validators.required],
+      middleName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      mobile: ['', [Validators.required, Validators.pattern(/\d{10}/)]],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      district: ['', Validators.required],
+      pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
+      aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
+      gender: ['', [Validators.required]],
     });
 
     if (this.refreeData) {
@@ -190,10 +190,10 @@ export class AddRefreeDialog implements OnInit {
       return;
     }
     let formData = this.refreeForm.value;
-    formData["createdDate"] = this.utility.convertDateToEPOC(new Date());
-    formData["documents"] = docs;
+    formData['createdDate'] = this.utility.convertDateToEPOC(new Date());
+    formData['documents'] = docs;
     this._service.addRefree(formData);
-    this._toastr.success("Refree Added Successfully.");
+    this._toastr.success('Refree Added Successfully.');
     this.close();
     this.hide_spinner();
   }
@@ -203,9 +203,9 @@ export class AddRefreeDialog implements OnInit {
       return;
     }
     let formData = this.refreeForm.value;
-    formData["documents"] = docs;
+    formData['documents'] = docs;
     this._service.updateRefreeById(this.refreeData.id, formData);
-    this._toastr.success("Refree Updated Successfully.");
+    this._toastr.success('Refree Updated Successfully.');
     this.close();
     this.hide_spinner();
   }
@@ -214,9 +214,9 @@ export class AddRefreeDialog implements OnInit {
     this.isFileValid = true;
     const file = event.target.files[0];
     if (
-      (file && file.type == "image/png") ||
-      file.type == "image/jpg" ||
-      (file.type == "image/jpeg" && file.size <= 1000000)
+      (file && file.type == 'image/png') ||
+      file.type == 'image/jpg' ||
+      (file.type == 'image/jpeg' && file.size <= 1000000)
     ) {
       this.event = event;
       if (event.target.files && event.target.files[0]) {

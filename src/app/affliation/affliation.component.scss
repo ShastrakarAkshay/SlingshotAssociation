@@ -1,4 +1,4 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 ::-webkit-scrollbar {
   width: 3px;
 }
@@ -39,11 +39,11 @@
 }
 
 #affiliation-sec {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
   margin-top: 130px;
   .head-sec h2,
   .dist-info h2 {
-    font-family: "Righteous";
+    font-family: 'Righteous';
   }
   .head-sec .text-muted {
     font-size: 20px;
@@ -61,7 +61,7 @@
     position: relative;
     overflow: hidden;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       z-index: -1;
       left: 50%;

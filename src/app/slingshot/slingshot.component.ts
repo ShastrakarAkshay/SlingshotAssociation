@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { ModalDataService } from "../shared/services/modal-data.service";
+import { Component, OnInit } from '@angular/core';
+import { ModalDataService } from '../shared/services/modal-data.service';
 
 @Component({
-  selector: "app-slingshot",
-  templateUrl: "./slingshot.component.html",
-  styleUrls: ["./slingshot.component.scss"],
+  selector: 'app-slingshot',
+  templateUrl: './slingshot.component.html',
+  styleUrls: ['./slingshot.component.scss'],
 })
 export class SlingshotComponent implements OnInit {
   categories: any[] = [];

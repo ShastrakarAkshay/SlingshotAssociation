@@ -1,55 +1,55 @@
-import { Component, OnInit, Inject } from "@angular/core";
-import { AuthService } from "src/app/shared/services/auth.service";
-import { Router } from "@angular/router";
+import { Component, OnInit, Inject } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { Router } from '@angular/router';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
   MatDialog,
-} from "@angular/material/dialog";
-import { ConfirmDialogComponent } from "src/app/shared/dialogs/confirm-dialog/confirm-dialog.component";
+} from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
 declare var $: any;
 @Component({
-  selector: "app-navbar",
-  templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.scss"],
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
 
   public menu: any[] = [
     {
-      name: "Home",
-      link: "/",
+      name: 'Home',
+      link: '/',
       isActive: false,
     },
     {
-      name: "Sports",
-      link: "/sports",
+      name: 'Sports',
+      link: '/sports',
       isActive: false,
     },
     {
-      name: "Affiliation",
-      link: ";affiliation",
+      name: 'Affiliation',
+      link: ';affiliation',
       isActive: false,
     },
     {
-      name: "Committee",
-      link: "/committee",
+      name: 'Committee',
+      link: '/committee',
       isActive: false,
     },
     {
-      name: "Dashboard",
-      link: "/admin",
+      name: 'Dashboard',
+      link: '/admin',
       isActive: false,
     },
     {
-      name: "Gallery",
-      link: "",
+      name: 'Gallery',
+      link: '',
       isActive: false,
     },
     {
-      name: "Contact us",
-      link: "/contact",
+      name: 'Contact us',
+      link: '/contact',
       isActive: false,
     },
   ];
@@ -64,7 +64,7 @@ export class NavbarComponent implements OnInit {
 
   signOut() {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: "Do you want to logout?", type: "confirm" },
+      data: { message: 'Do you want to logout?', type: 'confirm' },
       autoFocus: false,
     });
 
@@ -76,15 +76,15 @@ export class NavbarComponent implements OnInit {
   }
 
   navbarCollapseHide() {
-    $(".navbar-nav, .outline").on("click", function () {
-      if (!$(this).hasClass("dropdown-toggle")) {
-        $(".navbar-collapse").collapse("hide");
+    $('.navbar-nav, .outline').on('click', function () {
+      if (!$(this).hasClass('dropdown-toggle')) {
+        $('.navbar-collapse').collapse('hide');
       }
     });
 
-    $(document).on("click", function () {
-      if (!$(this).hasClass("dropdown-toggle")) {
-        $(".navbar-collapse").collapse("hide");
+    $(document).on('click', function () {
+      if (!$(this).hasClass('dropdown-toggle')) {
+        $('.navbar-collapse').collapse('hide');
       }
     });
   }

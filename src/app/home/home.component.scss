@@ -1,4 +1,4 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 .home {
   width: 100%;
 }
@@ -35,7 +35,7 @@
   padding: 96px 0;
   padding-top: 60px;
   padding-bottom: 60px;
-  font-family: "Didact Gothic", sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
 }
 
 #banner-area {
@@ -71,7 +71,7 @@
     font-weight: 400;
     line-height: 1.2;
     font-size: 34px;
-    font-family: "Righteous", cursive;
+    font-family: 'Righteous', cursive;
   }
   .action-button {
     font-size: 18px;
@@ -150,7 +150,7 @@
 }
 
 #testimonial-area {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
   position: relative;
   // background: url("/assets/images/bg-contacts.jpg") no-repeat;
   color: #000;
@@ -240,7 +240,7 @@
     position: relative;
     overflow: hidden;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       z-index: -1;
       left: 50%;

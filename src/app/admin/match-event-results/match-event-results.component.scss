@@ -1,13 +1,13 @@
-@import "../../../styles.scss";
+@import '../../../styles.scss';
 #match {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
   .badge {
     background-color: $th-color;
   }
 }
 
 #dialog {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
   .mat-dialog-container {
     margin-top: 100px !important;
   }

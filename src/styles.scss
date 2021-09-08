@@ -6,7 +6,7 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
   background-color: #f8f9fa;
 }
 
@@ -59,14 +59,14 @@ $th-color-dark: #ff3600;
 /* Logo-Text */
 
 .main-title {
-  font-family: "Righteous", cursive;
+  font-family: 'Righteous', cursive;
   font-size: 30px;
   letter-spacing: 2px;
   color: rgba(255, 54, 0, 1);
 }
 
 .sub-title {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
   letter-spacing: 2px;
   font-size: 11px;
   text-transform: uppercase;
@@ -82,7 +82,7 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 // Global dialog css
@@ -101,7 +101,7 @@ body {
 }
 
 .dialog {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
   .mat-dialog-container {
     margin-top: 100px !important;
   }

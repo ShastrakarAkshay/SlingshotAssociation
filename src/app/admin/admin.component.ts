@@ -1,52 +1,52 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { SlingshotService } from "../shared/services/slingshot.service";
-import { UserConfig } from "../shared/interfaces/slingshot.interface";
-import { Router, NavigationStart } from "@angular/router";
-import { filter } from "rxjs/operators";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { AuthService } from "../shared/services/auth.service";
-import { MatDialog } from "@angular/material";
-import { AlertNotificationComponent } from "../shared/notifications/alert-notification/alert-notification.component";
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { SlingshotService } from '../shared/services/slingshot.service';
+import { UserConfig } from '../shared/interfaces/slingshot.interface';
+import { Router, NavigationStart } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from '../shared/services/auth.service';
+import { MatDialog } from '@angular/material';
+import { AlertNotificationComponent } from '../shared/notifications/alert-notification/alert-notification.component';
 declare var $: any;
 @Component({
-  selector: "app-admin",
-  templateUrl: "./admin.component.html",
-  styleUrls: ["./admin.component.scss"],
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-  @ViewChild("mySidepanel") mySidepanel: ElementRef;
+  @ViewChild('mySidepanel') mySidepanel: ElementRef;
 
   uid: string;
   menu = [
     {
-      name: "Affiliations",
-      link: "./requests",
+      name: 'Affiliations',
+      link: './requests',
       isActive: false,
     },
     {
-      name: "Events",
-      link: "./events",
+      name: 'Events',
+      link: './events',
       isActive: false,
     },
     {
-      name: "Match Results",
-      link: "./match",
+      name: 'Match Results',
+      link: './match',
       isActive: false,
     },
     {
-      name: "Referee",
-      link: "./refree",
+      name: 'Referee',
+      link: './refree',
       isActive: false,
     },
     {
-      name: "Enquiries",
-      link: "./enquiries",
+      name: 'Enquiries',
+      link: './enquiries',
       isActive: false,
     },
     {
-      name: "Support",
-      link: "./support",
+      name: 'Support',
+      link: './support',
       isActive: false,
     },
   ];
@@ -58,7 +58,7 @@ export class AdminComponent implements OnInit {
     private authService: AuthService,
     private _dialog: MatDialog
   ) {
-    this.uid = localStorage.getItem("uid");
+    this.uid = localStorage.getItem('uid');
     this.afAuth.user.subscribe(
       (user) => {
         if (!user) {
@@ -89,7 +89,7 @@ export class AdminComponent implements OnInit {
     const currentPath = url.substr(7);
     this.menu.forEach((item) => {
       item.isActive = false;
-      if (item.link === "./" + currentPath) {
+      if (item.link === './' + currentPath) {
         item.isActive = true;
       }
     });
@@ -106,21 +106,21 @@ export class AdminComponent implements OnInit {
   }
 
   openNav() {
-    this.mySidepanel.nativeElement.style.width = "270px";
-    $(".sidepanel").animate({ width: "show" }, { easing: "easein" });
+    this.mySidepanel.nativeElement.style.width = '270px';
+    $('.sidepanel').animate({ width: 'show' }, { easing: 'easein' });
   }
 
   closeNav() {
-    this.mySidepanel.nativeElement.style.width = "0px";
-    $(".sidepanel").animate({ width: "hide" }, { easing: "easeout" });
+    this.mySidepanel.nativeElement.style.width = '0px';
+    $('.sidepanel').animate({ width: 'hide' }, { easing: 'easeout' });
   }
 
   notifyUser() {
     this._service.getAppSettings().subscribe((res) => {
-      if (res.payload.get("isExpired")) {
+      if (res.payload.get('isExpired')) {
         setTimeout(() => {
           this._dialog.open(AlertNotificationComponent, {
-            data: { message: "Do you want to logout?", type: "confirm" },
+            data: { message: 'Do you want to logout?', type: 'confirm' },
             autoFocus: false,
           });
         }, 3000);

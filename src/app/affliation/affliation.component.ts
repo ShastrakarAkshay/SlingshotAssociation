@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { SlingshotService } from "../shared/services/slingshot.service";
-import { NgxSpinnerService } from "ngx-spinner";
+import { Component, OnInit } from '@angular/core';
+import { SlingshotService } from '../shared/services/slingshot.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: "app-affliation",
-  templateUrl: "./affliation.component.html",
-  styleUrls: ["./affliation.component.scss"],
+  selector: 'app-affliation',
+  templateUrl: './affliation.component.html',
+  styleUrls: ['./affliation.component.scss'],
 })
 export class AffliationComponent implements OnInit {
   selectedDistrictInfo: any;
@@ -19,17 +19,17 @@ export class AffliationComponent implements OnInit {
 
   ngOnInit() {
     this.selectedDistrictInfo = {
-      approvedOn: "",
-      requestedDistrict: { id: "", name: "" },
+      approvedOn: '',
+      requestedDistrict: { id: '', name: '' },
       members: [
         {
-          firstName: "",
-          middleName: "",
-          lastName: "",
-          email: "",
-          mobile: "",
-          role: " ",
-          documents: { photo: { documentURL: "" } },
+          firstName: '',
+          middleName: '',
+          lastName: '',
+          email: '',
+          mobile: '',
+          role: ' ',
+          documents: { photo: { documentURL: '' } },
         },
       ],
     };

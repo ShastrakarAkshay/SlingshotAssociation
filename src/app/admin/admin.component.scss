@@ -1,6 +1,6 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 #admin {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
   margin-top: 80px;
   overflow-x: hidden;
   .actions {
@@ -14,7 +14,7 @@
       position: relative;
       overflow: hidden;
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         z-index: -1;
         left: 50%;

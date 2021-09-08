@@ -1,4 +1,4 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 .action-button {
   display: inline-block;
   padding: 10px 45px;
@@ -16,7 +16,7 @@
 #contact-us,
 #contact-us1,
 #contact-us2 {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
   margin-top: 80px;
   .jumbotron {
     background-color: #212325 !important;
@@ -42,7 +42,7 @@
   }
   .association-info {
     h2 {
-      font-family: "Righteous";
+      font-family: 'Righteous';
     }
     i {
       font-size: 30px;
@@ -62,7 +62,7 @@
   }
   .user-info {
     h2 {
-      font-family: "Righteous";
+      font-family: 'Righteous';
     }
     .card {
       margin-top: 30px;
@@ -74,7 +74,7 @@
       position: relative;
       overflow: hidden;
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         z-index: -1;
         left: 50%;
@@ -104,7 +104,7 @@
   .contact-form {
     margin-top: 80px !important;
     h2 {
-      font-family: "Righteous";
+      font-family: 'Righteous';
     }
     .field {
       height: 50px;

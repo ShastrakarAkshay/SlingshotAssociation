@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { SlingshotService } from "../shared/services/slingshot.service";
-import { NgxSpinnerService } from "ngx-spinner";
+import { Component, OnInit } from '@angular/core';
+import { SlingshotService } from '../shared/services/slingshot.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-  selector: "app-match-results",
-  templateUrl: "./match-results.component.html",
-  styleUrls: ["./match-results.component.scss"],
+  selector: 'app-match-results',
+  templateUrl: './match-results.component.html',
+  styleUrls: ['./match-results.component.scss'],
 })
 export class MatchResultsComponent implements OnInit {
   matchResults: any[] = [];

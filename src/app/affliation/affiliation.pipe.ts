@@ -1,7 +1,7 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: "searchPipe",
+  name: 'searchPipe',
 })
 export class SearchPipe implements PipeTransform {
   transform(modalArray: any, searchKey: string): any {

@@ -1,4 +1,4 @@
-@import "../../../styles.scss";
+@import '../../../styles.scss';
 .navbar-light .navbar-toggler {
   border: none;
 }
@@ -31,7 +31,7 @@
   overflow: hidden;
   text-transform: uppercase;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     z-index: -1;
     left: 50%;

@@ -1,35 +1,35 @@
-import { Component, OnInit, Inject, ViewChild } from "@angular/core";
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import {
   MatDialogRef,
   MatDialog,
   MAT_DIALOG_DATA,
-} from "@angular/material/dialog";
-import { SlingshotService } from "src/app/shared/services/slingshot.service";
-import { NgxSpinnerService } from "ngx-spinner";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { MatPaginator } from "@angular/material/paginator";
-import { MatSort } from "@angular/material/sort";
-import { MatTableDataSource } from "@angular/material/table";
-import { ToastrService } from "ngx-toastr";
-import { ConfirmDialogComponent } from "src/app/shared/dialogs/confirm-dialog/confirm-dialog.component";
-import { UtilityService } from "src/app/shared/services/utility.service";
-import { distinctUntilChanged, map, take, tap } from "rxjs/operators";
+} from '@angular/material/dialog';
+import { SlingshotService } from 'src/app/shared/services/slingshot.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { ToastrService } from 'ngx-toastr';
+import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { UtilityService } from 'src/app/shared/services/utility.service';
+import { distinctUntilChanged, map, take, tap } from 'rxjs/operators';
 
 @Component({
-  selector: "app-events",
-  templateUrl: "./events.component.html",
-  styleUrls: ["./events.component.scss"],
+  selector: 'app-events',
+  templateUrl: './events.component.html',
+  styleUrls: ['./events.component.scss'],
 })
 export class EventsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = [
-    "index",
-    "eventTitle",
-    "eventDate",
-    "status",
-    "actions",
+    'index',
+    'eventTitle',
+    'eventDate',
+    'status',
+    'actions',
   ];
 
   eventData: any[] = [];
@@ -83,7 +83,7 @@ export class EventsComponent implements OnInit {
   createEvent() {
     this._dialog.open(CreateEventDialog, {
       autoFocus: false,
-      width: "60%",
+      width: '60%',
     });
   }
 
@@ -93,14 +93,14 @@ export class EventsComponent implements OnInit {
     }
 
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: "Do you want to delete?", type: "confirm" },
+      data: { message: 'Do you want to delete?', type: 'confirm' },
       autoFocus: false,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this._service.deleteEventById(id);
-        this._toastr.info("Event Deleted Successfully.");
+        this._toastr.info('Event Deleted Successfully.');
       }
     });
   }
@@ -108,16 +108,16 @@ export class EventsComponent implements OnInit {
   editEvent(event: any) {
     this._dialog.open(CreateEventDialog, {
       autoFocus: false,
-      width: "99%",
+      width: '99%',
       data: event,
     });
   }
 }
 
 @Component({
-  selector: "create-event-dialog",
-  templateUrl: "dialogs/create-event.html",
-  styleUrls: ["./events.component.scss"],
+  selector: 'create-event-dialog',
+  templateUrl: 'dialogs/create-event.html',
+  styleUrls: ['./events.component.scss'],
 })
 export class CreateEventDialog implements OnInit {
   eventForm: FormGroup;
@@ -138,12 +138,12 @@ export class CreateEventDialog implements OnInit {
 
   ngOnInit() {
     this.eventForm = this.formBuilder.group({
-      eventTitle: ["", Validators.required],
-      eventAddress: ["", Validators.required],
-      eventDate: ["", Validators.required],
-      contactPersons: ["", Validators.required],
-      contactNumbers: ["", Validators.required],
-      status: ["", Validators.required],
+      eventTitle: ['', Validators.required],
+      eventAddress: ['', Validators.required],
+      eventDate: ['', Validators.required],
+      contactPersons: ['', Validators.required],
+      contactNumbers: ['', Validators.required],
+      status: ['', Validators.required],
     });
 
     if (this.eventData) {
@@ -168,9 +168,9 @@ export class CreateEventDialog implements OnInit {
       return;
     }
     let formData = this.eventForm.value;
-    formData["createdDate"] = this.utility.convertDateToEPOC(new Date());
+    formData['createdDate'] = this.utility.convertDateToEPOC(new Date());
     this._service.createEvent(formData);
-    this._toastr.success("Event Created Successfully.");
+    this._toastr.success('Event Created Successfully.');
     this.close();
   }
 
@@ -183,10 +183,10 @@ export class CreateEventDialog implements OnInit {
     } else {
       this._service.updateEventStatusById(
         this.eventData.id,
-        this.eventForm.get("status").value
+        this.eventForm.get('status').value
       );
     }
-    this._toastr.success("Event Updated Successfully.");
+    this._toastr.success('Event Updated Successfully.');
     this.close();
   }
 }

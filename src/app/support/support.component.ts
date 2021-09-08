@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: "app-support",
-  templateUrl: "./support.component.html",
-  styleUrls: ["./support.component.scss"],
+  selector: 'app-support',
+  templateUrl: './support.component.html',
+  styleUrls: ['./support.component.scss'],
 })
 export class SupportComponent implements OnInit {
   enquiryForm: FormGroup;
@@ -14,7 +14,7 @@ export class SupportComponent implements OnInit {
   ngOnInit() {
     window.scrollTo(0, 0);
     this.enquiryForm = this.formBuilder.group({
-      message: ["", Validators.required],
+      message: ['', Validators.required],
     });
   }
 }

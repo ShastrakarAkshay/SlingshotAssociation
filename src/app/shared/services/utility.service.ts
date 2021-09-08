@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class UtilityService {
   constructor() {}
@@ -16,9 +16,9 @@ export class UtilityService {
     let date =
       dateObj.getMonth() +
       1 +
-      "/" +
+      '/' +
       dateObj.getDate() +
-      "/" +
+      '/' +
       dateObj.getFullYear();
     return date;
   }

@@ -4,42 +4,42 @@ import {
   Inject,
   ViewChild,
   ElementRef,
-} from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+} from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
   MatDialog,
-} from "@angular/material/dialog";
-import { ToastrService } from "ngx-toastr";
-import { UtilityService } from "src/app/shared/services/utility.service";
-import { SlingshotService } from "src/app/shared/services/slingshot.service";
-import { MatPaginator } from "@angular/material/paginator";
-import { MatSort } from "@angular/material/sort";
-import { MatTableDataSource } from "@angular/material/table";
-import { NgxSpinner } from "ngx-spinner/lib/ngx-spinner.enum";
-import { NgxSpinnerService } from "ngx-spinner";
-import { ConfirmDialogComponent } from "src/app/shared/dialogs/confirm-dialog/confirm-dialog.component";
-import { ModalDataService } from "src/app/shared/services/modal-data.service";
-import { MatIconRegistry } from "@angular/material/icon";
+} from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
+import { UtilityService } from 'src/app/shared/services/utility.service';
+import { SlingshotService } from 'src/app/shared/services/slingshot.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { NgxSpinner } from 'ngx-spinner/lib/ngx-spinner.enum';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { ModalDataService } from 'src/app/shared/services/modal-data.service';
+import { MatIconRegistry } from '@angular/material/icon';
 
 @Component({
-  selector: "app-match-event-results",
-  templateUrl: "./match-event-results.component.html",
-  styleUrls: ["./match-event-results.component.scss"],
+  selector: 'app-match-event-results',
+  templateUrl: './match-event-results.component.html',
+  styleUrls: ['./match-event-results.component.scss'],
 })
 export class MatchEventResultsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = [
-    "index",
-    "eventName",
-    "candidateName",
-    "district",
-    "score",
-    "rank",
-    "action",
+    'index',
+    'eventName',
+    'candidateName',
+    'district',
+    'score',
+    'rank',
+    'action',
   ];
 
   results: any[] = [];
@@ -75,37 +75,37 @@ export class MatchEventResultsComponent implements OnInit {
   addMatchRecord() {
     this._dialog.open(MatchResultsDialog, {
       autoFocus: false,
-      width: "99%",
+      width: '99%',
     });
   }
 
   editMatchResult(resultData) {
     this._dialog.open(MatchResultsDialog, {
       autoFocus: false,
-      width: "99%",
+      width: '99%',
       data: resultData,
     });
   }
 
   deleteResultById(id) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: "Do you want to delete?", type: "confirm" },
+      data: { message: 'Do you want to delete?', type: 'confirm' },
       autoFocus: false,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this._service.deleteMatchResultById(id);
-        this._toastr.info("Result Deleted Successfully.");
+        this._toastr.info('Result Deleted Successfully.');
       }
     });
   }
 }
 
 @Component({
-  selector: "results-dialog",
-  templateUrl: "dialogs/results-dialog.html",
-  styleUrls: ["./match-event-results.component.scss"],
+  selector: 'results-dialog',
+  templateUrl: 'dialogs/results-dialog.html',
+  styleUrls: ['./match-event-results.component.scss'],
 })
 export class MatchResultsDialog implements OnInit {
   resultForm: FormGroup;
@@ -115,7 +115,7 @@ export class MatchResultsDialog implements OnInit {
   selectedEvent: any;
   resultData: any;
   ageCategory: any[] = [];
-  @ViewChild("event") event: ElementRef;
+  @ViewChild('event') event: ElementRef;
 
   constructor(
     public _dialogRef: MatDialogRef<MatchResultsDialog>,
@@ -129,19 +129,19 @@ export class MatchResultsDialog implements OnInit {
   ) {
     // this._dialogRef.disableClose = true;
     this.resultData = data;
-    this._mdIconRegistry.registerFontClassAlias("fontawesome", "fa");
+    this._mdIconRegistry.registerFontClassAlias('fontawesome', 'fa');
   }
 
   ngOnInit() {
     this.resultForm = this.formBuilder.group({
-      eventId: ["", Validators.required],
-      candidateName: ["", Validators.required],
-      candidateDistrict: ["", Validators.required],
-      candidateDOB: ["", Validators.required],
-      candidateCertificateNo: ["", Validators.required],
-      candidateRank: ["", Validators.required],
-      candidateScore: ["", Validators.required],
-      ageCategory: ["", Validators.required],
+      eventId: ['', Validators.required],
+      candidateName: ['', Validators.required],
+      candidateDistrict: ['', Validators.required],
+      candidateDOB: ['', Validators.required],
+      candidateCertificateNo: ['', Validators.required],
+      candidateRank: ['', Validators.required],
+      candidateScore: ['', Validators.required],
+      ageCategory: ['', Validators.required],
     });
     this._service.getAllDistricts().subscribe((data) => {
       data.map((item) => {
@@ -212,7 +212,7 @@ export class MatchResultsDialog implements OnInit {
       ...this.getData(this.resultForm.value),
       createdDate: this._utility.convertDateToEPOC(new Date()),
     });
-    this._toastr.success("Result Added Successfully.");
+    this._toastr.success('Result Added Successfully.');
     this.close();
   }
 
@@ -224,7 +224,7 @@ export class MatchResultsDialog implements OnInit {
       this.resultData.id,
       this.getData(this.resultForm.value)
     );
-    this._toastr.success("Result Updated Successfully.");
+    this._toastr.success('Result Updated Successfully.');
     this.close();
   }
 }

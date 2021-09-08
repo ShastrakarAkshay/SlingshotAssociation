@@ -1,18 +1,18 @@
-import { Component, OnInit, Inject } from "@angular/core";
-import { ModalDataService } from "../shared/services/modal-data.service";
-import { SlingshotService } from "../shared/services/slingshot.service";
+import { Component, OnInit, Inject } from '@angular/core';
+import { ModalDataService } from '../shared/services/modal-data.service';
+import { SlingshotService } from '../shared/services/slingshot.service';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
   MatDialog,
-} from "@angular/material/dialog";
-import { NgxSpinnerService } from "ngx-spinner";
-import { take } from "rxjs/operators";
+} from '@angular/material/dialog';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { take } from 'rxjs/operators';
 
 @Component({
-  selector: "app-committee",
-  templateUrl: "./committee.component.html",
-  styleUrls: ["./committee.component.scss"],
+  selector: 'app-committee',
+  templateUrl: './committee.component.html',
+  styleUrls: ['./committee.component.scss'],
 })
 export class CommitteeComponent implements OnInit {
   members: any[] = [];
@@ -65,13 +65,13 @@ export class CommitteeComponent implements OnInit {
 }
 
 @Component({
-  selector: "commitee-member-dialog",
-  templateUrl: "dialogs/committee-member.html",
-  styleUrls: ["./committee.component.scss"],
+  selector: 'commitee-member-dialog',
+  templateUrl: 'dialogs/committee-member.html',
+  styleUrls: ['./committee.component.scss'],
 })
 export class RefereeDialog implements OnInit {
   referee: any;
-  documentUrl: string = "./assets/images/user-pic-default.png";
+  documentUrl: string = './assets/images/user-pic-default.png';
 
   constructor(
     public _dialogRef: MatDialogRef<RefereeDialog>,

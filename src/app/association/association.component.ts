@@ -1,32 +1,32 @@
-import { Component, OnInit, Inject } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ConfirmPasswordValidator } from "./confirm-password.validator";
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ConfirmPasswordValidator } from './confirm-password.validator';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
   MatDialog,
-} from "@angular/material/dialog";
-import { Router } from "@angular/router";
-import { DistrictConfig } from "../shared/interfaces/slingshot.interface";
-import { SlingshotService } from "../shared/services/slingshot.service";
-import { AuthService } from "../shared/services/auth.service";
-import { NgxSpinnerService } from "ngx-spinner";
-import { ConfirmDialogComponent } from "../shared/dialogs/confirm-dialog/confirm-dialog.component";
-import { UtilityService } from "../shared/services/utility.service";
+} from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { DistrictConfig } from '../shared/interfaces/slingshot.interface';
+import { SlingshotService } from '../shared/services/slingshot.service';
+import { AuthService } from '../shared/services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { UtilityService } from '../shared/services/utility.service';
 import {
   AngularFireStorage,
   AngularFireStorageReference,
   AngularFireUploadTask,
-} from "@angular/fire/storage";
-import { Observable } from "rxjs";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { finalize, take, last, switchMap } from "rxjs/operators";
-import { async } from "@angular/core/testing";
+} from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { finalize, take, last, switchMap } from 'rxjs/operators';
+import { async } from '@angular/core/testing';
 
 @Component({
-  selector: "app-association",
-  templateUrl: "./association.component.html",
-  styleUrls: ["./association.component.scss"],
+  selector: 'app-association',
+  templateUrl: './association.component.html',
+  styleUrls: ['./association.component.scss'],
 })
 export class AssociationComponent implements OnInit {
   showForm: boolean = false;
@@ -68,29 +68,29 @@ export class AssociationComponent implements OnInit {
     this.show_spinner();
     this.getAvailableDistrictList();
     this.registerForm = this.formBuilder.group({
-      firstName: ["", Validators.required],
-      middleName: ["", Validators.required],
-      lastName: ["", Validators.required],
-      dateOfBirth: ["", Validators.required],
-      mobile: ["", [Validators.required, Validators.pattern(/\d{10}/)]],
-      addressLine1: ["", Validators.required],
-      addressLine2: ["", Validators.required],
-      city: ["", Validators.required],
-      district: ["", Validators.required],
-      pin: ["", [Validators.required, Validators.pattern(/\d{6}/)]],
-      aadhaarNo: ["", [Validators.required, Validators.pattern(/\d{12}/)]],
+      firstName: ['', Validators.required],
+      middleName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      mobile: ['', [Validators.required, Validators.pattern(/\d{10}/)]],
+      addressLine1: ['', Validators.required],
+      addressLine2: ['', Validators.required],
+      city: ['', Validators.required],
+      district: ['', Validators.required],
+      pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
+      aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
       panNo: [
-        "",
+        '',
         [Validators.required, Validators.pattern(/[0-9 a-z A-Z]{10}/)],
       ],
-      email: ["", [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       // password: ['', [Validators.required, Validators.minLength(8)]],
       // confirmPassword: ['', Validators.required],
-      file1: ["", Validators.required],
-      file2: ["", Validators.required],
-      file3: ["", Validators.required],
-      terms: ["", Validators.required],
-      gender: ["", Validators.required],
+      file1: ['', Validators.required],
+      file2: ['', Validators.required],
+      file3: ['', Validators.required],
+      terms: ['', Validators.required],
+      gender: ['', Validators.required],
     });
     // {
     //   validator: ConfirmPasswordValidator.MatchPassword
@@ -155,18 +155,18 @@ export class AssociationComponent implements OnInit {
     this.show_spinner();
     let formData = this.prepareFormData(this.registerForm.value);
     this.slingshotService.registerAffiliationRequest(formData).then((res) => {
-      console.log("data saved successfully");
+      console.log('data saved successfully');
       this.registeredDistrictId = res.id;
       this.hide_spinner();
       this.uploadAdhaar(this.aadhharEvent);
       let dialogRef = this.dialog.open(ConfirmDialogComponent, {
-        data: { message: "Do you want to approve user?", type: "register" },
+        data: { message: 'Do you want to approve user?', type: 'register' },
         autoFocus: false,
-        width: "80%",
+        width: '80%',
       });
       dialogRef.afterClosed().subscribe((result) => {
         if (result) {
-          this.router.navigateByUrl("/");
+          this.router.navigateByUrl('/');
         }
       });
     });
@@ -181,7 +181,7 @@ export class AssociationComponent implements OnInit {
       members: [
         {
           id: Date.now(),
-          role: "President",
+          role: 'President',
           firstName: data.firstName,
           middleName: data.middleName,
           lastName: data.lastName,
@@ -200,11 +200,11 @@ export class AssociationComponent implements OnInit {
         },
       ],
       docs: null,
-      approvedOn: "",
-      approvedBy: "",
+      approvedOn: '',
+      approvedBy: '',
       createdDate: this.utility.convertDateToEPOC(new Date()),
-      modifiedBy: "",
-      status: "Pending",
+      modifiedBy: '',
+      status: 'Pending',
     };
   }
 
@@ -214,25 +214,25 @@ export class AssociationComponent implements OnInit {
 
   validateFileUpload(e, doc) {
     const file = e.target.files[0];
-    if (doc == "doc1") {
+    if (doc == 'doc1') {
       this.isFileValid1 = false;
       this.aadhharEvent = e;
-    } else if (doc == "doc2") {
+    } else if (doc == 'doc2') {
       this.isFileValid2 = false;
       this.panEvent = e;
-    } else if (doc == "doc3") {
+    } else if (doc == 'doc3') {
       this.isFileValid3 = false;
       this.photoEvent = e;
     }
     if (
-      (file && file.type == "image/png") ||
-      file.type == "image/jpg" ||
-      file.type == "image/jpeg"
+      (file && file.type == 'image/png') ||
+      file.type == 'image/jpg' ||
+      file.type == 'image/jpeg'
     ) {
       if (file.size <= 1000000)
-        if (doc == "doc1") this.isFileValid1 = true;
-        else if (doc == "doc2") this.isFileValid2 = true;
-        else if (doc == "doc3") this.isFileValid3 = true;
+        if (doc == 'doc1') this.isFileValid1 = true;
+        else if (doc == 'doc2') this.isFileValid2 = true;
+        else if (doc == 'doc3') this.isFileValid3 = true;
     }
   }
 
@@ -251,7 +251,7 @@ export class AssociationComponent implements OnInit {
           switchMap(() => fileRef.getDownloadURL())
         )
         .subscribe((url) => {
-          this.documents["adhaar"] = { id: id, documentURL: url };
+          this.documents['adhaar'] = { id: id, documentURL: url };
           this.uploadPan(this.panEvent);
         });
     });
@@ -272,7 +272,7 @@ export class AssociationComponent implements OnInit {
           switchMap(() => fileRef.getDownloadURL())
         )
         .subscribe((url) => {
-          this.documents["pan"] = { id: id, documentURL: url };
+          this.documents['pan'] = { id: id, documentURL: url };
           this.uploadPhoto(this.photoEvent);
         });
     });
@@ -293,9 +293,9 @@ export class AssociationComponent implements OnInit {
           switchMap(() => fileRef.getDownloadURL())
         )
         .subscribe((url) => {
-          this.documents["photo"] = { id: id, documentURL: url };
+          this.documents['photo'] = { id: id, documentURL: url };
           this.firestore
-            .collection("AffiliationRequests")
+            .collection('AffiliationRequests')
             .doc(this.registeredDistrictId)
             .update({ docs: this.documents })
             .then((res) => {});

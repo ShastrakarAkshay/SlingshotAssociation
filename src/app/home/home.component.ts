@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { SlingshotService } from "../shared/services/slingshot.service";
-import { ModalDataService } from "../shared/services/modal-data.service";
-import { UtilityService } from "../shared/services/utility.service";
-import { NgxSpinnerService } from "ngx-spinner";
-import { AngularFireStorage } from "@angular/fire/storage";
+import { Component, OnInit } from '@angular/core';
+import { SlingshotService } from '../shared/services/slingshot.service';
+import { ModalDataService } from '../shared/services/modal-data.service';
+import { UtilityService } from '../shared/services/utility.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.scss"],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   districtList: any[] = [];
@@ -71,13 +71,13 @@ export class HomeComponent implements OnInit {
 
   getFlashEvent() {
     this._afStorage.storage
-      .ref("FlashEvents/")
+      .ref('FlashEvents/')
       .listAll()
       .then((result) => {
         result.items.forEach((item) => {
           const ref = this._afStorage.storage
             .ref()
-            .child("FlashEvents/" + item.name);
+            .child('FlashEvents/' + item.name);
           ref.getDownloadURL().then((url) => {
             this.flashEventURL = url;
           });
