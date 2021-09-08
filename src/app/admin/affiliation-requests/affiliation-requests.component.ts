@@ -4,43 +4,43 @@ import {
   ViewChild,
   Inject,
   AfterViewInit,
-} from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { SlingshotService } from 'src/app/shared/services/slingshot.service';
+} from "@angular/core";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort } from "@angular/material/sort";
+import { MatTableDataSource } from "@angular/material/table";
+import { SlingshotService } from "src/app/shared/services/slingshot.service";
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
   MatDialog,
   MatDialogConfig,
-} from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { ToastrService } from 'ngx-toastr';
-import { ConfirmDialogComponent } from 'src/app/shared/dialogs/confirm-dialog/confirm-dialog.component';
-import { AngularFirestore } from '@angular/fire/firestore';
-import * as rxjs from 'rxjs/operators';
-import { UtilityService } from 'src/app/shared/services/utility.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AngularFireStorage } from '@angular/fire/storage';
+} from "@angular/material/dialog";
+import { Router } from "@angular/router";
+import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from "ngx-toastr";
+import { ConfirmDialogComponent } from "src/app/shared/dialogs/confirm-dialog/confirm-dialog.component";
+import { AngularFirestore } from "@angular/fire/firestore";
+import * as rxjs from "rxjs/operators";
+import { UtilityService } from "src/app/shared/services/utility.service";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { AngularFireStorage } from "@angular/fire/storage";
 
 @Component({
-  selector: 'app-affiliation-requests',
-  templateUrl: './affiliation-requests.component.html',
-  styleUrls: ['./affiliation-requests.component.scss'],
+  selector: "app-affiliation-requests",
+  templateUrl: "./affiliation-requests.component.html",
+  styleUrls: ["./affiliation-requests.component.scss"],
 })
 export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
   displayedColumns: string[] = [
-    'index',
-    'districtName',
-    'name',
-    'mobile',
-    'status',
-    'actions',
+    "index",
+    "districtName",
+    "name",
+    "mobile",
+    "status",
+    "actions",
   ];
 
   affiliatinRequests: any[] = [];
@@ -79,9 +79,9 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
         let dataSource =
           data.requestedDistrict.name +
           data.members[0].firstName +
-          ' ' +
+          " " +
           data.members[0].middleName +
-          ' ' +
+          " " +
           data.members[0].lastName;
         dataSource = dataSource.toLowerCase();
         return dataSource.includes(filter);
@@ -91,7 +91,7 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   }
 
   filterResult(searchKey: string) {
-    searchKey = searchKey.replace(/  +/g, ' ');
+    searchKey = searchKey.replace(/  +/g, " ");
     this.dataSource.filter = searchKey.trim().toLowerCase();
   }
 
@@ -99,7 +99,7 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
     this._dialog.open(DistrictApprovalDialog, {
       data: { distInfo: personData, flag: false },
       autoFocus: false,
-      width: '99%',
+      width: "99%",
     });
   }
 
@@ -107,20 +107,20 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
     this._dialog.open(DistrictApprovalDialog, {
       data: { distInfo: personData, flag: true },
       autoFocus: false,
-      width: '99%',
+      width: "99%",
     });
   }
 
   deleteRequest(id: any, data: any) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Do you want to delete?', type: 'confirm' },
+      data: { message: "Do you want to delete?", type: "confirm" },
       autoFocus: false,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this._service.deleteRequestById(id, data.docs);
-        this._toastr.info('Request Deleted Successfully.');
+        this._toastr.info("Request Deleted Successfully.");
       }
     });
   }
@@ -136,13 +136,13 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   }
 }
 @Component({
-  selector: 'district-approval-dialog',
-  templateUrl: 'dialogs/district-approval.html',
+  selector: "district-approval-dialog",
+  templateUrl: "dialogs/district-approval.html",
 })
 export class DistrictApprovalDialog implements OnInit {
   personData: any;
   public flag: boolean = false;
-  public title: string = '';
+  public title: string = "";
   public isReadOnly: boolean = false;
   constructor(
     public _dialogRef: MatDialogRef<DistrictApprovalDialog>,
@@ -177,7 +177,7 @@ export class DistrictApprovalDialog implements OnInit {
 
   approveDistrict(districtData: any) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Do you want to approve?', type: 'confirm' },
+      data: { message: "Do you want to approve?", type: "confirm" },
       autoFocus: false,
     });
 
@@ -185,8 +185,8 @@ export class DistrictApprovalDialog implements OnInit {
       if (result) {
         districtData.approvedOn = this.utility.convertDateToEPOC(new Date());
         districtData.members[0].documents = districtData.docs;
-        districtData.status = 'approved';
-        districtData.approvedBy = 'username';
+        districtData.status = "approved";
+        districtData.approvedBy = "username";
         delete districtData.docs;
         this._service
           .approveDistrict(districtData)
@@ -194,24 +194,24 @@ export class DistrictApprovalDialog implements OnInit {
           .subscribe((data) => {
             if (!data.payload.exists) {
               this.firestore
-                .collection('ApprovedDistricts')
+                .collection("ApprovedDistricts")
                 .doc(districtData.requestedDistrict.id)
                 .set({
                   ...districtData,
                   id: districtData.requestedDistrict.id,
                 });
               this.firestore
-                .collection('DistrictList')
+                .collection("DistrictList")
                 .doc(districtData.requestedDistrict.id)
                 .update({ isRegistered: true });
               this.firestore
-                .collection('AffiliationRequests')
+                .collection("AffiliationRequests")
                 .doc(districtData.id)
                 .delete();
-              this._toastr.success('Approved Successfully');
+              this._toastr.success("Approved Successfully");
               this.close();
             } else {
-              this._toastr.error('District is already allocated');
+              this._toastr.error("District is already allocated");
             }
           });
       }
@@ -220,13 +220,13 @@ export class DistrictApprovalDialog implements OnInit {
 
   deleteAffiliation() {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Do you want to delete affiliation?', type: 'confirm' },
+      data: { message: "Do you want to delete affiliation?", type: "confirm" },
       autoFocus: false,
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this._service.deleteDistrictAffiliation(this.personData);
-        this._toastr.error('Affiliation Canceled Successfully');
+        this._toastr.error("Affiliation Canceled Successfully");
         this.close();
       }
     });
@@ -242,13 +242,13 @@ export class DistrictApprovalDialog implements OnInit {
     this._dialog.open(AddMemberDialog, {
       data: personData,
       autoFocus: false,
-      width: '99%',
+      width: "99%",
     });
   }
 
   deleteUser(id) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Do you want to delete?', type: 'confirm' },
+      data: { message: "Do you want to delete?", type: "confirm" },
       autoFocus: false,
     });
 
@@ -270,28 +270,28 @@ export class DistrictApprovalDialog implements OnInit {
           this.personData.requestedDistrict.id,
           this.personData.members
         );
-        this._toastr.info('Member Deleted Successfully.');
+        this._toastr.info("Member Deleted Successfully.");
       }
     });
   }
 }
 
 @Component({
-  selector: 'app-approved-districts',
-  templateUrl: 'views/approved-districts.html',
-  styleUrls: ['./affiliation-requests.component.scss'],
+  selector: "app-approved-districts",
+  templateUrl: "views/approved-districts.html",
+  styleUrls: ["./affiliation-requests.component.scss"],
 })
 export class ApprovedDistrictComponent implements OnInit {
   @ViewChild(MatPaginator) paginator2: MatPaginator;
   @ViewChild(MatSort) sort2: MatSort;
   dataSource2 = new MatTableDataSource();
   displayedColumns2: string[] = [
-    'index',
-    'districtName',
-    'member',
-    'approvedOn',
-    'status',
-    'actions',
+    "index",
+    "districtName",
+    "member",
+    "approvedOn",
+    "status",
+    "actions",
   ];
 
   approvedDistricts: any[] = [];
@@ -325,9 +325,9 @@ export class ApprovedDistrictComponent implements OnInit {
         let dataSource =
           data.requestedDistrict.name +
           data.members[0].firstName +
-          ' ' +
+          " " +
           data.members[0].middleName +
-          ' ' +
+          " " +
           data.members[0].lastName;
         dataSource = dataSource.toLowerCase();
         return dataSource.includes(filter);
@@ -337,7 +337,7 @@ export class ApprovedDistrictComponent implements OnInit {
   }
 
   filterResult(searchKey: string) {
-    searchKey = searchKey.replace(/  +/g, ' ');
+    searchKey = searchKey.replace(/  +/g, " ");
     this.dataSource2.filter = searchKey.trim().toLowerCase();
   }
 
@@ -345,7 +345,7 @@ export class ApprovedDistrictComponent implements OnInit {
     this._dialog.open(DistrictApprovalDialog, {
       data: { distInfo: personData, flag: true },
       autoFocus: false,
-      width: '99%',
+      width: "99%",
     });
   }
 
@@ -361,21 +361,21 @@ export class ApprovedDistrictComponent implements OnInit {
 }
 
 @Component({
-  selector: 'app-rejected-affiliation',
-  templateUrl: 'views/rejected-affiliation.html',
-  styleUrls: ['./affiliation-requests.component.scss'],
+  selector: "app-rejected-affiliation",
+  templateUrl: "views/rejected-affiliation.html",
+  styleUrls: ["./affiliation-requests.component.scss"],
 })
 export class RejectedAffiliationComponent implements OnInit {
   @ViewChild(MatPaginator) paginator3: MatPaginator;
   @ViewChild(MatSort) sort3: MatSort;
   dataSource3 = new MatTableDataSource();
   displayedColumns3: string[] = [
-    'index',
-    'districtName',
-    'member',
-    'approvedOn',
-    'status',
-    'action',
+    "index",
+    "districtName",
+    "member",
+    "approvedOn",
+    "status",
+    "action",
   ];
 
   oldAffiliations: any[] = [];
@@ -409,9 +409,9 @@ export class RejectedAffiliationComponent implements OnInit {
         let dataSource =
           data.requestedDistrict.name +
           data.members[0].firstName +
-          ' ' +
+          " " +
           data.members[0].middleName +
-          ' ' +
+          " " +
           data.members[0].lastName;
         dataSource = dataSource.toLowerCase();
         return dataSource.includes(filter);
@@ -421,7 +421,7 @@ export class RejectedAffiliationComponent implements OnInit {
   }
 
   filterResult(searchKey: string) {
-    searchKey = searchKey.replace(/  +/g, ' ');
+    searchKey = searchKey.replace(/  +/g, " ");
     this.dataSource3.filter = searchKey.trim().toLowerCase();
   }
 
@@ -429,7 +429,7 @@ export class RejectedAffiliationComponent implements OnInit {
     this._dialog.open(DistrictApprovalDialog, {
       data: { distInfo: personData, flag: true, readOnly: true },
       autoFocus: false,
-      width: '99%',
+      width: "99%",
     });
   }
 
@@ -445,22 +445,22 @@ export class RejectedAffiliationComponent implements OnInit {
 
   deleteAffiliation(districtData) {
     let dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: { message: 'Do you want to delete forever?', type: 'confirm' },
+      data: { message: "Do you want to delete forever?", type: "confirm" },
       autoFocus: false,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this._service.deleteAffiliationForever(districtData);
-        this._toastr.info('Affiliation data deleted.');
+        this._toastr.info("Affiliation data deleted.");
       }
     });
   }
 }
 
 @Component({
-  selector: 'add-member-dialog',
-  templateUrl: 'dialogs/add-member.html',
+  selector: "add-member-dialog",
+  templateUrl: "dialogs/add-member.html",
 })
 export class AddMemberDialog implements OnInit {
   personData: any;
@@ -485,23 +485,23 @@ export class AddMemberDialog implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      middleName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
-      mobile: ['', [Validators.required, Validators.pattern(/\d{10}/)]],
-      addressLine1: ['', Validators.required],
-      addressLine2: ['', Validators.required],
-      city: ['', Validators.required],
-      district: ['', Validators.required],
-      pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
-      aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
+      firstName: ["", Validators.required],
+      middleName: ["", Validators.required],
+      lastName: ["", Validators.required],
+      dateOfBirth: ["", Validators.required],
+      mobile: ["", [Validators.required, Validators.pattern(/\d{10}/)]],
+      addressLine1: ["", Validators.required],
+      addressLine2: ["", Validators.required],
+      city: ["", Validators.required],
+      district: ["", Validators.required],
+      pin: ["", [Validators.required, Validators.pattern(/\d{6}/)]],
+      aadhaarNo: ["", [Validators.required, Validators.pattern(/\d{12}/)]],
       panNo: [
-        '',
+        "",
         [Validators.required, Validators.pattern(/[0-9 a-z A-Z]{10}/)],
       ],
-      email: ['', [Validators.required, Validators.email]],
-      gender: ['', Validators.required],
+      email: ["", [Validators.required, Validators.email]],
+      gender: ["", Validators.required],
     });
     this._service.getAllDistricts().subscribe((data) => {
       data.map((item) => {
@@ -525,7 +525,7 @@ export class AddMemberDialog implements OnInit {
       this.personData.requestedDistrict.id,
       members
     );
-    this._toastr.success('Member Added Successfully.');
+    this._toastr.success("Member Added Successfully.");
     this.close();
     this.hide_spinner();
   }
@@ -533,7 +533,7 @@ export class AddMemberDialog implements OnInit {
   getFormData(data, docs): any {
     return {
       id: Date.now(),
-      role: 'Secretory',
+      role: "Secretory",
       firstName: data.firstName,
       middleName: data.middleName,
       lastName: data.lastName,
@@ -556,9 +556,9 @@ export class AddMemberDialog implements OnInit {
     this.isFileValid = true;
     const file = event.target.files[0];
     if (
-      (file && file.type == 'image/png') ||
-      file.type == 'image/jpg' ||
-      (file.type == 'image/jpeg' && file.size <= 1000000)
+      (file && file.type == "image/png") ||
+      file.type == "image/jpg" ||
+      (file.type == "image/jpeg" && file.size <= 1000000)
     ) {
       this.event = event;
     } else {
