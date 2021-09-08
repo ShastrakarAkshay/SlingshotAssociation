@@ -599,7 +599,7 @@ export class AddMemberDialog implements OnInit {
   }
 
   hide_spinner()                           {
-                                      this._spinner.hide();
+                                     this._spinner.hide();
     this.showSpinner =                                            false;
   }
 }
