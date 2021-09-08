@@ -1,14 +1,14 @@
 @import "../../../styles.scss";
 #events {
-    font-family: "Didact Gothic", sans-serif;
-    .badge {
-        background-color: $th-color;
-    }
+  font-family: "Didact Gothic", sans-serif;
+  .badge {
+    background-color: $th-color;
+  }
 }
 
 #dialog {
-    font-family: "Didact Gothic", sans-serif;
-    .mat-dialog-container {
-        margin-top: 100px !important;
-    }
+  font-family: "Didact Gothic", sans-serif;
+  .mat-dialog-container {
+    margin-top: 100px !important;
+  }
 }

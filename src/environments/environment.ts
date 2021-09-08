@@ -12,8 +12,8 @@ export const environment = {
     storageBucket: "slingshot-association-maha.appspot.com",
     messagingSenderId: "932012418325",
     appId: "1:932012418325:web:b293d4927597ad32e4351c",
-    measurementId: "G-T7T1NC0YNJ"
-  }
+    measurementId: "G-T7T1NC0YNJ",
+  },
 };
 
 /*

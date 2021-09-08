@@ -1,56 +1,98 @@
 <section id="login-sec">
-    <div class="container">
-        <div class="jumbotron mt-5 p-5 shadow">
-            <div class="login-page" #loginPage>
-                <h2 class="text-center">Sign in</h2>
-                <div class="row justify-content-center">
-                    <div class="col-sm-5 mt-3">
-                        <form [formGroup]="loginForm">
-                            <div class="col">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" formControlName="email" placeholder="enter email" height="50px" [ngClass]="{'is-invalid':loginForm.get('email').touched && loginForm.get('email').invalid}">
-                                    <span class="invalid-feedback alert alert-danger">
-                                        <span *ngIf="loginForm.get('email').errors?.required">Field is
-                                            required</span>
-                                    <span *ngIf="loginForm.get('email').invalid && !loginForm.get('email').errors?.required">
-                                            Invalid email.</span>
-                                    </span>
-                                </div>
-
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="enter password" (keyup.enter)="login()" formControlName="password" [ngClass]="{'is-invalid':loginForm.get('password').touched && loginForm.get('password').invalid}" height="50px">
-                                    <span class="invalid-feedback alert alert-danger">
-                                        Field is required
-                                    </span>
-                                </div>
-
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <input type="button" class="btn form-control" value="Login" (click)="login()" [disabled]="!loginForm.valid">
-                                </div>
-                            </div>
-                            <div class="col text-center">
-                                <a class="text-muted forgotPass" (click)="forgotPassword()">Forgot Password?</a>
-                            </div>
-                        </form>
-                    </div>
+  <div class="container">
+    <div class="jumbotron mt-5 p-5 shadow">
+      <div class="login-page" #loginPage>
+        <h2 class="text-center">Sign in</h2>
+        <div class="row justify-content-center">
+          <div class="col-sm-5 mt-3">
+            <form [formGroup]="loginForm">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="enter email"
+                    height="50px"
+                    [ngClass]="{
+                      'is-invalid':
+                        loginForm.get('email').touched &&
+                        loginForm.get('email').invalid
+                    }"
+                  />
+                  <span class="invalid-feedback alert alert-danger">
+                    <span *ngIf="loginForm.get('email').errors?.required"
+                      >Field is required</span
+                    >
+                    <span
+                      *ngIf="
+                        loginForm.get('email').invalid &&
+                        !loginForm.get('email').errors?.required
+                      "
+                    >
+                      Invalid email.</span
+                    >
+                  </span>
                 </div>
-            </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="enter password"
+                    (keyup.enter)="login()"
+                    formControlName="password"
+                    [ngClass]="{
+                      'is-invalid':
+                        loginForm.get('password').touched &&
+                        loginForm.get('password').invalid
+                    }"
+                    height="50px"
+                  />
+                  <span class="invalid-feedback alert alert-danger">
+                    Field is required
+                  </span>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="button"
+                    class="btn form-control"
+                    value="Login"
+                    (click)="login()"
+                    [disabled]="!loginForm.valid"
+                  />
+                </div>
+              </div>
+              <div class="col text-center">
+                <a class="text-muted forgotPass" (click)="forgotPassword()"
+                  >Forgot Password?</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 
-            <div class="forget-pass-page" #forgetPassPage hidden>
-                <h2 class="text-center">Forgot Password</h2>
-                <form [formGroup]="resetForm">
-                    <div class="row justify-content-center">
-                        <div class="col-sm-5 mt-3">
-                            <div class="col">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" formControlName="emailaddress" placeholder="enter email" height="50px">
-                                </div>
-                            </div>
-                            <!-- <div class="col">
+      <div class="forget-pass-page" #forgetPassPage hidden>
+        <h2 class="text-center">Forgot Password</h2>
+        <form [formGroup]="resetForm">
+          <div class="row justify-content-center">
+            <div class="col-sm-5 mt-3">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    formControlName="emailaddress"
+                    placeholder="enter email"
+                    height="50px"
+                  />
+                </div>
+              </div>
+              <!-- <div class="col">
                             <div class="form-group">
                                 <input type="password" class="form-control" placeholder="enter password" height="50px">
                             </div>
@@ -60,23 +102,33 @@
                                     <input type="password" class="form-control" placeholder="confirm password" height="50px">
                                 </div>
                             </div> -->
-                            <div class="col">
-                                <div class="form-group">
-                                    <input type="button" class="btn form-control" value="Verify" (click)="reserPassword()" [disabled]="resetForm.invalid">
-                                </div>
-                            </div>
-                            <div class="col mt-3 text-center">
-                                <span (click)="forgotPassword()" matTooltip="Back"><i class="fa fa-arrow-circle-o-left"
-                                        style="font-size: 30px;"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="button"
+                    class="btn form-control"
+                    value="Verify"
+                    (click)="reserPassword()"
+                    [disabled]="resetForm.invalid"
+                  />
+                </div>
+              </div>
+              <div class="col mt-3 text-center">
+                <span (click)="forgotPassword()" matTooltip="Back"
+                  ><i
+                    class="fa fa-arrow-circle-o-left"
+                    style="font-size: 30px"
+                  ></i
+                ></span>
+              </div>
             </div>
-        </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </section>
 
 <div *ngIf="showSpinner">
-    <app-spinner></app-spinner>
+  <app-spinner></app-spinner>
 </div>

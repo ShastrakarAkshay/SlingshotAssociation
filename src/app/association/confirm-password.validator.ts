@@ -1,10 +1,10 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl } from "@angular/forms";
 export class ConfirmPasswordValidator {
   static MatchPassword(control: AbstractControl) {
-    let password = control.get('password').value;
-    let confirmPassword = control.get('confirmPassword').value;
+    let password = control.get("password").value;
+    let confirmPassword = control.get("confirmPassword").value;
     if (password != confirmPassword) {
-      control.get('confirmPassword').setErrors({ isConfirmPassword: true });
+      control.get("confirmPassword").setErrors({ isConfirmPassword: true });
     }
   }
 }

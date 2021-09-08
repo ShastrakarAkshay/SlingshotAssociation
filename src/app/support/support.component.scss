@@ -1,30 +1,30 @@
 @import "../../styles.scss";
-#support{
-    font-family: "Didact Gothic", sans-serif;
-    .title {
-        font-family: "Righteous";
+#support {
+  font-family: "Didact Gothic", sans-serif;
+  .title {
+    font-family: "Righteous";
+  }
+  .img-area {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    border-color: #f0f0f0 !important;
+    img {
+      width: 100%;
     }
-    .img-area {
-        width: 150px;
-        height: 150px;
-        margin: auto;
-        border: 2px solid #fff;
-        border-radius: 50%;
-        overflow: hidden;
-        border-color: #f0f0f0 !important;
-        img {
-          width: 100%;
-        }
-      }
+  }
 
-      .icon-circle {
-        padding: 10px;
-        border-radius: 50%;
-        font-size: 20px;
-        text-align: center;
-        background: black;
-        margin-right: 15px;
-        width: 40px;
-        color: #fff;
-      }
+  .icon-circle {
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    background: black;
+    margin-right: 15px;
+    width: 40px;
+    color: #fff;
+  }
 }

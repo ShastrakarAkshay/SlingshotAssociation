@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { SlingshotService } from '../shared/services/slingshot.service';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { Component, OnInit } from "@angular/core";
+import { SlingshotService } from "../shared/services/slingshot.service";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
-  selector: 'app-match-results',
-  templateUrl: './match-results.component.html',
-  styleUrls: ['./match-results.component.scss']
+  selector: "app-match-results",
+  templateUrl: "./match-results.component.html",
+  styleUrls: ["./match-results.component.scss"],
 })
 export class MatchResultsComponent implements OnInit {
-
   matchResults: any[] = [];
-  showSpinner:boolean = false;
-  
-  constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService) { }
+  showSpinner: boolean = false;
+
+  constructor(
+    private _service: SlingshotService,
+    private _spinner: NgxSpinnerService
+  ) {}
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -21,15 +23,15 @@ export class MatchResultsComponent implements OnInit {
 
   getAllResultRecords() {
     this.show_spinner();
-    this._service.getAllMatchResults().subscribe(data => {
-      this.matchResults = data.map(item => {
+    this._service.getAllMatchResults().subscribe((data) => {
+      this.matchResults = data.map((item) => {
         return {
           id: item.payload.doc.id,
-          ...item.payload.doc.data()
-        }
+          ...item.payload.doc.data(),
+        };
       });
       this.hide_spinner();
-    })
+    });
   }
 
   show_spinner() {
@@ -41,5 +43,4 @@ export class MatchResultsComponent implements OnInit {
     this._spinner.hide();
     this.showSpinner = false;
   }
-
 }

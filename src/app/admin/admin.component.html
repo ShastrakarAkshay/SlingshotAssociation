@@ -1,31 +1,45 @@
 <section id="admin" class="bg-offwhite pb-5">
-    <div #mySidepanel class="sidepanel m-hide">
-        <div class="img-area text-center pl-5 pr-5">
-            <img src="./assets/images/brand-logo.jpg" class="img img-thumb">
-        </div>
-        <span href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</span>
-        <hr>
-        <a *ngFor="let item of menu" [ngClass]="{'active':item.isActive}" (click)="setActiveClass(item)" [routerLink]="item.link">
-            <i class="fa fa-gg-circle mr-2"></i>{{item.name}}
-        </a>
+  <div #mySidepanel class="sidepanel m-hide">
+    <div class="img-area text-center pl-5 pr-5">
+      <img src="./assets/images/brand-logo.jpg" class="img img-thumb" />
     </div>
-    <div class="mt-5">
-        <div class="row justify-content-center">
-            <button class="btn sling-btn mr-2 m-hide" (click)="openNav()">&#9776;</button>
-            <h2><strong>Welcome To Association</strong></h2>
-        </div>
-        <div class="row actions justify-content-center mt-3 p-3 d-hide">
-            <div class="col-sm-2" *ngFor="let item of menu" [ngClass]="{'active':item.isActive}" (click)="setActiveClass(item)">
-                <div class="card mt-3 text-white bg-dark" [routerLink]="item.link">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">{{item.name}}</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <span href="javascript:void(0)" class="closebtn" (click)="closeNav()"
+      >&times;</span
+    >
+    <hr />
+    <a
+      *ngFor="let item of menu"
+      [ngClass]="{ active: item.isActive }"
+      (click)="setActiveClass(item)"
+      [routerLink]="item.link"
+    >
+      <i class="fa fa-gg-circle mr-2"></i>{{ item.name }}
+    </a>
+  </div>
+  <div class="mt-5">
+    <div class="row justify-content-center">
+      <button class="btn sling-btn mr-2 m-hide" (click)="openNav()">
+        &#9776;
+      </button>
+      <h2><strong>Welcome To Association</strong></h2>
     </div>
+    <div class="row actions justify-content-center mt-3 p-3 d-hide">
+      <div
+        class="col-sm-2"
+        *ngFor="let item of menu"
+        [ngClass]="{ active: item.isActive }"
+        (click)="setActiveClass(item)"
+      >
+        <div class="card mt-3 text-white bg-dark" [routerLink]="item.link">
+          <div class="card-body text-center">
+            <h4 class="card-title">{{ item.name }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="mt-5 bg-light pl-3 pr-3">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

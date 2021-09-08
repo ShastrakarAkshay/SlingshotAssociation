@@ -1,150 +1,244 @@
 <section id="contact-us">
-    <div class="jumbotron text-center">
-        <h2>Contact Us</h2>
-    </div>
-    <div class="container mt-5">
-        <div class="association-info text-center">
-            <h2>Our Head Office</h2>
-            <div class="row mt-5">
-                <div class="col-sm-4 mt-3">
-                    <span><i class="fa fa-map-marker"></i></span>
-                    <br>
-                    <p>Matoshree Niwas, Dhamangaon By-Pass, Pimpalgaon, Yavatmal, Maharashtra, Pin Code - 445001.</p>
-                </div>
-                <div class="col-sm-4 mt-3">
-                    <span><i class="fa fa-phone"></i></span>
-                    <br>
-                    <p>8180008641, 9511663616, 8432146555</p>
-                </div>
-                <div class="col-sm-4 mt-3">
-                    <span><i class="fa fa-envelope"></i></span>
-                    <br>
-                    <p style="word-wrap: break-word;">slingshot.maha@gmail.com</p>
-                </div>
-            </div>
+  <div class="jumbotron text-center">
+    <h2>Contact Us</h2>
+  </div>
+  <div class="container mt-5">
+    <div class="association-info text-center">
+      <h2>Our Head Office</h2>
+      <div class="row mt-5">
+        <div class="col-sm-4 mt-3">
+          <span><i class="fa fa-map-marker"></i></span>
+          <br />
+          <p>
+            Matoshree Niwas, Dhamangaon By-Pass, Pimpalgaon, Yavatmal,
+            Maharashtra, Pin Code - 445001.
+          </p>
         </div>
+        <div class="col-sm-4 mt-3">
+          <span><i class="fa fa-phone"></i></span>
+          <br />
+          <p>8180008641, 9511663616, 8432146555</p>
+        </div>
+        <div class="col-sm-4 mt-3">
+          <span><i class="fa fa-envelope"></i></span>
+          <br />
+          <p style="word-wrap: break-word">slingshot.maha@gmail.com</p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 <section id="contact-us1" class="bg-offwhite pt-3 pb-5">
-    <div class="container">
-        <div class="user-info text-center mt-5">
-            <h2>Our Members</h2>
-            <div class="row justify-content-center">
-                <div class="col-sm-6 col-md-4 card-col" *ngFor="let member of members">
-                    <div class="card card-cascade">
-                        <div class="view view-cascade overlay">
-                            <div class="img-area mt-5">
-                                <img [src]="member.pic" alt="">
-                            </div>
-                        </div>
-                        <div class="card-body card-body-cascade text-center">
-                            <h4 class="mt-3 member-name"><strong>{{member.name}}</strong></h4>
-                            <span class="text-info font-weight-bold">({{member.role}})</span>
-                            <br>
-                            <span>{{member.email}}</span>
-                            <br>
-                            <span>{{member.mobile}}</span>
-                            <div class="social-icons mt-3">
-                                <i class="fa fa-phone" [matTooltip]="member.mobile" matTooltipPosition="above"></i>
-                                <i class="fa fa-envelope" [matTooltip]="member.email" matTooltipPosition="above"></i>
-                                <i class="fa fa-facebook" matTooltip="facebook" matTooltipPosition="above"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <div class="user-info text-center mt-5">
+      <h2>Our Members</h2>
+      <div class="row justify-content-center">
+        <div class="col-sm-6 col-md-4 card-col" *ngFor="let member of members">
+          <div class="card card-cascade">
+            <div class="view view-cascade overlay">
+              <div class="img-area mt-5">
+                <img [src]="member.pic" alt="" />
+              </div>
             </div>
+            <div class="card-body card-body-cascade text-center">
+              <h4 class="mt-3 member-name">
+                <strong>{{ member.name }}</strong>
+              </h4>
+              <span class="text-info font-weight-bold"
+                >({{ member.role }})</span
+              >
+              <br />
+              <span>{{ member.email }}</span>
+              <br />
+              <span>{{ member.mobile }}</span>
+              <div class="social-icons mt-3">
+                <i
+                  class="fa fa-phone"
+                  [matTooltip]="member.mobile"
+                  matTooltipPosition="above"
+                ></i>
+                <i
+                  class="fa fa-envelope"
+                  [matTooltip]="member.email"
+                  matTooltipPosition="above"
+                ></i>
+                <i
+                  class="fa fa-facebook"
+                  matTooltip="facebook"
+                  matTooltipPosition="above"
+                ></i>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 <section id="contact-us2" class="container">
-    <div class="contact-form mt-5">
-        <div class="text-center">
-            <h2>Get in touch</h2>
-        </div>
-        <div class="row mt-5 mb-5">
-            <div class="col-md-6">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.296419656939!2d78.1262283696957!3d20.4118795880123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd3ef4606797df5%3A0x99fdaa3c4f6b7d9d!2sPimpalgaon%2C%20Yavatmal%2C%20Maharashtra%20445001!5e0!3m2!1sen!2sin!4v1583593786510!5m2!1sen!2sin"
-                    width="100%" class="shadow map" height="350" frameborder="0" scrolling="no" marginheight="0"
-                    allowfullscreen=""></iframe>
-            </div>
-            <div class="col-md-6">
-                <form [formGroup]="contactForm" class="contactForm">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control field" placeholder="First Name"
-                                    formControlName="firstName"
-                                    [ngClass]="{'is-invalid':contactForm.get('firstName')?.touched && contactForm.get('firstName').invalid}">
-                                <span class="invalid-feedback alert alert-danger">
-                                    Field is required
-                                </span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control field" placeholder="Last Name"
-                                    formControlName="lastName"
-                                    [ngClass]="{'is-invalid':contactForm.get('lastName')?.touched && contactForm.get('lastName').invalid}">
-                                <span class="invalid-feedback alert alert-danger">
-                                    Field is required
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <input type="text" class="form-control field" placeholder="Email"
-                                    formControlName="email"
-                                    [ngClass]="{'is-invalid':contactForm.get('email')?.touched && contactForm.get('email').invalid}">
-                                <span class="invalid-feedback alert alert-danger">
-                                    <span *ngIf="contactForm.get('email').errors?.required">Field is required</span>
-                                    <span
-                                        *ngIf="contactForm.get('email').invalid && !contactForm.get('email').errors?.required">
-                                        Invalid email.</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <input type="text" class="form-control field" placeholder="Mobile"
-                                    formControlName="mobile" minlength="10" maxlength="10"
-                                    [ngClass]="{'is-invalid':contactForm.get('mobile')?.touched && contactForm.get('mobile').invalid}">
-                                <span class="invalid-feedback alert alert-danger">
-                                    <span *ngIf="contactForm.get('mobile').errors?.required">Field is
-                                        required</span>
-                                    <span
-                                        *ngIf="contactForm.get('mobile').invalid && !contactForm.get('mobile').errors?.required">
-                                        Invalid Mobile Number</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <textarea rows="4" cols="50" class="form-control" placeholder="Message"
-                                    formControlName="message"
-                                    [ngClass]="{'is-invalid':contactForm.get('message')?.touched && contactForm.get('message').invalid}"></textarea>
-                                <span class="invalid-feedback alert alert-danger">
-                                    Field is required
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-sm-12">
-                            <input type="button" mat-raised-button class="btn sling-btn" name="Send" value="Send"
-                                (click)="sendEnquiry()" [disabled]="!contactForm.valid">
-                            <input type="button" mat-raised-button class="btn sling-btn ml-2" name="clear" value="Clear"
-                                (click)="clearForm()">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+  <div class="contact-form mt-5">
+    <div class="text-center">
+      <h2>Get in touch</h2>
     </div>
+    <div class="row mt-5 mb-5">
+      <div class="col-md-6">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.296419656939!2d78.1262283696957!3d20.4118795880123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd3ef4606797df5%3A0x99fdaa3c4f6b7d9d!2sPimpalgaon%2C%20Yavatmal%2C%20Maharashtra%20445001!5e0!3m2!1sen!2sin!4v1583593786510!5m2!1sen!2sin"
+          width="100%"
+          class="shadow map"
+          height="350"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          allowfullscreen=""
+        ></iframe>
+      </div>
+      <div class="col-md-6">
+        <form [formGroup]="contactForm" class="contactForm">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control field"
+                  placeholder="First Name"
+                  formControlName="firstName"
+                  [ngClass]="{
+                    'is-invalid':
+                      contactForm.get('firstName')?.touched &&
+                      contactForm.get('firstName').invalid
+                  }"
+                />
+                <span class="invalid-feedback alert alert-danger">
+                  Field is required
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control field"
+                  placeholder="Last Name"
+                  formControlName="lastName"
+                  [ngClass]="{
+                    'is-invalid':
+                      contactForm.get('lastName')?.touched &&
+                      contactForm.get('lastName').invalid
+                  }"
+                />
+                <span class="invalid-feedback alert alert-danger">
+                  Field is required
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control field"
+                  placeholder="Email"
+                  formControlName="email"
+                  [ngClass]="{
+                    'is-invalid':
+                      contactForm.get('email')?.touched &&
+                      contactForm.get('email').invalid
+                  }"
+                />
+                <span class="invalid-feedback alert alert-danger">
+                  <span *ngIf="contactForm.get('email').errors?.required"
+                    >Field is required</span
+                  >
+                  <span
+                    *ngIf="
+                      contactForm.get('email').invalid &&
+                      !contactForm.get('email').errors?.required
+                    "
+                  >
+                    Invalid email.</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control field"
+                  placeholder="Mobile"
+                  formControlName="mobile"
+                  minlength="10"
+                  maxlength="10"
+                  [ngClass]="{
+                    'is-invalid':
+                      contactForm.get('mobile')?.touched &&
+                      contactForm.get('mobile').invalid
+                  }"
+                />
+                <span class="invalid-feedback alert alert-danger">
+                  <span *ngIf="contactForm.get('mobile').errors?.required"
+                    >Field is required</span
+                  >
+                  <span
+                    *ngIf="
+                      contactForm.get('mobile').invalid &&
+                      !contactForm.get('mobile').errors?.required
+                    "
+                  >
+                    Invalid Mobile Number</span
+                  >
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <textarea
+                  rows="4"
+                  cols="50"
+                  class="form-control"
+                  placeholder="Message"
+                  formControlName="message"
+                  [ngClass]="{
+                    'is-invalid':
+                      contactForm.get('message')?.touched &&
+                      contactForm.get('message').invalid
+                  }"
+                ></textarea>
+                <span class="invalid-feedback alert alert-danger">
+                  Field is required
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-sm-12">
+              <input
+                type="button"
+                mat-raised-button
+                class="btn sling-btn"
+                name="Send"
+                value="Send"
+                (click)="sendEnquiry()"
+                [disabled]="!contactForm.valid"
+              />
+              <input
+                type="button"
+                mat-raised-button
+                class="btn sling-btn ml-2"
+                name="clear"
+                value="Clear"
+                (click)="clearForm()"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>

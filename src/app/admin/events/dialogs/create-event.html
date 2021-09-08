@@ -1,95 +1,134 @@
 <section id="dialog">
-    <h2 class="text-center p-3 bg-dark text-white dialog-header">Create Event</h2>
-    <mat-dialog-content>
-        <form [formGroup]="eventForm">
-            <div class="row mt-3">
-                <div class="col-sm-12">
-                    <label><strong>Event Title</strong></label>
-                    <div class="form-group">
-                        <input type="text" class="form-control text-capitalize" formControlName="eventTitle"
-                            [ngClass]="{'is-invalid':eventForm.get('eventTitle').touched && eventForm.get('eventTitle').invalid}"
-                            [readonly]="!eventData.isDelete">
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <label><strong>Event Addresss</strong></label>
-                    <div class="form-group">
-                        <input type="text" class="form-control text-capitalize" formControlName="eventAddress"
-                            [ngClass]="{'is-invalid':eventForm.get('eventAddress').touched && eventForm.get('eventAddress').invalid}"
-                            [readonly]="!eventData.isDelete">
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <label><strong>Event Date</strong></label>
-                    <div class="form-group">
-                        <input type="date" class="form-control" formControlName="eventDate"
-                            [ngClass]="{'is-invalid':eventForm.get('eventDate').touched && eventForm.get('eventDate').invalid}"
-                            [readonly]="!eventData.isDelete">
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <label> <strong>Contact Persons</strong> </label>
-                    <div class="form-group">
-                        <input type="text" class="form-control text-capitalize" formControlName="contactPersons"
-                            [ngClass]="{'is-invalid':eventForm.get('contactPersons').touched && eventForm.get('contactPersons').invalid}"
-                            [readonly]="!eventData.isDelete">
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <label><strong>Contact Numbers</strong></label>
-                    <div class="form-group">
-                        <input type="text" class="form-control" formControlName="contactNumbers"
-                            [ngClass]="{'is-invalid':eventForm.get('contactNumbers').touched && eventForm.get('contactNumbers').invalid}"
-                            [readonly]="!eventData.isDelete">
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <label><strong>Status</strong></label>
-                    <div class="form-group">
-                        <select formControlName="status" class="form-control"
-                            [ngClass]="{'is-invalid':eventForm.get('status').touched && eventForm.get('status').invalid}">
-                            <option value="" selected disabled>Select status</option>
-                            <option value="Active" class="text-success">Active</option>
-                            <option value="Inactive" class="text-danger">Inactive</option>
-                        </select>
-                        <span class="invalid-feedback alert alert-danger">
-                            Field is required
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </mat-dialog-content>
-    <div mat-dialog-actions class="row justify-content-center">
-        <button mat-button class="btn sling-btn" (click)="createEvent()" [disabled]="!eventForm.valid"
-            *ngIf="!isEdit">Create</button>
-        <button mat-button class="btn sling-btn" (click)="updateEvent()" [disabled]="!eventForm.valid"
-            *ngIf="isEdit">Update</button>
-        <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>Close</button>
-    </div>
+  <h2 class="text-center p-3 bg-dark text-white dialog-header">Create Event</h2>
+  <mat-dialog-content>
+    <form [formGroup]="eventForm">
+      <div class="row mt-3">
+        <div class="col-sm-12">
+          <label><strong>Event Title</strong></label>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control text-capitalize"
+              formControlName="eventTitle"
+              [ngClass]="{'is-invalid':eventForm.get('eventTitle').touched && eventForm.get('eventTitle').invalid}"
+              [readonly]="!eventData.isDelete"
+            />
+            <span class="invalid-feedback alert alert-danger">
+              Field is required
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label><strong>Event Addresss</strong></label>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control text-capitalize"
+              formControlName="eventAddress"
+              [ngClass]="{'is-invalid':eventForm.get('eventAddress').touched && eventForm.get('eventAddress').invalid}"
+              [readonly]="!eventData.isDelete"
+            />
+            <span class="invalid-feedback alert alert-danger">
+              Field is required
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label><strong>Event Date</strong></label>
+          <div class="form-group">
+            <input
+              type="date"
+              class="form-control"
+              formControlName="eventDate"
+              [ngClass]="{'is-invalid':eventForm.get('eventDate').touched && eventForm.get('eventDate').invalid}"
+              [readonly]="!eventData.isDelete"
+            />
+            <span class="invalid-feedback alert alert-danger">
+              Field is required
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label> <strong>Contact Persons</strong> </label>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control text-capitalize"
+              formControlName="contactPersons"
+              [ngClass]="{'is-invalid':eventForm.get('contactPersons').touched && eventForm.get('contactPersons').invalid}"
+              [readonly]="!eventData.isDelete"
+            />
+            <span class="invalid-feedback alert alert-danger">
+              Field is required
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label><strong>Contact Numbers</strong></label>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="contactNumbers"
+              [ngClass]="{'is-invalid':eventForm.get('contactNumbers').touched && eventForm.get('contactNumbers').invalid}"
+              [readonly]="!eventData.isDelete"
+            />
+            <span class="invalid-feedback alert alert-danger">
+              Field is required
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <label><strong>Status</strong></label>
+          <div class="form-group">
+            <select
+              formControlName="status"
+              class="form-control"
+              [ngClass]="{'is-invalid':eventForm.get('status').touched && eventForm.get('status').invalid}"
+            >
+              <option value="" selected disabled>Select status</option>
+              <option value="Active" class="text-success">Active</option>
+              <option value="Inactive" class="text-danger">Inactive</option>
+            </select>
+            <span class="invalid-feedback alert alert-danger">
+              Field is required
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <div mat-dialog-actions class="row justify-content-center">
+    <button
+      mat-button
+      class="btn sling-btn"
+      (click)="createEvent()"
+      [disabled]="!eventForm.valid"
+      *ngIf="!isEdit"
+    >
+      Create
+    </button>
+    <button
+      mat-button
+      class="btn sling-btn"
+      (click)="updateEvent()"
+      [disabled]="!eventForm.valid"
+      *ngIf="isEdit"
+    >
+      Update
+    </button>
+    <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>
+      Close
+    </button>
+  </div>
 </section>

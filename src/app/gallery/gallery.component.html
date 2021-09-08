@@ -1,24 +1,26 @@
 <section class="gallery">
-    <div class="container-fluid pb-5"  *ngIf="imageList.length > 0">
-        <div class="row">
-            <div class="column">
-                <img *ngFor="let image of imageList[0]" [src]="image.documentURL" />
-            </div>
-            <div class="column">
-                <img *ngFor="let image of imageList[1]" [src]="image.documentURL" />
-            </div>
-            <div class="column">
-                <img *ngFor="let image of imageList[2]" [src]="image.documentURL" />
-            </div>
-        </div>
+  <div class="container-fluid pb-5" *ngIf="imageList.length > 0">
+    <div class="row">
+      <div class="column">
+        <img *ngFor="let image of imageList[0]" [src]="image.documentURL" />
+      </div>
+      <div class="column">
+        <img *ngFor="let image of imageList[1]" [src]="image.documentURL" />
+      </div>
+      <div class="column">
+        <img *ngFor="let image of imageList[2]" [src]="image.documentURL" />
+      </div>
     </div>
+  </div>
 
-    <div class="jumbotron bg-white text-center empty-sate-div" *ngIf="imageList[0].length === 0">
-        No images available.
-    </div>
+  <div
+    class="jumbotron bg-white text-center empty-sate-div"
+    *ngIf="imageList[0].length === 0"
+  >
+    No images available.
+  </div>
 
-    <div *ngIf="showSpinner">
-        <app-spinner></app-spinner>
-    </div>
-
+  <div *ngIf="showSpinner">
+    <app-spinner></app-spinner>
+  </div>
 </section>

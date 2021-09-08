@@ -1,6 +1,6 @@
 <div *ngIf="isAppActivated && !isLoading">
-    <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
+  <app-navbar></app-navbar>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
 </div>
 <app-page-not-found *ngIf="!isAppActivated && !isLoading"></app-page-not-found>
