@@ -13,13 +13,7 @@ export class UtilityService {
 
   getDateFromEpoc(timestamp: any): any {
     let dateObj = new Date(timestamp);
-    let date =
-      dateObj.getMonth() +
-      1 +
-      '/' +
-      dateObj.getDate() +
-      '/' +
-      dateObj.getFullYear();
+    let date = dateObj.getMonth() + 1 + '/' + dateObj.getDate() + '/' + dateObj.getFullYear();
     return date;
   }
 }

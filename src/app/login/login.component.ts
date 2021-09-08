@@ -41,8 +41,7 @@ export class LoginComponent implements OnInit {
 
   forgotPassword() {
     this.loginPage.nativeElement.hidden = !this.loginPage.nativeElement.hidden;
-    this.forgetPassPage.nativeElement.hidden =
-      !this.forgetPassPage.nativeElement.hidden;
+    this.forgetPassPage.nativeElement.hidden = !this.forgetPassPage.nativeElement.hidden;
     this.resetForm.setValue({
       emailaddress: this.loginForm.get('email').value,
     });

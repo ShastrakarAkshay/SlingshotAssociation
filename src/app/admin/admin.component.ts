@@ -76,11 +76,9 @@ export class AdminComponent implements OnInit {
     // check first user is logged in or not
     // if not logged in then remove all localstorage and redirect to login page
     this.setActiveClassFromURL(this.router.url);
-    this.router.events
-      .pipe(filter((e) => e instanceof NavigationStart))
-      .subscribe((e) => {
-        this.setActiveClassFromURL(this.router.url);
-      });
+    this.router.events.pipe(filter((e) => e instanceof NavigationStart)).subscribe((e) => {
+      this.setActiveClassFromURL(this.router.url);
+    });
 
     this.notifyUser();
   }

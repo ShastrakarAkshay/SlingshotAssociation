@@ -1,11 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ModalDataService } from '../shared/services/modal-data.service';
 import { SlingshotService } from '../shared/services/slingshot.service';
-import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  MatDialog,
-} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { take } from 'rxjs/operators';
 

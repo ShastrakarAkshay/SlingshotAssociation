@@ -2,8 +2,7 @@
   <div class="jumbotron dist-area">
     <div class="row justify-content-center p-2">
       <div class="col-sm-5 alert alert-info text-center">
-        Note: Districts that are already registered are not available in the
-        list.
+        Note: Districts that are already registered are not available in the list.
       </div>
     </div>
     <h2 class="text-center title mt-5">Join Us</h2>
@@ -12,11 +11,7 @@
     </h3>
     <div class="row justify-content-center mt-4">
       <div class="col-sm-5">
-        <select
-          class="form-control"
-          height="50px"
-          (change)="onDistrictChange($event.target.value)"
-        >
+        <select class="form-control" height="50px" (change)="onDistrictChange($event.target.value)">
           <option selected disabled>Select District</option>
           <option *ngFor="let dist of availableDistricts" value="{{ dist.id }}">
             {{ dist.name }}
@@ -38,9 +33,7 @@
     </div>
   </div>
   <div class="container form-area mt-5" *ngIf="showForm">
-    <h4 class="text-center title">
-      Affiliation For "{{ selectedDistrict.name }}" District
-    </h4>
+    <h4 class="text-center title">Affiliation For "{{ selectedDistrict.name }}" District</h4>
     <form id="regForm" class="mt-4 shadow" [formGroup]="registerForm">
       <h2 class="text-center">Registration Form</h2>
       <div class="row mt-5">
@@ -52,14 +45,10 @@
               class="form-control text-capitalize"
               formControlName="firstName"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('firstName').touched &&
-                  registerForm.get('firstName').invalid
+                'is-invalid': registerForm.get('firstName').touched && registerForm.get('firstName').invalid
               }"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -70,14 +59,10 @@
               class="form-control text-capitalize"
               formControlName="middleName"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('middleName').touched &&
-                  registerForm.get('middleName').invalid
+                'is-invalid': registerForm.get('middleName').touched && registerForm.get('middleName').invalid
               }"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -88,14 +73,10 @@
               class="form-control text-capitalize"
               formControlName="lastName"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('lastName').touched &&
-                  registerForm.get('lastName').invalid
+                'is-invalid': registerForm.get('lastName').touched && registerForm.get('lastName').invalid
               }"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -108,21 +89,12 @@
               class="form-control"
               formControlName="email"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('email').touched &&
-                  registerForm.get('email').invalid
+                'is-invalid': registerForm.get('email').touched && registerForm.get('email').invalid
               }"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="registerForm.get('email').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="
-                  registerForm.get('email').invalid &&
-                  !registerForm.get('email').errors?.required
-                "
-              >
+              <span *ngIf="registerForm.get('email').errors?.required">Field is required</span>
+              <span *ngIf="registerForm.get('email').invalid && !registerForm.get('email').errors?.required">
                 Invalid email.</span
               >
             </span>
@@ -145,21 +117,12 @@
               formControlName="mobile"
               maxlength="10"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('mobile').touched &&
-                  registerForm.get('mobile').invalid
+                'is-invalid': registerForm.get('mobile').touched && registerForm.get('mobile').invalid
               }"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="registerForm.get('mobile').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="
-                  registerForm.get('mobile').invalid &&
-                  !registerForm.get('mobile').errors?.required
-                "
-              >
+              <span *ngIf="registerForm.get('mobile').errors?.required">Field is required</span>
+              <span *ngIf="registerForm.get('mobile').invalid && !registerForm.get('mobile').errors?.required">
                 Invalid Mobile Number</span
               >
             </span>
@@ -174,9 +137,7 @@
               class="form-control"
               formControlName="gender"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('gender').touched &&
-                  registerForm.get('gender').invalid
+                'is-invalid': registerForm.get('gender').touched && registerForm.get('gender').invalid
               }"
             >
               <option selected disabled value="">Select Gender</option>
@@ -184,9 +145,7 @@
               <option value="Female">Female</option>
               <option value="Other">Other</option>
             </select>
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-6">
@@ -197,15 +156,11 @@
               class="form-control"
               formControlName="dateOfBirth"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('dateOfBirth').touched &&
-                  registerForm.get('dateOfBirth').invalid
+                'is-invalid': registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').invalid
               }"
               max="Date.now()"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -218,14 +173,10 @@
               class="form-control text-capitalize"
               formControlName="addressLine1"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('addressLine1').touched &&
-                  registerForm.get('addressLine1').invalid
+                'is-invalid': registerForm.get('addressLine1').touched && registerForm.get('addressLine1').invalid
               }"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -238,14 +189,10 @@
               class="form-control text-capitalize"
               formControlName="addressLine2"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('addressLine2').touched &&
-                  registerForm.get('addressLine2').invalid
+                'is-invalid': registerForm.get('addressLine2').touched && registerForm.get('addressLine2').invalid
               }"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -258,14 +205,10 @@
               class="form-control text-capitalize"
               formControlName="city"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('city').touched &&
-                  registerForm.get('city').invalid
+                'is-invalid': registerForm.get('city').touched && registerForm.get('city').invalid
               }"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -275,9 +218,7 @@
               class="form-control"
               formControlName="district"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('district').touched &&
-                  registerForm.get('district').invalid
+                'is-invalid': registerForm.get('district').touched && registerForm.get('district').invalid
               }"
             >
               <option selected disabled value="">Select District</option>
@@ -285,9 +226,7 @@
                 {{ dist.name }}
               </option>
             </select>
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -299,21 +238,12 @@
               formControlName="pin"
               maxlength="6"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('pin').touched &&
-                  registerForm.get('pin').invalid
+                'is-invalid': registerForm.get('pin').touched && registerForm.get('pin').invalid
               }"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="registerForm.get('pin').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="
-                  registerForm.get('pin').invalid &&
-                  !registerForm.get('pin').errors?.required
-                "
-              >
+              <span *ngIf="registerForm.get('pin').errors?.required">Field is required</span>
+              <span *ngIf="registerForm.get('pin').invalid && !registerForm.get('pin').errors?.required">
                 Invalid Pin Code</span
               >
             </span>
@@ -330,21 +260,12 @@
               formControlName="aadhaarNo"
               maxlength="12"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('aadhaarNo').touched &&
-                  registerForm.get('aadhaarNo').invalid
+                'is-invalid': registerForm.get('aadhaarNo').touched && registerForm.get('aadhaarNo').invalid
               }"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="registerForm.get('aadhaarNo').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="
-                  registerForm.get('aadhaarNo').invalid &&
-                  !registerForm.get('aadhaarNo').errors?.required
-                "
-              >
+              <span *ngIf="registerForm.get('aadhaarNo').errors?.required">Field is required</span>
+              <span *ngIf="registerForm.get('aadhaarNo').invalid && !registerForm.get('aadhaarNo').errors?.required">
                 Invalid Aadhaar No.</span
               >
             </span>
@@ -359,21 +280,12 @@
               formControlName="panNo"
               maxlength="10"
               [ngClass]="{
-                'is-invalid':
-                  registerForm.get('panNo').touched &&
-                  registerForm.get('panNo').invalid
+                'is-invalid': registerForm.get('panNo').touched && registerForm.get('panNo').invalid
               }"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="registerForm.get('panNo').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="
-                  registerForm.get('panNo').invalid &&
-                  !registerForm.get('panNo').errors?.required
-                "
-              >
+              <span *ngIf="registerForm.get('panNo').errors?.required">Field is required</span>
+              <span *ngIf="registerForm.get('panNo').invalid && !registerForm.get('panNo').errors?.required">
                 Invalid PAN No.</span
               >
             </span>
@@ -424,15 +336,11 @@
             (input)="validateFileUpload($event, 'doc1')"
             formControlName="file1"
             [ngClass]="{
-              'is-invalid':
-                registerForm.get('file1').touched &&
-                registerForm.get('file1').invalid
+              'is-invalid': registerForm.get('file1').touched && registerForm.get('file1').invalid
             }"
           />
           <span class="invalid-feedback alert alert-danger">
-            <span *ngIf="registerForm.get('file1').errors?.required"
-              >Field is required</span
-            >
+            <span *ngIf="registerForm.get('file1').errors?.required">Field is required</span>
           </span>
         </div>
         <div class="col-sm-4 mt-3">
@@ -444,15 +352,11 @@
             formControlName="file2"
             (input)="validateFileUpload($event, 'doc2')"
             [ngClass]="{
-              'is-invalid':
-                registerForm.get('file2').touched &&
-                registerForm.get('file2').invalid
+              'is-invalid': registerForm.get('file2').touched && registerForm.get('file2').invalid
             }"
           />
           <span class="invalid-feedback alert alert-danger">
-            <span *ngIf="registerForm.get('file2').errors?.required"
-              >Field is required</span
-            >
+            <span *ngIf="registerForm.get('file2').errors?.required">Field is required</span>
           </span>
         </div>
         <div class="col-sm-4 mt-3">
@@ -464,47 +368,32 @@
             formControlName="file3"
             (input)="validateFileUpload($event, 'doc3')"
             [ngClass]="{
-              'is-invalid':
-                registerForm.get('file3').touched &&
-                registerForm.get('file3').invalid
+              'is-invalid': registerForm.get('file3').touched && registerForm.get('file3').invalid
             }"
           />
           <span class="invalid-feedback alert alert-danger">
-            <span *ngIf="registerForm.get('file3').errors?.required"
-              >Field is required</span
-            >
+            <span *ngIf="registerForm.get('file3').errors?.required">Field is required</span>
           </span>
         </div>
       </div>
-      <div
-        class="row"
-        [hidden]="isFileValid1 || registerForm.get('file1').errors?.required"
-      >
+      <div class="row" [hidden]="isFileValid1 || registerForm.get('file1').errors?.required">
         <span class="col-sm-12 alert alert-danger m-3">
           Adhaar Card: File format should be .png .jpeg .jpg and less than 1MB.
         </span>
       </div>
-      <div
-        class="row"
-        [hidden]="isFileValid2 || registerForm.get('file2').errors?.required"
-      >
+      <div class="row" [hidden]="isFileValid2 || registerForm.get('file2').errors?.required">
         <span class="col-sm-12 alert alert-danger m-3">
           PAN Card: File format should be .png .jpeg .jpg and less than 1MB.
         </span>
       </div>
-      <div
-        class="row"
-        [hidden]="isFileValid3 || registerForm.get('file3').errors?.required"
-      >
+      <div class="row" [hidden]="isFileValid3 || registerForm.get('file3').errors?.required">
         <span class="col-sm-12 alert alert-danger m-3">
           Photo: File format should be .png .jpeg .jpg and less than 1MB.
         </span>
       </div>
       <div class="row mt-5">
         <div class="col-sm-12">
-          <mat-checkbox [(ngModel)]="isChecked" formControlName="terms"
-            >Accept Terms & Conditions
-          </mat-checkbox>
+          <mat-checkbox [(ngModel)]="isChecked" formControlName="terms">Accept Terms & Conditions </mat-checkbox>
         </div>
       </div>
       <div class="mt-5 text-center">
@@ -514,21 +403,9 @@
           value="Register"
           height="50px"
           (click)="onFormSubmit()"
-          [disabled]="
-            !registerForm.valid ||
-            !isFileValid1 ||
-            !isFileValid2 ||
-            !isFileValid3 ||
-            !isChecked
-          "
+          [disabled]="!registerForm.valid || !isFileValid1 || !isFileValid2 || !isFileValid3 || !isChecked"
         />
-        <input
-          type="button"
-          class="btn act-btn ml-2 pr-4 pl-4"
-          value="clear"
-          height="50px"
-          (click)="onFormReset()"
-        />
+        <input type="button" class="btn act-btn ml-2 pr-4 pl-4" value="clear" height="50px" (click)="onFormReset()" />
       </div>
     </form>
   </div>

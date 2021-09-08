@@ -17,14 +17,7 @@ export class EnquiriesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = [
-    'index',
-    'name',
-    'email',
-    'mobile',
-    'message',
-    'action',
-  ];
+  displayedColumns: string[] = ['index', 'name', 'email', 'mobile', 'message', 'action'];
   enquiries: any[] = [];
   showSpinner: boolean = false;
 

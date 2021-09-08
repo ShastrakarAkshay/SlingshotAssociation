@@ -13,9 +13,7 @@
               [ngClass]="{'is-invalid':eventForm.get('eventTitle').touched && eventForm.get('eventTitle').invalid}"
               [readonly]="!eventData.isDelete"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -30,9 +28,7 @@
               [ngClass]="{'is-invalid':eventForm.get('eventAddress').touched && eventForm.get('eventAddress').invalid}"
               [readonly]="!eventData.isDelete"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -47,9 +43,7 @@
               [ngClass]="{'is-invalid':eventForm.get('eventDate').touched && eventForm.get('eventDate').invalid}"
               [readonly]="!eventData.isDelete"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -64,9 +58,7 @@
               [ngClass]="{'is-invalid':eventForm.get('contactPersons').touched && eventForm.get('contactPersons').invalid}"
               [readonly]="!eventData.isDelete"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -81,9 +73,7 @@
               [ngClass]="{'is-invalid':eventForm.get('contactNumbers').touched && eventForm.get('contactNumbers').invalid}"
               [readonly]="!eventData.isDelete"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -100,35 +90,19 @@
               <option value="Active" class="text-success">Active</option>
               <option value="Inactive" class="text-danger">Inactive</option>
             </select>
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
     </form>
   </mat-dialog-content>
   <div mat-dialog-actions class="row justify-content-center">
-    <button
-      mat-button
-      class="btn sling-btn"
-      (click)="createEvent()"
-      [disabled]="!eventForm.valid"
-      *ngIf="!isEdit"
-    >
+    <button mat-button class="btn sling-btn" (click)="createEvent()" [disabled]="!eventForm.valid" *ngIf="!isEdit">
       Create
     </button>
-    <button
-      mat-button
-      class="btn sling-btn"
-      (click)="updateEvent()"
-      [disabled]="!eventForm.valid"
-      *ngIf="isEdit"
-    >
+    <button mat-button class="btn sling-btn" (click)="updateEvent()" [disabled]="!eventForm.valid" *ngIf="isEdit">
       Update
     </button>
-    <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>
-      Close
-    </button>
+    <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>Close</button>
   </div>
 </section>

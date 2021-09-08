@@ -15,21 +15,12 @@
                     placeholder="enter email"
                     height="50px"
                     [ngClass]="{
-                      'is-invalid':
-                        loginForm.get('email').touched &&
-                        loginForm.get('email').invalid
+                      'is-invalid': loginForm.get('email').touched && loginForm.get('email').invalid
                     }"
                   />
                   <span class="invalid-feedback alert alert-danger">
-                    <span *ngIf="loginForm.get('email').errors?.required"
-                      >Field is required</span
-                    >
-                    <span
-                      *ngIf="
-                        loginForm.get('email').invalid &&
-                        !loginForm.get('email').errors?.required
-                      "
-                    >
+                    <span *ngIf="loginForm.get('email').errors?.required">Field is required</span>
+                    <span *ngIf="loginForm.get('email').invalid && !loginForm.get('email').errors?.required">
                       Invalid email.</span
                     >
                   </span>
@@ -44,15 +35,11 @@
                     (keyup.enter)="login()"
                     formControlName="password"
                     [ngClass]="{
-                      'is-invalid':
-                        loginForm.get('password').touched &&
-                        loginForm.get('password').invalid
+                      'is-invalid': loginForm.get('password').touched && loginForm.get('password').invalid
                     }"
                     height="50px"
                   />
-                  <span class="invalid-feedback alert alert-danger">
-                    Field is required
-                  </span>
+                  <span class="invalid-feedback alert alert-danger"> Field is required </span>
                 </div>
               </div>
               <div class="col">
@@ -67,9 +54,7 @@
                 </div>
               </div>
               <div class="col text-center">
-                <a class="text-muted forgotPass" (click)="forgotPassword()"
-                  >Forgot Password?</a
-                >
+                <a class="text-muted forgotPass" (click)="forgotPassword()">Forgot Password?</a>
               </div>
             </form>
           </div>
@@ -115,10 +100,7 @@
               </div>
               <div class="col mt-3 text-center">
                 <span (click)="forgotPassword()" matTooltip="Back"
-                  ><i
-                    class="fa fa-arrow-circle-o-left"
-                    style="font-size: 30px"
-                  ></i
+                  ><i class="fa fa-arrow-circle-o-left" style="font-size: 30px"></i
                 ></span>
               </div>
             </div>

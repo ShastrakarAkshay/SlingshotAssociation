@@ -1,7 +1,5 @@
 <section id="dialog">
-  <h3 class="text-center bg-dark text-white p-3 text-capitalize dialog-header">
-    Referee Info
-  </h3>
+  <h3 class="text-center bg-dark text-white p-3 text-capitalize dialog-header">Referee Info</h3>
   <mat-dialog-content>
     <div class="row justify-content-center">
       <div class="col-sm-12">
@@ -17,17 +15,12 @@
                 <strong>
                   <span *ngIf="referee.gender === 'Male'">Mr.</span>
                   <span *ngIf="referee.gender === 'Female'">Miss.</span>
-                  {{referee.firstName}} {{referee.middleName}}
-                  {{referee.lastName}}</strong
+                  {{referee.firstName}} {{referee.middleName}} {{referee.lastName}}</strong
                 >
               </h4>
-              <span class="text-info font-weight-bold"
-                >({{referee.mobile}})</span
-              >
+              <span class="text-info font-weight-bold">({{referee.mobile}})</span>
               <br />
-              <span class="text-lowercase"
-                ><i class="fa fa-envelope mr-2"></i> {{referee.email}}</span
-              >
+              <span class="text-lowercase"><i class="fa fa-envelope mr-2"></i> {{referee.email}}</span>
             </div>
             <hr />
             <div class="info dialog-info mt-3 ml-3 mr-3 text-center">
@@ -35,14 +28,13 @@
                 <i class="fa fa-map-marker mr-2"></i>
                 <span class="font-weight-bold">Address</span>
                 <br />
-                {{referee.address}}, {{referee.city}}, {{referee.district}}, Pin
-                Code - {{referee.pin}}
+                {{referee.address}}, {{referee.city}}, {{referee.district}}, Pin Code - {{referee.pin}}
               </p>
               <p>
                 <span class="font-weight-bold">Date Of Birth</span>
                 <br />
-                {{referee.dateOfBirth | date: 'dd'}} {{referee.dateOfBirth |
-                date: 'MMM'}} {{referee.dateOfBirth | date: 'yyyy'}}
+                {{referee.dateOfBirth | date: 'dd'}} {{referee.dateOfBirth | date: 'MMM'}} {{referee.dateOfBirth | date:
+                'yyyy'}}
               </p>
               <p>
                 <span class="font-weight-bold">Aadhaar No</span>

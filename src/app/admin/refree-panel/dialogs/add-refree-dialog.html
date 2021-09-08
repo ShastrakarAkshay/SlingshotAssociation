@@ -19,9 +19,7 @@
               formControlName="firstName"
               [ngClass]="{'is-invalid':refreeForm.get('firstName').touched && refreeForm.get('firstName').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -33,9 +31,7 @@
               formControlName="middleName"
               [ngClass]="{'is-invalid':refreeForm.get('middleName').touched && refreeForm.get('middleName').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -47,9 +43,7 @@
               formControlName="lastName"
               [ngClass]="{'is-invalid':refreeForm.get('lastName').touched && refreeForm.get('lastName').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -67,9 +61,7 @@
               <option value="Female">Female</option>
               <option value="Other">Other</option>
             </select>
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -82,12 +74,8 @@
               [ngClass]="{'is-invalid':refreeForm.get('email').touched && refreeForm.get('email').invalid}"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="refreeForm.get('email').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="refreeForm.get('email').invalid && !refreeForm.get('email').errors?.required"
-              >
+              <span *ngIf="refreeForm.get('email').errors?.required">Field is required</span>
+              <span *ngIf="refreeForm.get('email').invalid && !refreeForm.get('email').errors?.required">
                 Invalid email.</span
               >
             </span>
@@ -105,12 +93,8 @@
               [ngClass]="{'is-invalid':refreeForm.get('mobile').touched && refreeForm.get('mobile').invalid}"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="refreeForm.get('mobile').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="refreeForm.get('mobile').invalid && !refreeForm.get('mobile').errors?.required"
-              >
+              <span *ngIf="refreeForm.get('mobile').errors?.required">Field is required</span>
+              <span *ngIf="refreeForm.get('mobile').invalid && !refreeForm.get('mobile').errors?.required">
                 Invalid Mobile Number</span
               >
             </span>
@@ -127,9 +111,7 @@
               formControlName="address"
               [ngClass]="{'is-invalid':refreeForm.get('address').touched && refreeForm.get('address').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -143,9 +125,7 @@
               formControlName="city"
               [ngClass]="{'is-invalid':refreeForm.get('city').touched && refreeForm.get('city').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -157,13 +137,9 @@
               [ngClass]="{'is-invalid':refreeForm.get('district').touched && refreeForm.get('district').invalid}"
             >
               <option selected disabled>select district</option>
-              <option *ngFor="let dist of allDistricts" value="{{dist.name}}">
-                {{dist.name}}
-              </option>
+              <option *ngFor="let dist of allDistricts" value="{{dist.name}}">{{dist.name}}</option>
             </select>
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -177,12 +153,8 @@
               [ngClass]="{'is-invalid':refreeForm.get('pin').touched && refreeForm.get('pin').invalid}"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="refreeForm.get('pin').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="refreeForm.get('pin').invalid && !refreeForm.get('pin').errors?.required"
-              >
+              <span *ngIf="refreeForm.get('pin').errors?.required">Field is required</span>
+              <span *ngIf="refreeForm.get('pin').invalid && !refreeForm.get('pin').errors?.required">
                 Invalid Pin Code</span
               >
             </span>
@@ -201,12 +173,8 @@
               [ngClass]="{'is-invalid':refreeForm.get('aadhaarNo').touched && refreeForm.get('aadhaarNo').invalid}"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="refreeForm.get('aadhaarNo').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="refreeForm.get('aadhaarNo').invalid && !refreeForm.get('aadhaarNo').errors?.required"
-              >
+              <span *ngIf="refreeForm.get('aadhaarNo').errors?.required">Field is required</span>
+              <span *ngIf="refreeForm.get('aadhaarNo').invalid && !refreeForm.get('aadhaarNo').errors?.required">
                 Invalid Aadhaar No.</span
               >
             </span>
@@ -222,9 +190,7 @@
               [ngClass]="{'is-invalid':refreeForm.get('dateOfBirth').touched && refreeForm.get('dateOfBirth').invalid}"
               max="Date.now()"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -248,41 +214,20 @@
               matTooltip="should be image file and less than 1MB"
             ></i
           ></label>
-          <input
-            type="file"
-            id="files3"
-            name="files"
-            (input)="validatefile($event)"
-          />
-          <div class="alert alert-danger mt-2" *ngIf="!isFileValid">
-            Invalid File
-          </div>
+          <input type="file" id="files3" name="files" (input)="validatefile($event)" />
+          <div class="alert alert-danger mt-2" *ngIf="!isFileValid">Invalid File</div>
         </div>
       </div>
     </form>
   </mat-dialog-content>
   <div mat-dialog-actions class="row justify-content-center">
-    <button
-      mat-button
-      class="btn sling-btn"
-      (click)="saveForm()"
-      [disabled]="!refreeForm.valid"
-      *ngIf="!isEdit"
-    >
+    <button mat-button class="btn sling-btn" (click)="saveForm()" [disabled]="!refreeForm.valid" *ngIf="!isEdit">
       Create
     </button>
-    <button
-      mat-button
-      class="btn sling-btn"
-      (click)="updateForm()"
-      [disabled]="!refreeForm.valid"
-      *ngIf="isEdit"
-    >
+    <button mat-button class="btn sling-btn" (click)="updateForm()" [disabled]="!refreeForm.valid" *ngIf="isEdit">
       Update
     </button>
-    <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>
-      Close
-    </button>
+    <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>Close</button>
   </div>
 
   <div *ngIf="showSpinner">

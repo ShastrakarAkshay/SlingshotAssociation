@@ -2,11 +2,7 @@ import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SlingshotService } from 'src/app/shared/services/slingshot.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -25,14 +21,7 @@ export class RefreePanelComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = [
-    'index',
-    'name',
-    'email',
-    'mobile',
-    'district',
-    'actions',
-  ];
+  displayedColumns: string[] = ['index', 'name', 'email', 'mobile', 'district', 'actions'];
 
   refreeData: any[] = [];
   showSpinner: boolean = false;
@@ -275,9 +264,7 @@ export class AddRefreeDialog implements OnInit {
           )
           .subscribe((url) => {
             //Delete old document
-            let OldId = this.refreeData.documents
-              ? this.refreeData.documents.id
-              : null;
+            let OldId = this.refreeData.documents ? this.refreeData.documents.id : null;
             if (OldId) {
               this.afStorage.storage.ref().child(`Referee/${OldId}`).delete();
             }

@@ -1,11 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmPasswordValidator } from './confirm-password.validator';
-import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  MatDialog,
-} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DistrictConfig } from '../shared/interfaces/slingshot.interface';
 import { SlingshotService } from '../shared/services/slingshot.service';
@@ -13,11 +9,7 @@ import { AuthService } from '../shared/services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ConfirmDialogComponent } from '../shared/dialogs/confirm-dialog/confirm-dialog.component';
 import { UtilityService } from '../shared/services/utility.service';
-import {
-  AngularFireStorage,
-  AngularFireStorageReference,
-  AngularFireUploadTask,
-} from '@angular/fire/storage';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { finalize, take, last, switchMap } from 'rxjs/operators';
@@ -79,10 +71,7 @@ export class AssociationComponent implements OnInit {
       district: ['', Validators.required],
       pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
       aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
-      panNo: [
-        '',
-        [Validators.required, Validators.pattern(/[0-9 a-z A-Z]{10}/)],
-      ],
+      panNo: ['', [Validators.required, Validators.pattern(/[0-9 a-z A-Z]{10}/)]],
       email: ['', [Validators.required, Validators.email]],
       // password: ['', [Validators.required, Validators.minLength(8)]],
       // confirmPassword: ['', Validators.required],
@@ -224,11 +213,7 @@ export class AssociationComponent implements OnInit {
       this.isFileValid3 = false;
       this.photoEvent = e;
     }
-    if (
-      (file && file.type == 'image/png') ||
-      file.type == 'image/jpg' ||
-      file.type == 'image/jpeg'
-    ) {
+    if ((file && file.type == 'image/png') || file.type == 'image/jpg' || file.type == 'image/jpeg') {
       if (file.size <= 1000000)
         if (doc == 'doc1') this.isFileValid1 = true;
         else if (doc == 'doc2') this.isFileValid2 = true;

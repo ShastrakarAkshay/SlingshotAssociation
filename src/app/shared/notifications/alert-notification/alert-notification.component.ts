@@ -7,10 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./alert-notification.component.scss'],
 })
 export class AlertNotificationComponent implements OnInit {
-  constructor(
-    public _dialogRef: MatDialogRef<AlertNotificationComponent>,
-    @Inject(MAT_DIALOG_DATA) public data
-  ) {
+  constructor(public _dialogRef: MatDialogRef<AlertNotificationComponent>, @Inject(MAT_DIALOG_DATA) public data) {
     _dialogRef.disableClose = true;
   }
 

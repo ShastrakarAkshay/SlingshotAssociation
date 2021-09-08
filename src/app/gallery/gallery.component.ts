@@ -12,10 +12,7 @@ export class GalleryComponent implements OnInit {
   showSpinner: boolean = false;
   imageList: any[] = [[], [], []];
 
-  constructor(
-    private afStorage: AngularFireStorage,
-    private _spinner: NgxSpinnerService
-  ) {}
+  constructor(private afStorage: AngularFireStorage, private _spinner: NgxSpinnerService) {}
 
   ngOnInit() {
     window.scrollTo(0, 0);

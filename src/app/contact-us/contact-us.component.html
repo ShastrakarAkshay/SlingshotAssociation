@@ -9,10 +9,7 @@
         <div class="col-sm-4 mt-3">
           <span><i class="fa fa-map-marker"></i></span>
           <br />
-          <p>
-            Matoshree Niwas, Dhamangaon By-Pass, Pimpalgaon, Yavatmal,
-            Maharashtra, Pin Code - 445001.
-          </p>
+          <p>Matoshree Niwas, Dhamangaon By-Pass, Pimpalgaon, Yavatmal, Maharashtra, Pin Code - 445001.</p>
         </div>
         <div class="col-sm-4 mt-3">
           <span><i class="fa fa-phone"></i></span>
@@ -44,29 +41,15 @@
               <h4 class="mt-3 member-name">
                 <strong>{{ member.name }}</strong>
               </h4>
-              <span class="text-info font-weight-bold"
-                >({{ member.role }})</span
-              >
+              <span class="text-info font-weight-bold">({{ member.role }})</span>
               <br />
               <span>{{ member.email }}</span>
               <br />
               <span>{{ member.mobile }}</span>
               <div class="social-icons mt-3">
-                <i
-                  class="fa fa-phone"
-                  [matTooltip]="member.mobile"
-                  matTooltipPosition="above"
-                ></i>
-                <i
-                  class="fa fa-envelope"
-                  [matTooltip]="member.email"
-                  matTooltipPosition="above"
-                ></i>
-                <i
-                  class="fa fa-facebook"
-                  matTooltip="facebook"
-                  matTooltipPosition="above"
-                ></i>
+                <i class="fa fa-phone" [matTooltip]="member.mobile" matTooltipPosition="above"></i>
+                <i class="fa fa-envelope" [matTooltip]="member.email" matTooltipPosition="above"></i>
+                <i class="fa fa-facebook" matTooltip="facebook" matTooltipPosition="above"></i>
               </div>
             </div>
           </div>
@@ -104,14 +87,10 @@
                   placeholder="First Name"
                   formControlName="firstName"
                   [ngClass]="{
-                    'is-invalid':
-                      contactForm.get('firstName')?.touched &&
-                      contactForm.get('firstName').invalid
+                    'is-invalid': contactForm.get('firstName')?.touched && contactForm.get('firstName').invalid
                   }"
                 />
-                <span class="invalid-feedback alert alert-danger">
-                  Field is required
-                </span>
+                <span class="invalid-feedback alert alert-danger"> Field is required </span>
               </div>
             </div>
             <div class="col-sm-6">
@@ -122,14 +101,10 @@
                   placeholder="Last Name"
                   formControlName="lastName"
                   [ngClass]="{
-                    'is-invalid':
-                      contactForm.get('lastName')?.touched &&
-                      contactForm.get('lastName').invalid
+                    'is-invalid': contactForm.get('lastName')?.touched && contactForm.get('lastName').invalid
                   }"
                 />
-                <span class="invalid-feedback alert alert-danger">
-                  Field is required
-                </span>
+                <span class="invalid-feedback alert alert-danger"> Field is required </span>
               </div>
             </div>
           </div>
@@ -142,21 +117,12 @@
                   placeholder="Email"
                   formControlName="email"
                   [ngClass]="{
-                    'is-invalid':
-                      contactForm.get('email')?.touched &&
-                      contactForm.get('email').invalid
+                    'is-invalid': contactForm.get('email')?.touched && contactForm.get('email').invalid
                   }"
                 />
                 <span class="invalid-feedback alert alert-danger">
-                  <span *ngIf="contactForm.get('email').errors?.required"
-                    >Field is required</span
-                  >
-                  <span
-                    *ngIf="
-                      contactForm.get('email').invalid &&
-                      !contactForm.get('email').errors?.required
-                    "
-                  >
+                  <span *ngIf="contactForm.get('email').errors?.required">Field is required</span>
+                  <span *ngIf="contactForm.get('email').invalid && !contactForm.get('email').errors?.required">
                     Invalid email.</span
                   >
                 </span>
@@ -174,21 +140,12 @@
                   minlength="10"
                   maxlength="10"
                   [ngClass]="{
-                    'is-invalid':
-                      contactForm.get('mobile')?.touched &&
-                      contactForm.get('mobile').invalid
+                    'is-invalid': contactForm.get('mobile')?.touched && contactForm.get('mobile').invalid
                   }"
                 />
                 <span class="invalid-feedback alert alert-danger">
-                  <span *ngIf="contactForm.get('mobile').errors?.required"
-                    >Field is required</span
-                  >
-                  <span
-                    *ngIf="
-                      contactForm.get('mobile').invalid &&
-                      !contactForm.get('mobile').errors?.required
-                    "
-                  >
+                  <span *ngIf="contactForm.get('mobile').errors?.required">Field is required</span>
+                  <span *ngIf="contactForm.get('mobile').invalid && !contactForm.get('mobile').errors?.required">
                     Invalid Mobile Number</span
                   >
                 </span>
@@ -205,14 +162,10 @@
                   placeholder="Message"
                   formControlName="message"
                   [ngClass]="{
-                    'is-invalid':
-                      contactForm.get('message')?.touched &&
-                      contactForm.get('message').invalid
+                    'is-invalid': contactForm.get('message')?.touched && contactForm.get('message').invalid
                   }"
                 ></textarea>
-                <span class="invalid-feedback alert alert-danger">
-                  Field is required
-                </span>
+                <span class="invalid-feedback alert alert-danger"> Field is required </span>
               </div>
             </div>
           </div>

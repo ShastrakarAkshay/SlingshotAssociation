@@ -1,23 +1,14 @@
 <section class="dialog">
-  <h3 class="text-center bg-dark text-white p-3 text-capitalize dialog-header">
-    {{title}}
-  </h3>
+  <h3 class="text-center bg-dark text-white p-3 text-capitalize dialog-header">{{title}}</h3>
   <mat-dialog-content>
-    <div
-      class="member-data"
-      *ngFor="let member of personData.members, let i = index;"
-    >
+    <div class="member-data" *ngFor="let member of personData.members, let i = index;">
       <table class="table table-bordered mt-3" width="100%">
         <tbody>
           <tr>
             <td width="30%" class=""><strong>Name</strong></td>
             <td width="70%" class="text-capitalize">
-              <i class="fa fa-user-circle mr-1"></i> {{member.firstName}}
-              {{member.middleName}} {{member.lastName}}
-              <div
-                class="pull-right"
-                *ngIf="i === 1 && personData.status !== 'rejected'"
-              >
+              <i class="fa fa-user-circle mr-1"></i> {{member.firstName}} {{member.middleName}} {{member.lastName}}
+              <div class="pull-right" *ngIf="i === 1 && personData.status !== 'rejected'">
                 <a
                   class="btn text-danger pointer"
                   (click)="deleteUser(member.id)"
@@ -30,15 +21,13 @@
           </tr>
           <tr>
             <td width="30%" class=""><strong>Role</strong></td>
-            <td width="70%" class="text-capitalize text-info">
-              {{member.role}}
-            </td>
+            <td width="70%" class="text-capitalize text-info">{{member.role}}</td>
           </tr>
           <tr>
             <td width="30%" class=""><strong>Address</strong></td>
             <td width="70%" class="text-capitalize">
-              {{member.addressLine1}}, {{member.addressLine2}}, {{member.city}},
-              {{member.district}}, Pin Code - {{member.pin}}.
+              {{member.addressLine1}}, {{member.addressLine2}}, {{member.city}}, {{member.district}}, Pin Code -
+              {{member.pin}}.
             </td>
           </tr>
           <tr>
@@ -52,8 +41,8 @@
           <tr>
             <td width="30%" class=""><strong>Date of Birth</strong></td>
             <td width="70%">
-              {{member.dateOfBirth | date: 'dd'}}-{{member.dateOfBirth | date:
-              'MMM'}}-{{member.dateOfBirth | date: 'yyy'}}
+              {{member.dateOfBirth | date: 'dd'}}-{{member.dateOfBirth | date: 'MMM'}}-{{member.dateOfBirth | date:
+              'yyy'}}
             </td>
           </tr>
           <tr>
@@ -144,18 +133,9 @@
           <tr>
             <td width="30%"><strong>Action</strong></td>
             <td width="70%">
-              <div
-                class="row"
-                *ngIf="personData.status === 'approved' && personData.members.length == 1"
-              >
+              <div class="row" *ngIf="personData.status === 'approved' && personData.members.length == 1">
                 <div class="col">
-                  <button
-                    mat-button
-                    color="primary"
-                    (click)="addMember(personData)"
-                  >
-                    Add Member
-                  </button>
+                  <button mat-button color="primary" (click)="addMember(personData)">Add Member</button>
                 </div>
               </div>
             </td>
@@ -167,26 +147,10 @@
 
   <div mat-dialog-actions class="row justify-content-center">
     <div *ngIf="!isReadOnly">
-      <button
-        mat-button
-        class="btn sling-btn"
-        (click)="approveDistrict(personData)"
-        *ngIf="!flag"
-      >
-        Approve
-      </button>
-      <button
-        mat-button
-        class="btn btn-danger"
-        (click)="deleteAffiliation()"
-        *ngIf="flag"
-      >
-        Delete Affiliation
-      </button>
+      <button mat-button class="btn sling-btn" (click)="approveDistrict(personData)" *ngIf="!flag">Approve</button>
+      <button mat-button class="btn btn-danger" (click)="deleteAffiliation()" *ngIf="flag">Delete Affiliation</button>
     </div>
-    <button mat-button class="btn sling-btn ml-2" (click)="close()">
-      Close
-    </button>
+    <button mat-button class="btn sling-btn ml-2" (click)="close()">Close</button>
   </div>
 
   <!-- <div *ngIf="showSpinner">

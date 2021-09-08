@@ -1,9 +1,5 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import {
-  MatDialogRef,
-  MatDialog,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SlingshotService } from 'src/app/shared/services/slingshot.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -24,13 +20,7 @@ export class EventsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = [
-    'index',
-    'eventTitle',
-    'eventDate',
-    'status',
-    'actions',
-  ];
+  displayedColumns: string[] = ['index', 'eventTitle', 'eventDate', 'status', 'actions'];
 
   eventData: any[] = [];
   showSpinner: boolean = false;
@@ -181,10 +171,7 @@ export class CreateEventDialog implements OnInit {
     if (this.eventData.isDelete) {
       this._service.updateEventById(this.eventData.id, this.eventForm.value);
     } else {
-      this._service.updateEventStatusById(
-        this.eventData.id,
-        this.eventForm.get('status').value
-      );
+      this._service.updateEventStatusById(this.eventData.id, this.eventForm.get('status').value);
     }
     this._toastr.success('Event Updated Successfully.');
     this.close();

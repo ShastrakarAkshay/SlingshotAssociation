@@ -1,7 +1,5 @@
 <section class="dialog">
-  <h3 class="text-center bg-dark text-white p-3 text-capitalize dialog-header">
-    Add Member
-  </h3>
+  <h3 class="text-center bg-dark text-white p-3 text-capitalize dialog-header">Add Member</h3>
   <mat-dialog-content>
     <form class="mt-4" [formGroup]="registerForm">
       <div class="row mt-5">
@@ -14,9 +12,7 @@
               formControlName="firstName"
               [ngClass]="{'is-invalid':registerForm.get('firstName').touched && registerForm.get('firstName').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -28,9 +24,7 @@
               formControlName="middleName"
               [ngClass]="{'is-invalid':registerForm.get('middleName').touched && registerForm.get('middleName').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -42,9 +36,7 @@
               formControlName="lastName"
               [ngClass]="{'is-invalid':registerForm.get('lastName').touched && registerForm.get('lastName').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -59,12 +51,8 @@
               [ngClass]="{'is-invalid':registerForm.get('email').touched && registerForm.get('email').invalid}"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="registerForm.get('email').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="registerForm.get('email').invalid && !registerForm.get('email').errors?.required"
-              >
+              <span *ngIf="registerForm.get('email').errors?.required">Field is required</span>
+              <span *ngIf="registerForm.get('email').invalid && !registerForm.get('email').errors?.required">
                 Invalid email.</span
               >
             </span>
@@ -81,12 +69,8 @@
               [ngClass]="{'is-invalid':registerForm.get('mobile').touched && registerForm.get('mobile').invalid}"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="registerForm.get('mobile').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="registerForm.get('mobile').invalid && !registerForm.get('mobile').errors?.required"
-              >
+              <span *ngIf="registerForm.get('mobile').errors?.required">Field is required</span>
+              <span *ngIf="registerForm.get('mobile').invalid && !registerForm.get('mobile').errors?.required">
                 Invalid Mobile Number</span
               >
             </span>
@@ -107,9 +91,7 @@
               <option value="Female">Female</option>
               <option value="Other">Other</option>
             </select>
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-6">
@@ -122,9 +104,7 @@
               [ngClass]="{'is-invalid':registerForm.get('dateOfBirth').touched && registerForm.get('dateOfBirth').invalid}"
               max="Date.now()"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -138,9 +118,7 @@
               formControlName="addressLine1"
               [ngClass]="{'is-invalid':registerForm.get('addressLine1').touched && registerForm.get('addressLine1').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -154,9 +132,7 @@
               formControlName="addressLine2"
               [ngClass]="{'is-invalid':registerForm.get('addressLine2').touched && registerForm.get('addressLine2').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
       </div>
@@ -170,9 +146,7 @@
               formControlName="city"
               [ngClass]="{'is-invalid':registerForm.get('city').touched && registerForm.get('city').invalid}"
             />
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -184,13 +158,9 @@
               [ngClass]="{'is-invalid':registerForm.get('district').touched && registerForm.get('district').invalid}"
             >
               <option selected disabled value="">Select District</option>
-              <option *ngFor="let dist of allDistricts" value="{{dist.name}}">
-                {{dist.name}}
-              </option>
+              <option *ngFor="let dist of allDistricts" value="{{dist.name}}">{{dist.name}}</option>
             </select>
-            <span class="invalid-feedback alert alert-danger">
-              Field is required
-            </span>
+            <span class="invalid-feedback alert alert-danger"> Field is required </span>
           </div>
         </div>
         <div class="col-sm-4">
@@ -204,12 +174,8 @@
               [ngClass]="{'is-invalid':registerForm.get('pin').touched && registerForm.get('pin').invalid}"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="registerForm.get('pin').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="registerForm.get('pin').invalid && !registerForm.get('pin').errors?.required"
-              >
+              <span *ngIf="registerForm.get('pin').errors?.required">Field is required</span>
+              <span *ngIf="registerForm.get('pin').invalid && !registerForm.get('pin').errors?.required">
                 Invalid Pin Code</span
               >
             </span>
@@ -228,12 +194,8 @@
               [ngClass]="{'is-invalid':registerForm.get('aadhaarNo').touched && registerForm.get('aadhaarNo').invalid}"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="registerForm.get('aadhaarNo').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="registerForm.get('aadhaarNo').invalid && !registerForm.get('aadhaarNo').errors?.required"
-              >
+              <span *ngIf="registerForm.get('aadhaarNo').errors?.required">Field is required</span>
+              <span *ngIf="registerForm.get('aadhaarNo').invalid && !registerForm.get('aadhaarNo').errors?.required">
                 Invalid Aadhaar No.</span
               >
             </span>
@@ -250,12 +212,8 @@
               [ngClass]="{'is-invalid':registerForm.get('panNo').touched && registerForm.get('panNo').invalid}"
             />
             <span class="invalid-feedback alert alert-danger">
-              <span *ngIf="registerForm.get('panNo').errors?.required"
-                >Field is required</span
-              >
-              <span
-                *ngIf="registerForm.get('panNo').invalid && !registerForm.get('panNo').errors?.required"
-              >
+              <span *ngIf="registerForm.get('panNo').errors?.required">Field is required</span>
+              <span *ngIf="registerForm.get('panNo').invalid && !registerForm.get('panNo').errors?.required">
                 Invalid PAN No.</span
               >
             </span>
@@ -274,31 +232,15 @@
                 matTooltip="should be image file and less than 1MB"
               ></i> </strong
           ></label>
-          <input
-            type="file"
-            id="files3"
-            name="files"
-            (input)="validatefile($event)"
-          />
-          <div class="alert alert-danger mt-2" *ngIf="!isFileValid">
-            Invalid File
-          </div>
+          <input type="file" id="files3" name="files" (input)="validatefile($event)" />
+          <div class="alert alert-danger mt-2" *ngIf="!isFileValid">Invalid File</div>
         </div>
       </div>
     </form>
   </mat-dialog-content>
   <div mat-dialog-actions class="bg-light row justify-content-center">
-    <button
-      mat-button
-      class="btn sling-btn"
-      (click)="uploadPhoto()"
-      [disabled]="!registerForm.valid"
-    >
-      Add
-    </button>
-    <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>
-      Close
-    </button>
+    <button mat-button class="btn sling-btn" (click)="uploadPhoto()" [disabled]="!registerForm.valid">Add</button>
+    <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>Close</button>
   </div>
 
   <div *ngIf="showSpinner">

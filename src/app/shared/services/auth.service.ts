@@ -2,11 +2,7 @@ import { Injectable, NgZone, Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  MatDialog,
-} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
@@ -31,11 +27,9 @@ export class AuthService {
   ) {}
 
   signUp(data): any {
-    return this.afAuth.auth
-      .createUserWithEmailAndPassword(data.email, data.password)
-      .then((result) => {
-        // Do something...
-      });
+    return this.afAuth.auth.createUserWithEmailAndPassword(data.email, data.password).then((result) => {
+      // Do something...
+    });
   }
 
   async signIn(email, password) {

@@ -1,16 +1,6 @@
-import {
-  Component,
-  OnInit,
-  Inject,
-  ViewChild,
-  ElementRef,
-} from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  MatDialog,
-} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { UtilityService } from 'src/app/shared/services/utility.service';
 import { SlingshotService } from 'src/app/shared/services/slingshot.service';
@@ -32,15 +22,7 @@ export class MatchEventResultsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = [
-    'index',
-    'eventName',
-    'candidateName',
-    'district',
-    'score',
-    'rank',
-    'action',
-  ];
+  displayedColumns: string[] = ['index', 'eventName', 'candidateName', 'district', 'score', 'rank', 'action'];
 
   results: any[] = [];
   showSpinner: boolean = false;
@@ -220,10 +202,7 @@ export class MatchResultsDialog implements OnInit {
     if (this.resultForm.invalid) {
       return;
     }
-    this._service.updateMatchResults(
-      this.resultData.id,
-      this.getData(this.resultForm.value)
-    );
+    this._service.updateMatchResults(this.resultData.id, this.getData(this.resultForm.value));
     this._toastr.success('Result Updated Successfully.');
     this.close();
   }

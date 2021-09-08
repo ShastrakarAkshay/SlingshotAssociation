@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  Action,
-  AngularFirestore,
-  DocumentSnapshot,
-} from '@angular/fire/firestore';
+import { Action, AngularFirestore, DocumentSnapshot } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, of } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -64,39 +60,23 @@ export class SlingshotService {
   // }
 
   getAppSettings(): Observable<Action<DocumentSnapshot<unknown>>> {
-    return this.firestore
-      .collection('AppSettings')
-      .doc('sa-settings-00001')
-      .snapshotChanges();
+    return this.firestore.collection('AppSettings').doc('sa-settings-00001').snapshotChanges();
   }
 
   getAllDistricts(): any {
-    return this.firestore
-      .collection('DistrictList', (ref) => ref.orderBy('name', 'asc'))
-      .snapshotChanges();
+    return this.firestore.collection('DistrictList', (ref) => ref.orderBy('name', 'asc')).snapshotChanges();
   }
 
   getAvailabelDistricts(): any {
-    return this.firestore
-      .collection('DistrictList', (ref) =>
-        ref.where('isRegistered', '==', false)
-      )
-      .snapshotChanges();
+    return this.firestore.collection('DistrictList', (ref) => ref.where('isRegistered', '==', false)).snapshotChanges();
   }
 
   getRegisteredDistricts(): any {
-    return this.firestore
-      .collection('DistrictList', (ref) =>
-        ref.where('isRegistered', '==', true)
-      )
-      .snapshotChanges();
+    return this.firestore.collection('DistrictList', (ref) => ref.where('isRegistered', '==', true)).snapshotChanges();
   }
 
   getRegisteredDistrictInfoById(id: string): any {
-    return this.firestore
-      .collection('ApprovedDistricts')
-      .doc(id)
-      .snapshotChanges();
+    return this.firestore.collection('ApprovedDistricts').doc(id).snapshotChanges();
   }
 
   districtRegistration(data: any, userID: any) {
@@ -105,9 +85,7 @@ export class SlingshotService {
 
   getAffiliationRequests(): any {
     return this.firestore
-      .collection('AffiliationRequests', (ref) =>
-        ref.orderBy('createdDate', 'desc')
-      )
+      .collection('AffiliationRequests', (ref) => ref.orderBy('createdDate', 'desc'))
       .snapshotChanges();
   }
 
@@ -115,10 +93,7 @@ export class SlingshotService {
     this.firestore.collection('AffiliationRequests').doc(id).delete();
     // delete images from storage
     if (doc) {
-      this.storage.storage
-        .ref()
-        .child(`Affiliations/${doc.adhaar.id}`)
-        .delete();
+      this.storage.storage.ref().child(`Affiliations/${doc.adhaar.id}`).delete();
       this.storage.storage.ref().child(`Affiliations/${doc.pan.id}`).delete();
       this.storage.storage.ref().child(`Affiliations/${doc.photo.id}`).delete();
     }
@@ -128,19 +103,10 @@ export class SlingshotService {
     let members = districtData.members;
     members.forEach((member) => {
       if (member.documents) {
-        this.storage.storage
-          .ref()
-          .child(`Affiliations/${member.documents.photo.id}`)
-          .delete();
+        this.storage.storage.ref().child(`Affiliations/${member.documents.photo.id}`).delete();
         if (member.role === 'President') {
-          this.storage.storage
-            .ref()
-            .child(`Affiliations/${member.documents.adhaar.id}`)
-            .delete();
-          this.storage.storage
-            .ref()
-            .child(`Affiliations/${member.documents.pan.id}`)
-            .delete();
+          this.storage.storage.ref().child(`Affiliations/${member.documents.adhaar.id}`).delete();
+          this.storage.storage.ref().child(`Affiliations/${member.documents.pan.id}`).delete();
         }
       }
     });
@@ -156,32 +122,17 @@ export class SlingshotService {
   }
 
   approveDistrict(districtData: any): any {
-    return this.firestore
-      .collection('ApprovedDistricts')
-      .doc(districtData.requestedDistrict.id)
-      .snapshotChanges();
+    return this.firestore.collection('ApprovedDistricts').doc(districtData.requestedDistrict.id).snapshotChanges();
   }
 
   getApprovedDistrictInfo(): any {
-    return this.firestore
-      .collection('ApprovedDistricts', (ref) =>
-        ref.orderBy('approvedOn', 'desc')
-      )
-      .snapshotChanges();
+    return this.firestore.collection('ApprovedDistricts', (ref) => ref.orderBy('approvedOn', 'desc')).snapshotChanges();
   }
 
   deleteDistrictAffiliation(data: any): any {
-    this.firestore
-      .collection('OLD_AFFILIATIONS')
-      .add({ ...data, status: 'rejected' });
-    this.firestore
-      .collection('DistrictList')
-      .doc(data.requestedDistrict.id)
-      .update({ isRegistered: false });
-    this.firestore
-      .collection('ApprovedDistricts')
-      .doc(data.requestedDistrict.id)
-      .delete();
+    this.firestore.collection('OLD_AFFILIATIONS').add({ ...data, status: 'rejected' });
+    this.firestore.collection('DistrictList').doc(data.requestedDistrict.id).update({ isRegistered: false });
+    this.firestore.collection('ApprovedDistricts').doc(data.requestedDistrict.id).delete();
   }
 
   getOldAffiliations(): any {
@@ -189,10 +140,7 @@ export class SlingshotService {
   }
 
   addAffiliationMember(districtId, membersData) {
-    this.firestore
-      .collection('ApprovedDistricts')
-      .doc(districtId)
-      .update({ members: membersData });
+    this.firestore.collection('ApprovedDistricts').doc(districtId).update({ members: membersData });
   }
 
   // ----------------- ENQUIRIES ---------------
@@ -202,9 +150,7 @@ export class SlingshotService {
   }
 
   getEnquiries(): any {
-    return this.firestore
-      .collection('Enquiries', (ref) => ref.orderBy('createdDate', 'desc'))
-      .snapshotChanges();
+    return this.firestore.collection('Enquiries', (ref) => ref.orderBy('createdDate', 'desc')).snapshotChanges();
   }
 
   deleteEnquiryById(id: any) {
@@ -218,15 +164,11 @@ export class SlingshotService {
   }
 
   getAllEvents(): any {
-    return this.firestore
-      .collection('Events', (ref) => ref.orderBy('createdDate', 'desc'))
-      .snapshotChanges();
+    return this.firestore.collection('Events', (ref) => ref.orderBy('createdDate', 'desc')).snapshotChanges();
   }
 
   getActiveEvents(): any {
-    return this.firestore
-      .collection('Events', (ref) => ref.where('status', '==', 'Active'))
-      .snapshotChanges();
+    return this.firestore.collection('Events', (ref) => ref.where('status', '==', 'Active')).snapshotChanges();
   }
 
   deleteEventById(id: any): any {
@@ -250,9 +192,7 @@ export class SlingshotService {
   }
 
   getAllRefrees(): any {
-    return this.firestore
-      .collection('Refree', (ref) => ref.orderBy('createdDate', 'desc'))
-      .snapshotChanges();
+    return this.firestore.collection('Refree', (ref) => ref.orderBy('createdDate', 'desc')).snapshotChanges();
   }
 
   updateRefreeById(id: any, data: any) {
@@ -269,16 +209,12 @@ export class SlingshotService {
   }
 
   getAllMatchResults(): any {
-    return this.firestore
-      .collection('MatchResults', (ref) => ref.orderBy('createdDate', 'desc'))
-      .snapshotChanges();
+    return this.firestore.collection('MatchResults', (ref) => ref.orderBy('createdDate', 'desc')).snapshotChanges();
   }
 
   getFiveMatchResults(): any {
     return this.firestore
-      .collection('MatchResults', (ref) =>
-        ref.orderBy('createdDate', 'desc').limit(5)
-      )
+      .collection('MatchResults', (ref) => ref.orderBy('createdDate', 'desc').limit(5))
       .snapshotChanges();
   }
 

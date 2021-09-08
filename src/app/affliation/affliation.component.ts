@@ -12,10 +12,7 @@ export class AffliationComponent implements OnInit {
   registeredDistrictsList: any[] = [];
   showSpinner: boolean = false;
 
-  constructor(
-    private _service: SlingshotService,
-    private _spinner: NgxSpinnerService
-  ) {}
+  constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService) {}
 
   ngOnInit() {
     this.selectedDistrictInfo = {

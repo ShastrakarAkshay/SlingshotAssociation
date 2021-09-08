@@ -11,10 +11,7 @@ export class MatchResultsComponent implements OnInit {
   matchResults: any[] = [];
   showSpinner: boolean = false;
 
-  constructor(
-    private _service: SlingshotService,
-    private _spinner: NgxSpinnerService
-  ) {}
+  constructor(private _service: SlingshotService, private _spinner: NgxSpinnerService) {}
 
   ngOnInit() {
     window.scrollTo(0, 0);

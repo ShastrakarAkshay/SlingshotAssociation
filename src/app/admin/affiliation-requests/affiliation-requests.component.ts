@@ -1,20 +1,9 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  Inject,
-  AfterViewInit,
-} from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SlingshotService } from 'src/app/shared/services/slingshot.service';
-import {
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogConfig,
-} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -34,14 +23,7 @@ export class AffiliationRequestsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = [
-    'index',
-    'districtName',
-    'name',
-    'mobile',
-    'status',
-    'actions',
-  ];
+  displayedColumns: string[] = ['index', 'districtName', 'name', 'mobile', 'status', 'actions'];
 
   affiliatinRequests: any[] = [];
   showSpinner: boolean = false;
@@ -162,10 +144,7 @@ export class DistrictApprovalDialog implements OnInit {
     if (this.flag) {
       this.title = this.personData.requestedDistrict.name;
     } else {
-      this.title =
-        'Requested For "' +
-        this.personData.requestedDistrict.name +
-        '" District';
+      this.title = 'Requested For "' + this.personData.requestedDistrict.name + '" District';
     }
   }
 
@@ -204,10 +183,7 @@ export class DistrictApprovalDialog implements OnInit {
                 .collection('DistrictList')
                 .doc(districtData.requestedDistrict.id)
                 .update({ isRegistered: true });
-              this.firestore
-                .collection('AffiliationRequests')
-                .doc(districtData.id)
-                .delete();
+              this.firestore.collection('AffiliationRequests').doc(districtData.id).delete();
               this._toastr.success('Approved Successfully');
               this.close();
             } else {
@@ -254,22 +230,12 @@ export class DistrictApprovalDialog implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        let deletedMember = this.personData.members.filter(
-          (res) => res.id === id
-        );
-        this.personData.members = this.personData.members.filter(
-          (res) => res.id !== id
-        );
+        let deletedMember = this.personData.members.filter((res) => res.id === id);
+        this.personData.members = this.personData.members.filter((res) => res.id !== id);
         if (deletedMember[0].documents) {
-          this.afStorage.storage
-            .ref()
-            .child(`Affiliations/${deletedMember[0].documents.photo.id}`)
-            .delete();
+          this.afStorage.storage.ref().child(`Affiliations/${deletedMember[0].documents.photo.id}`).delete();
         }
-        this._service.addAffiliationMember(
-          this.personData.requestedDistrict.id,
-          this.personData.members
-        );
+        this._service.addAffiliationMember(this.personData.requestedDistrict.id, this.personData.members);
         this._toastr.info('Member Deleted Successfully.');
       }
     });
@@ -285,14 +251,7 @@ export class ApprovedDistrictComponent implements OnInit {
   @ViewChild(MatPaginator) paginator2: MatPaginator;
   @ViewChild(MatSort) sort2: MatSort;
   dataSource2 = new MatTableDataSource();
-  displayedColumns2: string[] = [
-    'index',
-    'districtName',
-    'member',
-    'approvedOn',
-    'status',
-    'actions',
-  ];
+  displayedColumns2: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'actions'];
 
   approvedDistricts: any[] = [];
   showSpinner: boolean = false;
@@ -369,14 +328,7 @@ export class RejectedAffiliationComponent implements OnInit {
   @ViewChild(MatPaginator) paginator3: MatPaginator;
   @ViewChild(MatSort) sort3: MatSort;
   dataSource3 = new MatTableDataSource();
-  displayedColumns3: string[] = [
-    'index',
-    'districtName',
-    'member',
-    'approvedOn',
-    'status',
-    'action',
-  ];
+  displayedColumns3: string[] = ['index', 'districtName', 'member', 'approvedOn', 'status', 'action'];
 
   oldAffiliations: any[] = [];
   showSpinner: boolean = false;
@@ -496,10 +448,7 @@ export class AddMemberDialog implements OnInit {
       district: ['', Validators.required],
       pin: ['', [Validators.required, Validators.pattern(/\d{6}/)]],
       aadhaarNo: ['', [Validators.required, Validators.pattern(/\d{12}/)]],
-      panNo: [
-        '',
-        [Validators.required, Validators.pattern(/[0-9 a-z A-Z]{10}/)],
-      ],
+      panNo: ['', [Validators.required, Validators.pattern(/[0-9 a-z A-Z]{10}/)]],
       email: ['', [Validators.required, Validators.email]],
       gender: ['', Validators.required],
     });
@@ -521,10 +470,7 @@ export class AddMemberDialog implements OnInit {
     let formData = this.getFormData(this.registerForm.value, docs);
     let members: any[] = this.personData.members;
     members.push(formData);
-    this._service.addAffiliationMember(
-      this.personData.requestedDistrict.id,
-      members
-    );
+    this._service.addAffiliationMember(this.personData.requestedDistrict.id, members);
     this._toastr.success('Member Added Successfully.');
     this.close();
     this.hide_spinner();

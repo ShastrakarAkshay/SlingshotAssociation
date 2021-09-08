@@ -16,10 +16,7 @@ export class ConfirmDialogComponent {
   public type: string;
   public message: string;
 
-  constructor(
-    public _dialogRef: MatDialogRef<ConfirmDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data
-  ) {
+  constructor(public _dialogRef: MatDialogRef<ConfirmDialogComponent>, @Inject(MAT_DIALOG_DATA) public data) {
     _dialogRef.disableClose = true;
     this.message = data.message;
     this.type = data.type;

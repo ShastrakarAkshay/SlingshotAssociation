@@ -75,9 +75,7 @@ export class HomeComponent implements OnInit {
       .listAll()
       .then((result) => {
         result.items.forEach((item) => {
-          const ref = this._afStorage.storage
-            .ref()
-            .child('FlashEvents/' + item.name);
+          const ref = this._afStorage.storage.ref().child('FlashEvents/' + item.name);
           ref.getDownloadURL().then((url) => {
             this.flashEventURL = url;
           });

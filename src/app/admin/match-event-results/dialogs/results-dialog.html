@@ -6,12 +6,7 @@
         <label class="font-weight-bold text-center">SELECT EVENT</label>
         <div class="col-sm-6">
           <div class="form-group">
-            <select
-              class="form-control"
-              formControlName="eventId"
-              (change)="onEventChange($event)"
-              #event
-            >
+            <select class="form-control" formControlName="eventId" (change)="onEventChange($event)" #event>
               <option selected disabled value="">Select Event</option>
               <option *ngFor="let event of allEvents" [value]="event.id">
                 {{event.eventTitle}} ({{event.eventDate}})
@@ -34,9 +29,7 @@
                   formControlName="candidateName"
                   [ngClass]="{'is-invalid':resultForm.get('candidateName').touched && resultForm.get('candidateName').invalid}"
                 />
-                <span class="invalid-feedback alert alert-danger">
-                  Field is required
-                </span>
+                <span class="invalid-feedback alert alert-danger"> Field is required </span>
               </div>
             </div>
           </div>
@@ -50,16 +43,9 @@
                   [ngClass]="{'is-invalid':resultForm.get('candidateDistrict').touched && resultForm.get('candidateDistrict').invalid}"
                 >
                   <option selected disabled>select district</option>
-                  <option
-                    *ngFor="let dist of allDistricts"
-                    value="{{dist.name}}"
-                  >
-                    {{dist.name}}
-                  </option>
+                  <option *ngFor="let dist of allDistricts" value="{{dist.name}}">{{dist.name}}</option>
                 </select>
-                <span class="invalid-feedback alert alert-danger">
-                  Field is required
-                </span>
+                <span class="invalid-feedback alert alert-danger"> Field is required </span>
               </div>
             </div>
           </div>
@@ -73,9 +59,7 @@
                   formControlName="candidateCertificateNo"
                   [ngClass]="{'is-invalid':resultForm.get('candidateCertificateNo').touched && resultForm.get('candidateCertificateNo').invalid}"
                 />
-                <span class="invalid-feedback alert alert-danger">
-                  Field is required
-                </span>
+                <span class="invalid-feedback alert alert-danger"> Field is required </span>
               </div>
             </div>
           </div>
@@ -89,9 +73,7 @@
                   formControlName="candidateDOB"
                   [ngClass]="{'is-invalid':resultForm.get('candidateDOB').touched && resultForm.get('candidateDOB').invalid}"
                 />
-                <span class="invalid-feedback alert alert-danger">
-                  Field is required
-                </span>
+                <span class="invalid-feedback alert alert-danger"> Field is required </span>
               </div>
             </div>
           </div>
@@ -104,11 +86,7 @@
           <h3 class="font-weight-bold text-center mt-2">SCORE</h3>
           <div class="row text-center mt-3">
             <div class="col-sm-12">
-              <input
-                type="text"
-                class="w-box text-center font-weight-bold"
-                formControlName="candidateScore"
-              />
+              <input type="text" class="w-box text-center font-weight-bold" formControlName="candidateScore" />
             </div>
           </div>
           <div class="row justify-content-center mt-3">
@@ -121,16 +99,11 @@
                   [ngClass]="{'is-invalid':resultForm.get('ageCategory').touched && resultForm.get('ageCategory').invalid}"
                 >
                   <option disabled selected value="">Select category</option>
-                  <option
-                    *ngFor="let cat of ageCategory"
-                    value="{{cat.categoryTitle}} {{cat.age}}"
-                  >
+                  <option *ngFor="let cat of ageCategory" value="{{cat.categoryTitle}} {{cat.age}}">
                     {{cat.categoryTitle}} {{cat.age}}
                   </option>
                 </select>
-                <span class="invalid-feedback alert alert-danger">
-                  Field is required
-                </span>
+                <span class="invalid-feedback alert alert-danger"> Field is required </span>
               </div>
             </div>
           </div>
@@ -145,19 +118,11 @@
                 >
                   <option disabled selected value="">Select Rank</option>
                   <option value="First Rank (Gold)">First Rank (Gold)</option>
-                  <option value="Second Rank (Siver)">
-                    Second Rank (Siver)
-                  </option>
-                  <option value="Third Rank (Bronze I)">
-                    Third Rank (Bronze I)
-                  </option>
-                  <option value="Fourth Rank (Bronze II)">
-                    Fourth Rank (Bronze II)
-                  </option>
+                  <option value="Second Rank (Siver)">Second Rank (Siver)</option>
+                  <option value="Third Rank (Bronze I)">Third Rank (Bronze I)</option>
+                  <option value="Fourth Rank (Bronze II)">Fourth Rank (Bronze II)</option>
                 </select>
-                <span class="invalid-feedback alert alert-danger">
-                  Field is required
-                </span>
+                <span class="invalid-feedback alert alert-danger"> Field is required </span>
               </div>
             </div>
           </div>
@@ -166,26 +131,12 @@
     </form>
   </mat-dialog-content>
   <div mat-dialog-actions class="row justify-content-center">
-    <button
-      mat-button
-      class="btn sling-btn"
-      (click)="addResult()"
-      [disabled]="!resultForm.valid"
-      *ngIf="!isEdit"
-    >
+    <button mat-button class="btn sling-btn" (click)="addResult()" [disabled]="!resultForm.valid" *ngIf="!isEdit">
       Create
     </button>
-    <button
-      mat-button
-      class="btn sling-btn"
-      (click)="updateResult()"
-      [disabled]="!resultForm.valid"
-      *ngIf="isEdit"
-    >
+    <button mat-button class="btn sling-btn" (click)="updateResult()" [disabled]="!resultForm.valid" *ngIf="isEdit">
       Update
     </button>
-    <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>
-      Close
-    </button>
+    <button mat-button class="btn sling-btn" (click)="close()" cdkFocusInitial>Close</button>
   </div>
 </section>
